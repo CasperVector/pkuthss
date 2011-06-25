@@ -30,15 +30,32 @@
 		\subsection{其它可能存在的问题}
 
 		使用 GBK 编码和 pdf\LaTeX{} 编译方式时需要用户%
-		运行 gbk2uni 程序来转换 .out 文件，
+		运行 \verb|gbk2uni| 程序来转换 .out 文件，
 		否则生成的 pdf 书签可能乱码。
-		考虑到用户可能没有 gbk2uni 程序，
-		默认的 Makefile 和 Make.bat 中将相关代码注释掉了，
-		用户在确定自己有 gbk2uni 程序时可去掉相应的注释。
+		考虑到用户可能没有 \verb|gbk2uni| 程序，
+		默认的 \verb|Makefile| 和 \verb|Make.bat| 中将相关代码注释掉了，
+		用户在确定自己有 \verb|gbk2uni| 程序时可去掉相应的注释。
 
 	\section{反馈意见和建议}
 
 	关于 pkuthss 文档模板的意见和建议，
-	请到北大未名 BBS 的 MathTools 版提出。
-	谢谢 :)
+	请在北大未名 BBS 的 MathTools 版或 %
+	Google Code 上 pkuthss 项目的 issue tracker%
+	\footnote{\url{http://code.google.com/p/caspervector/issues/list}}%
+	上提出，
+	或通过电子邮件\footnote%
+	{\href{mailto:CasperVector@gmail.com}{\texttt{CasperVector@gmail.com}}}%
+	告知 Casper Ti. Vector。
+	上述三种反馈方法中，建议用户尽量采用靠前的方法。
+
+	在进行反馈时，请尽量确保已经仔细阅读本文档中的说明。
+	如果是通过 BBS 或电子邮件进行反馈，
+	请在标题中说明是关于 pkuthss 文档模版的反馈；
+	如果是通过 Google Code 进行反馈，
+	请给 issue 加上 \verb|Proj-Pkuthss| 标签。
+	如果是错误报告，
+	请说明所使用 pkuthss 模版的版本、
+	自己使用的操作系统和 \TeX{} 系统的类型和版本；
+	同时强烈建议附上一个出错的最小例子及其相应的编译日志（\verb|.log| 文件），
+	在文件较长时请使用附件。
 
