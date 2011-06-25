@@ -11,12 +11,12 @@
 		\item \verb|sample.tex|：主文件，编译该文件即可。
 		\item \verb|sample.pdf|：即本文档，由编译~\verb|sample.tex|~得到。
 		\item \verb|Makefile|：Makefile，用于使编译工作自动化。
-		\item \verb|Make.bat|：
+		\item \verb|Make.bat|：%
 			Windows~下的伪“Makefile”，由~Windows~的批处理实现。
 		\item \verb|chap/|：文件夹，包含各章节内容：
 		\begin{itemize}\denselist
 			\item \verb|copyright.tex|：版权声明部分\footnote%
-			{%
+			{\ %
 				因为本文档的许可证限制，我们必须附上许可证的文本；
 				但用户可能选择其它类型的版权声明，
 				故~\texttt{license/}\linebreak[1]~目录不是必需的。
@@ -30,7 +30,7 @@
 		\item \verb|img/|：文件夹，包含论文中所有图片：
 		\begin{itemize}\denselist
 			\item \verb|Makefile|：图片部分的~Makefile。
-			\item \verb|Make.bat|：
+			\item \verb|Make.bat|：%
 				Windows~下的伪“Makefile”，由~Windows~的批处理实现。
 			\item \verb|pkulogo.ps|：北大校徽。
 			\item \verb|pkuword.ps|：“北京大学”字样。
@@ -54,7 +54,7 @@
 	除中文字体之外所有要求的项目；中文字体需要用户自行获得。
 
 	Linux~用户可以从软件源获得~GNU~的~make；
-	其它类~UNIX~系统应该也会提供~make~工具，请参阅相应的文档以获得帮助。
+	其它类~UNIX~系统应该也会提供~make~工具，请参阅相应的文档以获得帮助。%
 	Windows~用户可以从以下地址下载~Windows~下的~GNU make~工具：
 
 	\url{http://gnuwin32.sourceforge.net/packages/make.htm}（国际网）
@@ -62,20 +62,26 @@
 	\url{http://c.pku.edu.cn/software/c/mingw-c.7z}\footnote%
 	{\ 感谢曹东刚老师在教学网站提供~GNU make~的下载。}（北大校园网）
 
-	为了获得最好的支持，我们建议用户使用最新版的~\LaTeX{}~系统和各宏包。
+	为了获得最好的支持，我们建议用户使用最新版的~\LaTeX{}~系统和各宏包%
+	\footnote%
+	{\ %
+		使用~\TeX{}Live 2009~及其以上稳定版本的用户可以正常使用本模板；
+		从~\TeX{}Live~的稳定（即不是“pretest”）源更新%
+		到~CTAN~上最新稳定版本的用户也可以正常使用本模板。
+	}。
 
 	\section{编译方式}
 
 	pkuthss~文档模板支持三种编译方式，即
 	\begin{itemize}\denselist
 	  \item \LaTeX{} -- dvipdf~方式：
-		即顺次执行~\verb|latex|，\verb|bibtex|，%
+		依次执行~\verb|latex|，\verb|bibtex|，%
 		\verb|latex|，\verb|latex|，\verb|dvipdfmx|。
 	  \item pdf\LaTeX{}~方式：
-		即顺次执行~\verb|pdflatex|，\verb|bibtex|，%
+		依次执行~\verb|pdflatex|，\verb|bibtex|，%
 		\verb|pdflatex|，\verb|pdflatex|。
 	  \item Xe\LaTeX{}~方式：
-		即顺次执行~\verb|xelatex|，\verb|bibtex|，%
+		依次执行~\verb|xelatex|，\verb|bibtex|，%
 		\verb|xelatex|，\verb|xelatex|。%
 		\emph
 		{%

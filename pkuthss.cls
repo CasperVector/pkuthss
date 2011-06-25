@@ -21,7 +21,7 @@
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2010/07/24 v1.2beta2 Peking University dissertation document class]
+	[2010/08/01 v1.2beta3 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifPKUTHSS@GBK \PKUTHSS@GBKtrue
@@ -32,7 +32,7 @@
 % 此文档类以 ctexbook 为基础，设定页面尺寸为 A4，默认字号为小四号。
 % CJKfntef 宏包提供了 \maketitle 中用到的 \CJKunderline 命令。
 % fancyhdr 宏包提供了方便使用的命令用于设置页眉、页脚。
-\LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2010/01/22]
+\LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2009/10/20]
 % 此宏包提供图形支持。
 \RequirePackage{graphicx}[1999/02/16]
 % 此宏包提供了方便使用的命令用于设置页面布局。

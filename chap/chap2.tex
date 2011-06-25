@@ -4,8 +4,8 @@
 	pkuthss~文档类以~ctexbook~文档类为基础，
 	其接受的所有文档类选项均被传递给~ctexbook。
 
-	例如，ctexbook~文档类默认使用~GBK~编码，
-	因此如果需要使用~UTF-8~编码撰写论文，
+	例如，ctexbook~文档类默认使用~GBK~编码。
+	因此，如果需要使用~UTF-8~编码撰写论文，
 	则在导入~pkuthss~文档类时加上~\verb|UTF8|~选项即可：
 \begin{verbatim}
       \usepackage[UTF8,...]{pkuthss} % “...”代表其它的选项。
@@ -94,7 +94,7 @@
 				并合理安排其页眉。%
 				\emph
 				{%
-					注意在此章内的节或小节等命令应使用带星号的版本，
+					注意：在此章内的节或小节等命令应使用带星号的版本，
 					例如~\texttt{\string\section\string*}~等，
 					以免造成章节编号混乱。%
 				}
@@ -120,8 +120,8 @@
 		\vspace{1em}\par
 		\emph
 		{%
-			注意：
-			pkuthss~文档类中有一些一旦改动就有可能破坏预设的排版规划，
+			注意：%
+			pkuthss~文档类中有一些一旦改动就有可能破坏预设排版规划的设置，
 			因此不建议更改这些设置，它们是：
 			\begin{itemize}\denselist
 				\item 纸张类型：A4；
