@@ -1,80 +1,80 @@
-\chapter{Ê¹ÓÃĞëÖª}\label{chap:notes}
+\chapter{ä½¿ç”¨é¡»çŸ¥}\label{chap:notes}
 
-±¾Ä¿Â¼ÏÂ¸÷ÎÄ¼şµÄÄÚÈİ¼û±í\ref{tab:filelist}.
+æœ¬ç›®å½•ä¸‹å„æ–‡ä»¶çš„å†…å®¹è§è¡¨\ref{tab:filelist}.
 \begin{table}[h]
 \begin{tabular}{ll}\hline
-   pkuthss.cls  & --- ±±¾©´óÑ§²©Ê¿Ñ§Î»ÂÛÎÄÎÄµµÀà;\\
-   pkuthss.def  & --- ¶¨ÒåÎÄ¼ş, ÔÚ~pkuthss.cls~ÖĞÓÃµ½;\\
-   sample.tex   & --- Ö÷ÎÄ¼ş, ±àÒë¸ÃÎÄ¼ş¼´¿É;\\
-   sample.pdf   & --- ¼´ÄúÕıÔÚ¿´µÄÕâ¸öÎÄ¼ş, ÊÇ±àÒë~sample.tex~ËùµÃ;\\
+   pkuthss.cls  & --- åŒ—äº¬å¤§å­¦åšå£«å­¦ä½è®ºæ–‡æ–‡æ¡£ç±»;\\
+   pkuthss.def  & --- å®šä¹‰æ–‡ä»¶, åœ¨~pkuthss.cls~ä¸­ç”¨åˆ°;\\
+   sample.tex   & --- ä¸»æ–‡ä»¶, ç¼–è¯‘è¯¥æ–‡ä»¶å³å¯;\\
+   sample.pdf   & --- å³æ‚¨æ­£åœ¨çœ‹çš„è¿™ä¸ªæ–‡ä»¶, æ˜¯ç¼–è¯‘~sample.tex~æ‰€å¾—;\\
    Makefile     & --- Makefile for linux/unix;\\
    make.bat     & --- `Makefile' for MS Windows;\\
-   imgs/        & --- ÎÄ¼ş¼Ğ, °üº¬ÂÛÎÄÖĞËùÓĞÍ¼Æ¬ºÍ·âÃælogo;\\
-   chaps/       & --- ÎÄ¼ş¼Ğ, °üº¬¸÷ÕÂ½ÚÄÚÈİºÍ²Î¿¼ÎÄÏ×.\\ \hline
+   imgs/        & --- æ–‡ä»¶å¤¹, åŒ…å«è®ºæ–‡ä¸­æ‰€æœ‰å›¾ç‰‡å’Œå°é¢logo;\\
+   chaps/       & --- æ–‡ä»¶å¤¹, åŒ…å«å„ç« èŠ‚å†…å®¹å’Œå‚è€ƒæ–‡çŒ®.\\ \hline
 \end{tabular}
-\caption{ÎÄ¼şÁĞ±í}\label{tab:filelist}
+\caption{æ–‡ä»¶åˆ—è¡¨}\label{tab:filelist}
 \end{table}
 
-\section{Èí¼şĞèÇó}\label{sec:requirement}
+\section{è½¯ä»¶éœ€æ±‚}\label{sec:requirement}
 
-ÕıÈ·±àÒëĞèÒª
+æ­£ç¡®ç¼–è¯‘éœ€è¦
 \begin{enumerate}
-\item Ò»¸ö»ù±¾µÄ~\TeX~·¢ĞĞ°æ.
-\item CJK~»ò~CCT~ºê°ü. Æä°²×°ºÍÅäÖÃÉ¢¼ûÓÚ¸÷´óÂÛÌ³, ÈİÒ×ËÑË÷µÃµ½.
-\item ctex~ºê°ü. ÏÂÔØºÍ°²×°¼û~http://www.ctex.org/PackageCTeX.
-\item sample.tex~µÄÄ¬ÈÏ±àÒë·½Ê½ĞèÒª~dvipdfmx.
+\item ä¸€ä¸ªåŸºæœ¬çš„~\TeX~å‘è¡Œç‰ˆ.
+\item CJK~æˆ–~CCT~å®åŒ…. å…¶å®‰è£…å’Œé…ç½®æ•£è§äºå„å¤§è®ºå›, å®¹æ˜“æœç´¢å¾—åˆ°.
+\item ctex~å®åŒ…. ä¸‹è½½å’Œå®‰è£…è§~http://www.ctex.org/PackageCTeX.
+\item sample.tex~çš„é»˜è®¤ç¼–è¯‘æ–¹å¼éœ€è¦~dvipdfmx.
 \end{enumerate}
 
-µ±È», CTeXÌ××°Basic°æ¾ÍÒÑ¾­°üº¬ËùÓĞÕâĞ©ÁË.
-TeXLive~Ò²°üº¬~CJK. °²×°~ctex~ºê°üÏà¶ÔÈİÒ×.
+å½“ç„¶, CTeXå¥—è£…Basicç‰ˆå°±å·²ç»åŒ…å«æ‰€æœ‰è¿™äº›äº†.
+TeXLive~ä¹ŸåŒ…å«~CJK. å®‰è£…~ctex~å®åŒ…ç›¸å¯¹å®¹æ˜“.
 
-\section{±àÒë}\label{sec:compile}
+\section{ç¼–è¯‘}\label{sec:compile}
 
-±¾ÎÄµµÀàÖ§³ÖÈıÖÖ±àÒë·½Ê½, ¼´
+æœ¬æ–‡æ¡£ç±»æ”¯æŒä¸‰ç§ç¼–è¯‘æ–¹å¼, å³
 \begin{itemize}
-  \item \LaTeX\ + dvips + ps2pdf~·½Ê½:
-    ¼´Ë³´ÎÖ´ĞĞ latex, bibtex, latex, latex, dvips, ps2pdf. ÔÚÊ¹ÓÃ´ËÖÖ
-    ·½Ê½Ê±, ÓĞĞ©ºê°üµÄ~driver~Ñ¡ÏîĞèÒªÉèÖÃÎª~dvips. ÀıÈç~sample.tex~Ê¹ÓÃ
-    ÕâÖÖ·½Ê½±àÒëÊ±, ĞèÒª½«~\verb|chaps/mydefs.tex|~µÚ~9~ĞĞµÄ~dvipdfm~¸ÄÎª~dvips.
+  \item \LaTeX\ + dvips + ps2pdf~æ–¹å¼:
+    å³é¡ºæ¬¡æ‰§è¡Œ latex, bibtex, latex, latex, dvips, ps2pdf. åœ¨ä½¿ç”¨æ­¤ç§
+    æ–¹å¼æ—¶, æœ‰äº›å®åŒ…çš„~driver~é€‰é¡¹éœ€è¦è®¾ç½®ä¸º~dvips. ä¾‹å¦‚~sample.tex~ä½¿ç”¨
+    è¿™ç§æ–¹å¼ç¼–è¯‘æ—¶, éœ€è¦å°†~\verb|chaps/mydefs.tex|~ç¬¬~9~è¡Œçš„~dvipdfm~æ”¹ä¸º~dvips.
 
-  \item \LaTeX\ + dvipdf~·½Ê½:
-    ¼´Ë³´ÎÖ´ĞĞ latex, bibtex, latex, latex, dvipdfmx. ÀàËÆÓÚÉÏÒ»ÖÖ·½Ê½,
-    ÏàÓ¦µÄ~driver~Ñ¡ÏîÒ»°ãÎª~dvipdf~»ò~dvipdfm.
+  \item \LaTeX\ + dvipdf~æ–¹å¼:
+    å³é¡ºæ¬¡æ‰§è¡Œ latex, bibtex, latex, latex, dvipdfmx. ç±»ä¼¼äºä¸Šä¸€ç§æ–¹å¼,
+    ç›¸åº”çš„~driver~é€‰é¡¹ä¸€èˆ¬ä¸º~dvipdf~æˆ–~dvipdfm.
 
-  \item pdf\LaTeX~·½Ê½:
-    ¼´Ë³´ÎÖ´ĞĞ pdflatex, bibtex, gbk2uni(¿ÉÑ¡), pdflatex, pdflatex. ÀàËÆÓÚ
-    ÉÏÒ»ÖÖ·½Ê½, ÏàÓ¦µÄ~driver~Ñ¡ÏîÎª~pdftex.
+  \item pdf\LaTeX~æ–¹å¼:
+    å³é¡ºæ¬¡æ‰§è¡Œ pdflatex, bibtex, gbk2uni(å¯é€‰), pdflatex, pdflatex. ç±»ä¼¼äº
+    ä¸Šä¸€ç§æ–¹å¼, ç›¸åº”çš„~driver~é€‰é¡¹ä¸º~pdftex.
 \end{itemize}
-Windows~µÄÄ¬ÈÏ±àÒë·½Ê½~(¼´Ê¹ÓÃ~make.bat~)ÊÇµÚ¶şÖÖ.
-Linux~µÄÄ¬ÈÏ±àÒë·½Ê½~(¼´Ê¹ÓÃ~Makefile)~ÊÇµÚÈıÖÖ, ÔÚÕâ·½Ê½ÏÂÈç¹ûÒªÓÃ
-~\verb|hyperref|~²úÉúÊéÇ©, ĞèÒªÖ´ĞĞÒ»ÏÂ~\verb|gbk2uni|.
+Windows~çš„é»˜è®¤ç¼–è¯‘æ–¹å¼~(å³ä½¿ç”¨~make.bat~)æ˜¯ç¬¬äºŒç§.
+Linux~çš„é»˜è®¤ç¼–è¯‘æ–¹å¼~(å³ä½¿ç”¨~Makefile)~æ˜¯ç¬¬ä¸‰ç§, åœ¨è¿™æ–¹å¼ä¸‹å¦‚æœè¦ç”¨
+~\verb|hyperref|~äº§ç”Ÿä¹¦ç­¾, éœ€è¦æ‰§è¡Œä¸€ä¸‹~\verb|gbk2uni|.
 \section{FAQ}
 
-{\bf Q:} ÎÒ²»Ï²»¶``Ğ÷ÑÔ'', ¶øÏë¸Ä×÷``ĞòÑÔ''(»ò``Ğ÷ÂÛ''»òÆäËû), ÔõÃ´°ì?
+{\bf Q:} æˆ‘ä¸å–œæ¬¢``ç»ªè¨€'', è€Œæƒ³æ”¹ä½œ``åºè¨€''(æˆ–``ç»ªè®º''æˆ–å…¶ä»–), æ€ä¹ˆåŠ?
 
-{\bf A:} \verb|\renewcommand{\introductionname}{ĞòÑÔ}|
+{\bf A:} \verb|\renewcommand{\introductionname}{åºè¨€}|
 
-{\bf Q:} Ä¬ÈÏµÄÊÇ²©Ê¿ÑĞ¾¿ÉúÂÛÎÄ, ÎÒÏëÓÃËüÀ´×ö±¾¿ÆÂÛÎÄ, ¿ÉÒÔÂğ?
+{\bf Q:} é»˜è®¤çš„æ˜¯åšå£«ç ”ç©¶ç”Ÿè®ºæ–‡, æˆ‘æƒ³ç”¨å®ƒæ¥åšæœ¬ç§‘è®ºæ–‡, å¯ä»¥å—?
 
-{\bf A:} \verb|\renewcommand{\thesisname}{Ñ§Ê¿±ÏÒµÂÛÎÄ}|
+{\bf A:} \verb|\renewcommand{\thesisname}{å­¦å£«æ¯•ä¸šè®ºæ–‡}|
 
-{\bf Q:} ÎÒµÄ±àÒë½á¹ûºÜÆæ¹Ö, ÎÄ×ÖºÜ¿¿½üÒ³ÃæµÄ¶¥¶Ë. ÊÇÔõÃ´»ØÊÂ?
+{\bf Q:} æˆ‘çš„ç¼–è¯‘ç»“æœå¾ˆå¥‡æ€ª, æ–‡å­—å¾ˆé è¿‘é¡µé¢çš„é¡¶ç«¯. æ˜¯æ€ä¹ˆå›äº‹?
 
-{\bf A:} Çë¼ì²éÄãµÄ³ÌĞòÉèÖÃ. Èç¹ûÊ¹ÓÃ~WinEdt, ¿Éµã»÷~Options,
-Ñ¡Ôñ~Execution Modes, ¼ì²éÒ»ÏÂ~dvi2ps, dvi2pdf, ps2pdf~µÈ³ÌĞòµÄÖ½ÕÅÉèÖÃ.
+{\bf A:} è¯·æ£€æŸ¥ä½ çš„ç¨‹åºè®¾ç½®. å¦‚æœä½¿ç”¨~WinEdt, å¯ç‚¹å‡»~Options,
+é€‰æ‹©~Execution Modes, æ£€æŸ¥ä¸€ä¸‹~dvi2ps, dvi2pdf, ps2pdf~ç­‰ç¨‹åºçš„çº¸å¼ è®¾ç½®.
 
 
-\section{ÎÊÌâºÍÕ¹Íû}
+\section{é—®é¢˜å’Œå±•æœ›}
 
-Ó¦¸Ã×¢Òâµ½, ÑĞ¾¿ÉúÊÖ²áÖĞµÄ\cite{F13}ºÍÆäµç×Ó°æ
+åº”è¯¥æ³¨æ„åˆ°, ç ”ç©¶ç”Ÿæ‰‹å†Œä¸­çš„\cite{F13}å’Œå…¶ç”µå­ç‰ˆ
 \begin{center}
 http://grs.pku.edu.cn/py/content/F\_13.doc
 \end{center}
-ÒªÇóµÄÂÛÎÄ·âÃæ²¢²»Ò»ÖÂ. ÕâÀïÒÔÍøÂç°æÎª×¼.
+è¦æ±‚çš„è®ºæ–‡å°é¢å¹¶ä¸ä¸€è‡´. è¿™é‡Œä»¥ç½‘ç»œç‰ˆä¸ºå‡†.
 
-ÓÉÓÚÊ±¼äÎŞ¶à, ½«²»¿¼ÂÇ¶Ô±¾ÎÄµµ×÷½øÒ»²½µÄ¸üĞÂ. µ«¶ÔÓÚÊ¹ÓÃÖĞÓöµ½µÄÎÊÌâ, ÔÚ
-½ñÄê~6~ÔÂÖ®Ç°, ÎÒ½«¾¡Á¿½â¾ö.
+ç”±äºæ—¶é—´æ— å¤š, å°†ä¸è€ƒè™‘å¯¹æœ¬æ–‡æ¡£ä½œè¿›ä¸€æ­¥çš„æ›´æ–°. ä½†å¯¹äºä½¿ç”¨ä¸­é‡åˆ°çš„é—®é¢˜, åœ¨
+ä»Šå¹´~6~æœˆä¹‹å‰, æˆ‘å°†å°½é‡è§£å†³.
 
-\section{¸üĞÂ¼ÇÂ¼}
+\section{æ›´æ–°è®°å½•}
 
 \verbatiminput{ChangeLog.txt}

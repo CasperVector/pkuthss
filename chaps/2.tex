@@ -1,70 +1,70 @@
-\chapter{ÓÃ·¨Ê¾Àı}
+\chapter{ç”¨æ³•ç¤ºä¾‹}
 
-ÏÂÃæ½«Ò»²½²½ÑİÊ¾~pkuthss.cls~µÄÓÃ·¨.
+ä¸‹é¢å°†ä¸€æ­¥æ­¥æ¼”ç¤º~pkuthss.cls~çš„ç”¨æ³•.
 
-\section{¿ªÊ¼Ğ´×÷}
+\section{å¼€å§‹å†™ä½œ}
 
-×ÔÈ»µØ, ÎÒÃÇÒªµ¼ÈëÕâ¸öÎÄµµÀà
+è‡ªç„¶åœ°, æˆ‘ä»¬è¦å¯¼å…¥è¿™ä¸ªæ–‡æ¡£ç±»
 \begin{verbatim}
 \documentclass{pkuthss}
 \end{verbatim}
 
-ÔÚ¿ªÊ¼ÕıÎÄÖ®Ç°, ÎÒÃÇĞèÒª×Ô¶¨ÒåÒ»Ğ©ÄÚÈİ.
-±ÈÈç, Èç¹ûÎÒĞèÒª´òÊıÑ§¹«Ê½»ò¶¨ÀíµÈ, ¾ÍĞèÒª¶ÔËüÃÇ
-×÷Ò»Ğ©ÉèÖÃ.
+åœ¨å¼€å§‹æ­£æ–‡ä¹‹å‰, æˆ‘ä»¬éœ€è¦è‡ªå®šä¹‰ä¸€äº›å†…å®¹.
+æ¯”å¦‚, å¦‚æœæˆ‘éœ€è¦æ‰“æ•°å­¦å…¬å¼æˆ–å®šç†ç­‰, å°±éœ€è¦å¯¹å®ƒä»¬
+ä½œä¸€äº›è®¾ç½®.
 
-\section{ÊıÑ§²¿·Ö}
+\section{æ•°å­¦éƒ¨åˆ†}
 
-ÏÂÃæÊÇÎÒµÄ³£ÓÃ×°±¸:
+ä¸‹é¢æ˜¯æˆ‘çš„å¸¸ç”¨è£…å¤‡:
 \begin{enumerate}
-\item \verb|amsmath|~ÏµÁĞ, ÊÇÒ»°ãÊıÑ§¹«Ê½±Ø±¸µÄ;
-\item \verb|ntheorem|, ÓÃÓÚ×Ô¶¨Òå¶¨Àí»·¾³;
-\item \verb|xy-pic|, ÓÃÓÚ×÷½»»»Í¼±í.
+\item \verb|amsmath|~ç³»åˆ—, æ˜¯ä¸€èˆ¬æ•°å­¦å…¬å¼å¿…å¤‡çš„;
+\item \verb|ntheorem|, ç”¨äºè‡ªå®šä¹‰å®šç†ç¯å¢ƒ;
+\item \verb|xy-pic|, ç”¨äºä½œäº¤æ¢å›¾è¡¨.
 \end{enumerate}
 
-¾ßÌåµØ, ÏÂÊö´úÂë¾ÍÊÇÒ»Àı:
+å…·ä½“åœ°, ä¸‹è¿°ä»£ç å°±æ˜¯ä¸€ä¾‹:
 \begin{verbatim}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage[amsmath,thmmarks,hyperref]{ntheorem}
 \usepackage[all,import]{xy}
 
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-\numberwithin{equation}{chapter}   %% ÉèÖÃ·½³Ì·ÖÕÂ±àºÅ
+\numberwithin{equation}{chapter}   %% è®¾ç½®æ–¹ç¨‹åˆ†ç« ç¼–å·
 
-% ´Ó1.0rc2°æÒÔºó, preamble¿ÉÒÔÖ±½ÓÊ¹ÓÃÖĞÎÄ.
+% ä»1.0rc2ç‰ˆä»¥å, preambleå¯ä»¥ç›´æ¥ä½¿ç”¨ä¸­æ–‡.
 \theorembodyfont{\kaishu}
 \theoremheaderfont{\heiti}
-\newtheorem{definition}{¶¨Òå}[chapter]
-\newtheorem{lemma}[definition]{ÒıÀí}
-\newtheorem{proposition}[definition]{ÃüÌâ}
-\newtheorem{theorem}[definition]{¶¨Àí}
-\newtheorem{corollary}[definition]{ÍÆÂÛ}
+\newtheorem{definition}{å®šä¹‰}[chapter]
+\newtheorem{lemma}[definition]{å¼•ç†}
+\newtheorem{proposition}[definition]{å‘½é¢˜}
+\newtheorem{theorem}[definition]{å®šç†}
+\newtheorem{corollary}[definition]{æ¨è®º}
 \theorembodyfont{\songti}
-\newtheorem{example}[definition]{Àı}
-\newtheorem*{remark}{×¢\ }
+\newtheorem{example}[definition]{ä¾‹}
+\newtheorem*{remark}{æ³¨\ }
 \theoremsymbol{$\square$}
-\newtheorem*{proof}{Ö¤Ã÷}
+\newtheorem*{proof}{è¯æ˜}
 \end{verbatim}
 
-Îª·½±ãÊ¹ÓÃ, ÒÔÉÏ´úÂë±»·ÅÔÚÎÄ¼ş~\verb|chaps/mydefs.tex|~ÖĞ.
+ä¸ºæ–¹ä¾¿ä½¿ç”¨, ä»¥ä¸Šä»£ç è¢«æ”¾åœ¨æ–‡ä»¶~\verb|chaps/mydefs.tex|~ä¸­.
 
-\section{ÆäËû²¿·Ö}
+\section{å…¶ä»–éƒ¨åˆ†}
 
-¶ÔÓÚ·ÇÊıÑ§×¨Òµ, ÎÒ¾õµÃÊ¹ÓÃ~\LaTeX~Ó¦¸ÃÒ²ÊÇºÜÕı³£µÄ, ÕâÒ²ÊÇÎÒ
-²»ÔÚÎÄµµÀàÖĞ¼ÓÈëÉÏÊöÊıÑ§Ïà¹Ø´úÂëµÄÔ­Òò.
+å¯¹äºéæ•°å­¦ä¸“ä¸š, æˆ‘è§‰å¾—ä½¿ç”¨~\LaTeX~åº”è¯¥ä¹Ÿæ˜¯å¾ˆæ­£å¸¸çš„, è¿™ä¹Ÿæ˜¯æˆ‘
+ä¸åœ¨æ–‡æ¡£ç±»ä¸­åŠ å…¥ä¸Šè¿°æ•°å­¦ç›¸å…³ä»£ç çš„åŸå› .
 
-×÷ÎªÒ»¸öĞ¡µÄÊ¾Àı, ÎÒÃÇÀ´¿´~\verb|chaps/mydefs.tex|~ÖĞµÄÒ»¸öÉèÖÃ:
+ä½œä¸ºä¸€ä¸ªå°çš„ç¤ºä¾‹, æˆ‘ä»¬æ¥çœ‹~\verb|chaps/mydefs.tex|~ä¸­çš„ä¸€ä¸ªè®¾ç½®:
 \begin{center}
 \begin{verbatim}
 \usepackage[cross,a4,center]{crop}
 \end{verbatim}
 \end{center}
-\verb|crop|~ºê°üÊÇÓÃÀ´²úÉú²Ã¼ôÏßµÄ(Çë¹Û²ì~\verb|sample.pdf|~µÄÒ³ÃæËÄ¸ö½Ç),
-Èç¹û²»Ï£Íû²úÉúÕâĞ©ÏßÌõ, ¿É×¢ÊÍµôÕâÒ»ĞĞ. Õâ¿ÉÒÔ·½±ãµØÓÃÓÚÇø·ÖĞŞ¸Ä°æºÍ¶¨¸å°æ.
+\verb|crop|~å®åŒ…æ˜¯ç”¨æ¥äº§ç”Ÿè£å‰ªçº¿çš„(è¯·è§‚å¯Ÿ~\verb|sample.pdf|~çš„é¡µé¢å››ä¸ªè§’),
+å¦‚æœä¸å¸Œæœ›äº§ç”Ÿè¿™äº›çº¿æ¡, å¯æ³¨é‡Šæ‰è¿™ä¸€è¡Œ. è¿™å¯ä»¥æ–¹ä¾¿åœ°ç”¨äºåŒºåˆ†ä¿®æ”¹ç‰ˆå’Œå®šç¨¿ç‰ˆ.
 
-ÁíÍâ, ÔÚ~\verb|chaps/mydefs.tex|~ÖĞ, \verb|hyperref|~ºê°üÓÃÀ´²úÉúÁ´½ÓºÍÊéÇ©.
-Èç¹û²»ĞèÒªÕâĞ©, Ò²¿É×¢ÊÍµôÕâ²¿·Ö.
+å¦å¤–, åœ¨~\verb|chaps/mydefs.tex|~ä¸­, \verb|hyperref|~å®åŒ…ç”¨æ¥äº§ç”Ÿé“¾æ¥å’Œä¹¦ç­¾.
+å¦‚æœä¸éœ€è¦è¿™äº›, ä¹Ÿå¯æ³¨é‡Šæ‰è¿™éƒ¨åˆ†.
 
-\LaTeX~µÄºê°ü·Ç³£·á¸», ÍÆ¼öÔÄ¶Á~\cite{ch8}.
+\LaTeX~çš„å®åŒ…éå¸¸ä¸°å¯Œ, æ¨èé˜…è¯»~\cite{ch8}.
 
-×öÍêÕâĞ©ÉèÖÃÒÔºó, ¾Í¿ÉÒÔ¿ªÊ¼Ğ´×÷ÕıÎÄÁË. ¾ßÌå¿É²Î¼û~\verb|sample.tex|.
+åšå®Œè¿™äº›è®¾ç½®ä»¥å, å°±å¯ä»¥å¼€å§‹å†™ä½œæ­£æ–‡äº†. å…·ä½“å¯å‚è§~\verb|sample.tex|.

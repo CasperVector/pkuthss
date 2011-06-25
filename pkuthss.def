@@ -2,70 +2,70 @@
   [2007/09/04 v1.0rc2 Peking University
    dissertation configuration file]
 
-\def\@date{¶ş~00~°Ë~~Äê~~Áù~~ÔÂ}
-\def\university{±±¾©´óÑ§}
-\def\thesisname{²©Ê¿ÑĞ¾¿ÉúÑ§Î»ÂÛÎÄ}
-\def\label@title{ÌâÄ¿£º}
-\def\label@author{ĞÕ\hspace{2em}Ãû£º}
-\def\label@studentid{Ñ§\hspace{2em}ºÅ£º}
-\def\label@school{Ôº\hspace{2em}Ïµ£º}
-\def\label@major{×¨\hspace{2em}Òµ£º}
-\def\label@direction{ÑĞ¾¿·½Ïò£º}
-\def\label@supervisor{µ¼Ê¦ĞÕÃû£º}
+\def\@date{äºŒ~00~å…«~~å¹´~~å…­~~æœˆ}
+\def\university{åŒ—äº¬å¤§å­¦}
+\def\thesisname{åšå£«ç ”ç©¶ç”Ÿå­¦ä½è®ºæ–‡}
+\def\label@title{é¢˜ç›®ï¼š}
+\def\label@author{å§“\hspace{2em}åï¼š}
+\def\label@studentid{å­¦\hspace{2em}å·ï¼š}
+\def\label@school{é™¢\hspace{2em}ç³»ï¼š}
+\def\label@major{ä¸“\hspace{2em}ä¸šï¼š}
+\def\label@direction{ç ”ç©¶æ–¹å‘ï¼š}
+\def\label@supervisor{å¯¼å¸ˆå§“åï¼š}
 
-\def\label@copyright{°æÈ¨ÉùÃ÷}
-\def\label@origandauth{±±¾©´óÑ§Ñ§Î»ÂÛÎÄÔ­´´ĞÔÉùÃ÷ºÍÊ¹ÓÃÊÚÈ¨ËµÃ÷}
-\def\label@original{Ô­´´ĞÔÉùÃ÷}
-\def\label@authorization{Ñ§Î»ÂÛÎÄÊ¹ÓÃÊÚÈ¨ËµÃ÷}
-\def\label@authaddition{£¨±ØĞë×°¶©ÔÚÌá½»Ñ§Ğ£Í¼Êé¹İµÄÓ¡Ë¢±¾£©}
-\def\label@authorsign{ÂÛÎÄ×÷ÕßÇ©Ãû£º}
-\def\label@supervisorsign{µ¼Ê¦Ç©Ãû£º}
-\def\label@origdate{ÈÕÆÚ£º\hspace{2em}Äê\hspace{2em}ÔÂ%
-  \hspace{2em}ÈÕ}
-\def\label@copycontent{\par ÈÎºÎÊÕ´æºÍ±£¹Ü±¾ÂÛÎÄ¸÷ÖÖ°æ±¾µÄµ¥Î»ºÍ¸öÈË£¬
-Î´¾­±¾ÂÛÎÄ×÷ÕßÍ¬Òâ£¬²»µÃ½«±¾ÂÛÎÄ×ª½èËûÈË£¬Òà²»µÃËæÒâ¸´ÖÆ¡¢³­Â¼¡¢ÅÄÕÕ»ò
-ÒÔÈÎºÎ·½Ê½´«²¥¡£·ñÔò£¬ÒıÆğÓĞ°­×÷ÕßÖø×÷È¨Ö®ÎÊÌâ£¬½«¿ÉÄÜ³Ğµ£·¨ÂÉÔğÈÎ¡£}
-\def\label@origcontent{\par ±¾ÈËÖ£ÖØÉùÃ÷£º Ëù³Ê½»µÄÑ§Î»ÂÛÎÄ£¬ÊÇ±¾ÈËÔÚ
-µ¼Ê¦µÄÖ¸µ¼ÏÂ£¬¶ÀÁ¢½øĞĞÑĞ¾¿¹¤×÷ËùÈ¡µÃµÄ³É¹û¡£³ıÎÄÖĞÒÑ¾­×¢Ã÷ÒıÓÃµÄÄÚÈİ
-Íâ£¬±¾ÂÛÎÄ²»º¬ÈÎºÎÆäËû¸öÈË»ò¼¯ÌåÒÑ¾­·¢±í»ò×«Ğ´¹ıµÄ×÷Æ·»ò³É¹û¡£¶Ô±¾ÎÄµÄ
-ÑĞ¾¿×ö³öÖØÒª¹±Ï×µÄ¸öÈËºÍ¼¯Ìå£¬¾ùÒÑÔÚÎÄÖĞÒÔÃ÷È··½Ê½±êÃ÷¡£±¾ÉùÃ÷µÄ·¨ÂÉ½á
-¹ûÓÉ±¾ÈË³Ğµ£¡£}
+\def\label@copyright{ç‰ˆæƒå£°æ˜}
+\def\label@origandauth{åŒ—äº¬å¤§å­¦å­¦ä½è®ºæ–‡åŸåˆ›æ€§å£°æ˜å’Œä½¿ç”¨æˆæƒè¯´æ˜}
+\def\label@original{åŸåˆ›æ€§å£°æ˜}
+\def\label@authorization{å­¦ä½è®ºæ–‡ä½¿ç”¨æˆæƒè¯´æ˜}
+\def\label@authaddition{ï¼ˆå¿…é¡»è£…è®¢åœ¨æäº¤å­¦æ ¡å›¾ä¹¦é¦†çš„å°åˆ·æœ¬ï¼‰}
+\def\label@authorsign{è®ºæ–‡ä½œè€…ç­¾åï¼š}
+\def\label@supervisorsign{å¯¼å¸ˆç­¾åï¼š}
+\def\label@origdate{æ—¥æœŸï¼š\hspace{2em}å¹´\hspace{2em}æœˆ%
+  \hspace{2em}æ—¥}
+\def\label@copycontent{\par ä»»ä½•æ”¶å­˜å’Œä¿ç®¡æœ¬è®ºæ–‡å„ç§ç‰ˆæœ¬çš„å•ä½å’Œä¸ªäººï¼Œ
+æœªç»æœ¬è®ºæ–‡ä½œè€…åŒæ„ï¼Œä¸å¾—å°†æœ¬è®ºæ–‡è½¬å€Ÿä»–äººï¼Œäº¦ä¸å¾—éšæ„å¤åˆ¶ã€æŠ„å½•ã€æ‹ç…§æˆ–
+ä»¥ä»»ä½•æ–¹å¼ä¼ æ’­ã€‚å¦åˆ™ï¼Œå¼•èµ·æœ‰ç¢ä½œè€…è‘—ä½œæƒä¹‹é—®é¢˜ï¼Œå°†å¯èƒ½æ‰¿æ‹…æ³•å¾‹è´£ä»»ã€‚}
+\def\label@origcontent{\par æœ¬äººéƒ‘é‡å£°æ˜ï¼š æ‰€å‘ˆäº¤çš„å­¦ä½è®ºæ–‡ï¼Œæ˜¯æœ¬äººåœ¨
+å¯¼å¸ˆçš„æŒ‡å¯¼ä¸‹ï¼Œç‹¬ç«‹è¿›è¡Œç ”ç©¶å·¥ä½œæ‰€å–å¾—çš„æˆæœã€‚é™¤æ–‡ä¸­å·²ç»æ³¨æ˜å¼•ç”¨çš„å†…å®¹
+å¤–ï¼Œæœ¬è®ºæ–‡ä¸å«ä»»ä½•å…¶ä»–ä¸ªäººæˆ–é›†ä½“å·²ç»å‘è¡¨æˆ–æ’°å†™è¿‡çš„ä½œå“æˆ–æˆæœã€‚å¯¹æœ¬æ–‡çš„
+ç ”ç©¶åšå‡ºé‡è¦è´¡çŒ®çš„ä¸ªäººå’Œé›†ä½“ï¼Œå‡å·²åœ¨æ–‡ä¸­ä»¥æ˜ç¡®æ–¹å¼æ ‡æ˜ã€‚æœ¬å£°æ˜çš„æ³•å¾‹ç»“
+æœç”±æœ¬äººæ‰¿æ‹…ã€‚}
 \def\label@authcontent{%
-\par ±¾ÈËÍêÈ«ÁË½â±±¾©´óÑ§¹ØÓÚÊÕ¼¯¡¢±£´æ¡¢Ê¹ÓÃÑ§Î»ÂÛÎÄµÄ¹æ¶¨£¬¼´£º
+\par æœ¬äººå®Œå…¨äº†è§£åŒ—äº¬å¤§å­¦å…³äºæ”¶é›†ã€ä¿å­˜ã€ä½¿ç”¨å­¦ä½è®ºæ–‡çš„è§„å®šï¼Œå³ï¼š
 \begin{list}{}{\topsep=0pt\itemsep=0pt\itemindent=0pt\leftmargin=3em}
-\item[$\bullet$] °´ÕÕÑ§Ğ£ÒªÇóÌá½»Ñ§Î»ÂÛÎÄµÄÓ¡Ë¢±¾ºÍµç×Ó°æ±¾£»
-\item[$\bullet$] Ñ§Ğ£ÓĞÈ¨±£´æÑ§Î»ÂÛÎÄµÄÓ¡Ë¢±¾ºÍµç×Ó°æ£¬²¢Ìá¹©Ä¿Â¼¼ìË÷
-  ÓëÔÄÀÀ·şÎñ£¬ÔÚĞ£Ô°ÍøÉÏÌá¹©·şÎñ£»
-\item[$\bullet$] Ñ§Ğ£¿ÉÒÔ²ÉÓÃÓ°Ó¡¡¢ËõÓ¡¡¢Êı×Ö»¯»òÆäËü¸´ÖÆÊÖ¶Î±£´æÂÛÎÄ£»
-\item[$\bullet$] ÒòÄ³ÖÖÌØÊâÔ­ÒòĞèÒªÑÓ³Ù·¢²¼Ñ§Î»ÂÛÎÄµç×Ó°æ£¬ÊÚÈ¨Ñ§Ğ£
-¡õÒ»Äê/¡õÁ½Äê/¡õÈıÄêÒÔºó£¬ÔÚĞ£Ô°ÍøÉÏÈ«ÎÄ·¢²¼¡£\vskip 13pt
+\item[$\bullet$] æŒ‰ç…§å­¦æ ¡è¦æ±‚æäº¤å­¦ä½è®ºæ–‡çš„å°åˆ·æœ¬å’Œç”µå­ç‰ˆæœ¬ï¼›
+\item[$\bullet$] å­¦æ ¡æœ‰æƒä¿å­˜å­¦ä½è®ºæ–‡çš„å°åˆ·æœ¬å’Œç”µå­ç‰ˆï¼Œå¹¶æä¾›ç›®å½•æ£€ç´¢
+  ä¸é˜…è§ˆæœåŠ¡ï¼Œåœ¨æ ¡å›­ç½‘ä¸Šæä¾›æœåŠ¡ï¼›
+\item[$\bullet$] å­¦æ ¡å¯ä»¥é‡‡ç”¨å½±å°ã€ç¼©å°ã€æ•°å­—åŒ–æˆ–å…¶å®ƒå¤åˆ¶æ‰‹æ®µä¿å­˜è®ºæ–‡ï¼›
+\item[$\bullet$] å› æŸç§ç‰¹æ®ŠåŸå› éœ€è¦å»¶è¿Ÿå‘å¸ƒå­¦ä½è®ºæ–‡ç”µå­ç‰ˆï¼Œæˆæƒå­¦æ ¡
+â–¡ä¸€å¹´/â–¡ä¸¤å¹´/â–¡ä¸‰å¹´ä»¥åï¼Œåœ¨æ ¡å›­ç½‘ä¸Šå…¨æ–‡å‘å¸ƒã€‚\vskip 13pt
 \end{list}
-\par\hspace{5.5em}£¨±£ÃÜÂÛÎÄÔÚ½âÃÜºó×ñÊØ´Ë¹æ¶¨£©}
+\par\hspace{5.5em}ï¼ˆä¿å¯†è®ºæ–‡åœ¨è§£å¯†åéµå®ˆæ­¤è§„å®šï¼‰}
 
-\def\@school{£¨ÔºÏµËùÖĞĞÄ£©}
-\def\@title{£¨ÂÛÎÄÌâÄ¿£©}
-\def\@author{£¨×÷ÕßĞÕÃû£©}
-\def\@supervisor{£¨ĞÕÃû¡¢Ö°³Æ£©}
-\def\@major{£¨×¨Òµ£©}
-\def\@studentid{£¨Ñ§ºÅ£©}
-\def\@direction{£¨ÑĞ¾¿·½Ïò£©}
+\def\@school{ï¼ˆé™¢ç³»æ‰€ä¸­å¿ƒï¼‰}
+\def\@title{ï¼ˆè®ºæ–‡é¢˜ç›®ï¼‰}
+\def\@author{ï¼ˆä½œè€…å§“åï¼‰}
+\def\@supervisor{ï¼ˆå§“åã€èŒç§°ï¼‰}
+\def\@major{ï¼ˆä¸“ä¸šï¼‰}
+\def\@studentid{ï¼ˆå­¦å·ï¼‰}
+\def\@direction{ï¼ˆç ”ç©¶æ–¹å‘ï¼‰}
 
 \def\@etitle{(English Title of Thesis)}
 \def\@eauthor{(Author Name)}
 \def\@esupervisor{(Supervisor's Name)}
 \def\@emajor{(Major)}
 
-\def\abstractname{Õª¡¡Òª}
-\def\contentsname{Ä¿¡¡Â¼}
-\def\listfigurename{²å¡¡Í¼}
-\def\listtablename{±í¡¡¸ñ}
-\def\introductionname{Ğ÷¡¡ÑÔ}
-\def\conclusionname{½á¡¡ÂÛ}
-\def\appendixname{¸½¡¡Â¼}
-\def\acknowledgename{ÖÂ¡¡Ğ»}
-\def\label@keywords{¹Ø¼ü´Ê£º}
-\def\label@year{Äê}
-\def\label@month{ÔÂ}
-\def\label@date{ÈÕ}
+\def\abstractname{æ‘˜ã€€è¦}
+\def\contentsname{ç›®ã€€å½•}
+\def\listfigurename{æ’ã€€å›¾}
+\def\listtablename{è¡¨ã€€æ ¼}
+\def\introductionname{ç»ªã€€è¨€}
+\def\conclusionname{ç»“ã€€è®º}
+\def\appendixname{é™„ã€€å½•}
+\def\acknowledgename{è‡´ã€€è°¢}
+\def\label@keywords{å…³é”®è¯ï¼š}
+\def\label@year{å¹´}
+\def\label@month{æœˆ}
+\def\label@date{æ—¥}
 
 \endinput
