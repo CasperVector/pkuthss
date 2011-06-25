@@ -24,11 +24,12 @@
 		\item[\textbf{A:}]
 		如果你使用~GBK~编码，则~pkuthss~文档类的~UTF-8~选项是不必要的。
 		如果你不需要生成的~pdf~里的书签和链接，则~hyperref~宏包是不必要的，
-		同时用于进行相关设置的~\verb|hypersetup|~命令也应该去掉。
+		同时用于进行相关设置的~%
+		\verb|\hypersetup|~和~\verb|\pdfbookmark|~命令也应该去掉。
 		如果你不使用~\verb|\verbatiminput|~命令和~\verb|comment|~环境，
 		则~verbatim~宏包是不需要的。
 		如果你不需要上标的引用记号，则~\verb|\supercite|~宏可以去掉。
-		如果你不需要使用密集的罗列环境，则~\verb|\denseenum|~宏可以去掉。
+		如果你不需要使用密集的罗列环境，则~\verb|\denselist|~宏可以去掉。
 
 		wasysym~宏包不应该去掉，
 		因为~\verb|chap/originauth.tex|~中使用了其提供的~\verb|\Box|~命令。
@@ -41,10 +42,11 @@
 
 		\item[\textbf{A:}]
 		这应该是由上游的~ctex~宏包的一个问题造成的。
-		在~\verb|\backmatter|~以后用~\verb|\chapter|~命令开始的章节%
-		也不会被编号，但会计入目录和产生书签。
-		使用当前版本的~ctexbook~文档类的~pdf~文档%
-		的这一类书签和链接指向的位置常常是错误的。
+		在~\verb|\backmatter|~以后，
+		即使用~\verb|\chapter|~命令开始的章节也不会被编号，
+		但会计入目录和产生书签。
+		使用当前版本的~ctexbook~文档类时，
+		产生的~pdf~文档的这一类书签和链接指向的位置常常是错误的。
 		这个问题应该正在修复中；在问题解决之前，
 		一个缓解问题的办法是将~\verb|\backmatter|~以后%
 		的~\verb|\chapter|~命令全部改为~\verb|\specialchap|~命令。
@@ -61,6 +63,7 @@
 
 	\section{反馈意见和建议}
 
-	关于~pkuthss~文档模板的意见和建议请到北大未名~BBS~的~MathTools~版提出，
+	关于~pkuthss~文档模板的意见和建议，
+	请到北大未名~BBS~的~MathTools~版提出，
 	谢谢 :)
 

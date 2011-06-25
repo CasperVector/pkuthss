@@ -13,10 +13,19 @@
 % 使引用标记成为上标。
 \newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
 % 罗列环境中如果每个项目都只有一行左右，则会显得很松散，此时可采用这个命令。
-\newcommand{\denseenum}{\setlength{\itemsep}{0pt}}
+\newcommand{\denselist}{\setlength{\itemsep}{0pt}}
 
 \begin{document}
-	% 各种文档信息。
+	%% 设定生成的 pdf 的文档信息。
+	\hypersetup
+	{
+		pdfauthor={Casper Ti. Vector},
+		pdftitle={北京大学论文文档模板 v1.2 beta},
+		pdfsubject={北京大学本科生毕业论文},
+		pdfkeywords={LaTeX2e，排版，文档类，CTeX}
+	}
+
+	%% 各种文档信息。
 	\renewcommand{\thesisname}{本科生毕业论文}
 	% 题目一般不宜超过 20 个字。
 	\title{北京大学论文文档模板\\v1.2 beta}
@@ -35,14 +44,20 @@
 	\keywords{\LaTeX2e，排版，文档类，\CTeX}
 	\ekeywords{\LaTeX2e, typesetting, document class, \CTeX}
 
-	%% 以下为正文之前的部分，页码为小写罗马数字，但不显示页眉和页脚。
-	\frontmatter\pagenumbering{roman}\pagestyle{empty}
+	%% 以下为正文之前的部分，页码为小写罗马数字。
+	\frontmatter\pagenumbering{roman}
 
+	% 自动生成标题页。
 	\maketitle
 	% 版权声明。
 	\include{chap/copyright}
 	% 中英文摘要。
 	\include{chap/abstract}
+
+	% 使 \pdfbookmark 产生的书签链接到的位置正好在目录的开始。
+	\cleardoublepage
+	% 在生成的 pdf 中手动加入“目录”的书签，但不在目录中显示“目录”自己。
+	\pdfbookmark[1]{\contentsname}{thecontents}
 	% 自动生成目录。
 	\tableofcontents
 
@@ -58,12 +73,12 @@
 	\include{chap/chap4}
 	% 结论。
 	\include{chap/conclusion}
-
+	
 	\begin{appendix}
 		% 参考文献。
 		\bibliographystyle{chinesebst}\bibliography{sample}
 		% 此命令手动地在目录中增加相当于章级别的一行。
-		\addcontentsline{toc}{chapter}{参考文献}
+		\addcontentsline{toc}{chapter}{\bibname}
 		% 此命令和真实的一级章命令结合，从而使 \addcontentsline
 		% 在目录中产生的页码正常。
 		\phantomsection
@@ -78,7 +93,7 @@
 	% 致谢。
 	\include{chap/thanks}
 	% 原创性声明和使用授权说明，不显示页码。
-	\pagestyle{empty}
+	\cleardoublepage\pagestyle{empty}
 	\include{chap/originauth}
 \end{document}
 
