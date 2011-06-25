@@ -11,11 +11,11 @@ set DVIPDF=dvipdfmx
 
 if "%LATEX%"=="latex" (set DODVIPDF=%DVIPDF% %JOBNAME%
 ) else (set DODVIPDF=echo No need to run %DVIPDF%.)
-if "%1"=="" goto pdf
-if "%1"=="pdf" goto pdf
-if "%1"=="clean" (goto clean) else (goto usage)
+if "%1"=="" goto doc
+if "%1"=="doc" goto doc
+if "%1"=="clear" (goto clear) else (goto usage)
 
-:pdf
+:doc
 %LATEX% %JOBNAME%
 %BIBTEX% %JOBNAME%
 %LATEX% %JOBNAME%
@@ -23,12 +23,12 @@ if "%1"=="clean" (goto clean) else (goto usage)
 %DODVIPDF%
 goto end
 
-:clean
+:clear
 del *.log *.aux *.out *.thm *.toc *.lof *.lot *.blg *.bbl *.dvi chap\*.aux
 goto end
 
 :usage
-echo %0 [pdf] [clean]
+echo %0 [doc] [clear]
 goto end
 
 :end

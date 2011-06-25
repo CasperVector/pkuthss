@@ -30,7 +30,8 @@ pkulogo.pdf: pkulogo.eps
 pkuword.pdf: pkuword.eps
 	$(GS) $(OPTS) $(WIDTHOPT)525 $(HEIGHTOPT)150 $(OUTPUTOPT)$@ -f $<
 
-.PHONY: clean
 clean:
 	$(RM) pkulogo.pdf pkuword.pdf
+
+.PHONY: clean
 

@@ -29,6 +29,18 @@
 \documentclass[UTF8,...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 
+		又例如，文档默认情况下是双面模式，每章都从右页（奇数页）开始。
+		如果希望改成一章可以从任意页开始，可以这样设置：
+\begin{Verbatim}[frame=single]
+\documentclass[openany,...]{pkuthss} % 每章从任意页开始。
+\end{Verbatim}
+		但这样设置时左右（奇偶）页页眉页脚设置仍然是不同的。
+		如果需要使奇偶页页眉页脚设置一致，可以直接采用单面模式：
+\begin{Verbatim}[frame=single]
+% 使用 oneside 选项时不需要再指定 openany 选项。
+\documentclass[oneside,...]{pkuthss}
+\end{Verbatim}
+
 		\subsection{pkuthss-extra 宏包提供的选项}
 
 		在默认情况下，
@@ -86,7 +98,12 @@
 					该选项实际上是在 \texttt{\string\maketitle} 时生效的，
 					这是因为考虑到%
 					通常用户在调用 \texttt{\string\maketitle} 前%
-					已经设置好所有的文档信息。%
+					已经设置好所有的文档信息。
+					若用户不调用 \texttt{\string\maketitle}，
+					则需在设定完文档信息之后自行调用%
+					第 \ref{ssec:misc} 小节中介绍的 %
+					\texttt{\string\setpdfmetadata} 命令以完成%
+					pdf 文档元数据的设定。
 				}
 
 			\item \textbf{\texttt{[no]linkcolor}}：
@@ -132,7 +149,7 @@
 			\item \texttt{\bfseries\string\ekeywords}：设定英文关键词。
 		\end{itemize}
 
-		例如，如果要设定专业为“化学”（Chemistry），则可以使用以下命令：
+		例如，如果要设定专业为“化学”（“Chemistry”），则可以使用以下命令：
 \begin{Verbatim}[frame=single]
 \cmajor{化学}
 \emajor{Chemistry}
@@ -193,32 +210,44 @@
 
 		\subsection{pkuthss 文档模版提供的其它命令和环境\label{ssec:misc}}
 
-		\verb|cabstract| 和 \verb|eabstract| 环境用于编写中英文摘要。
+		\texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract} %
+		环境用于编写中英文摘要。
 		用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
 
-		\verb|\specialchap| 命令用于开始不进行标号但计入目录的一章，
+		\texttt{\bfseries\string\specialchap} 命令%
+		用于开始不进行标号但计入目录的一章，
 		并合理安排其页眉。%
 		\emph{%
 			注意：
-			在此章内的节或小节等命令应使用带星号的版本，
+			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项%
+			才能使用此命令。
+			另外，在此章内的节或小节等命令应使用带星号的版本，
 			例如 \texttt{\string\section\string*} 等，
 			以免造成章节编号混乱。%
-		}
-		\par
+		}%
 		例如，本文档中的“绪言”一章就是用 \verb|\specialchap{绪言}| %
 		这条命令开始的。%
+
+		\texttt{\bfseries\string\setpdfmetadata} 命令%
+		用于根据用户设定的文档信息%
+		自动设定生成的 pdf 文档的元数据。
+		此命令会在用户调用 \verb|\maketitle| 命令时被自动调用，
+		因此通常不需要用户自己使用；
+		但用户有时可能不需要输出标题页，
+		从而不会调用 \verb|\maketitle| 命令，
+		此时就需要在设定完文档信息之后调用 \verb|\setpdfmetadata|。
 		\emph{%
 			注意：
-			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项%
+			需要启用 pkuthss-extra 宏包的 \texttt{pdfmeta} 选项%
 			才能使用此命令。%
 		}
 
 		\subsection{从其它文档类和宏包继承的命令}
 
-		pkuthss 文档类建立在 ctexbook\cite{ctex-doc} 文档类的基础上，
+		pkuthss 文档类建立在 ctexbook\cite{ctex} 文档类的基础上，
 		并调用了 CJKfntef、%
-		graphicx\cite{graphicx-doc}、geometry\cite{geometry-doc} %
-		和 fancyhdr\cite{fancyhdr-doc} 等几个宏包。
+		graphicx\cite{graphicx}、geometry\cite{geometry} %
+		和 fancyhdr\cite{fancyhdr} 等几个宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
 		例如，用户如果想将目录的标题改为“目\quad\quad录”，
@@ -230,14 +259,14 @@
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
 			\item 启用 \verb|spacing| 选项时会调用 %
-				setspace 和 footmisc\cite{footmisc-doc} 宏包。
+				setspace 和 footmisc\cite{footmisc} 宏包。
 			\item 启用 \verb|tightlist| 选项时会调用 %
-				enumitem\cite{enumitem-doc} 和 %
-				natbib\cite{natbib-doc} 宏包。
+				enumitem\cite{enumitem} 和 %
+				natbib\cite{natbib} 宏包。
 			\item 启用 \verb|tocbibind| 选项时会调用 %
-				tocbibind\cite{tocbibind-doc} 宏包。
+				tocbibind\cite{tocbibind} 宏包。
 			\item 启用 \verb|upcite| 选项时会调用 %
-				natbib\cite{natbib-doc} 宏包。
+				natbib\cite{natbib} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
@@ -245,9 +274,9 @@
 		此时可以使用 natbib 宏包提供的相关命令，
 		例如在本文档中的以下代码
 \begin{Verbatim}[frame=single]
-文献 \citenum{ctex-doc} 中提到
+文献 \citenum{ctex} 中提到
 \end{Verbatim}
-		将产生“文献 \citenum{ctex-doc} 中提到”。
+		将产生“文献 \citenum{ctex} 中提到”。
 
 		\subsection{不建议更改的设置}
 		\emph{%

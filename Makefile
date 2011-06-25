@@ -1,6 +1,6 @@
 # vim:ft=make:ts=4:sw=4
 
-PROJECT = pkuthss-1.3alpha2
+PROJECT = pkuthss-1.3beta1
 SOURCES = tex/ doc/
 DEST_UTF8LF = $(PROJECT)-utf8lf
 DEST_GBKCRLF = $(PROJECT)-gbkcrlf

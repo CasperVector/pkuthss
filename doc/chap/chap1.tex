@@ -57,7 +57,7 @@
 	\begin{itemize}
 		\item 一个基本的 \TeX{} 发行版。
 		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
-		\item ctex 宏包\cite{ctex-doc,ctexfaq}（提供了 ctexbook 文档类）。
+		\item ctex 宏包\cite{ctex,ctex-faq}（提供了 ctexbook 文档类）。
 		\item 中文字体\footnote{%
 			用户如果使用中易公司的字体，
 			则推荐使用 Windows Vista 及其以后版本中提供的楷体和仿宋体，
@@ -123,6 +123,12 @@ $HOME/texmf
 /usr/local/texlive/2010/texmf-local
 \end{Verbatim}
 	\end{itemize}
+
+	安装完宏包后，可能需要刷新一次文件名数据库。
+	关于这一步如何操作，详见 \CTeX{} FAQ\cite{ctex-faq}\footnote{%
+		用 \texttt{texdoc ctex-faq} 调出文档，
+		然后在其中搜索“文件名数据库”即可找到。%
+	}。
 
 	\section{编译方式}
 

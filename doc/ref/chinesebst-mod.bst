@@ -7,6 +7,7 @@
 %% merlin.mbs  (with options: `annote,seq-no,ed-au,dt-jnl,yrp-per,yrpp-xsp,atit-u,jxper,jttl-rm,vol-bf,pp-last,num-xser,numser,btit-rm,bt-rm,bkpg-x,add-pub,pub-date,pub-xpar,pre-pub,edparc,bkedcap,in-x,fin-bare,pp,abr,xedn,and-com,and-com-ed,xand,etal-it,revdata,eprint,url,url-blk,em-x')
 %% ----------------------------------------
 %% *** For chinese BIB Gen. by WuYingnian 2002.12.29 ***
+%% *** Modified by Casper Ti. Vector on 2010.4.8 ***
 %% 
 %% Copyright 1994-2002 Patrick W Daly
  % ===============================================================
@@ -116,11 +117,6 @@ FUNCTION {fin.entry}
     'write$
   if$
   newline$
-  annote missing$
-    { "\bibAnnoteFile{" cite$ * "}" * write$ newline$ }
-    { "\bibAnnote{" cite$ * "}{" * annote * "}" * write$ newline$
-    }
-  if$
 }
 
 FUNCTION {new.block}
@@ -1278,18 +1274,6 @@ FUNCTION {begin.bib}
   "  \def\url#1{{\tt #1}}\fi"
   write$ newline$
   "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
-  write$ newline$
-  "\providecommand{\bibAnnoteFile}[1]{%"
-  write$ newline$
-  "  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\"
-  write$ newline$
-  "  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}"
-  write$ newline$
-  "\providecommand{\bibAnnote}[2]{%"
-  write$ newline$
-  "  \begin{quotation}\noindent\textsc{Key:} #1\\"
-  write$ newline$
-  "  \textsc{Annotation:}\ #2\end{quotation}}"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
   write$ newline$

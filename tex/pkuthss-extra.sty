@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{pkuthss-extra}
-	[2011/01/28 v1.3 alpha2 Extra settings for pkuthss document class]
+	[2011/04/08 v1.3 beta1 Extra settings for pkuthss document class]
 
 % 检查对 pkuthss 文档类的依赖是否满足。
 \@ifclassloaded{pkuthss}{}{
@@ -65,9 +65,7 @@
 \ifpkuthss@extraopt@spacing
 	% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
 	% （XeCJK 自动控制这些空白，故用 XeLaTeX 编译时不需要这个宏包。）
-	\ifxetex\else
-		\RequirePackage{CJKspace}
-	\fi
+	\ifxetex\else\RequirePackage{CJKspace}\fi
 	% 使某些细节（如脚注、抄录）处的空间安排更美观。
 	\RequirePackage{setspace}
 	% 设置页芯居中。
@@ -120,17 +118,17 @@
 
 \AtBeginDocument{
 	\ifpkuthss@extraopt@pdfmeta
-		% 在生成标题页时自动设置 pdf 文档的文档信息。
-		% 在这个时候进行这项设置是因为此时所有的文档信息应该已经设置完毕。
-		\let\tmp@maketitle\maketitle
-		\renewcommand\maketitle{
-			% 注意 \hypersetup 一定要在原 \maketitle 之前，否则会失效。
+		% 此命令自动设置 pdf 文档的文档信息。
+		\newcommand{\setpdfmetadata}{
 			\hypersetup{
 				pdfauthor={\@eauthor},pdftitle={\@etitle},
 				pdfsubject={\euniversity\ \ethesisname},pdfkeywords={\@ekeywords}
 			}
-			\tmp@maketitle
 		}
+		% 在生成标题页时进行这项设置是因为此时所有的文档信息应该已经设置完毕。
+		\let\tmp@maketitle\maketitle
+		% 注意 \hypersetup 一定要在原 \maketitle 之前，否则会失效。
+		\renewcommand\maketitle{\setpdfmetadata\tmp@maketitle}
 	\fi
 
 	\ifpkuthss@extraopt@linkcolor

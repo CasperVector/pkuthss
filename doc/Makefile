@@ -26,7 +26,6 @@ endif
 
 all: img doc
 
-.PHONY: img img-clean
 img:
 	cd img && $(MAKE)
 
@@ -40,13 +39,14 @@ doc:
 	$(LATEX) $(JOBNAME)
 	$(DODVIPDF)
 
-.PHONY: clean dist-clean
-clean:
+clear:
 	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).out $(JOBNAME).thm\
 		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).blg\
 		$(JOBNAME).bbl $(JOBNAME).dvi missfont.log
 	$(RM) chap/*.aux
 
-dist-clean: clean img-clean
+clean: clear img-clean
 	$(RM) $(JOBNAME).pdf
+
+.PHONY: img img-clean clear clean
 

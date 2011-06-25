@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/01/28 v1.3 alpha2 Peking University dissertation document class]
+	[2011/04/08 v1.3 beta1 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -66,7 +66,8 @@
 \AtEndOfClass{%
 	% 设定各处标题的内容。
 	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
-	\else\input{pkuthss-utf8.def}\fi
+	\else\input{pkuthss-utf8.def}
+	\fi
 
 	% 为文章中的目录、交叉和索引等自动产生链接，并自动生成书签。
 	% 代码复制自 ctex 宏包的 ctex-common.def，有改动。
