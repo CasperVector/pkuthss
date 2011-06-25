@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/05/23 v1.3 beta4 Peking University dissertation document class]
+	[2011/05/27 v1.3 rc1 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -40,7 +40,7 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% pkuthss is based on ctexbook; We use a4 paper size, `xiao 4' as default font size.
+% pkuthss is based on ctexbook; We use A4 paper, and `xiao 4' as default font size.
 % CJKfntef provides \CJKunderline used in \maketitle.
 % fancyhdr provides utilities for setting headers and footers.
 \LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2009/10/20]
@@ -74,8 +74,8 @@
 	\else\input{pkuthss-utf8.def}
 	\fi
 
-	% Automatically generate hyperlinks and bookmarks for table of contents, citations
-	% and index.
+	% Automatically generate hyperlinks and bookmarks for table of contents,
+	% citations and index.
 	% Code copied with minor modifications from ctex-common.def in `ctex' package.
 	% Not directly using the `hyperref' option of `ctex' package in order to avoid
 	% the conflicts caused by loading of `hyperref' before `setspace' in `ctex'

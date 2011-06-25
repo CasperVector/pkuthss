@@ -4,50 +4,60 @@
 
 \chapter{使用介绍}
 	\section{重要文件}
+	\subsection{\texttt{tex/} 目录}
+
+	本目录中包含了 pkuthss 文档类和 pkuthss-extra 宏包：
 
 	\begin{itemize}
-		\item \verb|tex/|：
-			文件夹，包含 pkuthss 文档类和 pkuthss-extra 宏包：
+		\item \verb|pkuthss.cls|：%
+			pkuthss 文档类的主文件。
+		\item \verb|pkuthss-utf8.def|：%
+			pkuthss 文档类中使用的一些标题和标记文字，使用 UTF-8 编码。
+		\item \verb|pkuthss-gbk.def|：%
+			pkuthss 文档类中使用的一些标题和标记文字，使用 GBK 编码。
+		\item \verb|pkuthss-extra.sty|：
+			在论文中一些常见的额外设置。
+	\end{itemize}
+	
+	\subsection{\texttt{doc/} 目录}
+
+	本目录中包含本文档（\verb|README.pdf|）的源代码%
+	（\verb|utf8lf/| 和 \verb|gbkcrlf/| 两个子目录，
+	两目录中代码除使用的编码和换行符外基本上完全相同），
+	以及 pkuthss 文档模版所使用的许可证（\verb|license/| 目录）。
+
+	其中，%
+	\verb|utf8lf/| 目录下的源代码使用的是 UTF-8 编码、\verb|\n|（LF）换行，
+	适合类 UNIX 系统用户使用；%
+	\verb|gbkcrlf/| 目录下的源代码使用的是 GBK 编码、\verb|\r\n|（CRLF）换行，
+	适合 Windows 用户使用。%
+	\verb|utf8lf/| 和 \verb|gbkcrlf/| 目录中的重要文件有：
+	\begin{itemize}
+		\item \verb|Makefile|：
+			被 Make 工具调用的 Makefile，用于使编译工作自动化。
+		\item \verb|Make.bat|：%
+			Windows 下的伪“Makefile”，用 Windows 批处理实现。
+		\item \verb|chap/|：目录，包含各章节内容：
 		\begin{itemize}
-			\item \verb|pkuthss.cls|：%
-				pkuthss 文档类的主文件。
-			\item \verb|pkuthss-utf8.def|：%
-				pkuthss 文档类中使用的一些标题和标记文字，使用 UTF-8 编码。
-			\item \verb|pkuthss-gbk.def|：%
-				pkuthss 文档类中使用的一些标题和标记文字，使用 GBK 编码。
-			\item \verb|pkuthss-extra.sty|：
-				在论文中一些常见的额外设置。
+			\item \verb|copyright.tex|：
+				版权声明部分\footnote{%
+					本文档中的版权声明并不是%
+					学校默认要求的形式\cite{pku-copyright}。
+					符合学校要求的一个版权声明已经放在此文件中，
+					但用 \texttt{\string\iffalse{} ... \string\fi} %
+					注释掉了，
+					用户可以考虑使用那个版本。
+				}。
+			\item \verb|originauth.tex|：
+				原创性声明和使用授权说明部分\cite{pku-originauth}。
 		\end{itemize}
-		
-		\item \verb|doc/|：
-			文件夹，包含 pkuthss 文档类和 pkuthss-extra 宏包：
+		\item \verb|img/|：目录，包含论文中所有图片：
 		\begin{itemize}
-			\item \verb|Makefile|：
-				被 Make 工具调用的 Makefile，用于使编译工作自动化。
+			\item \verb|Makefile|：图片部分的 Makefile。
 			\item \verb|Make.bat|：%
 				Windows 下的伪“Makefile”，用 Windows 批处理实现。
-			\item \verb|chap/|：文件夹，包含各章节内容：
-			\begin{itemize}
-				\item \verb|copyright.tex|：
-					版权声明部分\footnote{%
-						本文档中的版权声明并不是%
-						学校默认要求的形式\cite{pku-copyright}。
-						符合学校要求的一个版权声明已经放在此文件中，
-						但用 \texttt{\string\iffalse{} ... \string\fi} %
-						注释掉了，
-						用户可以考虑使用那个版本。
-					}。
-				\item \verb|originauth.tex|：
-					原创性声明和使用授权说明部分\cite{pku-originauth}。
-			\end{itemize}
-			\item \verb|img/|：文件夹，包含论文中所有图片：
-			\begin{itemize}
-				\item \verb|Makefile|：图片部分的 Makefile。
-				\item \verb|Make.bat|：%
-					Windows 下的伪“Makefile”，用 Windows 批处理实现。
-				\item \verb|pkulogo.eps|：北京大学校徽。
-				\item \verb|pkuword.eps|：“北京大学”字样。
-			\end{itemize}
+			\item \verb|pkulogo.eps|：北京大学校徽。
+			\item \verb|pkuword.eps|：“北京大学”字样。
 		\end{itemize}
 	\end{itemize}
 
@@ -91,12 +101,20 @@
 	的用户可以正常使用本模板。
 	
 	\section{安装\label{sec:inst}}
+	\subsection{“绿色”安装}
+
+	将 \verb|tex/| 中的所有文件复制到 %
+	\verb|doc/| 下合适的编码和换行符所对应的目录%
+	（\verb|utf8lf/| 或 \verb|gbkcrlf/|）中即可。
+
+	\subsection{非“绿色”安装}
 
 	对于支持 \TeX{} 目录结构（TDS）标准的 \TeX{} 发行版%
 	（其中包括 \TeX{}Live 和 \CTeX{}），
-	安装 pkuthss 文档模版都是通过类似的方式：
+	安装 pkuthss 文档模版都可以通过类似的方式：
 	将 \verb|tex/| 中内容放在 \verb|$TEXMF/tex/latex/pkuthss/|，
-	\verb|doc/| 中内容放在 \verb|$TEXMF/doc/latex/pkuthss/|。
+	将本文档（\verb|README.pdf|）和 \verb|doc/| 中内容%
+	放在 \verb|$TEXMF/doc/latex/pkuthss/|。
 	其中 \verb|$TEXMF| 是用户系统上的 texmf 目录，
 	我们推荐使用 \verb|$TEXMFHOME| 或者 \verb|$TEXMFLOCAL|：
 	\begin{itemize}
@@ -129,7 +147,7 @@ $HOME/texmf
 \end{Verbatim}
 	\end{itemize}
 
-	安装完宏包后，可能需要刷新一次文件名数据库。
+	用这样的方法安装完宏包后，可能需要刷新一次文件名数据库。
 	关于这一步如何操作，详见 \CTeX{} FAQ\cite{ctex-faq}\footnote{%
 		在类 UNIX 操作系统的终端或 Windows 的命令提示符中%
 		用 \texttt{texdoc ctex-faq} 调出文档，

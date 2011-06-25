@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{pkuthss-extra}
-	[2011/05/23 v1.3 beta4 Common extra settings for the pkuthss document class]
+	[2011/05/27 v1.3 rc1 Common extra settings for the pkuthss document class]
 
 % Check the dependency of pkuthss.
 \@ifclassloaded{pkuthss}{}{
@@ -55,8 +55,8 @@
 \pkuthss@int@extraopt{spechap}
 % Whether to make citation labels superscript as default.
 \pkuthss@int@extraopt{upcite}
-% Whether to automatically set metadata for generated PDF from user defined document
-% information.
+% Whether to automatically set metadata for generated PDF from user defined
+% document information.
 \pkuthss@int@extraopt{pdfmeta}
 % Whether to use coloured hyperlinks in generated PDF.
 \pkuthss@int@extraopt{linkcolor}
@@ -104,8 +104,8 @@
 \fi
 
 \ifpkuthss@extraopt@spechap
-	% This command is used to start a chapter without numbering, and correctly set the
-	% headers and footers in the chapter.
+	% This command is used to start a chapter without numbering, and correctly set
+	% the headers and footers in the chapter.
 	\newcommand\specialchap[1]{
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
 		\markboth{#1}{}\phantomsection
