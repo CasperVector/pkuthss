@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/04/08 v1.3 beta1 Peking University dissertation document class]
+	[2011/04/15 v1.3 beta2 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -50,6 +50,9 @@
 \RequirePackage{graphicx}[1999/02/16]
 % 此宏包提供了方便使用的命令用于设置页面布局。
 \RequirePackage{geometry}
+% 此宏包提供了方便使用的命令用于设置引用标记的格式。
+% 默认使用顺序（数字)编码制。
+\RequirePackage[numbers]{natbib}
 % 是否采用默认的额外设置。
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
@@ -71,23 +74,28 @@
 
 	% 为文章中的目录、交叉和索引等自动产生链接，并自动生成书签。
 	% 代码复制自 ctex 宏包的 ctex-common.def，有改动。
-	% 不直接使用 ctex 宏包的 hyperref 选项的原因是避免和 setspace 的冲突。
-	% XXX: 实现方式不够优雅，或许有更加合适的处理方式。
+	% 不直接使用 ctex 宏包的 hyperref 选项是为了避免 1.02c 版以前的 ctex 宏
+	% 包中先调用 hyperref 而造成的和 setspace 的冲突。
+	% 考虑到新版本 ctex 宏包将逐渐被更多人采用，2013 年夏（应该正值 Casper
+	% 毕业 :)）时下面一段代码将被删除，而前面调用 ctexbook 文档类时将加上
+	% hyperref 选项。
+	\providecommand\hypersetup[1]{\PassOptionsToPackage{#1}{hyperref}}
+	\AtEndPreamble{\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}}
 	\ifxetex
-		\RequirePackage{hyperref}
+		\hypersetup{xetex,unicode}
 	\else
 		\ifpdf
-			\RequirePackage[pdftex]{hyperref}
+			\hypersetup{pdftex}
 		\else
-			\ifCTEX@GBK
+			\hypersetup{dvipdfmx}
+			\ifpkuthss@opt@gbk
 				\AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}}
 			\fi
-			\RequirePackage[dvipdfmx]{hyperref}
 		\fi
-		\ifCTEX@GBK
-			\hypersetup{CJKbookmarks=true}
+		\ifpkuthss@opt@gbk
+			\hypersetup{CJKbookmarks}
 		\else
-			\hypersetup{unicode=true}
+			\hypersetup{unicode}
 		\fi
 	\fi
 }

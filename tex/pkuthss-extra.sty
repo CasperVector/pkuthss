@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{pkuthss-extra}
-	[2011/04/08 v1.3 beta1 Extra settings for pkuthss document class]
+	[2011/04/15 v1.3 beta2 Extra settings for pkuthss document class]
 
 % 检查对 pkuthss 文档类的依赖是否满足。
 \@ifclassloaded{pkuthss}{}{
@@ -83,7 +83,6 @@
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
 	% 参考文献的条目间隔往往显得较大，此处取消其额外增加的（垂直）间隔。
-	\RequirePackage{natbib}
 	\setlength{\bibsep}{\parsep}
 \fi
 
@@ -112,7 +111,6 @@
 
 \ifpkuthss@extraopt@upcite
 	% 使引用标记默认成为上标。
-	\RequirePackage{natbib}
 	\setcitestyle{super,square,comma}
 \fi
 

@@ -246,37 +246,34 @@
 
 		pkuthss 文档类建立在 ctexbook\cite{ctex} 文档类的基础上，
 		并调用了 CJKfntef、%
-		graphicx\cite{graphicx}、geometry\cite{geometry} %
-		和 fancyhdr\cite{fancyhdr} 等几个宏包。
+		graphicx\cite{graphicx}、geometry\cite{geometry}、%
+		fancyhdr\cite{fancyhdr} 和 natbib\cite{natbib} 等几个宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
-		例如，用户如果想将目录的标题改为“目\quad\quad录”，
+		例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
 		则可以使用 ctexbook 文档类提供的 \verb|\CTEXoptions| 命令：
 \begin{Verbatim}[frame=single]
-\CTEXoptions{contentsname={目\quad\quad录}}
+\CTEXoptions{contentsname={目{\quad\quad}录}}
 \end{Verbatim}
 
-		pkuthss-extra 宏包可能调用以下这些宏包：
-		\begin{itemize}
-			\item 启用 \verb|spacing| 选项时会调用 %
-				setspace 和 footmisc\cite{footmisc} 宏包。
-			\item 启用 \verb|tightlist| 选项时会调用 %
-				enumitem\cite{enumitem} 和 %
-				natbib\cite{natbib} 宏包。
-			\item 启用 \verb|tocbibind| 选项时会调用 %
-				tocbibind\cite{tocbibind} 宏包。
-			\item 启用 \verb|upcite| 选项时会调用 %
-				natbib\cite{natbib} 宏包。
-		\end{itemize}
-		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
-
-		例如，用户有时可能需要使用非上标的引用标记，
+		又例如，用户有时可能需要使用非上标的引用标记，
 		此时可以使用 natbib 宏包提供的相关命令，
 		例如在本文档中的以下代码
 \begin{Verbatim}[frame=single]
 文献 \citenum{ctex} 中提到
 \end{Verbatim}
 		将产生“文献 \citenum{ctex} 中提到”。
+
+		pkuthss-extra 宏包可能调用以下这些宏包：
+		\begin{itemize}
+			\item 启用 \verb|spacing| 选项时会调用 %
+				setspace 和 footmisc\cite{footmisc} 宏包。
+			\item 启用 \verb|tightlist| 选项时会调用 %
+				enumitem\cite{enumitem} 宏包。
+			\item 启用 \verb|tocbibind| 选项时会调用 %
+				tocbibind\cite{tocbibind} 宏包。
+		\end{itemize}
+		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
 		\subsection{不建议更改的设置}
 		\emph{%
