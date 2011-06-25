@@ -8,13 +8,14 @@
 
 		\begin{itemize}
 			\item \textbf{\texttt{[no]extra}}：
-				用于确定是否自动调用 pkuthss-extra 宏包%
-				并启用其提供的所有额外设置。
+				用于确定是否自动载入 pkuthss-extra 宏包。
 				在默认情况下，pkuthss 文档类将使用 \verb|extra| 选项。
-				用户如果不需要启用所有的额外设置，
-				则需要在载入 pkuthss 时加上 \verb|noextra| 选项；
-				当然，如果需要 pkuthss-extra 提供的部分功能，
-				则仍须自行以合适的选项载入 pkuthss-extra。
+				用户如果不需要自动载入 pkuthss-extra 宏包，
+				则需要在载入 pkuthss 时加上 \verb|noextra| 选项。
+
+			\item \textbf{pkuthss-extra 宏包提供的选项}：
+				这些选项将被传递给 pkuthss-extra 宏包。
+				具体说明参见第 \ref{ssec:extra} 小节。
 
 			\item \textbf{其余文档类选项}：%
 				pkuthss 文档类以 ctexbook 文档类为基础，
@@ -41,7 +42,7 @@
 \documentclass[oneside,...]{pkuthss}
 \end{Verbatim}
 
-		\subsection{pkuthss-extra 宏包提供的选项}
+		\subsection{pkuthss-extra 宏包提供的选项}\label{ssec:extra}
 
 		在默认情况下，
 		下面提到的选项中都是不带“\verb|no|”的版本被启用，
@@ -115,9 +116,7 @@
 		此时用户可以启用 pkuthss-extra 宏包的 nolinkcolor 选项，
 		使所有的链接变为黑色，以免影响打印：
 \begin{Verbatim}[frame=single]
-% “...”代表其它的选项。
-\documentclass[noextra,...]{pkuthss}
-\usepackage[...,nolinkcolor]{pkuthss-extra}
+\documentclass[...,nolinkcolor]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 		用户还可以进一步修改 \verb|img/| 目录中 %
 		\verb|pkulogo.eps| 和 \verb|pkuword.eps| 两个图片文件，
