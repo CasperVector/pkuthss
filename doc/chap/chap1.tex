@@ -1,41 +1,53 @@
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2011 Casper Ti. Vector
+% Public domain.
+
 \chapter{使用介绍}
 	\section{重要文件}
 
-	本文档所在目录下各重要文件如下：
 	\begin{itemize}
-		\item \verb|pkuthss.cls|：pkuthss 文档类的类文件。
-		\item \verb|pkuthss-gbk.def|：
-			在 \verb|pkuthss.cls| 中使用的定义文件，用于 GBK 编码。
-		\item \verb|pkuthss-utf8.def|：
-			在 \verb|pkuthss.cls| 中使用的定义文件，用于 UTF-8 编码。
-		\item \verb|sample.tex|：主文件，编译该文件即可。
-		\item \verb|sample.pdf|：即本文档，由编译 \verb|sample.tex| 得到。
-		\item \verb|Makefile|：Makefile，用于使编译工作自动化。
-		\item \verb|Make.bat|：%
-			Windows 下的伪“Makefile”，由 Windows 的批处理实现。
-		\item \verb|chap/|：文件夹，包含各章节内容：
+		\item \verb|tex/|：
+			文件夹，包含 pkuthss 文档类和 pkuthss-extra 宏包：
 		\begin{itemize}
-			\item \verb|copyright.tex|：版权声明部分%
-			\cite{pku-copyright}%
-			\footnote
-			{\ %
-				因为本文档的许可证限制，我们必须附上许可证的文本；
-				但用户可能选择其它类型的版权声明，
-				故 \texttt{license/} 目录不是必需的。
-				一个可能更常用的版权声明已经放在此文件中，但被注释掉了，
-				用户可以考虑使用那个版本。
-				如果使用那个版本，就不再需要 \texttt{license/} 目录了。
-			}。
-			\item \verb|originauth.tex|：
-				原创性声明和使用授权说明部分\cite{pku-originauth}。
+			\item \verb|pkuthss.cls|：%
+				pkuthss 文档类的主文件。
+			\item \verb|pkuthss-utf8.def|：%
+				pkuthss 文档类中使用的一些标题和标记文字，使用 UTF-8 编码。
+			\item \verb|pkuthss-gbk.def|：%
+				pkuthss 文档类中使用的一些标题和标记文字，使用 GBK 编码。
+			\item \verb|pkuthss-extra.sty|：
+				在论文中一些常见的额外设置。
 		\end{itemize}
-		\item \verb|img/|：文件夹，包含论文中所有图片：
+		
+		\item \verb|doc/|：
+			文件夹，包含 pkuthss 文档类和 pkuthss-extra 宏包：
 		\begin{itemize}
-			\item \verb|Makefile|：图片部分的 Makefile。
+			\item \verb|Makefile|：
+				被 Make 工具调用的 Makefile，用于使编译工作自动化。
 			\item \verb|Make.bat|：%
-				Windows 下的伪“Makefile”，由 Windows 的批处理实现。
-			\item \verb|pkulogo.ps|：北大校徽。
-			\item \verb|pkuword.ps|：“北京大学”字样。
+				Windows 下的伪“Makefile”，用 Windows 批处理实现。
+			\item \verb|chap/|：文件夹，包含各章节内容：
+			\begin{itemize}
+				\item \verb|copyright.tex|：
+					版权声明部分\footnote{%
+						本文档中的版权声明并不是%
+						学校默认要求的形式\cite{pku-copyright}。
+						符合学校要求的一个版权声明已经放在此文件中，
+						但用 \texttt{\string\iffalse{} ... \string\fi} %
+						注释掉了，
+						用户可以考虑使用那个版本。
+					}。
+				\item \verb|originauth.tex|：
+					原创性声明和使用授权说明部分\cite{pku-originauth}。
+			\end{itemize}
+			\item \verb|img/|：文件夹，包含论文中所有图片：
+			\begin{itemize}
+				\item \verb|Makefile|：图片部分的 Makefile。
+				\item \verb|Make.bat|：%
+					Windows 下的伪“Makefile”，用 Windows 批处理实现。
+				\item \verb|pkulogo.ps|：北京大学校徽。
+				\item \verb|pkuword.ps|：“北京大学”字样。
+			\end{itemize}
 		\end{itemize}
 	\end{itemize}
 
@@ -43,16 +55,19 @@
 
 	正确编译需要以下几部分：
 	\begin{itemize}
-		\item 一个基本的 \LaTeX{} 发行版。
-		\item CJK 或 xeCJK（供 Xe\LaTeX{} 使用）宏包。
-		\item ctex 宏包\cite{ctex-doc,ctexfaq}%
-			（提供了 ctexbook 文档类）。
-		\item 中文字体。
+		\item 一个基本的 \TeX{} 发行版。
+		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
+		\item ctex 宏包\cite{ctex-doc,ctexfaq}（提供了 ctexbook 文档类）。
+		\item 中文字体\footnote{%
+			用户如果使用中易公司的字体，
+			则推荐使用 Windows Vista 及其以后版本中提供的楷体和仿宋体，
+			否则可能有不在 GB2312 范围内的字符无法被编译进 pdf 文档中。%
+		}。
 		\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
 			但如果使用由批处理实现的伪“Makefile”就不用了。
 	\end{itemize}
 
-	最新的 \TeX{}Live 系统和 \CTeX 套装都已经包含%
+	最新的 \TeX{}Live 系统和 \CTeX{} 套装都已经包含%
 	除中文字体之外所有要求的项目；中文字体需要用户自行获得。
 
 	Linux 用户可以从软件源获得 GNU 的 make；
@@ -63,35 +78,69 @@
 		\url{http://gnuwin32.sourceforge.net/packages/make.htm}（国际网）
 		\item
 		\url{http://c.pku.edu.cn/software/c/mingw-c.7z}\footnote%
-		{\ 感谢曹东刚老师在教学网站提供 GNU make 的下载。}（北大校园网）
+		{感谢曹东刚老师在教学网站提供 GNU make 的下载。}（北大校园网）
 	\end{itemize}
 
-	为了获得最好的支持，我们建议用户使用最新版的 \LaTeX{} 系统和各宏包%
-	\footnote%
-	{\ %
-		使用 \TeX{}Live 2009 及其以上稳定版本的用户可以正常使用本模板；
-		从 \TeX{}Live 的稳定（即不是“pretest”）源更新%
-		到 CTAN 上最新稳定版本的用户也可以正常使用本模板。
-	}。
+	为了获得最好的支持，
+	我们建议用户使用最新版的 \TeX{} 系统和各宏包\footnote%
+		{使用 \TeX{}Live 2009 及其以上稳定版本的用户可以正常使用本模板。}。
+
+	\section{安装\label{sec:inst}}
+
+	对于支持 \TeX{} 目录结构（TDS）标准的 \TeX{} 发行版%
+	（其中包括 \TeX{}Live 和 \CTeX{}），
+	安装 pkuthss 文档模版都是通过类似的方式：
+	将 \verb|tex/| 中的内容放在 \verb|$TEXMF/tex/latex/ctex/|，
+	将 \verb|doc/| 中的内容放在 \verb|$TEXMF/doc/latex/ctex/|。
+	其中 \verb|$TEXMF| 是用户系统上的 texmf 目录，
+	我们推荐使用 \verb|$TEXMFHOME| 或者 \verb|$TEXMFLOCAL|：
+	\begin{itemize}
+		\item 在 Windows 下，
+			\TeX{}Live 和 \CTeX{} 套装默认的 \verb|$TEXMFHOME| %
+			通常可能都是
+\begin{Verbatim}[frame=single]
+# user 也可改为其它名字，依你的用户名而定。
+C:\Documents and Settings\user\texmf
+\end{Verbatim}
+			而 \verb|$TEXMFLOCAL| 通常可能分别是
+\begin{Verbatim}[frame=single]
+# C:\Program Files\CTEX 也可改为其它目录，依安装位置而定。
+C:\Program Files\CTEX\MiKTeX\texmf-local
+\end{Verbatim}
+			和
+\begin{Verbatim}[frame=single]
+# 2010 也可改为其它年份，依 TeXLive 版本而定。
+C:\Program Files\texlive\2010\texmf-local
+\end{Verbatim}
+		\item 在 Linux 和其它类 UNIX 操作系统下，
+			\TeX{}Live 默认的 \verb|$TEXMFHOME| 通常可能是
+\begin{Verbatim}[frame=single]
+$HOME/texmf
+\end{Verbatim}
+			而 \verb|$TEXMFLOCAL| 通常可能是
+\begin{Verbatim}[frame=single]
+# 2010 也可改为其它年份，依 TeXLive 版本而定。
+/usr/local/texlive/2010/texmf-local
+\end{Verbatim}
+	\end{itemize}
 
 	\section{编译方式}
 
 	pkuthss 文档模板支持三种编译方式，即
 	\begin{itemize}
-	  \item \LaTeX{} -- dvipdf 方式：
-		依次执行 \verb|latex|，\verb|bibtex|，%
-		\verb|latex|，\verb|latex|，\verb|dvipdfmx|。
-	  \item pdf\LaTeX{} 方式：
-		依次执行 \verb|pdflatex|，\verb|bibtex|，%
-		\verb|pdflatex|，\verb|pdflatex|。
-	  \item Xe\LaTeX{} 方式：
-		依次执行 \verb|xelatex|，\verb|bibtex|，%
-		\verb|xelatex|，\verb|xelatex|。%
-		\emph
-		{%
-			注意：Xe\LaTeX{} 对非 UTF-8 的编码支持不好，
-			因此Xe\LaTeX{} 方式的编译不支持 GBK 编码。
-		}
+		\item \LaTeX{} -- dvipdfmx 方式：\\
+			依次执行 \verb|latex|，\verb|bibtex|，%
+			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。
+		\item pdf\LaTeX{} 方式：\\
+			依次执行 \verb|pdflatex|，\verb|bibtex|，%
+			\verb|pdflatex| 和 \verb|pdflatex|。
+		\item Xe\LaTeX{} 方式：\\
+			依次执行 \verb|xelatex|，\verb|bibtex|，%
+			\verb|xelatex| 和 \verb|xelatex|。\\
+			\emph{%
+				注意：Xe\LaTeX{} 对非 UTF-8 的编码支持不好，
+				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。
+			}
 	\end{itemize}
 
 	pkuthss 文档模板附带的 Makefile 中已经对这三种编译方式进行了完整的配置。
@@ -101,14 +150,13 @@
 	即可通过在主文件所在目录调用 Make 工具来实现自动编译：
 	如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|；
 	而如果是在 Windows 环境下，
-	则用户应该调用的命令名为 \verb|mingw32-make|。
+	则用户应该调用的命令名可能为 \verb|mingw32-make|。
 
 	用户如果不想配置 Windows 下的 GNU Make，
 	则也可以使用由 Windows 批处理实现的伪“Makefile”，
-	通过在主文件所在目录调用 \verb|make|\footnote%
-	{\ %
+	通过在主文件所在目录调用 \verb|make|\footnote{%
 		Windows 将批处理文件作为可执行文件，
-		调用时可以不显式地指出扩展名。
+		调用时可以不显式地指出扩展名。%
 	} 或直接双击 \verb|make.bat| 的图标运行之。%
 	\emph
 	{%

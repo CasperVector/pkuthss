@@ -2,8 +2,8 @@
 %
 % Peking University dissertation document class
 %
-% Copyright (c) 2008-2009 solvethis.
-% Copyright (c) 2010-2011 Casper Ti. Vector.
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2011 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -18,104 +18,110 @@
 %
 % This work consists of the following files:
 %   pkuthss.cls
-%   pkuthss-option.def
-%   pkuthss-common.def
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
 %   pkuthss-extra.sty
 
-% pkuthss-extra.sty 中包含了一些常用的额外设定。
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{pkuthss-extra}
-	[2011/01/26 v1.3 alpha1 Extra settings for pkuthss document class]
+	[2011/01/28 v1.3 alpha2 Extra settings for pkuthss document class]
+
+% 检查对 pkuthss 文档类的依赖是否满足。
+\@ifclassloaded{pkuthss}{}{
+	\PackageError{pkuthss-extra}%
+		{The pkuthss document class is not loaded}%
+		{The pkuthss-extra package depends on the pkuthss document class.}
+}
 
 % 例如：
-% \@extraopt{space} 最终被扩展为：
-%   \newif\ifpkuthss@extra@space \pkuthss@extra@spacetrue
-%   \DeclareOption{space}{\pkuthss@extra@spacetrue}
-%   \DeclareOption{nospace}{\pkuthss@extra@spacefalse}
-\def\@extraopt#1{
-	\expandafter\newif\csname ifpkuthss@extra@#1\endcsname
-	\csname pkuthss@extra@#1true\endcsname
-	\expandafter\DeclareOption{#1}{\csname pkuthss@extra@#1true\endcsname}
-	\expandafter\DeclareOption{no#1}{\csname pkuthss@extra@#1false\endcsname}
+% \pkuthss@int@extraopt{spacing} 最终被扩展为：
+%   \newif\ifpkuthss@extraopt@spacing \pkuthss@extraopt@spacingtrue
+%   \DeclareOption{spacing}{\pkuthss@extraopt@spacingtrue}
+%   \DeclareOption{nospacing}{\pkuthss@extraopt@spacingfalse}
+\def\pkuthss@int@extraopt#1{
+	\expandafter\newif\csname ifpkuthss@extraopt@#1\endcsname
+	\csname pkuthss@extraopt@#1true\endcsname
+	\expandafter\DeclareOption{#1}{\csname pkuthss@extraopt@#1true\endcsname}
+	\expandafter\DeclareOption{no#1}%
+		{\csname pkuthss@extraopt@#1false\endcsname}
 }
-% 是否采用一些常用的版式设定。
-\@extraopt{space}
-% 是否采用一些常用的额外字体设置。
-\@extraopt{font}
+% 是否采用一些常用的对空白进行调整的版式设定。
+\pkuthss@int@extraopt{spacing}
+% 是否采用比 LaTeX 默认设定更加紧密的枚举环境。
+\pkuthss@int@extraopt{tightlist}
 % 是否采用一些和目录、参考文献和索引等相关的常见设置。
-\@extraopt{tbi}
+\pkuthss@int@extraopt{tocbibind}
+% 是否启用 \spacialchap 命令。
+\pkuthss@int@extraopt{spechap}
 % 是否默认使引用标记成为上标。
-\@extraopt{cite}
-% 是否在生成的 pdf 文档中使用彩色的超链接。
-\@extraopt{color}
-% 是否自动根据设定的论文文档信息决定生成的 pdf 文档的文档信息。
-\@extraopt{meta}
+\pkuthss@int@extraopt{upcite}
+% 是否自动根据设定的论文文档信息设置生成的 pdf 文档的文档信息。
+\pkuthss@int@extraopt{pdfmeta}
+% 是否在生成的 pdf 文档中使用彩色的链接。
+\pkuthss@int@extraopt{linkcolor}
+% 立刻处理所有宏包选项。
 \ProcessOptions\relax
 
-\ifpkuthss@extra@space
-	% 此宏包提供了方便的命令用于定制枚举环境。
-	\RequirePackage{enumitem}
-
+\ifpkuthss@extraopt@spacing
+	% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
+	% （XeCJK 自动控制这些空白，故用 XeLaTeX 编译时不需要这个宏包。）
+	\ifxetex\else
+		\RequirePackage{CJKspace}
+	\fi
+	% 使某些细节（如脚注、抄录）处的空间安排更美观。
+	\RequirePackage{setspace}
 	% 设置页芯居中。
 	\geometry{centering}
 	% 设定行距。
-	\renewcommand{\baselinestretch}{1.5}
+	\linespread{1.41}\selectfont
+	% 使脚注编号和脚注文本之间默认间隔一个空格。
+	\RequirePackage{footmisc}
+	\renewcommand{\footnotelayout}{\ }
+\fi
 
-	\AtEndOfPackage{
-		% 枚举环境中每个条目的内容较少时，条目往往显得稀疏。此处将原 itemize、
-		% enumerate 和 description 三个枚举环境中的 \itemsep 改为零，并新定义了
-		% nitem、nenum、ndesc 三个枚举环境提供原来三个环境的相应功能。
-		\newlist{nitem}{itemize}{4}
-		\newlist{nenum}{enumerate}{4}
-		\newlist{ndesc}{description}{4}
-		\setitemize{noitemsep}
-		\setenumerate{noitemsep}
-		\setdescription{noitemsep}
+\ifpkuthss@extraopt@tightlist
+	% 枚举环境中每个条目的内容较少时，条目往往显得稀疏。此处将枚举环境中的额外
+	% （垂直）间隔改为零。
+	\RequirePackage{enumitem}
+	\setlist{nolistsep}
+	% 参考文献的条目间隔往往显得较大，此处取消其额外增加的（垂直）间隔。
+	\RequirePackage{natbib}
+	\setlength{\bibsep}{\parsep}
+\fi
 
-		% 参考文献的条目间隔往往显得较大，此处将其 \itemsep 改为零。
-		\let\tmp@bibliography\thebibliography
-		\renewcommand{\thebibliography}[1]%
-			{\tmp@bibliography{#1}\setlength{\itemsep}{0pt}}
+\ifpkuthss@extraopt@tocbibind
+	% 在目录中加入参考文献、索引（如果存在）等的条目，但不加入“目录”自身。
+	\RequirePackage[nottoc]{tocbibind}
+	% 在生成的 pdf 中加入“目录”的书签。
+	\let\tmp@tableofcontents\tableofcontents
+	\renewcommand{\tableofcontents}{
+		% 使生成的 pdf 中“目录”的书签刚好指向目录的标题处。
+		\cleardoublepage
+		% 在生成的 pdf 中加入相当于“章”一级的书签。
+		\pdfbookmark[1]{\contentsname}{contents}
+		\tmp@tableofcontents
 	}
 \fi
 
-\ifpkuthss@extra@font
-	% 使得打字机粗体可以被使用。
-	\RequirePackage{lmodern}
-	% 产生 originauth.tex 里的 \square。
-	\RequirePackage{amssymb}
+\ifpkuthss@extraopt@spechap
+	% 此命令用于开始不标号的一章。
+	% 通过 \matkboth 命令设置相应的页眉内容（尽管可能不显示）。
+	\newcommand\specialchap[1]{
+		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
+		\markboth{#1}{}\phantomsection
+	}
 \fi
 
-\ifpkuthss@extra@tbi
-	% 在生成的 pdf 中手动加入“目录”的书签，但不在目录中显示“目录”自己。
-	\RequirePackage{tocbasic}
-	\BeforeTOCHead{\pdfbookmark[1]{\contentsname}{thecontents}}
-	% 将参考文献、索引（如果存在）等加入目录中，但不包括“目录”本身。
-	\usepackage[nottoc]{tocbibind}
-\fi
-
-\ifpkuthss@extra@cite
+\ifpkuthss@extraopt@upcite
 	% 使引用标记默认成为上标。
-	\RequirePackage{cite}
-	\newcommand{\ncite}[1]{[\citen{#1}]}
-	\renewcommand{\cite}[1]{\mbox{}\textsuperscript{\ncite{#1}}\mbox{}}
+	\RequirePackage{natbib}
+	\setcitestyle{super,square,comma}
 \fi
-
-\AtEndOfPackage{
-	\ifpkuthss@extra@color
-		% 在生成的 pdf 中使用彩色的超链接。
-		\hypersetup{colorlinks=true}
-	\else
-		% 将所有超链接改为黑色，以免打印时相应部分颜色过淡。
-		\hypersetup{colorlinks=false, pdfborder={0 0 0}}
-	\fi
-}
 
 \AtBeginDocument{
-	\ifpkuthss@extra@meta
-		% 在生成标题页时自动设定 pdf 文档的文档信息。
+	\ifpkuthss@extraopt@pdfmeta
+		% 在生成标题页时自动设置 pdf 文档的文档信息。
+		% 在这个时候进行这项设置是因为此时所有的文档信息应该已经设置完毕。
 		\let\tmp@maketitle\maketitle
 		\renewcommand\maketitle{
 			% 注意 \hypersetup 一定要在原 \maketitle 之前，否则会失效。
@@ -125,6 +131,14 @@
 			}
 			\tmp@maketitle
 		}
+	\fi
+
+	\ifpkuthss@extraopt@linkcolor
+		% 在生成的 pdf 中使用彩色的链接。
+		\hypersetup{colorlinks=true}
+	\else
+		% 将所有链接改为黑色，以免打印时相应部分颜色过淡。
+		\hypersetup{colorlinks=false, pdfborder={0 0 0}}
 	\fi
 }
 

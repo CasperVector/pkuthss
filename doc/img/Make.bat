@@ -1,3 +1,7 @@
+@rem Copyright (c) 2008-2009 solvethis
+@rem Copyright (c) 2010-2011 Casper Ti. Vector
+@rem Public domain.
+
 @echo off
 
 set GS=gswin32c

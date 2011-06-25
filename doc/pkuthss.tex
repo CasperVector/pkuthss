@@ -1,19 +1,20 @@
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2011 Casper Ti. Vector
+% Public domain.
+
 \documentclass[UTF8]{pkuthss}
 
-% 提供 Verbatiminput 命令。
+% 使得打字机粗体可以被使用。
+\usepackage{lmodern}
+% 产生 originauth.tex 里的 \square。
+\usepackage{amssymb}
+% 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
-
-% 此命令专用于排版包含在 pkuthss 文档类源文件中的代码。其中前 26 行为共用的
-% 头部（主要为版权声明），故没有列出。
-\newcommand{\VerbatimCode}{\VerbatimInput[%
-	frame=lines,fontsize=\small,tabsize=2,
-	baselinestretch=1.25,firstline=27,numbers=left
-]}
+% pkuthss 文档模版的版本。
+\newcommand{\docversion}{v1.3 alpha2}
 
 % 参考文献格式。
 \bibliographystyle{ref/chinesebst}
-% 文档类版本。
-\newcommand{\docversion}{v1.3 alpha1}
 % 设定文档的基本信息。
 \pkuthssinfo{
 	cthesisname={本科生毕业论文},ethesisname={Undergraduate Thesis},
@@ -21,17 +22,19 @@
 	etitle={The PKU dissertation document class\\pkuthss \docversion},
 	cauthor={盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
 	eauthor={Casper Ti.\ Vector},
-	studentid={OXXXXXXX},
+	studentid={00910???},
 	date={二〇一一年一月},
 	school={化学与分子工程学院},
 	cmajor={化学},emajor={Chemistry},direction={理论和计算化学},
 	cmentor={XX 教授},ementor={Prof.\ XX},
-	ckeywords={\LaTeX2e，排版，文档类，\CTeX},
-	ekeywords={\LaTeX2e, typesetting, document class, \CTeX},
+	ckeywords={\LaTeX2e{}，排版，文档类，\CTeX{}},
+	ekeywords={\LaTeX2e{}, typesetting, document class, \CTeX{}},
 }
+
 \begin{document}
-	%% 以下为正文之前的部分。
+	% 以下为正文之前的部分。
 	\frontmatter
+
 	% 自动生成标题页。
 	\maketitle
 	% 版权声明。
@@ -41,7 +44,7 @@
 	% 自动生成目录。
 	\tableofcontents
 
-	%% 以下为正文。
+	% 以下为正文。
 	\mainmatter
 
 	% 绪言。
@@ -61,13 +64,12 @@
 		\include{chap/encl2}
 	\end{appendix}
 
-	%% 以下为正文之后的部分。
+	% 以下为正文之后的部分。
 	\backmatter
 
 	% 致谢。
 	\include{chap/thanks}
-	% 原创性声明和使用授权说明，不显示页码。
-	\cleardoublepage\pagestyle{empty}
+	% 原创性声明和使用授权说明。
 	\include{chap/originauth}
 \end{document}
 
