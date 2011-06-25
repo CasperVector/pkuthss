@@ -35,6 +35,22 @@
 \newif\ifpkuthss@opt@extra \pkuthss@opt@extratrue
 \DeclareOption{extra}{\pkuthss@opt@extratrue}
 \DeclareOption{noextra}{\pkuthss@opt@extrafalse}
+% eg. `\pkuthss@int@extra{spacing}' will expand to:
+%   \DeclareOption{spacing}{\PassOptionsToClass{spacing}{pkuthss-extra}}
+%   \DeclareOption{nospacing}{\PassOptionsToClass{nospacing}{pkuthss-extra}}
+\def\pkuthss@int@extra#1{
+	\DeclareOption{#1}{\PassOptionsToClass{#1}{pkuthss-extra}}
+	\DeclareOption{no#1}{\PassOptionsToClass{no#1}{pkuthss-extra}}
+}
+% Pass options to `pkuthss-extra'.
+% See pkuthss-extra.sty for an explanation of the options.
+\pkuthss@int@extra{spacing}
+\pkuthss@int@extra{tightlist}
+\pkuthss@int@extra{tocbibind}
+\pkuthss@int@extra{spechap}
+\pkuthss@int@extra{upcite}
+\pkuthss@int@extra{pdfmeta}
+\pkuthss@int@extra{linkcolor}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
