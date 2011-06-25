@@ -1,4 +1,37 @@
-\chapter{更新记录}
+\chapter{pkuthss 文档模版的实现}
+\raggedbottom % 避免某些奇怪的“Underfull \vbox”警告。
 
-\verbatiminput{ChangeLog.txt}
+	\section{pkuthss 文档类的实现}
+	源文件被列出的顺序是按照其被调用的顺序，
+	代码前面 26 行共用的文件头（主要为版权声明）均没有列出。
+
+		\subsection{\texttt{pkuthss.cls}}
+		\VerbatimCode{pkuthss.cls}
+
+		\subsection{\texttt{pkuthss-option.def}}
+		\VerbatimCode{pkuthss-option.def}
+
+		\subsection{\texttt{pkuthss-common.def}}
+		\VerbatimCode{pkuthss-common.def}
+
+		\subsection{\texttt{pkuthss-utf8.def} 和 \texttt{pkuthss-gbk.def}}
+		\VerbatimCode{pkuthss-utf8.def}
+
+		\subsection{\texttt{pkuthss-extra.sty}}
+		\VerbatimCode{pkuthss-extra.sty}
+
+	\section{其余部分} % FIXME
+
+	pkuthss 文档模板的源代码中，除已经有了较为详细的注释，
+	故请直接参照相应文件中的注释。
+
+	\emph
+	{%
+		注：%
+		\texttt{img/} 目录中的 %
+		\texttt{Makefile} 和两个 PostScript（\texttt{.ps}）文件中%
+		也有详细的注释哦 :)
+	}
+
+\flushbottom % 取消 \raggedend 的作用。
 

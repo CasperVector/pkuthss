@@ -1,0 +1,188 @@
+% vim:ft=tex:ts=2:sw=2
+%
+% Peking University dissertation document class
+%
+% Copyright (c) 2008-2009 solvethis.
+% Copyright (c) 2010-2011 Casper Ti. Vector.
+%
+% This work may be distributed and/or modified under the conditions of the
+% LaTeX Project Public License, either version 1.3 of this license or (at
+% your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX version
+% 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% The current maintainer of this work is Casper Ti. Vector.
+%
+% This work consists of the following files:
+%   pkuthss.cls
+%   pkuthss-option.def
+%   pkuthss-common.def
+%   pkuthss-gbk.def
+%   pkuthss-utf8.def
+%   pkuthss-extra.sty
+
+% pkuthss-common.def 定义了文档类中使用的命令和环境。
+
+% 设定页面布局。
+\geometry{height=240mm,width=150mm,includeheadfoot,headheight=1.2em}
+% 设定页眉、页脚样式。
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[LE]{\small\songti\leftmark}
+\fancyhead[RO]{\small\songti\rightmark}
+\fancyhead[LO,RE]{\small\songti\cuniversity\cthesisname}
+\fancyfoot[RO,LE]{\small --~\thepage~--}
+% 设定每个章一级部分的第一页的页眉、页脚样式。
+\fancypagestyle{plain}{
+	\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[RO,LE]{\small --~\thepage~--}
+}
+
+% 例如：
+% \@infoitema{ctitle} 最终被扩展为：
+%   \def\ctitle#1{\def\@title{#1}}
+%   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
+\def\@infoitema#1{
+	\expandafter\def\csname #1\endcsname##1%
+		{\expandafter\def\csname @#1\endcsname{##1}}
+	\expandafter\define@key{pkuthss@info}{#1}{\csname #1\endcsname{##1}}
+}
+% 例如：
+% \@infoitemb{cuniversity} 最终被扩展为：
+%   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
+\def\@infoitemb#1{
+	\expandafter\define@key{pkuthss@info}{#1}%
+		{\expandafter\def\csname #1\endcsname{##1}}
+}
+% 设定各项文档信息的具体内容。
+\@infoitema{ctitle}
+\@infoitema{etitle}
+\@infoitema{cauthor}
+\@infoitema{eauthor}
+\@infoitema{studentid}
+\@infoitema{date}
+\@infoitema{school}
+\@infoitema{cmajor}
+\@infoitema{emajor}
+\@infoitema{direction}
+\@infoitema{cmentor}
+\@infoitema{ementor}
+\@infoitema{ckeywords}
+\@infoitema{ekeywords}
+\@infoitemb{cuniversity}
+\@infoitemb{euniversity}
+\@infoitemb{cthesisname}
+\@infoitemb{ethesisname}
+\@infoitemb{cabstractname}
+\@infoitemb{eabstractname}
+\newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
+
+% 此命令用下划线填充指定的空间。
+\newcommand{\@fillinblank}[2]{\CJKunderline{\makebox[#1]{#2}}}
+% 此命令将对象放到页面底部。
+\newcommand{\@putonbottom}[1]{
+	\begin{figure}[b!]\begin{minipage}{\textwidth}%
+	{#1}\end{minipage}\end{figure}
+}
+
+% 设定标题页格式，并在生成标题页时设定文档信息。
+\renewcommand{\maketitle}{
+	\cleardoublepage
+	\begin{titlepage}
+		% 居中。
+		\begin{center}
+			% 第一部分：校徽、“北京大学”字样和论文类别。
+			{
+				\includegraphics[height=0.07\textheight]{img/pkulogo}\hspace{1em}
+				\includegraphics[height=0.07\textheight]{img/pkuword}\\[2.25em]
+				{\zihao{1}\bfseries\cthesisname}
+			}
+			\vfill
+			% 第二部分：论文标题。
+			{
+				\zihao{2}{\label@ctitle}
+				\makebox[0pt][t]{
+					\begin{minipage}[t]{12em}
+						\centering\textbf{\@ctitle}
+					\end{minipage}%
+				}
+				\parbox[t]{12em}{\@fillinblank{12em}{}\\ \@fillinblank{12em}{}}\par
+			}
+			\vfill
+			% 第三部分：作者信息。
+			{
+				\zihao{-2}
+				\begin{tabular}{l@{\extracolsep{0.2em}}c}
+					{\label@cauthor}		&	\@fillinblank{12em}{\kaishu\@cauthor}
+						\\[2pt]
+					{\label@studentid}	&	\@fillinblank{12em}{\kaishu\@studentid}
+						\\[2pt]
+					{\label@school}			&	\@fillinblank{12em}{\kaishu\@school}
+						\\[2pt]
+					{\label@cmajor}			&	\@fillinblank{12em}{\kaishu\@cmajor}
+						\\[2pt]
+					{\label@direction}	&	\@fillinblank{12em}{\kaishu\@direction}
+						\\[2pt]
+					{\label@cmentor}		&	\@fillinblank{12em}{\kaishu\@cmentor}
+				\end{tabular}
+			}
+			\vfill
+			% 第四部分：日期。
+			{\kaishu\zihao{2}\@date}
+		\end{center}
+	\end{titlepage}
+}
+
+% 此命令用于开始不标号的一章。
+% 通过 \matkboth 命令设置相应的页眉内容（尽管可能不显示）。
+\newcommand\specialchap[1]{
+	\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
+	\markboth{#1}{}\phantomsection
+}
+
+% 用于排版摘要的内部环境。
+\newenvironment{@abstract}{
+	\chapter*{\zihao{-2}\tmp@title}
+	\markboth{\tmp@abstractname}{}
+	\vspace{-2em}\par
+	\begin{center}
+ 		\zihao{-3}
+ 		{\tmp@author}\quad{\tmp@major}\\
+ 		{\tmp@label@mentor}{\tmp@mentor}
+	\end{center}
+	\vspace{1em}\par
+	\section*{\zihao{4}\tmp@abstractname}
+	\vskip 0.5em
+}{% 在页面底部排版关键词。
+	\@putonbottom{\textbf{\tmp@label@keywords}\tmp@keywords}
+}
+
+% 此环境用于排版中文摘要。
+\newenvironment{cabstract}{
+	\let\tmp@title\@ctitle
+ 	\let\tmp@author\@cauthor
+	\let\tmp@major\@cmajor
+ 	\let\tmp@mentor\@cmentor
+ 	\let\tmp@keywords\@ckeywords
+ 	\let\tmp@label@mentor\label@cmentor
+ 	\let\tmp@label@keywords\label@ckeywords
+	\let\tmp@abstractname\cabstractname
+	\begin{@abstract}
+}{\end{@abstract}}
+
+% 此环境用于排版英文摘要。
+\newenvironment{eabstract}{
+	\let\tmp@title\@etitle
+ 	\let\tmp@author\@eauthor
+	\let\tmp@major\@emajor
+ 	\let\tmp@mentor\@ementor
+ 	\let\tmp@keywords\@ekeywords
+ 	\let\tmp@label@mentor\label@ementor
+ 	\let\tmp@label@keywords\label@ekeywords
+	\let\tmp@abstractname\eabstractname
+	\begin{@abstract}
+}{\end{@abstract}}
+
+\endinput

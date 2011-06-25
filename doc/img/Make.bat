@@ -10,8 +10,8 @@ if "%1"=="" goto pdf
 if "%1"=="clean" (goto clean) else (goto usage)
 
 :pdf
-%GS% %GSOPTS% %WIDTHOPT%400 %HEIGHTOPT%400 %OUTPUTOPT%pkulogo.pdf -f pkulogo.ps
-%GS% %GSOPTS% %WIDTHOPT%525 %HEIGHTOPT%150 %OUTPUTOPT%pkuword.pdf -f pkuword.ps
+%GS% %GSOPTS% %WIDTHOPT%400 %HEIGHTOPT%400 %OUTPUTOPT%pkulogo.pdf -f pkulogo.eps
+%GS% %GSOPTS% %WIDTHOPT%525 %HEIGHTOPT%150 %OUTPUTOPT%pkuword.pdf -f pkuword.eps
 goto end
 
 :clean

@@ -1,6 +1,6 @@
 @echo off
 
-set JOBNAME=sample
+set JOBNAME=pkuthss
 set LATEX=latex
 set BIBTEX=bibtex
 set DVIPDF=dvipdfmx

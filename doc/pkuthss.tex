@@ -1,69 +1,48 @@
-\documentclass[UTF8,hyperref]{pkuthss}
+\documentclass[UTF8]{pkuthss}
 
-% 产生 originauth.tex 里的 \Square。
-\usepackage{wasysym}
-% 提供 verbatiminput 命令和 comment 环境。
-\usepackage{verbatim}
+% 提供 Verbatiminput 命令。
+\usepackage{fancyvrb}
 
-% 设置页芯居中。
-\geometry{centering}
-% 设定行距。
-\renewcommand{\baselinestretch}{1.5}
+% 此命令专用于排版包含在 pkuthss 文档类源文件中的代码。其中前 26 行为共用的
+% 头部（主要为版权声明），故没有列出。
+\newcommand{\VerbatimCode}{\VerbatimInput[%
+	frame=lines,fontsize=\small,tabsize=2,
+	baselinestretch=1.25,firstline=27,numbers=left
+]}
 
-% 使引用标记成为上标。
-\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
-% 罗列环境中如果每个项目都只有一行左右，则会显得很松散，此时可采用这个命令。
-\newcommand{\denselist}{\setlength{\itemsep}{0pt}}
-\newcommand{\docversion}{v1.2}
-
+% 参考文献格式。
+\bibliographystyle{ref/chinesebst}
+% 文档类版本。
+\newcommand{\docversion}{v1.3 alpha1}
+% 设定文档的基本信息。
+\pkuthssinfo{
+	cthesisname={本科生毕业论文},ethesisname={Undergraduate Thesis},
+	ctitle={北京大学论文文档模板\\pkuthss \docversion},
+	etitle={The PKU dissertation document class\\pkuthss \docversion},
+	cauthor={盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
+	eauthor={Casper Ti.\ Vector},
+	studentid={OXXXXXXX},
+	date={二〇一一年一月},
+	school={化学与分子工程学院},
+	cmajor={化学},emajor={Chemistry},direction={理论和计算化学},
+	cmentor={XX 教授},ementor={Prof.\ XX},
+	ckeywords={\LaTeX2e，排版，文档类，\CTeX},
+	ekeywords={\LaTeX2e, typesetting, document class, \CTeX},
+}
 \begin{document}
-	%% 设定生成的 pdf 的文档信息。
-	\hypersetup
-	{
-		pdfauthor={Casper Ti. Vector},
-		pdftitle={北京大学论文文档模板 pkuthss \docversion},
-		pdfsubject={北京大学本科生毕业论文},
-		pdfkeywords={LaTeX2e，排版，文档类，CTeX}
-	}
-
-	%% 各种文档信息。
-	\renewcommand{\thesisname}{本科生毕业论文}
-	% 题目一般不宜超过 20 个字。
-	\title{北京大学论文文档模板\\pkuthss \docversion}
-	\etitle{The PKU dissertation document class\\pkuthss \docversion}
-	\author{盖茨波~$\cdot$~钛~$\cdot$~维克托}
-	\eauthor{Casper Ti.\ Vector}
-	\studentid{OXXXXXXX}
-	\date{二〇一〇年十一月}
-	\school{化学与分子工程学院}
-	\major{化学}
-	\emajor{Chemistry}
-	\direction{理论和计算化学}
-	\mentor{XX~教授}
-	\ementor{Prof.\ XX}
-	% 关键词应有 3~5 个。
-	\keywords{\LaTeX2e，排版，文档类，\CTeX}
-	\ekeywords{\LaTeX2e, typesetting, document class, \CTeX}
-
-	%% 以下为正文之前的部分，页码为小写罗马数字。
-	\frontmatter\pagenumbering{roman}
-
+	%% 以下为正文之前的部分。
+	\frontmatter
 	% 自动生成标题页。
 	\maketitle
 	% 版权声明。
 	\include{chap/copyright}
 	% 中英文摘要。
 	\include{chap/abstract}
-
-	% 使 \pdfbookmark 产生的书签链接到的位置正好在目录的开始。
-	\cleardoublepage
-	% 在生成的 pdf 中手动加入“目录”的书签，但不在目录中显示“目录”自己。
-	\pdfbookmark[1]{\contentsname}{thecontents}
 	% 自动生成目录。
 	\tableofcontents
 
-	%% 以下为正文，页码为小写罗马数字，但不显示页眉和页脚。
-	\mainmatter\pagenumbering{arabic}
+	%% 以下为正文。
+	\mainmatter
 
 	% 绪言。
 	\include{chap/introduction}
@@ -71,25 +50,19 @@
 	\include{chap/chap1}
 	\include{chap/chap2}
 	\include{chap/chap3}
-	\include{chap/chap4}
 	% 结论。
 	\include{chap/conclusion}
-	
+
 	\begin{appendix}
 		% 参考文献。
-		\bibliographystyle{chinesebst}\bibliography{sample}
-		% 此命令手动地在目录中增加相当于章级别的一行。
-		\addcontentsline{toc}{chapter}{\bibname}
-		% 此命令和真实的一级章命令结合，从而使 \addcontentsline
-		% 在目录中产生的页码正常。
-		\phantomsection
-
+		\bibliography{ref/pkuthss}
 		% 各附录。
 		\include{chap/encl1}
+		\include{chap/encl2}
 	\end{appendix}
 
-	%% 以下为正文之后的部分，页码为大写罗马数字。
-	\backmatter\pagenumbering{Roman}
+	%% 以下为正文之后的部分。
+	\backmatter
 
 	% 致谢。
 	\include{chap/thanks}

@@ -20,10 +20,10 @@ endif
 
 all: pkulogo.pdf pkuword.pdf
 
-pkulogo.pdf: pkulogo.ps
+pkulogo.pdf: pkulogo.eps
 	$(GS) $(OPTS) $(WIDTHOPT)400 $(HEIGHTOPT)400 $(OUTPUTOPT)$@ -f $<
 
-pkuword.pdf: pkuword.ps
+pkuword.pdf: pkuword.eps
 	$(GS) $(OPTS) $(WIDTHOPT)525 $(HEIGHTOPT)150 $(OUTPUTOPT)$@ -f $<
 
 .PHONY: clean

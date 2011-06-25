@@ -1,5 +1,5 @@
 # 被编译的主文件的文件名，不包括扩展名。
-JOBNAME = sample
+JOBNAME = pkuthss
 # 这个变量的值可以为 latex、pdflatex 或 xelatex。
 LATEX = latex
 BIBTEX = bibtex
@@ -29,7 +29,7 @@ img:
 img-clean:
 	cd img && $(MAKE) clean
 
-doc: img
+doc:
 	$(LATEX) $(JOBNAME)
 	$(BIBTEX) $(JOBNAME)
 	$(LATEX) $(JOBNAME)
