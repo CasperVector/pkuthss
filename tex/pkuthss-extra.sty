@@ -26,15 +26,14 @@
 \ProvidesPackage{pkuthss-extra}
 	[2011/05/23 v1.3 beta4 Common extra settings for the pkuthss document class]
 
-% 检查对 pkuthss 文档类的依赖是否满足。
+% Check the dependency of pkuthss.
 \@ifclassloaded{pkuthss}{}{
 	\PackageError{pkuthss-extra}%
 		{The pkuthss document class is not loaded}%
 		{The pkuthss-extra package depends on the pkuthss document class.}
 }
 
-% 例如：
-% \pkuthss@int@extraopt{spacing} 最终被扩展为：
+% eg. `\pkuthss@int@extraopt{spacing}' will expand to:
 %   \newif\ifpkuthss@extraopt@spacing \pkuthss@extraopt@spacingtrue
 %   \DeclareOption{spacing}{\pkuthss@extraopt@spacingtrue}
 %   \DeclareOption{nospacing}{\pkuthss@extraopt@spacingfalse}
@@ -45,64 +44,68 @@
 	\expandafter\DeclareOption{no#1}%
 		{\csname pkuthss@extraopt@#1false\endcsname}
 }
-% 是否采用一些常用的对空白进行调整的版式设定。
+% Whethet to use some common settings for adjusting spacing.
 \pkuthss@int@extraopt{spacing}
-% 是否采用比 LaTeX 默认设定更加紧密的枚举环境。
+% Whether to use list environments that are tighter than LaTeX defaults.
 \pkuthss@int@extraopt{tightlist}
-% 是否采用一些和目录、参考文献和索引等相关的常见设置。
+% Whether to use some common settings about table of contents, bibliography and
+% indexes.
 \pkuthss@int@extraopt{tocbibind}
-% 是否启用 \spacialchap 命令。
+% Whether to enable the `\spacialchap' command.
 \pkuthss@int@extraopt{spechap}
-% 是否默认使引用标记成为上标。
+% Whether to make citation labels superscript as default.
 \pkuthss@int@extraopt{upcite}
-% 是否自动根据设定的论文文档信息设置生成的 pdf 文档的文档信息。
+% Whether to automatically set metadata for generated PDF from user defined document
+% information.
 \pkuthss@int@extraopt{pdfmeta}
-% 是否在生成的 pdf 文档中使用彩色的链接。
+% Whether to use coloured hyperlinks in generated PDF.
 \pkuthss@int@extraopt{linkcolor}
-% 立刻处理所有宏包选项。
+% Process all class options now.
 \ProcessOptions\relax
 
 \ifpkuthss@extraopt@spacing
-	% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
-	% （XeCJK 自动控制这些空白，故用 XeLaTeX 编译时不需要这个宏包。）
+	% Automatically ignore spaces between CJK characters and preserve spaces in other
+	% situations. XeCJK itself will handle this issue, therefore we do not use
+	% `CJKspace' when using XeLaTeX.
 	\ifxetex\else\RequirePackage{CJKspace}\fi
-	% 使某些细节（如脚注、抄录）处的空间安排更美观。
+	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
-	% 设置页芯居中。
+	% Make the type page centered.
 	\geometry{centering}
-	% 设定行距。
+	% Set line skip.
 	\linespread{1.41}\selectfont
-	% 使脚注编号和脚注文本之间默认间隔一个空格。
+	% Automatically insert a space between the label and the text in footnotes.
 	\RequirePackage{footmisc}
 	\renewcommand{\footnotelayout}{\ }
 \fi
 
 \ifpkuthss@extraopt@tightlist
-	% 枚举环境中每个条目的内容较少时，条目往往显得稀疏。此处将枚举环境中的额外
-	% （垂直）间隔改为零。
+	% Lists often appear to be too sparse when items are just one or two lines long.
+	% Here we cancel the extra vertical spacing between list items.
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
-	% 参考文献的条目间隔往往显得较大，此处取消其额外增加的（垂直）间隔。
+	% Similarly for bibliography items.
 	\setlength{\bibsep}{\parsep}
 \fi
 
 \ifpkuthss@extraopt@tocbibind
-	% 在目录中加入参考文献、索引（如果存在）等的条目，但不加入“目录”自身。
+	% Add bibliography and indexes in table of contents, but not contents itself.
 	\RequirePackage[nottoc]{tocbibind}
-	% 在生成的 pdf 中加入“目录”的书签。
+	% Add PDF bookmark for table of contents.
 	\let\tmp@tableofcontents\tableofcontents
 	\renewcommand{\tableofcontents}{
-		% 使生成的 pdf 中“目录”的书签刚好指向目录的标题处。
+		% Make the `Contents' bookmark point correctly to the title of the table of
+		% contents.
 		\cleardoublepage
-		% 在生成的 pdf 中加入相当于“章”一级的书签。
+		% Actually add the PDF bookmark.
 		\pdfbookmark[1]{\contentsname}{contents}
 		\tmp@tableofcontents
 	}
 \fi
 
 \ifpkuthss@extraopt@spechap
-	% 此命令用于开始不标号的一章。
-	% 通过 \matkboth 命令设置相应的页眉内容（尽管可能不显示）。
+	% This command is used to start a chapter without numbering, and correctly set the
+	% headers and footers in the chapter.
 	\newcommand\specialchap[1]{
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
 		\markboth{#1}{}\phantomsection
@@ -110,30 +113,33 @@
 \fi
 
 \ifpkuthss@extraopt@upcite
-	% 使引用标记默认成为上标。
+	% Make citation labels superscript as default.
 	\setcitestyle{super,square,comma}
 \fi
 
 \AtBeginDocument{
 	\ifpkuthss@extraopt@pdfmeta
-		% 此命令自动设置 pdf 文档的文档信息。
+		% Automatically generate metadata for generated PDF.
 		\newcommand{\setpdfmetadata}{
 			\hypersetup{
 				pdfauthor={\@eauthor},pdftitle={\@etitle},
 				pdfsubject={\euniversity\ \ethesisname},pdfkeywords={\@ekeywords}
 			}
 		}
-		% 在生成标题页时进行这项设置是因为此时所有的文档信息应该已经设置完毕。
+		% Set the metadata when generating the title page because the document
+		% information should have been all defined before this.
 		\let\tmp@maketitle\maketitle
-		% 注意 \hypersetup 一定要在原 \maketitle 之前，否则会失效。
+		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
+		% act as you wished.
 		\renewcommand\maketitle{\setpdfmetadata\tmp@maketitle}
 	\fi
 
 	\ifpkuthss@extraopt@linkcolor
-		% 在生成的 pdf 中使用彩色的链接。
+		% Use coloured hyperlinks in generated PDF.
 		\hypersetup{colorlinks=true}
-	\else
-		% 将所有链接改为黑色，以免打印时相应部分颜色过淡。
+	\else hyperlinks in generated PDF.
+		% Set hyperlink colour to black in order to prevent hyperlinks from being too
+		% hard-to-recognise in printed thesis.
 		\hypersetup{colorlinks=false, pdfborder={0 0 0}}
 	\fi
 }

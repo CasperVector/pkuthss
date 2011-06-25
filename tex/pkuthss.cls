@@ -26,40 +26,40 @@
 \ProvidesClass{pkuthss}
 	[2011/05/23 v1.3 beta4 Peking University dissertation document class]
 
-% 处理编码选项。
+% Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
 \DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
 \DeclareOption{UTF8}%
 	{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
-% 是否采用默认的额外设置。
+% Whether to enable the default extra settings.
 \newif\ifpkuthss@opt@extra \pkuthss@opt@extratrue
 \DeclareOption{extra}{\pkuthss@opt@extratrue}
 \DeclareOption{noextra}{\pkuthss@opt@extrafalse}
-% 将其余的文档类参数全部传递给 ctexbook 文档类。
+% Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-% 立刻处理所有宏包选项。
+% Process all class options now.
 \ProcessOptions\relax
 
-% 此文档类以 ctexbook 为基础，设定页面尺寸为 A4，默认字号为小四号。
-% CJKfntef 宏包提供了 \maketitle 中用到的 \CJKunderline 命令。
-% fancyhdr 宏包提供了方便使用的命令用于设置页眉、页脚。
+% pkuthss is based on ctexbook; We use a4 paper size, `xiao 4' as default font size.
+% CJKfntef provides \CJKunderline used in \maketitle.
+% fancyhdr provides utilities for setting headers and footers.
 \LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2009/10/20]
-% 此宏包提供对 key=val 格式设置的支持。
+% Provide support for key=val grammar.
 \RequirePackage{keyval}
-% 此宏包提供图形支持。
+% Graphics support.
 \RequirePackage{graphicx}[1999/02/16]
-% 此宏包提供了方便使用的命令用于设置页面布局。
+% Provide utilities for setting page layout.
 \RequirePackage{geometry}
-% 此宏包提供了方便使用的命令用于设置引用标记的格式。
-% 默认使用顺序（数字)编码制。
+% Provide utilities for setting format of citation labels.
+% Use the numerical scheme as default.
 \RequirePackage[numbers]{natbib}
-% 提供后面使用的 \AtEndPreamble 命令。
+% Provide \AtEndPreamble used later.
 \RequirePackage{etoolbox}
-% 是否采用默认的额外设置。
+% Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
 \ifxetex\ifpkuthss@opt@gbk
-	% 不支持非用 XeLaTeX 编译非 UTF-8 的文档。
+	% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
 	\ClassError{pkuthss}%
 		{XeLaTeX compilation is not supported without UTF-8}%
 		{%
@@ -69,18 +69,20 @@
 \fi\fi
 
 \AtEndOfClass{%
-	% 设定各处标题的内容。
+	% Setting chinese captions and labels.
 	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
 	\else\input{pkuthss-utf8.def}
 	\fi
 
-	% 为文章中的目录、交叉和索引等自动产生链接，并自动生成书签。
-	% 代码复制自 ctex 宏包的 ctex-common.def，有改动。
-	% 不直接使用 ctex 宏包的 hyperref 选项是为了避免 1.02c 版以前的 ctex 宏
-	% 包中先调用 hyperref 而造成的和 setspace 的冲突。
-	% 考虑到新版本 ctex 宏包将逐渐被更多人采用，2013 年夏（应该正值 Casper
-	% 毕业 :)）时下面一段代码将被删除，而前面调用 ctexbook 文档类时将加上
-	% hyperref 选项。
+	% Automatically generate hyperlinks and bookmarks for table of contents, citations
+	% and index.
+	% Code copied with minor modifications from ctex-common.def in `ctex' package.
+	% Not directly using the `hyperref' option of `ctex' package in order to avoid
+	% the conflicts caused by loading of `hyperref' before `setspace' in `ctex'
+	% package older than 1.02c.
+	% This piece of code will be deleted by summer in 2013, and we will use the
+	% `hyperref' option of `ctex' package instead, considering most people
+	% will be using newer versions of `ctex' package at that time.
 	\providecommand\hypersetup[1]{\PassOptionsToPackage{#1}{hyperref}}
 	\AtEndPreamble{\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}}
 	\ifxetex
@@ -102,22 +104,21 @@
 	\fi
 }
 
-% 设定页面布局。
+% Set page layout.
 \geometry{height=240mm,width=150mm,includeheadfoot,headheight=1.2em}
-% 设定页眉、页脚样式。
+% Set headers and footers.
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[LE]{\small\normalfont\leftmark}
 \fancyhead[RO]{\small\normalfont\rightmark}
 \fancyhead[LO,RE]{\small\normalfont\cuniversity\cthesisname}
 \fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
-% 设定每个章一级部分的第一页的页眉、页脚样式。
+% Set the headers and footers on the first page in every chapter.
 \fancypagestyle{plain}{
 	\fancyhf{}\renewcommand{\headrulewidth}{0pt}
 	\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
 }
 
-% 例如：
-% \pkuthss@int@infoitema{ctitle} 最终被扩展为：
+% eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}
 %   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
 \def\pkuthss@int@infoitema#1{
@@ -125,14 +126,13 @@
 		{\expandafter\def\csname @#1\endcsname{##1}}
 	\expandafter\define@key{pkuthss@info}{#1}{\csname #1\endcsname{##1}}
 }
-% 例如：
-% \pkuthss@int@infoitemb{cuniversity} 最终被扩展为：
+% eg. `\pkuthss@int@infoitemb{cuniversity}' will expand to:
 %   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
 \def\pkuthss@int@infoitemb#1{
 	\expandafter\define@key{pkuthss@info}{#1}%
 		{\expandafter\def\csname #1\endcsname{##1}}
 }
-% 设定各项文档信息的具体内容。
+% Setting document information entries.
 \pkuthss@int@infoitema{ctitle}
 \pkuthss@int@infoitema{etitle}
 \pkuthss@int@infoitema{cauthor}
@@ -153,29 +153,30 @@
 \pkuthss@int@infoitemb{ethesisname}
 \pkuthss@int@infoitemb{cabstractname}
 \pkuthss@int@infoitemb{eabstractname}
-% 此命令用于以 key=val 格式设置文档信息。
+% Set document information using the key=value grammar.
 \newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
-% 设定封面格式，并在生成封面时设定文档信息。
+% Set format of the title page (cover).
 \renewcommand{\maketitle}{
 	\cleardoublepage
+	% Add PDF bookmark for the title page.
 	\pdfbookmark[1]{\titlepagename}{titlepage}
 	\begin{titlepage}
-		% 封面使用这个行距较为美观。
+		% It will be more nice to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
-		% 此命令用下划线填充指定的空间。
+		% Fill specified space will underline on the bottom line (not the baseline).
 		\def\pkuthss@int@fillinblank##1##2%
 			{\CJKunderline{\makebox[##1]{##2}}}
-		% 居中。
+		% Make the title page centered.
 		\begin{center}
-			% 第一部分：校徽、“北京大学”字样和论文类别。
+			% Emblem and inscription of the university, and type of thesis.
 			{
 				\includegraphics[height=0.07\textheight]{img/pkulogo}\hspace{1em}
 				\includegraphics[height=0.07\textheight]{img/pkuword}\\[2.25em]
 				{\zihao{1}\bfseries\cthesisname}
 			}
 			\vfill
-			% 第二部分：论文标题。
+			% Title of the thesis.
 			{
 				\zihao{2}
 				{\label@ctitle}\makebox[0pt][l]{
@@ -187,9 +188,9 @@
 				}
 			}
 			\vfill
-			% 第三部分：作者信息。
+			% Information about the author.
 			{
-				% 字号有改变，行距设定须稍作调整。
+				% Slightly adjust the line skip when using new font size.
 				\zihao{-2}\linespread{1.75}\selectfont
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
 					{\label@cauthor}		&
@@ -207,13 +208,13 @@
 				\end{tabular}
 			}
 			\vfill
-			% 第四部分：日期。
+			% Date.
 			{\kaishu\zihao{2}\@date}
 		\end{center}
 	\end{titlepage}
 }
 
-% 用于排版摘要的内部环境。
+% Internal environment for typesetting abstracts.
 \newenvironment{pkuthss@int@abstract}{
 	\cleardoublepage
 	\pdfbookmark[1]{\tmp@abstractname}{\tmp@abstlabel}
@@ -228,11 +229,11 @@
 	\vspace{1em}\par
 	\section*{\zihao{4}\tmp@abstractname}
 	\vskip 0.5em
-}{% 在页面底部排版关键词。
+}{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\tmp@label@keywords}{\tmp@keywords}
 }
 
-% 此环境用于排版中文摘要。
+% Typesetting the Chinese abstract.
 \newenvironment{cabstract}{
 	\def\tmp@abstlabel{cabstract}
 	\let\tmp@title\@ctitle
@@ -246,7 +247,7 @@
 	\begin{pkuthss@int@abstract}
 }{\end{pkuthss@int@abstract}}
 
-% 此环境用于排版英文摘要。
+% Typesetting the English abstract.
 \newenvironment{eabstract}{
 	\def\tmp@abstlabel{eabstract}
 	\let\tmp@title\@etitle
