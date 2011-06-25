@@ -1,0 +1,70 @@
+\chapter{用法示例}
+
+下面将一步步演示~pkuthss.cls~的用法.
+
+\section{开始写作}
+
+自然地, 我们要导入这个文档类
+\begin{verbatim}
+\documentclass{pkuthss}
+\end{verbatim}
+
+在开始正文之前, 我们需要自定义一些内容.
+比如, 如果我需要打数学公式或定理等, 就需要对它们
+作一些设置.
+
+\section{数学部分}
+
+下面是我的常用装备:
+\begin{enumerate}
+\item \verb|amsmath|~系列, 是一般数学公式必备的;
+\item \verb|ntheorem|, 用于自定义定理环境;
+\item \verb|xy-pic|, 用于作交换图表.
+\end{enumerate}
+
+具体地, 下述代码就是一例:
+\begin{verbatim}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage[all,import]{xy}
+
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\numberwithin{equation}{chapter}   %% 设置方程分章编号
+
+% 从1.0rc2版以后, preamble可以直接使用中文.
+\theorembodyfont{\kaishu}
+\theoremheaderfont{\heiti}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{lemma}[definition]{引理}
+\newtheorem{proposition}[definition]{命题}
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{corollary}[definition]{推论}
+\theorembodyfont{\songti}
+\newtheorem{example}[definition]{例}
+\newtheorem*{remark}{注\ }
+\theoremsymbol{$\square$}
+\newtheorem*{proof}{证明}
+\end{verbatim}
+
+为方便使用, 以上代码被放在文件~\verb|chaps/mydefs.tex|~中.
+
+\section{其他部分}
+
+对于非数学专业, 我觉得使用~\LaTeX~应该也是很正常的, 这也是我
+不在文档类中加入上述数学相关代码的原因.
+
+作为一个小的示例, 我们来看~\verb|chaps/mydefs.tex|~中的一个设置:
+\begin{center}
+\begin{verbatim}
+\usepackage[cross,a4,center]{crop}
+\end{verbatim}
+\end{center}
+\verb|crop|~宏包是用来产生裁剪线的(请观察~\verb|sample.pdf|~的页面四个角),
+如果不希望产生这些线条, 可注释掉这一行. 这可以方便地用于区分修改版和定稿版.
+
+另外, 在~\verb|chaps/mydefs.tex|~中, \verb|hyperref|~宏包用来产生链接和书签.
+如果不需要这些, 也可注释掉这部分.
+
+\LaTeX~的宏包非常丰富, 推荐阅读~\cite{ch8}.
+
+做完这些设置以后, 就可以开始写作正文了. 具体可参见~\verb|sample.tex|.

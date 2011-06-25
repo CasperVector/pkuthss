@@ -1,0 +1,46 @@
+\documentclass[GB]{pkuthss}
+
+\input{chaps/mydefs} %% 个人的设置都放在mydefs.tex中.
+
+%\includeonly{chaps/1}   %% 第一次编译完成后, 如果只修改了1.tex,
+                         %% 可以使用这个命令, 加快编译速度.
+
+\begin{document}
+
+%\renewcommand{\thesisname}{学士学位论文}
+
+\title{北京大学论文文档类}
+\author{solvethis}
+\studentid{10xxxxxx}
+\school{xx学院}
+\major{xxxx}
+\direction{xxxxx}
+\supervisor{xx\ 教授}
+\keywords{\LaTeX2e, 排版, 文档类}
+
+\etitle{The PKU dissertation document class}
+\eauthor{lili}
+\emajor{(My major)}
+\esupervisor{(My supervisor)}
+\ekeywords{\LaTeX2e, typesetting, document class}
+
+\maketitle
+
+\frontmatter
+\include{chaps/abstract}
+\include{chaps/eabstract}
+
+\tableofcontents
+
+\mainmatter
+\include{chaps/introduction}
+\include{chaps/1}
+\include{chaps/2}
+\include{chaps/3}
+\include{chaps/conclusion}
+
+\backmatter
+\bibliography{chaps/sample}
+\include{chaps/thanks}
+
+\end{document}

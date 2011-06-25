@@ -1,0 +1,30 @@
+%\usepackage{amsmath,amssymb,amsfonts}
+%\usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+%\usepackage[all,import]{xy} %交换图表
+\usepackage{verbatim} %防止verbatim环境造成memory overflow
+
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[dvipdfm]{hyperref}
+  \AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}}
+\fi
+\hypersetup{CJKbookmarks,bookmarksnumbered,%
+            colorlinks=false,%
+            plainpages=false,pdfstartview=FitH}
+
+%\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+%\numberwithin{equation}{chapter}   %% 设置方程分章编号
+%
+%\theorembodyfont{\kaishu}
+%\theoremheaderfont{\heiti}
+%\newtheorem{definition}{定义}[chapter]
+%\newtheorem{lemma}[definition]{引理}
+%\newtheorem{proposition}[definition]{命题}
+%\newtheorem{theorem}[definition]{定理}
+%\newtheorem{corollary}[definition]{推论}
+%\theorembodyfont{\songti}
+%\newtheorem{example}[definition]{例}
+%\newtheorem*{remark}{注\ }
+%\theoremsymbol{\ensuremath{\square}}
+%\newtheorem*{proof}{证明}

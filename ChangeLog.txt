@@ -1,0 +1,33 @@
+
+2008/03/13, rev 1.1.
+  --- 更正了`geometry', 将纸张大小设为``a4paper''.
+  --- 更新了chaps/mydefs.tex, 将`colorlinks'设为``false'', 
+      因为带颜色的链接在黑白打印机上打出来往往颜色很浅.
+  --- 更正了chaps/sample.bib, 将``SOURCE''改为``URL''. 这样
+      BibTeX虽然又会Warning, 不过这样概念上更正确, 而且结果还不
+      错.
+  --- 删除了pkuthss.cls和pkuthss.def的部分内容. 因为最后的两个声
+      明都不必装订到论文中.
+
+2007/12/12, rev 1.0rc4.
+  --- 将``\bibstyle''设为``chinesebst''.
+
+2007/09/05, rev 1.0rc3.
+  --- 封面页作了小的调整. 当标题只有一行时也不会产生Warning. 现在
+      的实现方法使用的是标准的LaTeX box.
+  --- 加入了`graphicx'的版本要求.
+
+2007/09/04, rev 1.0rc2.
+  --- 在preamble部分现在可使用中文.
+  --- 更正了版心尺寸, 即在`geometry'的选项中加入了includeheadfoot.
+  --- 改进了pkulogo.ps, 并提供了imgs/Makefile.
+
+2007/09/02, rev 1.0rc1.
+  --- 由于``\ifx\pdfoutput\undefined''在teTeX-3.0中不起作用, 改为
+      使用`ifpdf'宏包.
+  --- sample.tex and chaps/1.tex changed accordingly.
+  --- Linux|Unix的默认编译方式改为使用pdflatex. 见Makefile.
+  --- 消除了运行BibTeX时出现的一个Warning.
+
+2007/09/01, rev 1.0beta.
+  --- 最初的尝试.
