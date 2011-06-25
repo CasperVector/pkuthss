@@ -21,7 +21,7 @@
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2010/08/01 v1.2beta3 Peking University dissertation document class]
+	[2010/08/31 v1.2beta4 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifPKUTHSS@GBK \PKUTHSS@GBKtrue
@@ -37,6 +37,9 @@
 \RequirePackage{graphicx}[1999/02/16]
 % 此宏包提供了方便使用的命令用于设置页面布局。
 \RequirePackage{geometry}
+% 使某些细节（如脚注、抄录）处的空间安排更美观。
+\RequirePackage{setspace}
+
 \ifxetex
 	% 不支持非用 XeLaTeX 编译非 UTF-8 的文档。
 	\ifPKUTHSS@GBK
@@ -49,7 +52,7 @@
 	\fi
 \else
 	% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
-  \RequirePackage{CJKspace}
+	\RequirePackage{CJKspace}
 \fi
 
 % 设定页面布局。

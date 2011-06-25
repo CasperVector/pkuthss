@@ -35,7 +35,7 @@ doc: img
 
 .PHONY: clean dist-clean
 clean:
-	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).out  $(JOBNAME).thm\
+	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).out $(JOBNAME).thm\
 		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).blg\
 		$(JOBNAME).bbl $(JOBNAME).dvi missfont.log
 	$(RM) chap/*.aux

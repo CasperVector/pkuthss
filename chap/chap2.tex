@@ -81,7 +81,7 @@
 		而如果要设定中文摘要的标题为“摘\hspace{2em}要”，
 		则可以使用以下命令：
 \begin{verbatim}
-      \renewcommand{\abstractname}{摘\hspace{2em}要}
+      \renewcommand{\cabstractname}{摘\hspace{2em}要}
 \end{verbatim}
 
 		\subsection{其它命令}
@@ -114,6 +114,8 @@
 			\item graphicx\supercite{graphicx-doc}：提供图形支持。
 			\item geometry\supercite{geometry-doc}：用于设置页面布局。
 			\item fancyhdr\supercite{fancyhdr-doc}：用于设置页眉、页脚。
+			\item setspace：
+				用于调整脚注、抄录等处的一些细节，使之更加美观。
 		\end{itemize}
 		因此，ctexbook~文档类和这些宏包所提供的命令均可以使用。
 
@@ -134,7 +136,7 @@
 
 	\section{pkuthss~文档类定义的环境}
 
-	pkuthss~文档类定义了两个环境——\verb|cabstract|~和~\verb|cabstract|，
+	pkuthss~文档类定义了两个环境——\verb|cabstract|~和~\verb|eabstract|，
 	分别用于编写中文和英文摘要。
 	用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
 
