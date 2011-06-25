@@ -9,7 +9,7 @@ DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
 README = README
 TOLF = dos2unix -q
 TOCRLF = unix2dos -q
-# 让 find(1) 忽略 svn/git 目录。
+# svn/git directories are unwanted in packaged releases.
 FIND_VCSDIR = -type d -name '.svn' -o -name '.git' -prune
 FIND_FILENOVCS = -not \( $(FIND_VCSDIR) \) -type f
 
@@ -25,7 +25,6 @@ dist-dir: tex/ doc/
 	cp -r doc/ $(DOC_UTF8LF)/
 	mv -f $(DOC_UTF8LF)/license/ $(DIST_DOC)/
 	cp -r $(DOC_UTF8LF)/ $(DOC_GBKCRLF)/
-# 发布时用户不需要 svn/git 目录。
 	find $(PROJECT)/ $(FIND_VCSDIR) -exec rm -rf '{}' ';'
 
 doc-utf8lf:
