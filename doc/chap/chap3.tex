@@ -27,6 +27,15 @@
 		研究生手册和其电子版\cite{pku-thesisstyle}要求的论文封面并不一致。
 		这里以电子版为准。
 
+		\subsection{其它可能存在的问题}
+
+		使用 GBK 编码和 pdf\LaTeX{} 编译方式时需要用户%
+		运行 gbk2uni 程序来转换 .out 文件，
+		否则生成的 pdf 书签可能乱码。
+		考虑到用户可能没有 gbk2uni 程序，
+		默认的 Makefile 和 Make.bat 中将相关代码注释掉了，
+		用户在确定自己有 gbk2uni 程序时可去掉相应的注释。
+
 	\section{反馈意见和建议}
 
 	关于 pkuthss 文档模板的意见和建议，

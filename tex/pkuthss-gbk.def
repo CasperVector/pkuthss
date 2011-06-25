@@ -22,6 +22,9 @@
 %   pkuthss-utf8.def
 %   pkuthss-extra.sty
 
+\ProvidesFile{pkuthss-gbk.def}
+  [2011/05/23 v1.3beta4 Labels and captions in UTF-8 encoding for the pkuthss document class]
+
 \def\label@ctitle{题目：}
 \def\label@cauthor{姓\hspace{2em}名：}
 \def\label@studentid{学\hspace{2em}号：}

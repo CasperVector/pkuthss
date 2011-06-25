@@ -45,8 +45,8 @@
 				\item \verb|Makefile|：图片部分的 Makefile。
 				\item \verb|Make.bat|：%
 					Windows 下的伪“Makefile”，用 Windows 批处理实现。
-				\item \verb|pkulogo.ps|：北京大学校徽。
-				\item \verb|pkuword.ps|：“北京大学”字样。
+				\item \verb|pkulogo.eps|：北京大学校徽。
+				\item \verb|pkuword.eps|：“北京大学”字样。
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
@@ -58,33 +58,38 @@
 		\item 一个基本的 \TeX{} 发行版。
 		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
 		\item ctex 宏包\cite{ctex,ctex-faq}（提供了 ctexbook 文档类）。
-		\item 中文字体\footnote{%
-			用户如果使用中易公司的字体，
-			则推荐使用 Windows Vista 及其以后版本中提供的楷体和仿宋体，
-			否则可能有不在 GB2312 范围内的字符无法被编译进 pdf 文档中。%
-		}。
+		\item 中文字体\footnote{\emph{%
+			一些中文字体的字库不全，
+			只有 GB2312 字符集内字符的字体信息。
+			这种情况通常会造成编译生成的 pdf 文件中缺少部分字符，
+			其中一种典型症状是封面的“〇”字显示不出来。
+			如果要使用中易公司的字体，
+			则建议使用 Windows Vista 及其以后版本提供的%
+			宋体、黑体、楷体和仿宋体，
+			以及 Microsoft Office 2003 及其以后版本提供的隶书和幼圆体，
+			这些字体是 GB18030 字符集的，不存在上述问题。%
+		}}。
 		\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
 			但如果使用由批处理实现的伪“Makefile”就不用了。
 	\end{itemize}
 
 	最新的 \TeX{}Live 系统和 \CTeX{} 套装都已经包含%
-	除中文字体之外所有要求的项目；中文字体需要用户自行获得。
+	除中文字体之外所有要求的项目；
+	中文字体需要用户自行获得。
 
 	Linux 用户可以从软件源获得 GNU 的 make；
 	其它类 UNIX 系统应该也会提供 make 工具，请参阅相应的文档以获得帮助。%
-	Windows 用户可以从以下地址下载 Windows 下的 GNU make 工具：
-	\begin{itemize}
-		\item
-		\url{http://gnuwin32.sourceforge.net/packages/make.htm}（国际网）
-		\item
-		\url{http://c.pku.edu.cn/software/c/mingw-c.7z}\footnote%
-		{感谢曹东刚老师在教学网站提供 GNU make 的下载。}（北大校园网）
-	\end{itemize}
+	Windows 用户可以从以下地址下载 Windows 下的 GNU make 工具：\\
+	\hspace*{\parindent}%
+	\url{http://gnuwin32.sourceforge.net/packages/make.htm}
 
 	为了获得最好的支持，
-	我们建议用户使用最新版的 \TeX{} 系统和各宏包\footnote%
-		{使用 \TeX{}Live 2009 及其以上稳定版本的用户可以正常使用本模板。}。
-
+	我们建议用户使用最新版的 \TeX{} 系统和各宏包。
+	根据目前已有的测试结果，
+	使用 \TeX{}Live 2009 及其以上稳定版本%
+	或 \CTeX{} 套装 v2.8 系列及其以上版本
+	的用户可以正常使用本模板。
+	
 	\section{安装\label{sec:inst}}
 
 	对于支持 \TeX{} 目录结构（TDS）标准的 \TeX{} 发行版%
@@ -126,6 +131,7 @@ $HOME/texmf
 
 	安装完宏包后，可能需要刷新一次文件名数据库。
 	关于这一步如何操作，详见 \CTeX{} FAQ\cite{ctex-faq}\footnote{%
+		在类 UNIX 操作系统的终端或 Windows 的命令提示符中%
 		用 \texttt{texdoc ctex-faq} 调出文档，
 		然后在其中搜索“文件名数据库”即可找到。%
 	}。
