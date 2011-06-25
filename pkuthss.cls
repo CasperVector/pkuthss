@@ -176,11 +176,8 @@
 
 % 设定各处标题的内容。
 \AtEndOfClass{%
-	\ifPKUTHSS@GBK
-		\input{pkuthss-gbk.def}
-	\else
-		\input{pkuthss-utf8.def}
-	\fi
+	\ifPKUTHSS@GBK\input{pkuthss-gbk.def}
+	\else\input{pkuthss-utf8.def}\fi
 }
 \endinput
 

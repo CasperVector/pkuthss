@@ -22,9 +22,12 @@ endif
 
 all: img doc
 
-.PHONY: img
+.PHONY: img img-clean
 img:
 	cd img && $(MAKE)
+
+img-clean:
+	cd img && $(MAKE) clean
 
 doc: img
 	$(LATEX) $(JOBNAME)
@@ -40,7 +43,6 @@ clean:
 		$(JOBNAME).bbl $(JOBNAME).dvi missfont.log
 	$(RM) chap/*.aux
 
-dist-clean: clean
+dist-clean: clean img-clean
 	$(RM) $(JOBNAME).pdf
-	cd img && $(MAKE) clean
 

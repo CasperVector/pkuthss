@@ -30,6 +30,8 @@
 		则~verbatim~宏包是不需要的。
 		如果你不需要上标的引用记号，则~\verb|\supercite|~宏可以去掉。
 		如果你不需要使用密集的罗列环境，则~\verb|\denselist|~宏可以去掉。
+		如果你不需要多次在文档中引用其版本，
+		则~\verb|\docversion|~宏可以去掉。
 
 		wasysym~宏包不应该去掉，
 		因为~\verb|chap/originauth.tex|~中使用了其提供的~\verb|\Box|~命令。
@@ -41,23 +43,19 @@
 		文档里面“致谢”一章的书签链接到的位置不对，请问这是为什么？
 
 		\item[\textbf{A:}]
-		这应该是由上游的~ctex~宏包的一个问题造成的。
+		这是由上游的~ctex~宏包的一个问题造成的：
 		在~\verb|\backmatter|~以后，
 		即使用~\verb|\chapter|~命令开始的章节也不会被编号，
 		但会计入目录和产生书签。
-		使用当前版本的~ctexbook~文档类时，
+		使用低于~1.02~版的~ctexbook~文档类时，
 		产生的~pdf~文档的这一类书签和链接指向的位置常常是错误的。
-		这个问题应该正在修复中；在问题解决之前，
-		一个缓解问题的办法是将~\verb|\backmatter|~以后%
-		的~\verb|\chapter|~命令全部改为~\verb|\specialchap|~命令。
+		如果你不能将~ctex~宏包更新到~1.02~及以后的版本，
+		一个缓解问题的办法是将~\verb|\backmatter|~以后的~%
+		\verb|\chapter|~命令全部改为~\verb|\specialchap|~命令。
 	\end{enumerate}
 
 	\section{可能存在的问题}
 
-	一个问题是~\ref{sec:faq}~中提到的书签的问题。
-	这个问题应该很快能够得到解决。
-
-	此外，还应该注意到，
 	研究生手册\supercite{F13}和其电子版要求的论文封面并不一致。
 	这里以电子版为准。
 
