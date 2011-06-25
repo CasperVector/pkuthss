@@ -16,12 +16,16 @@
 % This work has the LPPL maintenance status `maintained'.
 % The current maintainer of this work is Casper Ti. Vector.
 %
-% This work consists of the files pkuthss.cls and pkuthss.def.
+% This work consists of the files pkuthss.cls, pkuthss-gbk.def
+% and pkuthss-utf8.def.
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
 	[2010/07/24 v1.2beta1 Peking University dissertation document class]
 
+% 处理编码选项。
+\newif\ifPKUTHSS@GBK \PKUTHSS@GBKtrue
+\DeclareOption{UTF8}{\PKUTHSS@GBKfalse\PassOptionsToClass{UTF8}{ctexbook}}
 % 将文档类参数全部传递给 ctexbook 文档类。
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
@@ -158,6 +162,12 @@
 }{\putonbottom{\textbf{Keywords:} \@ekeywords}}
 
 % 设定各处标题的内容。
-\AtEndOfClass{\input{pkuthss.def}}
+\AtEndOfClass{%
+	\ifPKUTHSS@GBK
+		\input{pkuthss-gbk.def}
+	\else
+		\input{pkuthss-utf8.def}
+	\fi
+}
 \endinput
 
