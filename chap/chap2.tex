@@ -1,0 +1,143 @@
+\chapter{pkuthss~文档类提供的功能}
+	\section{文档类选项}
+
+	pkuthss~文档类以~ctexbook~文档类为基础，
+	其接受的所有文档类选项均被传递给~ctexbook。
+
+	例如，ctexbook~文档类默认使用~GBK~编码，
+	因此如果需要使用~UTF-8~编码撰写论文，
+	则在导入~pkuthss~文档类时加上~\verb|UTF8|~选项即可：
+\begin{verbatim}
+      \usepackage[UTF8,...]{pkuthss} % “...”代表其它的选项。
+\end{verbatim}
+	类似地，如果需要使用~hyperref~宏包，
+	则为了利用~ctexbook~文档类对~hyperref~宏包的支持特性，
+	可以传递~\verb|hyperref|~选项给~ctexbook~宏包：
+\begin{verbatim}
+      \usepackage[hyperref,...]{pkuthss} % “...”代表其它的选项。
+\end{verbatim}
+
+	\section{pkuthss~文档类定义的命令}
+		\subsection{用于设定文档信息的命令}
+
+		这一类命令的语法是
+\begin{verbatim}
+      \commandname{具体信息} % commandname 为具体命令的名称。
+\end{verbatim}
+
+		这些命令总结如下\footnote%
+		{\ \ttfamily\songti%
+			\string\title、\string\author~和~\string\date~%
+			实际上是从~ctexbook~文档类继承来的。%
+		}：
+		\begin{itemize}\denseenum
+			\item \verb|\title|：设定论文标题；
+			\item \verb|\etitle|：设定论文英文标题；
+			\item \verb|\author|：设定作者；
+			\item \verb|\eauthor|：设定作者的英文名；
+			\item \verb|\date|：设定日期；
+			\item \verb|\studentid|：设定学号；
+			\item \verb|\school|：设定学院；
+			\item \verb|\major|：设定专业；
+			\item \verb|\emajor|：设定专业的英文名；
+			\item \verb|\direction|：设定研究方向；
+			\item \verb|\mentor|：设定导师；
+			\item \verb|\ementor|：设定导师的英文名；
+			\item \verb|\keywords|：设定关键词；
+			\item \verb|\ekeywords|：英文关键词。
+		\end{itemize}
+
+		例如，如果要设定专业为“化学”，则可以使用以下命令：
+\begin{verbatim}
+      \major{化学}
+\end{verbatim}
+
+		\subsection{“\texttt{name}”类命令}
+
+		这一类命令的语法是
+\begin{verbatim}
+      % commandname 为具体的命令名。
+      \renewcommand{\commandname}{具体信息}
+\end{verbatim}
+
+		这些命令总结如下\footnote%
+		{\ \ttfamily\songti%
+			\string\contentsname~和~\string\bibname~%
+			实际上是从~ctexbook~文档类继承来的。%
+		}：
+		\begin{itemize}\denseenum
+			\item \verb|\thesisname|：论文类别名。
+			\item \verb|\cabstractname|：中文摘要的标题。
+			\item \verb|\eabstractname|：英文摘要的标题。
+			\item \verb|\contentsname|：目录的标题。
+			\item \verb|\bibname|：参考文献目录的标题。
+		\end{itemize}
+
+		例如，如果要设定论文的类别为“本科生毕业论文”，
+		则可以使用以下命令：
+\begin{verbatim}
+      \renewcommand{\thesisname}{本科生毕业论文}
+\end{verbatim}
+		而如果要设定中文摘要的标题为“摘\hspace{2em}要”，
+		则可以使用以下命令：
+\begin{verbatim}
+      \renewcommand{\abstractname}{摘\hspace{2em}要}
+\end{verbatim}
+
+		\subsection{其它命令}
+
+		\begin{itemize}\denseenum
+			\item \verb|\maketitle|：
+				此命令根据设定好的文档信息自动生成论文的标题页，亦即封面。
+			\item \verb|\specialchap|：
+				此命令用于开始不进行标号但计入目录的一章，
+				并合理安排其页眉。%
+				\emph
+				{%
+					注意在此章内的节或小节等命令应使用带星号的版本，
+					例如~\texttt{\string\section\string*}~等，
+					以免造成章节编号混乱。%
+				}
+				\par
+				例如，本文档中的“绪言”一章就是用~\verb|\specialchap{绪言}|~%
+				这条命令开始的。
+		\end{itemize}
+
+		\subsection{从其它文档类和宏包继承的命令\label{sec:inherit}}
+
+		pkuthss~文档类以~ctexbook~文档类为基础，
+		并默认调用了以下宏包：
+		\begin{itemize}\denseenum
+			\item fntef：
+				提供了~\verb|\maketitle|~中调用的~%
+				\verb|\CJKunderline|~命令。
+			\item graphicx\supercite{graphicx-doc}：提供图形支持。
+			\item geometry\supercite{geometry-doc}：用于设置页面布局。
+			\item fancyhdr\supercite{fancyhdr-doc}：用于设置页眉、页脚。
+		\end{itemize}
+		因此，ctexbook~文档类和这些宏包所提供的命令均可以使用。
+
+		\vspace{1em}\par
+		\emph
+		{%
+			注意：
+			pkuthss~文档类中有一些一旦改动就有可能破坏预设的排版规划，
+			因此不建议更改这些设置，它们是：
+			\begin{itemize}\denseenum
+				\item 纸张类型：A4；
+				\item 版心尺寸：%
+					$240\,\mathrm{mm}\times150\,\mathrm{mm}$，
+					包含页眉、页脚；
+				\item 默认字号：小四号。
+			\end{itemize}
+		}
+
+	\section{pkuthss~文档类定义的环境}
+
+	pkuthss~文档类定义了两个环境——\verb|cabstract|~和~\verb|cabstract|，
+	分别用于编写中文和英文摘要。
+	用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
+
+	此外，pkuthss~文档类还从第~\ref{sec:inherit}~节中所述的%
+	文档类和宏包中继承了各种环境，用户也可以使用它们。
+

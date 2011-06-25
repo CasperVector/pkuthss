@@ -1,46 +1,84 @@
-\documentclass{pkuthss}
+\documentclass[UTF8,hyperref]{pkuthss}
 
-\input{chaps/mydefs} %% 个人的设置都放在mydefs.tex中.
+% 产生 originauth.tex 里的 \Square。
+\usepackage{wasysym}
+% 提供 verbatiminput 命令和 comment 环境。
+\usepackage{verbatim}
 
-%\includeonly{chaps/1}   %% 第一次编译完成后, 如果只修改了1.tex,
-                         %% 可以使用这个命令, 加快编译速度.
+% 设置页芯居中。
+\geometry{centering}
+% 设定行距。
+\renewcommand{\baselinestretch}{1.5}
+
+% 使引用标记成为上标。
+\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
+% 罗列环境中如果每个项目都只有一行左右，则会显得很松散，此时可采用这个命令。
+\newcommand{\denseenum}{\setlength{\itemsep}{0pt}}
 
 \begin{document}
+	% 各种文档信息。
+	\renewcommand{\thesisname}{本科生毕业论文}
+	% 题目一般不宜超过 20 个字。
+	\title{北京大学论文文档模板\\v1.2 beta}
+	\etitle{The PKU dissertation document class\\v1.2 beta}
+	\author{盖茨波$\cdot$钛$\cdot$维克托}
+	\eauthor{Casper Ti.\ Vector}
+	\studentid{0XXXXXXX}
+	\date{二〇一〇年七月}
+	\school{化学与分子工程学院}
+	\major{化学}
+	\emajor{Chemistry}
+	\direction{理论和计算化学}
+	\mentor{XX~教授}
+	\ementor{Prof.\ XX}
+	% 关键词应有 3~5 个。
+	\keywords{\LaTeX2e，排版，文档类，\CTeX}
+	\ekeywords{\LaTeX2e, typesetting, document class, \CTeX}
 
-%\renewcommand{\thesisname}{学士学位论文}
+	%% 以下为正文之前的部分，页码为小写罗马数字，但不显示页眉和页脚。
+	\frontmatter\pagenumbering{roman}\pagestyle{empty}
 
-\title{北京大学论文文档类}
-\author{solvethis}
-\studentid{10xxxxxx}
-\school{xx学院}
-\major{xxxx}
-\direction{xxxxx}
-\supervisor{xx\ 教授}
-\keywords{\LaTeX2e, 排版, 文档类}
+	\maketitle
+	% 版权声明。
+	\include{chap/copyright}
+	% 中英文摘要。
+	\include{chap/abstract}
+	% 自动生成目录。
+	\tableofcontents
 
-\etitle{The PKU dissertation document class}
-\eauthor{lili}
-\emajor{(My major)}
-\esupervisor{(My supervisor)}
-\ekeywords{\LaTeX2e, typesetting, document class}
+	%% 以下为正文，页码为小写罗马数字，但不显示页眉和页脚。
+	\mainmatter\pagenumbering{arabic}\pagestyle{fancy}
 
-\maketitle
+	% 绪言。
+	\include{chap/introduction}
+	% 各章节。
+	\include{chap/chap1}
+	\include{chap/chap2}
+	\include{chap/chap3}
+	\include{chap/chap4}
+	% 结论。
+	\include{chap/conclusion}
 
-\frontmatter
-\include{chaps/abstract}
-\include{chaps/eabstract}
+	\begin{appendix}
+		% 参考文献。
+		\bibliographystyle{chinesebst}\bibliography{sample}
+		% 此命令手动地在目录中增加相当于章级别的一行。
+		\addcontentsline{toc}{chapter}{参考文献}
+		% 此命令和真实的一级章命令结合，从而使 \addcontentsline
+		% 在目录中产生的页码正常。
+		\phantomsection
 
-\tableofcontents
+		% 各附录。
+		\include{chap/encl1}
+	\end{appendix}
 
-\mainmatter
-\include{chaps/introduction}
-\include{chaps/1}
-\include{chaps/2}
-\include{chaps/3}
-\include{chaps/conclusion}
+	%% 以下为正文之后的部分，页码为大写罗马数字。
+	\backmatter\pagenumbering{Roman}
 
-\backmatter
-\bibliography{chaps/sample}
-\include{chaps/thanks}
-
+	% 致谢。
+	\include{chap/thanks}
+	% 原创性声明和使用授权说明，不显示页码。
+	\pagestyle{empty}
+	\include{chap/originauth}
 \end{document}
+

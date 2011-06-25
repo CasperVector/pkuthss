@@ -1,25 +1,31 @@
 %!PS
 %%BoundingBox: 0 0 400 400
-%*Font: Times-Bold
 %%Pages: 1
 %%Page: 1 1
 
+% 设置北大红的色值（感谢~MathTools~版~mycc~提供信息）。
+% 要想将颜色改为黑色，只需将下面一行改为“0 setgray”即可。
 0.0 1.0 1.0 0.5 setcmykcolor
+% 设置线的属性。
 1 setlinecap
 1 setlinejoin
-200 200 translate
 
+% 将坐标原点移到图片的中心。
+200 200 translate
+% 作出内圆。
 newpath
 6 setlinewidth
 0 0 195 0 360 arc
 stroke
+% 作出外圆。
 newpath
 5 setlinewidth
 0 0 143 0 360 arc
 stroke
 
-0 setlinewidth
+% 描出“北大”字样。
 newpath
+0 setlinewidth
 -10 101 moveto
 -10 101 -10 38 lineto
 -10 35 -14 29 -19 28 curveto
@@ -75,8 +81,11 @@ newpath
 -11 12 -11 5 lineto
 133 0 moveto
 0 0 133 0 360 arc
+% 对刚作出的线条执行奇偶相间的填充，使中间空出的“北大”字样就是透明的。
+% 从而，即使页面带背景色，插入这个图片时也会很正常。
 eofill
 
+% 添加文字“PEKING UNIVERSITY 1898”。
 /Times-Bold findfont 40 scalefont setfont
 /offset { dup stringwidth pop 2 div neg 155 moveto show } def
 

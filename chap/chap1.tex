@@ -1,0 +1,79 @@
+\chapter{使用介绍}
+	\section{重要文件}
+
+	本文档所在目录下各重要文件如下：
+	\begin{itemize}\denseenum
+		\item \verb|pkuthss.cls|：pkuthss~文档类的类文件。
+		\item \verb|pkuthss.def|：在~\verb|pkuthss.cls|~中使用的定义文件。
+		\item \verb|sample.tex|：主文件，编译该文件即可。
+		\item \verb|sample.pdf|：即本文档，由编译~\verb|sample.tex|~得到。
+		\item \verb|makefile|：Makefile，用于使编译工作自动化。
+		\item \verb|chap/|：文件夹，包含各章节内容：
+		\begin{itemize}\denseenum
+			\item \verb|copyright.tex|：版权声明部分\footnote%
+			{%
+				因为本文档的许可证限制，我们必须附上许可证的文本；
+				但用户可能选择其它类型的版权声明，
+				故~\texttt{license/}\linebreak[1]~目录不是必需的。
+				一个可能更常用的版权声明已经放在此文件中，但被注释掉了，
+				用户可以考虑使用那个版本。
+				如果使用那个版本，就不再需要~\texttt{license/}~目录了。
+			}。
+			\item \verb|originauth.tex|：
+				原创性声明和使用授权说明部分~\supercite{F11}。
+		\end{itemize}
+		\item \verb|img/|：文件夹，包含论文中所有图片：
+		\begin{itemize}\denseenum
+			\item \verb|makefile|：图片部分的~Makefile。
+			\item \verb|pkulogo.ps|：北大校徽。
+			\item \verb|pkuword.ps|：“北京大学”字样。
+		\end{itemize}
+	\end{itemize}
+
+	\section{系统要求}
+
+	正确编译需要以下几部分：
+	\begin{itemize}\denseenum
+		\item 一个基本的~\LaTeX{}~发行版。
+		\item CJK~或~xeCJK（供~Xe\LaTeX{}~使用）宏包。
+		\item ctex~宏包\supercite{ctex-doc,ctexfaq}%
+			（提供了~ctexbook~文档类）。
+		\item 中文字体。
+		\item 如果需要使用~Makefile~来实现自动编译，还需要~Make~工具。
+	\end{itemize}
+
+	最新的~\TeX{}Live~系统和~\CTeX~套装都已经包含%
+	除中文字体之外所有要求的项目；中文字体需要用户自行获得。
+
+	Linux~用户可以从软件源获得~GNU~的~make；
+	其它类~UNIX~系统应该也会提供~make~工具，请参阅相应的文档以获得帮助。
+	Windows~用户可以从以下地址下载~Windows~下的~GNU make~工具：
+
+	\url{http://gnuwin32.sourceforge.net/packages/make.htm}（国际网）
+	\vspace{-0.1em}\par
+	\url{http://c.pku.edu.cn/software/c/mingw-c.7z}\footnote%
+	{\ 感谢曹东刚老师在教学网站提供~GNU make~的下载。}（北大校园网）
+
+	为了获得最好的支持，我们建议用户使用最新版的~\LaTeX{}~系统和各宏包。
+
+	\section{编译方式}
+
+	pkuthss~文档模板支持三种编译方式，即
+	\begin{itemize}\denseenum
+	  \item \LaTeX{} -- dvipdf~方式：
+		即顺次执行~latex，bibtex，latex，latex，dvipdfmx。
+	  \item pdf\LaTeX{}~方式：
+		即顺次执行 pdflatex，bibtex，pdflatex，pdflatex。
+	  \item Xe\LaTeX{}~方式：
+		即顺次执行 xelatex，bibtex，xelatex，xelatex。
+	\end{itemize}
+
+	pkuthss~文档模板附带的~Makefile~中已经对这三种编译方式进行了完整的配置。
+	用户只需要在~Makefile~中通过设定变量~\verb|JOBNAME|~的值%
+	指定被编译的主文件名，
+	并通过设定变量~\verb|LATEX|~的值指定采用哪种编译方式，
+	即可通过在主文件所在目录调用~Make~工具来实现自动编译：
+	如果是在类~UNIX~环境下，则用户应该调用的命令名为~\verb|make|；
+	而如果是在~Windows~环境下，
+	则用户应该调用的命令名为~\verb|mingw32-make|。
+

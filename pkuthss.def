@@ -1,71 +1,19 @@
-\ProvidesFile{pkuthss.def}
-  [2007/09/04 v1.0rc2 Peking University
-   dissertation configuration file]
+% vim:filetype=tex:tabstop=2
+% Peking University dissertation configuration file
 
-\def\@date{二~00~八~~年~~六~~月}
-\def\university{北京大学}
-\def\thesisname{博士研究生学位论文}
+\def\label@university{北京大学}
 \def\label@title{题目：}
 \def\label@author{姓\hspace{2em}名：}
 \def\label@studentid{学\hspace{2em}号：}
 \def\label@school{院\hspace{2em}系：}
 \def\label@major{专\hspace{2em}业：}
 \def\label@direction{研究方向：}
-\def\label@supervisor{导师姓名：}
-
-\def\label@copyright{版权声明}
-\def\label@origandauth{北京大学学位论文原创性声明和使用授权说明}
-\def\label@original{原创性声明}
-\def\label@authorization{学位论文使用授权说明}
-\def\label@authaddition{（必须装订在提交学校图书馆的印刷本）}
-\def\label@authorsign{论文作者签名：}
-\def\label@supervisorsign{导师签名：}
-\def\label@origdate{日期：\hspace{2em}年\hspace{2em}月%
-  \hspace{2em}日}
-\def\label@copycontent{\par 任何收存和保管本论文各种版本的单位和个人，
-未经本论文作者同意，不得将本论文转借他人，亦不得随意复制、抄录、拍照或
-以任何方式传播。否则，引起有碍作者著作权之问题，将可能承担法律责任。}
-\def\label@origcontent{\par 本人郑重声明： 所呈交的学位论文，是本人在
-导师的指导下，独立进行研究工作所取得的成果。除文中已经注明引用的内容
-外，本论文不含任何其他个人或集体已经发表或撰写过的作品或成果。对本文的
-研究做出重要贡献的个人和集体，均已在文中以明确方式标明。本声明的法律结
-果由本人承担。}
-\def\label@authcontent{%
-\par 本人完全了解北京大学关于收集、保存、使用学位论文的规定，即：
-\begin{list}{}{\topsep=0pt\itemsep=0pt\itemindent=0pt\leftmargin=3em}
-\item[$\bullet$] 按照学校要求提交学位论文的印刷本和电子版本；
-\item[$\bullet$] 学校有权保存学位论文的印刷本和电子版，并提供目录检索
-  与阅览服务，在校园网上提供服务；
-\item[$\bullet$] 学校可以采用影印、缩印、数字化或其它复制手段保存论文；
-\item[$\bullet$] 因某种特殊原因需要延迟发布学位论文电子版，授权学校
-□一年/□两年/□三年以后，在校园网上全文发布。\vskip 13pt
-\end{list}
-\par\hspace{5.5em}（保密论文在解密后遵守此规定）}
-
-\def\@school{（院系所中心）}
-\def\@title{（论文题目）}
-\def\@author{（作者姓名）}
-\def\@supervisor{（姓名、职称）}
-\def\@major{（专业）}
-\def\@studentid{（学号）}
-\def\@direction{（研究方向）}
-
-\def\@etitle{(English Title of Thesis)}
-\def\@eauthor{(Author Name)}
-\def\@esupervisor{(Supervisor's Name)}
-\def\@emajor{(Major)}
-
-\def\abstractname{摘　要}
-\def\contentsname{目　录}
-\def\listfigurename{插　图}
-\def\listtablename{表　格}
-\def\introductionname{绪　言}
-\def\conclusionname{结　论}
-\def\appendixname{附　录}
-\def\acknowledgename{致　谢}
+\def\label@mentor{导师姓名：}
 \def\label@keywords{关键词：}
-\def\label@year{年}
-\def\label@month{月}
-\def\label@date{日}
+
+\def\thesisname{博士研究生学位论文}
+\def\cabstractname{摘要}
+\def\eabstractname{Abstract}
 
 \endinput
+

@@ -1,0 +1,66 @@
+\chapter{问题及其解决}
+	\section{FAQ\label{sec:faq}}
+	\begin{enumerate}
+		\item[\textbf{Q:}]
+		我的编译结果很奇怪，文字很靠近页面的顶端。请问这是怎么回事？
+
+		\item[\textbf{A:}]
+		请检查你的程序设置。
+		如果使用~WinEdt，可点击~Options，选择~Execution Modes，
+		检查一下~dvips、dvipdfmx、ps2pdf~等程序的纸张设置。
+
+		\item[\textbf{Q:}]
+		打印论文时不希望使用彩色的链接，请问应该怎么办？
+
+		\item[\textbf{A:}]
+		\verb|\hypersetup{colorlinks=false}|。
+		关于书签和链接的问题，
+		请参阅~hyperref~宏包的文档\supercite{hyperref-doc}。
+
+		\item[\textbf{Q:}]
+		导言区的内容好多，应该有好多在我的论文里是不必要的。
+		请问可以去掉哪些？
+
+		\item[\textbf{A:}]
+		如果你使用~GBK~编码，则~pkuthss~文档类的~UTF-8~选项是不必要的。
+		如果你不需要生成的~pdf~里的书签和链接，则~hyperref~宏包是不必要的，
+		同时用于进行相关设置的~\verb|hypersetup|~命令也应该去掉。
+		如果你不使用~\verb|\verbatiminput|~命令和~\verb|comment|~环境，
+		则~verbatim~宏包是不需要的。
+		如果你不需要上标的引用记号，则~\verb|\supercite|~宏可以去掉。
+		如果你不需要使用密集的罗列环境，则~\verb|\denseenum|~宏可以去掉。
+
+		wasysym~宏包不应该去掉，
+		因为~\verb|chap/originauth.tex|~中使用了其提供的~\verb|\Box|~命令。
+		设置页面居中和行距的命令不建议去掉：
+		如果改变这些设置，虽然不会对排版效果造成致命的影响，
+		但影响可能还是很显著的。
+
+		\item[\textbf{Q:}]
+		文档里面“致谢”一章的书签链接到的位置不对，请问这是为什么？
+
+		\item[\textbf{A:}]
+		这应该是由上游的~ctex~宏包的一个问题造成的。
+		在~\verb|\backmatter|~以后用~\verb|\chapter|~命令开始的章节%
+		也不会被编号，但会计入目录和产生书签。
+		使用当前版本的~ctexbook~文档类的~pdf~文档%
+		的这一类书签和链接指向的位置常常是错误的。
+		这个问题应该正在修复中；在问题解决之前，
+		一个缓解问题的办法是将~\verb|\backmatter|~以后%
+		的~\verb|\chapter|~命令全部改为~\verb|\specialchap|~命令。
+	\end{enumerate}
+
+	\section{可能存在的问题}
+
+	一个问题是~\ref{sec:faq}~中提到的书签的问题。
+	这个问题应该很快能够得到解决。
+
+	此外，还应该注意到，
+	研究生手册\supercite{F13}和其电子版要求的论文封面并不一致。
+	这里以电子版为准。
+
+	\section{反馈意见和建议}
+
+	关于~pkuthss~文档模板的意见和建议请到北大未名~BBS~的~MathTools~版提出，
+	谢谢 :)
+

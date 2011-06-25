@@ -219,7 +219,7 @@ FUNCTION {emphasize}
 FUNCTION {bolden}
 { duplicate$ empty$
     { pop$ "" }
-    { "{\bf " swap$ * "}" * }
+    { "{\bfseries " swap$ * "}" * }
   if$
 }
 FUNCTION {tie.or.space.prefix}
