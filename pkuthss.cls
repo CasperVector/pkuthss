@@ -21,7 +21,7 @@
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2010/07/24 v1.2beta1 Peking University dissertation document class]
+	[2010/07/24 v1.2beta2 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifPKUTHSS@GBK \PKUTHSS@GBKtrue
@@ -37,8 +37,18 @@
 \RequirePackage{graphicx}[1999/02/16]
 % 此宏包提供了方便使用的命令用于设置页面布局。
 \RequirePackage{geometry}
-% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
-\ifxetex\else
+\ifxetex
+	% 不支持非用 XeLaTeX 编译非 UTF-8 的文档。
+	\ifPKUTHSS@GBK
+		\ClassError{pkuthss}
+			{XeLaTeX compilation is not supported without UTF-8}
+			{%
+				XeLaTeX compilation without UTF-8 is very problematic.\MessageBreak
+				Therefore please use UTF-8 encoding for the LaTeX code.%
+			}
+	\fi
+\else
+	% 忽略 CJK 文字之间的空白而保留（CJK 文字与英文之间等的）其它空白。
   \RequirePackage{CJKspace}
 \fi
 

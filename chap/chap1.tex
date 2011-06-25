@@ -76,7 +76,12 @@
 		\verb|pdflatex|，\verb|pdflatex|。
 	  \item Xe\LaTeX{}~方式：
 		即顺次执行~\verb|xelatex|，\verb|bibtex|，%
-		\verb|xelatex|，\verb|xelatex|。
+		\verb|xelatex|，\verb|xelatex|。%
+		\emph
+		{%
+			注意：Xe\LaTeX{}~对非~UTF-8~的编码支持不好，
+			因此Xe\LaTeX{}~方式的编译不支持~GBK~编码。
+		}
 	\end{itemize}
 
 	pkuthss~文档模板附带的~Makefile~中已经对这三种编译方式进行了完整的配置。
