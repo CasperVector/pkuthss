@@ -23,7 +23,7 @@
 %   pkuthss-extra.sty
 
 \ProvidesFile{pkuthss-gbk.def}
-  [2011/06/26 v1.3 rc2 Labels and captions in GBK encoding
+  [2011/06/26 v1.3 rc2-2 Labels and captions in GBK encoding
 		for the pkuthss document class]
 
 \def\label@ctitle{ÌâÄ¿£º}

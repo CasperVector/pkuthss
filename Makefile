@@ -1,7 +1,7 @@
 # vim:ft=make:ts=4:sw=4
 
 TITLE = pkuthss
-VERSION = 1.3rc2
+VERSION = 1.3rc2-2
 PROJECT = $(TITLE)-$(VERSION)
 DIST_DOC = $(PROJECT)/doc
 DOC_UTF8LF = $(DIST_DOC)/utf8lf
