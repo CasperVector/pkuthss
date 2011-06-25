@@ -11,22 +11,29 @@
 % 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
 % pkuthss 文档模版的版本。
-\newcommand{\docversion}{v1.3 beta2}
+\newcommand{\docversion}{v1.3 beta3}
 
 % 参考文献格式。
 \bibliographystyle{ref/chinesebst-mod}
 % 设定文档的基本信息。
 \pkuthssinfo{
-	cthesisname={本科生毕业论文},ethesisname={Undergraduate Thesis},
+	cthesisname={本科生毕业论文}, ethesisname={Undergraduate Thesis},
 	ctitle={北京大学论文文档模板\\pkuthss \docversion},
-	etitle={The PKU dissertation document class\\pkuthss \docversion},
+	% “\\”在设定 pdf 元数据时会被自动过滤掉，于是得到的 pdf 元数据中标题为
+	%   The PKU dissertation document classpkuthss [版本号]
+	% 此处指定其被替换为“: ”，以使之为
+	%   The PKU dissertation document class: pkuthss [版本号]
+	etitle={%
+		The PKU dissertation document class\texorpdfstring{\\}{: }%
+		pkuthss \docversion%
+	},
 	cauthor={盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
 	eauthor={Casper Ti.\ Vector},
 	studentid={00910???},
-	date={二〇一一年四月},
+	date={二〇一一年五月},
 	school={化学与分子工程学院},
-	cmajor={化学},emajor={Chemistry},direction={理论和计算化学},
-	cmentor={XX 教授},ementor={Prof.\ XX},
+	cmajor={化学}, emajor={Chemistry}, direction={理论和计算化学},
+	cmentor={XX 教授}, ementor={Prof.\ XX},
 	ckeywords={\LaTeX2e{}，排版，文档类，\CTeX{}},
 	ekeywords={\LaTeX2e{}, typesetting, document class, \CTeX{}},
 }
@@ -56,13 +63,13 @@
 	% 结论。
 	\include{chap/conclusion}
 
-	\begin{appendix}
-		% 参考文献。
-		\bibliography{ref/pkuthss}
-		% 各附录。
-		\include{chap/encl1}
-		\include{chap/encl2}
-	\end{appendix}
+	% 正文中的附录部分。
+	\appendix
+	% 参考文献。
+	\bibliography{ref/pkuthss}
+	% 各附录。
+	\include{chap/encl1}
+	\include{chap/encl2}
 
 	% 以下为正文之后的部分。
 	\backmatter

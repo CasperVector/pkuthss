@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/04/15 v1.3 beta2 Peking University dissertation document class]
+	[2011/05/10 v1.3 beta3 Peking University dissertation document class]
 
 % 处理编码选项。
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -53,6 +53,8 @@
 % 此宏包提供了方便使用的命令用于设置引用标记的格式。
 % 默认使用顺序（数字)编码制。
 \RequirePackage[numbers]{natbib}
+% 提供后面使用的 \AtEndPreamble 命令。
+\RequirePackage{etoolbox}
 % 是否采用默认的额外设置。
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
