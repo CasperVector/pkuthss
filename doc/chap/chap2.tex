@@ -14,7 +14,8 @@
 				则需要在载入 pkuthss 时加上 \verb|noextra| 选项。
 
 			\item \textbf{pkuthss-extra 宏包提供的选项}：
-				这些选项将被传递给 pkuthss-extra 宏包。
+				这些选项将被传递给 pkuthss-extra 宏包
+				（用户需要启用 \verb|extra| 选项）。
 				具体说明参见第 \ref{ssec:extra} 小节。
 
 			\item \textbf{其余文档类选项}：%
@@ -44,9 +45,8 @@
 
 		\subsection{pkuthss-extra 宏包提供的选项}\label{ssec:extra}
 
-		在默认情况下，
-		下面提到的选项中都是不带“\verb|no|”的版本被启用，
-		也就是说启用 pkuthss-extra 提供的所有额外设置。
+		除非特别说明，
+		下面提到的选项中都是不带“\verb|no|”的版本被启用。
 
 		\begin{itemize}
 			\item \textbf{\texttt{[no]spacing}}：
@@ -81,6 +81,22 @@
 				将自动加入参考文献、索引（如果存在）等的条目，
 				但不包括“目录”本身；
 				此外，在生成的 pdf 文档中将会自动加入“目录”的书签。
+
+			\item \textbf{\texttt{[no]uppermark}}：
+				是否在页眉中将章节名中的小写字母转换为大写字母。
+				就目前而言，
+				这样的转换存在着一些较为严重的缺陷\footnote{%
+					准确地说是 \texttt{\string\MakeUppercase} 宏的问题，
+					其在某些地方的转换不够健壮，
+					例如 \texttt{\string\cite\string{ctex\string}}
+					会被转换成 \texttt{\string\cite\string{CTEX\string}}。%
+				}，
+				因此不建议使用。
+				基于上述考虑，%
+				\emph{%
+					pkuthss-extra 宏包默认启用 \texttt{nouppermark} 选项，
+					即在不在页眉中使用大写的章节名
+				}。
 
 			\item \textbf{\texttt{[no]spechap}}\footnote{%
 					“spechap”是“\textbf{spec}ial \textbf{chap}ter”的缩写。%

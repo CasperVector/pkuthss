@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/06/26 v1.3 rc2-2 Peking University dissertation document class]
+	[2011/06/27 v1.3 rc3 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -35,22 +35,23 @@
 \newif\ifpkuthss@opt@extra \pkuthss@opt@extratrue
 \DeclareOption{extra}{\pkuthss@opt@extratrue}
 \DeclareOption{noextra}{\pkuthss@opt@extrafalse}
-% eg. `\pkuthss@int@extra{spacing}' will expand to:
+% eg. `\pkuthss@int@extraopt{spacing}' will expand to:
 %   \DeclareOption{spacing}{\PassOptionsToClass{spacing}{pkuthss-extra}}
 %   \DeclareOption{nospacing}{\PassOptionsToClass{nospacing}{pkuthss-extra}}
-\def\pkuthss@int@extra#1{
+\def\pkuthss@int@extraopt#1{
 	\DeclareOption{#1}{\PassOptionsToClass{#1}{pkuthss-extra}}
 	\DeclareOption{no#1}{\PassOptionsToClass{no#1}{pkuthss-extra}}
 }
 % Pass options to `pkuthss-extra'.
 % See pkuthss-extra.sty for an explanation of the options.
-\pkuthss@int@extra{spacing}
-\pkuthss@int@extra{tightlist}
-\pkuthss@int@extra{tocbibind}
-\pkuthss@int@extra{spechap}
-\pkuthss@int@extra{upcite}
-\pkuthss@int@extra{pdfmeta}
-\pkuthss@int@extra{linkcolor}
+\pkuthss@int@extraopt{spacing}
+\pkuthss@int@extraopt{tightlist}
+\pkuthss@int@extraopt{tocbibind}
+\pkuthss@int@extraopt{uppermark}
+\pkuthss@int@extraopt{spechap}
+\pkuthss@int@extraopt{upcite}
+\pkuthss@int@extraopt{pdfmeta}
+\pkuthss@int@extraopt{linkcolor}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
@@ -233,47 +234,47 @@
 % Internal environment for typesetting abstracts.
 \newenvironment{pkuthss@int@abstract}{
 	\cleardoublepage
-	\pdfbookmark[1]{\tmp@abstractname}{\tmp@abstlabel}
-	\chapter*{\zihao{-2}\tmp@title}
-	\markboth{\tmp@abstractname}{}
+	\pdfbookmark[1]{\pkuthss@tmp@abstractname}{\pkuthss@tmp@abstlabel}
+	\chapter*{\zihao{-2}\pkuthss@tmp@title}
+	\markboth{\pkuthss@tmp@abstractname}{}
 	\vspace{-2em}\par
 	\begin{center}
  		\zihao{-3}
- 		{\tmp@author}\quad{\tmp@major}\\
- 		{\tmp@label@mentor}{\tmp@mentor}
+ 		{\pkuthss@tmp@author}\quad{\pkuthss@tmp@major}\\
+ 		{\pkuthss@tmp@label@mentor}{\pkuthss@tmp@mentor}
 	\end{center}
 	\vspace{1em}\par
-	\section*{\zihao{4}\tmp@abstractname}
+	\section*{\zihao{4}\pkuthss@tmp@abstractname}
 	\vskip 0.5em
 }{% Keywords at the bottom of the page.
-	\vfill\noindent\textbf{\tmp@label@keywords}{\tmp@keywords}
+	\vfill\noindent\textbf{\pkuthss@tmp@label@keywords}{\pkuthss@tmp@keywords}
 }
 
 % Typesetting the Chinese abstract.
 \newenvironment{cabstract}{
-	\def\tmp@abstlabel{cabstract}
-	\let\tmp@title\@ctitle
- 	\let\tmp@author\@cauthor
-	\let\tmp@major\@cmajor
- 	\let\tmp@mentor\@cmentor
- 	\let\tmp@keywords\@ckeywords
- 	\let\tmp@label@mentor\label@cmentor
- 	\let\tmp@label@keywords\label@ckeywords
-	\let\tmp@abstractname\cabstractname
+	\def\pkuthss@tmp@abstlabel{cabstract}
+	\let\pkuthss@tmp@title\@ctitle
+ 	\let\pkuthss@tmp@author\@cauthor
+	\let\pkuthss@tmp@major\@cmajor
+ 	\let\pkuthss@tmp@mentor\@cmentor
+ 	\let\pkuthss@tmp@keywords\@ckeywords
+ 	\let\pkuthss@tmp@label@mentor\label@cmentor
+ 	\let\pkuthss@tmp@label@keywords\label@ckeywords
+	\let\pkuthss@tmp@abstractname\cabstractname
 	\begin{pkuthss@int@abstract}
 }{\end{pkuthss@int@abstract}}
 
 % Typesetting the English abstract.
 \newenvironment{eabstract}{
-	\def\tmp@abstlabel{eabstract}
-	\let\tmp@title\@etitle
- 	\let\tmp@author\@eauthor
-	\let\tmp@major\@emajor
- 	\let\tmp@mentor\@ementor
- 	\let\tmp@keywords\@ekeywords
- 	\let\tmp@label@mentor\label@ementor
- 	\let\tmp@label@keywords\label@ekeywords
-	\let\tmp@abstractname\eabstractname
+	\def\pkuthss@tmp@abstlabel{eabstract}
+	\let\pkuthss@tmp@title\@etitle
+ 	\let\pkuthss@tmp@author\@eauthor
+	\let\pkuthss@tmp@major\@emajor
+ 	\let\pkuthss@tmp@mentor\@ementor
+ 	\let\pkuthss@tmp@keywords\@ekeywords
+ 	\let\pkuthss@tmp@label@mentor\label@ementor
+ 	\let\pkuthss@tmp@label@keywords\label@ekeywords
+	\let\pkuthss@tmp@abstractname\eabstractname
 	\begin{pkuthss@int@abstract}
 }{\end{pkuthss@int@abstract}}
 

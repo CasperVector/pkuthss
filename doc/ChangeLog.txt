@@ -1,4 +1,4 @@
-2011/6/26，ver 1.3 rc2-2（包括前面所有 alpha、beta 和 rc 版本）：
+2011/6/27，ver 1.3 rc3（包括前面所有 alpha、beta 和 rc 版本）：
 --- 进一步重构，
 	将核心设置集中于 pkuthss 文档类中，
 	常见的额外设置集中于 pkuthss-extra 宏包中。

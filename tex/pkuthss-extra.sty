@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{pkuthss-extra}
-	[2011/06/26 v1.3 rc2-2 Common extra settings for the pkuthss document class]
+	[2011/06/27 v1.3 rc3 Common extra settings for the pkuthss document class]
 
 % Check the dependency of pkuthss.
 \@ifclassloaded{pkuthss}{}{
@@ -33,37 +33,39 @@
 		{The pkuthss-extra package depends on the pkuthss document class.}
 }
 
-% eg. `\pkuthss@int@extraopt{spacing}' will expand to:
-%   \newif\ifpkuthss@extraopt@spacing \pkuthss@extraopt@spacingtrue
-%   \DeclareOption{spacing}{\pkuthss@extraopt@spacingtrue}
-%   \DeclareOption{nospacing}{\pkuthss@extraopt@spacingfalse}
-\def\pkuthss@int@extraopt#1{
-	\expandafter\newif\csname ifpkuthss@extraopt@#1\endcsname
-	\csname pkuthss@extraopt@#1true\endcsname
-	\expandafter\DeclareOption{#1}{\csname pkuthss@extraopt@#1true\endcsname}
+% eg. `\pkuthssextra@int@boolopt{spacing}{true}' will expand to:
+%   \newif\ifpkuthssextra@opt@spacing \pkuthssextra@opt@spacingtrue
+%   \DeclareOption{spacing}{\pkuthssextra@opt@spacingtrue}
+%   \DeclareOption{nospacing}{\pkuthssextra@opt@spacingfalse}
+\def\pkuthssextra@int@boolopt#1#2{
+	\expandafter\newif\csname ifpkuthssextra@opt@#1\endcsname
+	\csname pkuthssextra@opt@#1#2\endcsname
+	\expandafter\DeclareOption{#1}{\csname pkuthssextra@opt@#1true\endcsname}
 	\expandafter\DeclareOption{no#1}%
-		{\csname pkuthss@extraopt@#1false\endcsname}
+		{\csname pkuthssextra@opt@#1false\endcsname}
 }
 % Whethet to use some common settings for adjusting spacing.
-\pkuthss@int@extraopt{spacing}
+\pkuthssextra@int@boolopt{spacing}{true}
 % Whether to use list environments that are tighter than LaTeX defaults.
-\pkuthss@int@extraopt{tightlist}
+\pkuthssextra@int@boolopt{tightlist}{true}
 % Whether to use some common settings about table of contents, bibliography and
 % indexes.
-\pkuthss@int@extraopt{tocbibind}
+\pkuthssextra@int@boolopt{tocbibind}{true}
+% Whether to enable `\Uppercase' (works problematically) in heading marks.
+\pkuthssextra@int@boolopt{uppermark}{false}
 % Whether to enable the `\spacialchap' command.
-\pkuthss@int@extraopt{spechap}
+\pkuthssextra@int@boolopt{spechap}{true}
 % Whether to make citation labels superscript as default.
-\pkuthss@int@extraopt{upcite}
+\pkuthssextra@int@boolopt{upcite}{true}
 % Whether to automatically set metadata for generated PDF from user defined
 % document information.
-\pkuthss@int@extraopt{pdfmeta}
+\pkuthssextra@int@boolopt{pdfmeta}{true}
 % Whether to use coloured hyperlinks in generated PDF.
-\pkuthss@int@extraopt{linkcolor}
+\pkuthssextra@int@boolopt{linkcolor}{true}
 % Process all class options now.
 \ProcessOptions\relax
 
-\ifpkuthss@extraopt@spacing
+\ifpkuthssextra@opt@spacing
 	% Automatically ignore spaces between CJK characters and preserve spaces in other
 	% situations. XeCJK itself will handle this issue, therefore we do not use
 	% `CJKspace' when using XeLaTeX.
@@ -79,7 +81,7 @@
 	\renewcommand{\footnotelayout}{\ }
 \fi
 
-\ifpkuthss@extraopt@tightlist
+\ifpkuthssextra@opt@tightlist
 	% Lists often appear to be too sparse when items are just one or two lines long.
 	% Here we cancel the extra vertical spacing between list items.
 	\RequirePackage{enumitem}
@@ -88,22 +90,22 @@
 	\setlength{\bibsep}{\parsep}
 \fi
 
-\ifpkuthss@extraopt@tocbibind
+\ifpkuthssextra@opt@tocbibind
 	% Add bibliography and indexes in table of contents, but not contents itself.
 	\RequirePackage[nottoc]{tocbibind}
 	% Add PDF bookmark for table of contents.
-	\let\tmp@tableofcontents\tableofcontents
+	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
 	\renewcommand{\tableofcontents}{
 		% Make the `Contents' bookmark point correctly to the title of the table of
 		% contents.
 		\cleardoublepage
 		% Actually add the PDF bookmark.
 		\pdfbookmark[1]{\contentsname}{contents}
-		\tmp@tableofcontents
+		\pkuthssextra@tmp@tableofcontents
 	}
 \fi
 
-\ifpkuthss@extraopt@spechap
+\ifpkuthssextra@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% the headers and footers in the chapter.
 	\newcommand\specialchap[1]{
@@ -112,13 +114,40 @@
 	}
 \fi
 
-\ifpkuthss@extraopt@upcite
+\ifpkuthssextra@opt@upcite
 	% Make citation labels superscript as default.
 	\setcitestyle{super,square,comma}
 \fi
 
 \AtBeginDocument{
-	\ifpkuthss@extraopt@pdfmeta
+	% `\MakeUppercase' works problematically.
+	% eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
+	% This option can disable `\MakeUppercase' in left/right heading marks.
+	\ifpkuthssextra@opt@uppermark\else
+		% Code modified from part of ctex-book.def in `ctex' package.
+		% The main difference is the deletion of calls to `\MakeUppercase' here.
+		\if@twoside
+			\renewcommand\chaptermark[1]{%
+				\markboth{%
+					\ifnum\value{secnumdepth}>-1 \if@mainmatter \CTEXthechapter \quad \fi\fi
+					#1%
+				}{}%
+			}
+			\renewcommand\sectionmark[1]{%
+				\markright{\ifnum\value{secnumdepth}>-1 \CTEXthesection \quad \fi #1}%
+			}
+		% One side typesetting should also be considered.
+		\else
+			\renewcommand\chaptermark[1]{%
+				\markright{%
+					\ifnum\value{secnumdepth}>-1 \if@mainmatter \CTEXthechapter \quad \fi\fi
+					#1%
+				}%
+			}
+		\fi
+	\fi
+
+	\ifpkuthssextra@opt@pdfmeta
 		% Automatically generate metadata for generated PDF.
 		\newcommand{\setpdfmetadata}{
 			\hypersetup{
@@ -128,13 +157,13 @@
 		}
 		% Set the metadata when generating the title page because the document
 		% information should have been all defined before this.
-		\let\tmp@maketitle\maketitle
+		\let\pkuthssextra@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
 		% act as you wished.
-		\renewcommand\maketitle{\setpdfmetadata\tmp@maketitle}
+		\renewcommand\maketitle{\setpdfmetadata\pkuthssextra@tmp@maketitle}
 	\fi
 
-	\ifpkuthss@extraopt@linkcolor
+	\ifpkuthssextra@opt@linkcolor
 		% Use coloured hyperlinks in generated PDF.
 		\hypersetup{colorlinks=true}
 	\else hyperlinks in generated PDF.
