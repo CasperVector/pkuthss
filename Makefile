@@ -9,8 +9,8 @@ DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
 README = README
 TOLF = dos2unix -q
 TOCRLF = unix2dos -q
-# svn/git directories are unwanted in packaged releases.
-FIND_VCSDIR = -type d -name '.svn' -o -name '.git' -prune
+# VCS directories are unwanted in packaged releases.
+FIND_VCSDIR = -type d -name '.git' -prune
 FIND_FILENOVCS = -not \( $(FIND_VCSDIR) \) -type f
 
 dist: dist-clean
