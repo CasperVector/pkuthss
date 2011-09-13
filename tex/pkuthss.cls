@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/06/27 v1.3 rc3 Peking University dissertation document class]
+	[2011/09/13 v1.3 rc4 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -85,7 +85,7 @@
 		}
 \fi\fi
 
-\AtEndOfClass{%
+\AtEndOfClass{
 	% Setting chinese captions and labels.
 	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
 	\else\input{pkuthss-utf8.def}
