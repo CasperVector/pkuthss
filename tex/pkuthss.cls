@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/09/13 v1.3 rc4 Peking University dissertation document class]
+	[2011/12/21 v1.3 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -71,6 +71,7 @@
 % Use the numerical scheme as default.
 \RequirePackage[numbers]{natbib}
 % Provide \AtEndPreamble used later.
+% To be removed by summer in 2013, see the fix of `\hypersetup' below.
 \RequirePackage{etoolbox}
 % Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
@@ -97,7 +98,7 @@
 	% Not directly using the `hyperref' option of `ctex' package in order to avoid
 	% the conflicts caused by loading of `hyperref' before `setspace' in `ctex'
 	% package older than 1.02c.
-	% This piece of code will be deleted by summer in 2013, and we will use the
+	% This piece of code will be removed by summer in 2013, and we will use the
 	% `hyperref' option of `ctex' package instead, considering most people
 	% will be using newer versions of `ctex' package at that time.
 	\providecommand\hypersetup[1]{\PassOptionsToPackage{#1}{hyperref}}
@@ -181,7 +182,9 @@
 	\begin{titlepage}
 		% It will be more nice to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
-		% Fill specified space will underline on the bottom line (not the baseline).
+		% Fill specified space with underline on the bottom line. `\underline'
+		% draws line on the baseline (not the bottom line), and this is why
+		% `\CJKunderline' is used here instead.
 		\def\pkuthss@int@fillinblank##1##2%
 			{\CJKunderline{\makebox[##1]{##2}}}
 		% Make the title page centered.
