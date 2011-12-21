@@ -36,7 +36,7 @@ doc-gbkcrlf:
 	find $(DOC_GBKCRLF) $(FIND_FILENOVCS) -exec $(TOCRLF) '{}' ';'
 	find $(DOC_GBKCRLF) $(FIND_FILENOVCS) -not -iname '*utf8*' \
 		-exec enca -L zh -x GBK '{}' ';'
-	sed -i 's;\(\\documentclass\[.*\)UTF8\(.*\]{pkuthss}\);\1GBK\2;g' \
+	sed -i 's;\(\\documentclass\[[^][]*\)UTF8\([^][]*\]{pkuthss}\);\1GBK\2;g' \
 		$(DOC_GBKCRLF)/pkuthss.tex
 	sed -i 's;\(\.\./tex/pkuthss-\)utf8\(.def\);\1gbk\2;g' \
 		$(DOC_GBKCRLF)/chap/encl1.tex
