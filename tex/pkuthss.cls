@@ -51,7 +51,7 @@
 \pkuthss@int@extraopt{spechap}
 \pkuthss@int@extraopt{upcite}
 \pkuthss@int@extraopt{pdfprop}
-\pkuthss@int@extraopt{colorlnk}
+\pkuthss@int@extraopt{colorlinks}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.

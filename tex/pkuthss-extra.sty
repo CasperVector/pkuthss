@@ -61,9 +61,7 @@
 % document information (author, title, etc.).
 \pkuthssextra@int@boolopt{pdfprop}{true}
 % Whether to use coloured hyperlinks in generated PDF.
-% Previously named `linkcolor', but this would crash with an option from
-% `hyperref' with the same name.
-\pkuthssextra@int@boolopt{colorlnk}{true}
+\pkuthssextra@int@boolopt{colorlinks}{true}
 % Process all class options now.
 \ProcessOptions\relax
 
@@ -166,7 +164,7 @@
 		\renewcommand\maketitle{\setpdfproperties\pkuthssextra@tmp@maketitle}
 	\fi
 
-	\ifpkuthssextra@opt@colorlnk
+	\ifpkuthssextra@opt@colorlinks
 		% Use coloured hyperlinks in generated PDF.
 		\hypersetup{colorlinks=true}
 	\else

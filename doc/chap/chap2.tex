@@ -123,21 +123,21 @@
 					pdf 文档属性的设定。%
 				}
 
-			\item \textbf{\texttt{[no]colorlnk}}\footnote{%
+			\item \textbf{\texttt{[no]colorlinks}}\footnote{%
 					此选项等价于低于 1.3 版的 pkuthss-extra 宏包%
 					的 \texttt{[no]linkcolor} 选项，
 					但后来发现这会和 hyperref 宏包的一个同名选项冲突，
-					故改为 \texttt{[no]colorlnk}。%
+					故改为 \texttt{[no]colorlinks}。%
 				}：
 				是否在生成的 pdf 文档中使用彩色的链接。
 		\end{itemize}
 
 		例如，在提交打印版的论文时，
 		彩色的链接文字在黑白打印出来之后可能颜色会很浅。
-		此时用户可以启用 pkuthss-extra 宏包的 nocolorlnk 选项，
+		此时用户可以启用 pkuthss-extra 宏包的 nocolorlinks 选项，
 		使所有的链接变为黑色，以免影响打印：
 \begin{Verbatim}[frame=single]
-\documentclass[...,nocolorlnk]{pkuthss} % “...”代表其它的选项。
+\documentclass[...,nocolorlinks]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 		用户还可以进一步修改 \verb|img/| 目录中 %
 		\verb|pkulogo.eps| 和 \verb|pkuword.eps| 两个图片文件，
