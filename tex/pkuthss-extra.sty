@@ -39,10 +39,9 @@
 %   \DeclareOption{nospacing}{\pkuthssextra@opt@spacingfalse}
 \def\pkuthssextra@int@boolopt#1#2{
 	\expandafter\newif\csname ifpkuthssextra@opt@#1\endcsname
-	\csname pkuthssextra@opt@#1#2\endcsname
-	\expandafter\DeclareOption{#1}{\csname pkuthssextra@opt@#1true\endcsname}
-	\expandafter\DeclareOption{no#1}%
-		{\csname pkuthssextra@opt@#1false\endcsname}
+	\@nameuse{pkuthssextra@opt@#1#2}
+	\DeclareOption{#1}{\@nameuse{pkuthssextra@opt@#1true}}
+	\DeclareOption{no#1}{\@nameuse{pkuthssextra@opt@#1false}}
 }
 % Whethet to use some common settings for adjusting spacing.
 \pkuthssextra@int@boolopt{spacing}{true}

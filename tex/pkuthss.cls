@@ -140,13 +140,13 @@
 %   \def\ctitle#1{\def\@ctitle{#1}}
 %   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
 \def\pkuthss@int@infoitema#1{
-	\expandafter\def\csname #1\endcsname##1{\@namedef{@#1}{##1}}
-	\expandafter\define@key{pkuthss@info}{#1}{\csname #1\endcsname{##1}}
+	\@namedef{#1}##1{\@namedef{@#1}{##1}}
+	\define@key{pkuthss@info}{#1}{\@nameuse{#1}{##1}}
 }
 % eg. `\pkuthss@int@infoitemb{cuniversity}' will expand to:
 %   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
 \def\pkuthss@int@infoitemb#1{
-	\expandafter\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
+	\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
 }
 % Setting document information entries.
 \pkuthss@int@infoitema{ctitle}
