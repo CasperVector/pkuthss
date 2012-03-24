@@ -57,9 +57,9 @@
 \pkuthssextra@int@boolopt{spechap}{true}
 % Whether to make citation labels superscript as default.
 \pkuthssextra@int@boolopt{upcite}{true}
-% Whether to automatically set metadata for generated PDF from user defined
-% document information.
-\pkuthssextra@int@boolopt{pdfmeta}{true}
+% Whether to automatically set properties for generated PDF from user defined
+% document information (author, title, etc.).
+\pkuthssextra@int@boolopt{pdfprop}{true}
 % Whether to use coloured hyperlinks in generated PDF.
 % Previously named `linkcolor', but this would crash with an option from
 % `hyperref' with the same name.
@@ -149,20 +149,21 @@
 		\fi
 	\fi
 
-	\ifpkuthssextra@opt@pdfmeta
-		% Automatically generate metadata for generated PDF.
-		\newcommand{\setpdfmetadata}{
+	\ifpkuthssextra@opt@pdfprop
+		% Automatically generate properties for generated PDF.
+		% Use English properties to avoid problems with character encodings.
+		\newcommand{\setpdfproperties}{
 			\hypersetup{
 				pdfauthor={\@eauthor},pdftitle={\@etitle},
 				pdfsubject={\euniversity\ \ethesisname},pdfkeywords={\@ekeywords}
 			}
 		}
-		% Set the metadata when generating the title page because the document
+		% Set the properties when generating the title page because the document
 		% information should have been all defined before this.
 		\let\pkuthssextra@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
-		% act as you wished.
-		\renewcommand\maketitle{\setpdfmetadata\pkuthssextra@tmp@maketitle}
+		% act as wished.
+		\renewcommand\maketitle{\setpdfproperties\pkuthssextra@tmp@maketitle}
 	\fi
 
 	\ifpkuthssextra@opt@colorlnk

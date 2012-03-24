@@ -107,9 +107,9 @@
 			\item \textbf{\texttt{[no]upcite}}：
 				是否默认使引用标记成为上标。
 
-			\item \textbf{\texttt{[no]pdfmeta}}：
-				是否自动根据设定的论文文档信息设置%
-				生成的 pdf 文档的元数据（metadata）。%
+			\item \textbf{\texttt{[no]pdfprop}}：
+				是否自动根据设定的论文文档信息（如作者、标题等）
+				设置生成的 pdf 文档的相应属性。%
 				\emph{%
 					注意：
 					该选项实际上是在 \texttt{\string\maketitle} 时生效的，
@@ -119,8 +119,8 @@
 					若用户不调用 \texttt{\string\maketitle}，
 					则需在设定完文档信息之后自行调用%
 					第 \ref{ssec:misc} 小节中介绍的 %
-					\texttt{\string\setpdfmetadata} 命令以完成%
-					pdf 文档元数据的设定。%
+					\texttt{\string\setpdfproperties} 命令以完成%
+					pdf 文档属性的设定。%
 				}
 
 			\item \textbf{\texttt{[no]colorlnk}}\footnote{%
@@ -248,17 +248,16 @@
 		例如，本文档中的“绪言”一章就是用 \verb|\specialchap{绪言}| %
 		这条命令开始的。%
 
-		\texttt{\bfseries\string\setpdfmetadata} 命令%
-		用于根据用户设定的文档信息%
-		自动设定生成的 pdf 文档的元数据。
+		\texttt{\bfseries\string\setpdfproperties} 命令%
+		用于根据用户设定的文档信息自动设定生成的 pdf 文档的属性。
 		此命令会在用户调用 \verb|\maketitle| 命令时被自动调用，
 		因此通常不需要用户自己使用；
 		但用户有时可能不需要输出标题页，
 		从而不会调用 \verb|\maketitle| 命令，
-		此时就需要在设定完文档信息之后调用 \verb|\setpdfmetadata|。
+		此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。
 		\emph{%
 			注意：
-			需要启用 pkuthss-extra 宏包的 \texttt{pdfmeta} 选项%
+			需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项%
 			才能使用此命令。%
 		}
 
