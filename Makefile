@@ -30,7 +30,7 @@ dist-dir: tex/ doc/
 doc-utf8lf:
 	cd $(DOC_UTF8LF)/ && make
 	mv $(DOC_UTF8LF)/$(TITLE).pdf $(PROJECT)/$(README).pdf
-	cd $(DOC_UTF8LF)/ && make clean
+	cd $(DOC_UTF8LF)/ && make dist-clean
 
 doc-gbkcrlf:
 	find $(DOC_GBKCRLF) $(FIND_FILENOVCS) -exec $(TOCRLF) '{}' ';'
@@ -45,6 +45,8 @@ dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
 
 dist-clean:
-	cd "doc" && make clean && cd -
+	cd doc && make clean && cd -
 	rm -rf $(PROJECT)/ $(PROJECT).zip
+
+.PHONY: dist-clean
 

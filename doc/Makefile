@@ -47,14 +47,14 @@ doc:
 	$(LATEX) $(JOBNAME)
 	$(DODVIPDF)
 
-clear:
+clean:
 	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).blg\
 		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).out\
 		$(JOBNAME).dvi missfont.log
 	$(RM) chap/*.aux
 
-clean: clear img-clean
+dist-clean: clean img-clean
 	$(RM) $(JOBNAME).pdf
 
-.PHONY: img img-clean clear clean
+.PHONY: img img-clean clean dist-clean
 
