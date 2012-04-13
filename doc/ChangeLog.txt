@@ -15,5 +15,6 @@
 	- Improve spacing details.
 
 	* Misc:
+	- Update copyright notices.
 	- Revise Makefiles.
 
