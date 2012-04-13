@@ -3,7 +3,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2011 Casper Ti. Vector
+% Copyright (c) 2010-2012 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2011/12/21 v1.3 Peking University dissertation document class]
+	[2012/4/13 v1.4 alpha1 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -61,7 +61,7 @@
 % CJKfntef provides \CJKunderline used in \maketitle.
 % fancyhdr provides utilities for setting headers and footers.
 \LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2009/10/20]
-% Provide support for key=val grammar.
+% Provide support for `key = val' grammar.
 \RequirePackage{keyval}
 % Graphics support.
 \RequirePackage{graphicx}[1999/02/16]
@@ -123,7 +123,7 @@
 }
 
 % Set page layout.
-\geometry{height=240mm,width=150mm,includeheadfoot,headheight=1.2em}
+\geometry{height = 240mm, width = 150mm, includeheadfoot, headheight = 1.2em}
 % Set headers and footers.
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[LE]{\small\normalfont\leftmark}
@@ -169,7 +169,7 @@
 \pkuthss@int@infoitemb{ethesisname}
 \pkuthss@int@infoitemb{cabstractname}
 \pkuthss@int@infoitemb{eabstractname}
-% Set document information using the key=value grammar.
+% Set document information using the `key = value' grammar.
 \newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
 % Set format of the title page (cover).
@@ -189,8 +189,8 @@
 		\begin{center}
 			% Emblem and inscription of the university, and type of thesis.
 			{
-				\includegraphics[height=0.07\textheight]{img/pkulogo}\hspace{1em}
-				\includegraphics[height=0.07\textheight]{img/pkuword}\\[2.25em]
+				\includegraphics[height = 0.07\textheight]{img/pkulogo}\hspace{1em}
+				\includegraphics[height = 0.07\textheight]{img/pkuword}\\[2.25em]
 				{\zihao{1}\bfseries\cthesisname}
 			}
 			\vfill
@@ -221,7 +221,7 @@
 					\pkuthss@int@fillinblank{12em}{\kaishu\@cmajor}			\\
 					{\label@direction}	&
 					\pkuthss@int@fillinblank{12em}{\kaishu\@direction}	\\
-					{\label@cmentor}		&
+					{\label@cmentora}		&
 					\pkuthss@int@fillinblank{12em}{\kaishu\@cmentor}		\\
 				\end{tabular}
 			}
@@ -259,7 +259,7 @@
 	\let\pkuthss@tmp@major\@cmajor
  	\let\pkuthss@tmp@mentor\@cmentor
  	\let\pkuthss@tmp@keywords\@ckeywords
- 	\let\pkuthss@tmp@label@mentor\label@cmentor
+ 	\let\pkuthss@tmp@label@mentor\label@cmentorb
  	\let\pkuthss@tmp@label@keywords\label@ckeywords
 	\let\pkuthss@tmp@abstractname\cabstractname
 	\begin{pkuthss@int@abstract}

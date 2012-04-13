@@ -1,7 +1,7 @@
 # vim:ft=make:ts=4:sw=4
 
 TITLE = pkuthss
-VERSION = 1.3
+VERSION = 1.4alpha1
 PROJECT = $(TITLE)-$(VERSION)
 DIST_DOC = $(PROJECT)/doc
 DOC_UTF8LF = $(DIST_DOC)/utf8lf
@@ -45,7 +45,7 @@ dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
 
 dist-clean:
-	cd doc && make clean && cd -
+	cd doc && make dist-clean && cd -
 	rm -rf $(PROJECT)/ $(PROJECT).zip
 
 .PHONY: dist-clean

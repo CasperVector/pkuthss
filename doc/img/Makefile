@@ -1,5 +1,5 @@
 # Copyright (c) 2008-2009 solvethis
-# Copyright (c) 2010-2011 Casper Ti. Vector
+# Copyright (c) 2010-2012 Casper Ti. Vector
 # Public domain.
 
 # 直接使用 pkulogo.eps 作为论文封面图片也是可行的，

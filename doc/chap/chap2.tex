@@ -1,5 +1,5 @@
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2011 Casper Ti. Vector
+% Copyright (c) 2010-2012 Casper Ti. Vector
 % Public domain.
 
 \chapter{pkuthss 文档模版提供的功能}
@@ -27,20 +27,20 @@
 
 		例如，如果需要使用 UTF-8 编码撰写论文，
 		则需要在导入 pkuthss 文档类时加上 \verb|UTF8| 选项：
-\begin{Verbatim}[frame=single]
-\documentclass[UTF8,...]{pkuthss} % “...”代表其它的选项。
+\begin{Verbatim}[frame = single]
+\documentclass[UTF8, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 
 		又例如，文档默认情况下是双面模式，每章都从右页（奇数页）开始。
 		如果希望改成一章可以从任意页开始，可以这样设置：
-\begin{Verbatim}[frame=single]
-\documentclass[openany,...]{pkuthss} % 每章从任意页开始。
+\begin{Verbatim}[frame = single]
+\documentclass[openany, ...]{pkuthss} % 每章从任意页开始。
 \end{Verbatim}
 		但这样设置时左右（奇偶）页页眉页脚设置仍然是不同的。
 		如果需要使奇偶页页眉页脚设置一致，可以直接采用单面模式：
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 % 使用 oneside 选项时不需要再指定 openany 选项。
-\documentclass[oneside,...]{pkuthss}
+\documentclass[oneside, ...]{pkuthss}
 \end{Verbatim}
 
 		\subsection{pkuthss-extra 宏包提供的选项}\label{ssec:extra}
@@ -136,8 +136,8 @@
 		彩色的链接文字在黑白打印出来之后可能颜色会很浅。
 		此时用户可以启用 pkuthss-extra 宏包的 nocolorlinks 选项，
 		使所有的链接变为黑色，以免影响打印：
-\begin{Verbatim}[frame=single]
-\documentclass[...,nocolorlinks]{pkuthss} % “...”代表其它的选项。
+\begin{Verbatim}[frame = single]
+\documentclass[..., nocolorlinks]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 		用户还可以进一步修改 \verb|img/| 目录中 %
 		\verb|pkulogo.eps| 和 \verb|pkuword.eps| 两个图片文件，
@@ -147,7 +147,7 @@
 		\subsection{设定文档信息的命令}
 
 		这一类命令的语法为
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 \commandname{具体信息} % commandname 为具体命令的名称。
 \end{Verbatim}
 
@@ -170,7 +170,7 @@
 		\end{itemize}
 
 		例如，如果要设定专业为“化学”（“Chemistry”），则可以使用以下命令：
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 \cmajor{化学}
 \emajor{Chemistry}
 \end{Verbatim}
@@ -178,7 +178,7 @@
 		\subsection{自身存储文档信息的命令}
 
 		这一类命令的语法为
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 % commandname 为具体的命令名。
 \renewcommand{\commandname}{具体信息}
 \end{Verbatim}
@@ -196,18 +196,18 @@
 		例如，
 		如果要设定论文的类别为“本科生毕业论文”（“Undergraduate Thesis”），
 		则可以使用以下命令：
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 \renewcommand{\cthesisname}{本科生毕业论文}
 \renewcommand{\ethesisname}{Undergraduate Thesis}
 \end{Verbatim}
 
-		\subsection{以 key=value 格式设置文档信息}
+		\subsection{以“key = value”格式设置文档信息}
 
 		用户可以通过 \verb|\pkuthssinfo| 命令集中设定文档信息，
 		其语法为：
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 % key1、key2、value1、value2 等为具体文档信息的项目名和内容。
-\pkuthssinfo{key1=value1,key2=value2,...}
+\pkuthssinfo{key1 = value1, key2 = value2, ...}
 \end{Verbatim}
 		其中文档信息的项目名为前面提到的设定文档信息的命令名%
 		或自身存储文档信息的命令名（不带反斜杠）。
@@ -220,11 +220,12 @@
 		}
 
 		例如，前面提到的文档信息的设置可以集中地写成：
-\begin{Verbatim}[frame=single,tabsize=4]
+\begin{Verbatim}[frame = single, tabsize = 4]
 \pkuthssinfo{
-	cthesisname={本科生毕业论文},
-	ethesisname={Undergraduate Thesis},
-	cmajor={化学},emajor={Chemistry}
+	..., % “...”代表其它的设定。
+	cthesisname = {本科生毕业论文},
+	ethesisname = {Undergraduate Thesis},
+	cmajor = {化学}, emajor = {Chemistry}
 }
 \end{Verbatim}
 
@@ -272,14 +273,14 @@
 
 		例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
 		则可以使用 ctexbook 文档类提供的 \verb|\CTEXoptions| 命令：
-\begin{Verbatim}[frame=single]
-\CTEXoptions{contentsname={目{\quad\quad}录}}
+\begin{Verbatim}[frame = single]
+\CTEXoptions{contentsname = {目{\quad\quad}录}}
 \end{Verbatim}
 
 		又例如，用户有时可能需要使用非上标的引用标记，
 		此时可以使用 natbib 宏包提供的相关命令，
 		例如在本文档中的以下代码
-\begin{Verbatim}[frame=single]
+\begin{Verbatim}[frame = single]
 文献 \citenum{ctex} 中提到
 \end{Verbatim}
 		将产生“文献 \citenum{ctex} 中提到”。

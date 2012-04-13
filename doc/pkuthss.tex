@@ -1,5 +1,5 @@
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2011 Casper Ti. Vector
+% Copyright (c) 2010-2012 Casper Ti. Vector
 % Public domain.
 
 % 在黑白打印时彩色链接可能变成浅灰色，此时可将“colorlinks”改为“nocolorlinks”。
@@ -12,31 +12,31 @@
 % 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
 % pkuthss 文档模版的版本。
-\newcommand{\docversion}{v1.3}
+\newcommand{\docversion}{v1.4 alpha1}
 
 % 参考文献格式。
 \bibliographystyle{ref/chinesebst-mod}
 % 设定文档的基本信息。
 \pkuthssinfo{
-	cthesisname={本科生毕业论文}, ethesisname={Undergraduate Thesis},
-	ctitle={北京大学论文文档模版\\pkuthss \docversion},
+	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
+	ctitle = {北京大学论文文档模版\\pkuthss \docversion},
 	% “\\”在设定 pdf 属性时会被自动过滤掉，于是得到的 pdf 属性中标题为
 	%   The PKU dissertation document classpkuthss [版本号]
 	% 此处指定其被替换为“: ”，以使之为
 	%   The PKU dissertation document class: pkuthss [版本号]
-	etitle={%
+	etitle = {%
 		The PKU dissertation document class\texorpdfstring{\\}{: }%
 		pkuthss \docversion%
 	},
-	cauthor={盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
-	eauthor={Casper Ti.\ Vector},
-	studentid={00910???},
-	date={二〇一一年十二月},
-	school={化学与分子工程学院},
-	cmajor={化学}, emajor={Chemistry}, direction={理论和计算化学},
-	cmentor={XX 教授}, ementor={Prof.\ XX},
-	ckeywords={\LaTeX2e{}，排版，文档类，\CTeX{}},
-	ekeywords={\LaTeX2e{}, typesetting, document class, \CTeX{}},
+	cauthor = {盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
+	eauthor = {Casper Ti.\ Vector},
+	studentid = {00910???},
+	date = {二〇一二年四月},
+	school = {化学与分子工程学院},
+	cmajor = {化学}, emajor = {Chemistry}, direction = {XX 化学},
+	cmentor = {XX 教授}, ementor = {Prof.\ XX},
+	ckeywords = {\LaTeX2e{}，排版，文档类，\CTeX{}},
+	ekeywords = {\LaTeX2e{}, typesetting, document class, \CTeX{}}
 }
 
 \begin{document}

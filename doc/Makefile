@@ -1,5 +1,5 @@
 # Copyright (c) 2008-2009 solvethis
-# Copyright (c) 2010-2011 Casper Ti. Vector
+# Copyright (c) 2010-2012 Casper Ti. Vector
 # Public domain.
 
 # 被编译的主文件的文件名，不包括扩展名。

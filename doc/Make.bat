@@ -1,5 +1,5 @@
 @rem Copyright (c) 2008-2009 solvethis
-@rem Copyright (c) 2010-2011 Casper Ti. Vector
+@rem Copyright (c) 2010-2012 Casper Ti. Vector
 @rem Public domain.
 
 @echo off
