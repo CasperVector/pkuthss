@@ -102,24 +102,18 @@
 	% `hyperref' option of `ctex' package instead, considering most people
 	% will be using newer versions of `ctex' package at that time.
 	\providecommand\hypersetup[1]{\PassOptionsToPackage{#1}{hyperref}}
-	\AtEndPreamble{\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}}
-	\ifxetex
-		\hypersetup{xetex,unicode}
-	\else
-		\ifpdf
-			\hypersetup{pdftex}
-		\else
-			\hypersetup{dvipdfmx}
-			\ifpkuthss@opt@gbk
+	\AtEndPreamble{\RequirePackage{hyperref}}
+	\ifpkuthss@opt@gbk
+		\unless\ifxetex
+			\hypersetup{CJKbookmarks}
+			\unless\ifpdf
 				\AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}}
 			\fi
 		\fi
-		\ifpkuthss@opt@gbk
-			\hypersetup{CJKbookmarks}
-		\else
-			\hypersetup{unicode}
-		\fi
+	\else
+		\hypersetup{unicode}
 	\fi
+	\hypersetup{driverfallback = dvipdfmx}
 }
 
 % Set page layout.

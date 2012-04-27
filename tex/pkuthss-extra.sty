@@ -68,7 +68,7 @@
 	% Automatically ignore spaces between CJK characters and preserve spaces in other
 	% situations. XeCJK itself will handle this issue, therefore we do not use
 	% `CJKspace' when using XeLaTeX.
-	\ifxetex\else\RequirePackage{CJKspace}\fi
+	\unless\ifxetex\RequirePackage{CJKspace}\fi
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
 	% Make the text area centered in the page.
@@ -122,7 +122,7 @@
 	% `\MakeUppercase' works problematically.
 	% eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
 	% This option can disable `\MakeUppercase' in left/right heading marks.
-	\ifpkuthssextra@opt@uppermark\else
+	\unless\ifpkuthssextra@opt@uppermark
 		% Code modified from part of ctex-book.def in `ctex' package.
 		% The main difference is the deletion of calls to `\MakeUppercase' here.
 		\if@twoside
