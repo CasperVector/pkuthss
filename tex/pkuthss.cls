@@ -168,12 +168,10 @@
 
 % Fill #3 into underlined blanks with width #2 and #3 lines.
 % For example, `\pkuthss@int@fillinblank{1}{4em}{test}' will generate "test"
-% filled in one line with width `4em'.
+% filled on one line with width `4em'.
 \def\pkuthss@int@fillinblank#1#2#3{
-	\makebox[0pt][l]{
-		\parbox[t]{#2}{\centering{#3}}
-	}
-	\parbox[t]{#2}{
+	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
+	\parbox[t]{#2}{%
 		\newcount\pkuthss@tmp@linecount
 		\pkuthss@tmp@linecount=#1
 		\loop\ifnum\pkuthss@tmp@linecount>0
@@ -186,8 +184,8 @@
 				\CJKunderline{\makebox[#2]{}}\\
 			\fi
 		\advance\pkuthss@tmp@linecount by -1\relax
-		\repeat
-	}
+		\repeat%
+	}%
 }
 % Set format of the title page (cover).
 \renewcommand{\maketitle}{
