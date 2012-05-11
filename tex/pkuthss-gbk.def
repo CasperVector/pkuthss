@@ -27,12 +27,12 @@
 		for the pkuthss document class]
 
 \def\label@ctitle{题目：}
-\def\label@cauthor{姓\hspace{2em}名：}
-\def\label@studentid{学\hspace{2em}号：}
-\def\label@school{院\hspace{2em}系：}
-\def\label@cmajor{专\hspace{2em}业：}
+\def\label@cauthor{姓\hphantom{汉字}名：}
+\def\label@studentid{学\hphantom{汉字}号：}
+\def\label@school{院\hphantom{汉字}系：}
+\def\label@cmajor{专\hphantom{汉字}业：}
 \def\label@direction{研究方向：}
-\def\label@cmentora{导\hspace{2em}师：}
+\def\label@cmentora{导\hphantom{汉字}师：}
 \def\label@cmentorb{导师：}
 \def\label@ementor{Directed by\ }
 \def\label@ckeywords{关键词：}

@@ -166,6 +166,29 @@
 % Set document information using the `key = value' grammar.
 \newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
+% Fill #3 into underlined blanks with width #2 and #3 lines.
+% For example, `\pkuthss@int@fillinblank{1}{4em}{test}' will generate "test"
+% filled in one line with width `4em'.
+\def\pkuthss@int@fillinblank#1#2#3{
+	\makebox[0pt][l]{
+		\parbox[t]{#2}{\centering{#3}}
+	}
+	\parbox[t]{#2}{
+		\newcount\pkuthss@tmp@linecount
+		\pkuthss@tmp@linecount=#1
+		\loop\ifnum\pkuthss@tmp@linecount>0
+			% Fill specified space with underline on the bottom line. `\underline'
+			% draws line on the baseline (not the bottom line), and this is why
+			% `\CJKunderline' is used here instead.
+			\ifnum\pkuthss@tmp@linecount=1
+				\CJKunderline{\makebox[#2]{}}
+			\else
+				\CJKunderline{\makebox[#2]{}}\\
+			\fi
+		\advance\pkuthss@tmp@linecount by -1\relax
+		\repeat
+	}
+}
 % Set format of the title page (cover).
 \renewcommand{\maketitle}{
 	\cleardoublepage
@@ -174,11 +197,6 @@
 	\begin{titlepage}
 		% It will be more nice to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
-		% Fill specified space with underline on the bottom line. `\underline'
-		% draws line on the baseline (not the bottom line), and this is why
-		% `\CJKunderline' is used here instead.
-		\def\pkuthss@int@fillinblank##1##2%
-			{\CJKunderline{\makebox[##1]{##2}}}
 		% Make the title page centered.
 		\begin{center}
 			% Emblem and inscription of the university, and type of thesis.
@@ -191,13 +209,7 @@
 			% Title of the thesis.
 			{
 				\zihao{2}
-				{\label@ctitle}\makebox[0pt][l]{
-					\parbox[t]{12em}{\centering\textbf{\@ctitle}}
-				}
-				\parbox[t]{12em}{
-					\pkuthss@int@fillinblank{12em}{}\\
-					\pkuthss@int@fillinblank{12em}{}
-				}
+				{\label@ctitle}\pkuthss@int@fillinblank{2}{12em}{\textbf{\@ctitle}}
 			}
 			\vfill
 			% Information about the author.
@@ -206,17 +218,17 @@
 				\zihao{-2}\linespread{1.75}\selectfont
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
 					{\label@cauthor}		&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@cauthor}		\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cauthor}		\\
 					{\label@studentid}	&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@studentid}	\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@studentid}	\\
 					{\label@school}			&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@school}			\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@school}		\\
 					{\label@cmajor}			&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@cmajor}			\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cmajor}		\\
 					{\label@direction}	&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@direction}	\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@direction}	\\
 					{\label@cmentora}		&
-					\pkuthss@int@fillinblank{12em}{\kaishu\@cmentor}		\\
+					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cmentor}		\\
 				\end{tabular}
 			}
 			\vfill
