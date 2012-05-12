@@ -56,5 +56,3 @@ clean:
 dist-clean: clean img-clean
 	$(RM) $(JOBNAME).pdf
 
-.PHONY: img img-clean clean dist-clean
-
