@@ -74,4 +74,5 @@ revbump:
 	@echo '$@: remember to update the ChangeLog'
 	@echo '$@: remember to tag the commit'
 	@echo '$@: remember to use `git push --tags'\'
+	@echo '$@: remember to add new download on Google Code'
 
