@@ -166,9 +166,7 @@
 % Set document information using the `key = value' grammar.
 \newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
-% Fill #3 into underlined blanks with width #2 and #3 lines.
-% For example, `\pkuthss@int@fillinblank{1}{4em}{test}' will generate "test"
-% filled on one line with width `4em'.
+% Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
 \def\pkuthss@int@fillinblank#1#2#3{
 	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
 	\parbox[t]{#2}{%
@@ -207,26 +205,28 @@
 			% Title of the thesis.
 			{
 				\zihao{2}
-				{\label@ctitle}\pkuthss@int@fillinblank{2}{12em}{\textbf{\@ctitle}}
+				{\label@ctitle}%
+				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}
 			}
 			\vfill
 			% Information about the author.
 			{
 				% Slightly adjust the line skip when using new font size.
 				\zihao{-2}\linespread{1.75}\selectfont
+				\def\pkuthss@tmp@len{0.56\textwidth}
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
 					{\label@cauthor}		&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cauthor}		\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cauthor}		\\
 					{\label@studentid}	&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@studentid}	\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@studentid}	\\
 					{\label@school}			&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@school}		\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@school}			\\
 					{\label@cmajor}			&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cmajor}		\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmajor}			\\
 					{\label@direction}	&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@direction}	\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}	\\
 					{\label@cmentora}		&
-					\pkuthss@int@fillinblank{1}{12em}{\kaishu\@cmentor}		\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmentor}		\\
 				\end{tabular}
 			}
 			\vfill
