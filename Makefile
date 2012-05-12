@@ -2,7 +2,7 @@
 
 TITLE = pkuthss
 MAJORVER = 1.4
-MINORVER = alpha1
+MINORVER = alpha2
 README = README
 TOLF = dos2unix -q
 TOCRLF = unix2dos -q

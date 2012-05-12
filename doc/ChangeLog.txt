@@ -1,3 +1,16 @@
+2012-05-12, v1.4 alpha2
+
+	* Changes to package code:
+	- Fix positioning of boxes on title page.
+	- Unify code that fill in blanks on the title page.
+	- Merge ctex-kit updates with minor modifications.
+
+	* Changes to documentation:
+	- Add indication for customising title page by modifying `pkuthss.cls'.
+
+	* Misc:
+	- Add `maintcheck' and `revbump' to root Makefile to ease automation.
+
 2012-04-13, v1.4 alpha1
 
 	* API Changes:
