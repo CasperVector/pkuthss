@@ -10,7 +10,7 @@ TOCRLF = unix2dos -q
 FIND_VCSDIR = -type d -name '.git' -prune
 
 NUMDATE = $(shell date '+%Y/%m/%d')
-CNDATE = $(shell date '+%Y年%-m月' | sed 'y/0123456789/〇一二三四五六七八九/')
+CNDATE = $(shell date '+%Y年%-m月' | LANG=zh_CN.UTF-8 sed 'y/0123456789/〇一二三四五六七八九/')
 
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
 PROJECT = $(TITLE)-$(call VER_GEN,)
