@@ -9,8 +9,8 @@ TOCRLF = unix2dos -q
 # VCS directories are unwanted in packaged releases.
 FIND_VCSDIR = -type d -name '.git' -prune
 
-NUMDATE = $(shell date +%Y/%m/%d)
-CNDATE = $(shell python3 -c 'print("$(shell date +%Y年%-m月)".translate(str.maketrans("0123456789", "〇一二三四五六七八九")))')
+NUMDATE = $(shell date '+%Y/%m/%d')
+CNDATE = $(shell date '+%Y年%-m月' | sed 'y/0123456789/〇一二三四五六七八九/')
 
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
 PROJECT = $(TITLE)-$(call VER_GEN,)
