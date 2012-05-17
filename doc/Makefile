@@ -48,8 +48,8 @@ doc:
 	$(DODVIPDF)
 
 clean:
-	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).blg\
-		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).out\
+	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).blg \
+		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).out \
 		$(JOBNAME).dvi missfont.log
 	$(RM) chap/*.aux
 

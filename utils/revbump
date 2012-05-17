@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+# vim:ts=4:sw=4
+
+NUMDATE = $(shell date '+%Y/%m/%d')
+CNDATE = $(shell date '+%Y年%-m月' | \
+	LANG=zh_CN.UTF-8 sed 'y/0123456789/〇一二三四五六七八九/')
+VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
+
+revbump:
+	sed -i '/\\Provides/,+1 s;\[[^ ]* [^ ]*;[$(NUMDATE) v$(call VER_GEN,-);g' \
+		tex/*
+	sed -i -e '/date = / s;{[^{}]\+},$$;{$(CNDATE)},;g' \
+		-e '/\\newcommand{\\docversion}/ s;{[^{}]\+}$$;{v$(call VER_GEN, )};g' \
+		doc/pkuthss.tex
+	@echo '$@: remember to update the ChangeLog'
+	@echo '$@: remember to tag the commit'
+	@echo '$@: remember to `git push --tags'\'
+	@echo '$@: remember to add new download on Google Code'
+

@@ -33,5 +33,3 @@ pkuword.pdf: pkuword.eps
 clean:
 	$(RM) pkulogo.pdf pkuword.pdf
 
-.PHONY: clean
-

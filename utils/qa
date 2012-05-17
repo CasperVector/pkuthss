@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+# vim:ts=4:sw=4
+
+FIND_GBK = -name '*gbk*' -o -iname '*.bat*'
+FIND_CRLF = -name '*.bat*'
+FIND_VCS = -type -d -name '.git' -prune
+
+# IGNORE "error"s intentionally.
+.IGNORE qa: enc lt sync spell tail
+
+enc:
+	@echo '======================================================================'
+	@echo '$@: check file encodings'
+	@echo '======================================================================'
+	find . $(FIND_GBK) -type f -exec file '{}' '+' | grep -v GB
+	find . -not '(' $(FIND_VCS) ')' -not '(' $(FIND_GBK) ')' \
+		-type f -exec file '{}' '+' | grep GB
+
+lt:
+	@echo '======================================================================'
+	@echo '$@: check line terminators'
+	@echo '======================================================================'
+	find . $(FIND_CRLF) -type f -exec file '{}' '+' | grep -v CRLF
+	find . -not '(' $(FIND_VCS) ')' -not '(' $(FIND_CRLF) ')' \
+		-type f -exec file '{}' '+' | grep CRLF
+
+sync:
+	@echo '======================================================================'
+	@echo '$@: keep GBK and UTF-8 files synchronised'
+	@echo '======================================================================'
+	iconv -f GBK tex/pkuthss-gbk.def | diff - tex/pkuthss-utf8.def
+
+spell:
+	@echo '======================================================================'
+	@echo '$@: use "模版" instead of "模板"'
+	@echo '======================================================================'
+	grep -r '模板' .
+
+tail:
+	@echo '======================================================================'
+	@echo '$@: remember to update documentation after modifications'
+	@echo '$@: remember to review `git diff`'
+	@echo '======================================================================'
+

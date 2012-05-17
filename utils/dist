@@ -1,0 +1,46 @@
+#!/usr/bin/make -f
+# vim:ts=4:sw=4
+
+MAJORVER = 1.4
+MINORVER = alpha2
+TOLF = dos2unix -q
+TOCRLF = unix2dos -q
+TOGBK = recode UTF-8..GBK
+
+VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
+PROJECT = $(TITLE)-$(call VER_GEN,)
+DIST_DOC = $(PROJECT)/doc
+DOC_UTF8LF = $(DIST_DOC)/utf8lf
+DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
+
+FIND_UTF8 = -name '*utf8*'
+
+dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf dist-zip
+
+dist-dir: tex/ doc/
+	mkdir -p $(DIST_DOC)/
+	cp -r tex/ $(PROJECT)/
+	cp -r doc/ $(DOC_UTF8LF)/
+	mv -f $(DOC_UTF8LF)/license/ $(DIST_DOC)/
+	cp -r $(DOC_UTF8LF)/ $(DOC_GBKCRLF)/
+
+doc-utf8lf:
+	cd $(DOC_UTF8LF)/ && make
+	mv $(DOC_UTF8LF)/$(TITLE).pdf $(PROJECT)/$(README).pdf
+	cd $(DOC_UTF8LF)/ && make dist-clean
+
+doc-gbkcrlf:
+	find $(DOC_GBKCRLF) -type f -exec $(TOCRLF) '{}' ';'
+	find $(DOC_GBKCRLF) -not '(' $(FIND_UTF8) ')' -type f -exec $(TOGBK) '{}' ';'
+	sed -i 's;\(\\documentclass\[[^][]*\)UTF8\([^][]*\]{pkuthss}\);\1GBK\2;g' \
+		$(DOC_GBKCRLF)/pkuthss.tex
+	sed -i 's;\(\.\./tex/pkuthss-\)utf8\(.def\);\1gbk\2;g' \
+		$(DOC_GBKCRLF)/chap/encl1.tex
+
+dist-zip: $(PROJECT)
+	zip -rmT $(PROJECT).zip $(PROJECT)/
+
+dist-clean:
+	cd doc && make dist-clean && cd -
+	rm -rf $(PROJECT)/ $(PROJECT).zip
+

@@ -5,7 +5,7 @@
 @echo off
 
 set JOBNAME=pkuthss
-@rem è¿™ä¸ªå˜é‡çš„å€¼å¯ä»¥ä¸º latex æˆ– pdflatexã€‚
+@rem Õâ¸ö±äÁ¿µÄÖµ¿ÉÒÔÎª latex »ò pdflatex¡£
 set LATEX=latex
 set BIBTEX=bibtex
 set GBK2UNI=gbk2uni
@@ -13,7 +13,7 @@ set DVIPDF=dvipdfmx
 
 if "%LATEX%"=="latex" (set DODVIPDF=%DVIPDF% %JOBNAME%
 ) else (set DODVIPDF=echo No need to run %DVIPDF%.)
-@rem ç”¨ pdflatex æ—¶å¯èƒ½éœ€è¦ä½¿ç”¨ gbk2uni è½¬æ¢ .out æ–‡ä»¶ç¼–ç ä»¥é˜²ä¹¦ç­¾ä¹±ç ã€‚
+@rem ÓÃ pdflatex Ê±¿ÉÄÜĞèÒªÊ¹ÓÃ gbk2uni ×ª»» .out ÎÄ¼ş±àÂëÒÔ·ÀÊéÇ©ÂÒÂë¡£
 if "%LATEX%"=="pdflatex" (@rem set DOGBK2UNI=%GBK2UNI% %JOBNAME%
 ) else (set DOGBK2UNI=echo No need to run %GBK2UNI%.)
 if "%1"=="" goto doc
