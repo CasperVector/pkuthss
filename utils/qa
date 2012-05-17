@@ -1,9 +1,9 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
 
-FIND_GBK = -name '*gbk*' -o -iname '*.bat*'
+FIND_GBK = -name '*gbk*' -o -name '*.bat*'
 FIND_CRLF = -name '*.bat*'
-FIND_VCS = -type -d -name '.git' -prune
+FIND_VCS = -type d -name '.git' -prune
 
 # IGNORE "error"s intentionally.
 .IGNORE qa: enc lt sync spell tail
