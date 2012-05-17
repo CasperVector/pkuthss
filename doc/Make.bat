@@ -5,7 +5,7 @@
 @echo off
 
 set JOBNAME=pkuthss
-@rem 这个变量的值可以为 latex 或 xelatex。
+@rem 这个变量的值可以为 latex 或 pdflatex。
 set LATEX=latex
 set BIBTEX=bibtex
 set GBK2UNI=gbk2uni
@@ -21,6 +21,9 @@ if "%1"=="doc" goto doc
 if "%1"=="clear" (goto clear) else (goto usage)
 
 :doc
+cd img
+call Make.bat
+cd ..
 %LATEX% %JOBNAME%
 %BIBTEX% %JOBNAME%
 %DOGBK2UNI%
