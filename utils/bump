@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
+#
+# Copyright (c) 2012 Casper Ti. Vector
+# Public domain.
 
 NUMDATE = $(shell date '+%Y/%m/%d')
 CNDATE = $(shell date '+%Y年%-m月' | \

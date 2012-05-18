@@ -31,3 +31,4 @@
 	- Update copyright notices.
 	- Revise Makefiles.
 
+# vim:ts=4:sw=4
