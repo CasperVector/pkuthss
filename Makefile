@@ -14,6 +14,6 @@ dist-clean:
 qa:
 	utils/qa
 
-revbump:
-	utils/revbump MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
+bump:
+	utils/bump MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
 

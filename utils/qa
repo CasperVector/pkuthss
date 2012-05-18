@@ -12,7 +12,8 @@ enc:
 	@echo '======================================================================'
 	@echo '$@: check file encodings'
 	@echo '======================================================================'
-	find . $(FIND_GBK) -type f -exec file '{}' '+' | grep -v GB
+	find . -not '(' $(FIND_VCS) ')' $(FIND_GBK) \
+		-type f -exec file '{}' '+' | grep -v GB
 	find . -not '(' $(FIND_VCS) ')' -not '(' $(FIND_GBK) ')' \
 		-type f -exec file '{}' '+' | grep GB
 
@@ -20,7 +21,8 @@ lt:
 	@echo '======================================================================'
 	@echo '$@: check line terminators'
 	@echo '======================================================================'
-	find . $(FIND_CRLF) -type f -exec file '{}' '+' | grep -v CRLF
+	find . -not '(' $(FIND_VCS) ')' $(FIND_CRLF) \
+		-type f -exec file '{}' '+' | grep -v CRLF
 	find . -not '(' $(FIND_VCS) ')' -not '(' $(FIND_CRLF) ')' \
 		-type f -exec file '{}' '+' | grep CRLF
 
