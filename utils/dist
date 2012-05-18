@@ -29,7 +29,7 @@ doc-utf8lf:
 
 doc-gbkcrlf:
 	find $(DOC_GBKCRLF) -type f -exec $(TOCRLF) '{}' ';'
-	find $(DOC_GBKCRLF) -not '(' $(FIND_UTF8) ')' -type f -exec $(TOGBK) '{}' ';'
+	find $(DOC_GBKCRLF) -not $(FIND_UTF8) -type f -exec $(TOGBK) '{}' ';'
 	sed -i 's;\(\\documentclass\[[^][]*\)UTF8\([^][]*\]{pkuthss}\);\1GBK\2;g' \
 		$(DOC_GBKCRLF)/pkuthss.tex
 	sed -i 's;\(\.\./tex/pkuthss-\)utf8\(.def\);\1gbk\2;g' \
