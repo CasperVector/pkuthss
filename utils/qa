@@ -15,18 +15,18 @@ enc:
 	@echo '======================================================================'
 	@echo '$@: check file encodings'
 	@echo '======================================================================'
-	find . -not $(FIND_VCS) $(FIND_GBK) \
+	! find . -not $(FIND_VCS) $(FIND_GBK) \
 		-type f -exec file '{}' '+' | grep -vE 'GB|ISO-8859|ASCII'
-	find . -not $(FIND_VCS) -not $(FIND_GBK) \
+	! find . -not $(FIND_VCS) -not $(FIND_GBK) \
 		-type f -exec file '{}' '+' | grep -E 'GB|ISO-8859'
 
 lt:
 	@echo '======================================================================'
 	@echo '$@: check line terminators'
 	@echo '======================================================================'
-	find . -not $(FIND_VCS) $(FIND_CRLF) \
+	! find . -not $(FIND_VCS) $(FIND_CRLF) \
 		-type f -exec file '{}' '+' | grep -vE 'CRLF'
-	find . -not $(FIND_VCS) -not $(FIND_CRLF) \
+	! find . -not $(FIND_VCS) -not $(FIND_CRLF) \
 		-type f -exec file '{}' '+' | grep -E 'CRLF'
 
 sync:
