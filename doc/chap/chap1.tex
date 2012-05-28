@@ -5,7 +5,7 @@
 % Public domain.
 
 \chapter{使用介绍}
-	\section{重要文件}
+	\section{重要文件}\label{sec:files}
 	\subsection{\texttt{tex/} 目录}
 
 	本目录中包含了 pkuthss 文档类和 pkuthss-extra 宏包：
@@ -61,9 +61,18 @@
 			\item \verb|pkulogo.eps|：北京大学校徽。
 			\item \verb|pkuword.eps|：“北京大学”字样。
 		\end{itemize}
+			\emph{%
+				注：
+				pdf\LaTeX{} 方式编译（见第 \ref{sec:compile} 节）
+				可能需要将 eps 图片转换为 pdf 格式，
+				而使用 Makefile 或伪“Makefile”时这些图片可以自动生成；
+				不使用 Makefile 的用户可以手动运行 %
+				\texttt{img/} 目录中的 Makefile 或伪“Makefile”
+				来生成这些图片。%
+			}
 	\end{itemize}
 
-	\section{系统要求}
+	\section{系统要求}\label{sec:req}
 
 	正确编译需要以下几部分：
 	\begin{itemize}
@@ -157,7 +166,7 @@ $HOME/texmf
 		然后在其中搜索“文件名数据库”即可找到。%
 	}。
 
-	\section{编译方式}
+	\section{编译方式}\label{sec:compile}
 
 	pkuthss 文档模版支持三种编译方式，即
 	\begin{itemize}

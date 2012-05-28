@@ -5,7 +5,21 @@
 % Public domain.
 
 \chapter{问题及其解决}
-	\section{可能存在的问题}
+	\section{文档中已经提到的常见问题}
+
+	中文字体字库不全（只包含 GB2312 字符集内字符）时，
+	生成的 pdf 文档中可能缺少部分字符，
+	解决方式见第 \ref{sec:req} 节。
+
+	\verb|img/| 目录中 eps 图片未转换为 pdf 格式时，%
+	pdf\LaTeX{} 方式编译可能出错，
+	解决方式见第 \ref{sec:files} 节。
+
+	在默认设置（启用 \verb|colorlinks| 选项）下，
+	黑白打印时文档中的部分彩色链接可能会变成浅灰色，
+	解决方式见第 \ref{ssec:options} 小节。
+
+	\section{其它可能存在的问题}
 		\subsection{上游宏包可能引起的问题}
 
 		hyperref 宏包和一些宏包可能发生冲突。
@@ -29,7 +43,7 @@
 		研究生手册和其电子版\cite{pku-thesisstyle}要求的论文封面并不一致。
 		这里以电子版为准。
 
-		\subsection{其它可能存在的问题}
+		\subsection{其它一些问题}
 
 		使用 GBK 编码和 pdf\LaTeX{} 编译方式时需要用户%
 		运行 \verb|gbk2uni| 程序来转换 .out 文件，
