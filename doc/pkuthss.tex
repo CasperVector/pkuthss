@@ -3,9 +3,11 @@
 % Copyright (c) 2008-2009 solvethis
 % Copyright (c) 2010-2012 Casper Ti. Vector
 % Public domain.
+%
+% 使用前请先仔细阅读文档，特别是其中的 FAQ 部分和用红色强调的部分，谢谢！
 
 % 在黑白打印时彩色链接可能变成浅灰色，此时可将“colorlinks”改为“nocolorlinks”。
-\documentclass[UTF8,colorlinks]{pkuthss}
+\documentclass[UTF8, colorlinks]{pkuthss}
 
 % 使得打字机粗体可以被使用。
 \usepackage{lmodern}
@@ -13,11 +15,17 @@
 \usepackage{amssymb}
 % 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
-% pkuthss 文档模版的版本。
-\newcommand{\docversion}{v1.4 alpha2}
+% 提供改变文字颜色的支持。
+\usepackage{xcolor}
 
+% 使被强调的内容为红色。
+\let\oldemph\emph
+\renewcommand{\emph}[1]{\oldemph{\textcolor{red}{#1}}}
 % 参考文献格式。
 \bibliographystyle{ref/chinesebst-mod}
+
+% pkuthss 文档模版的版本。
+\newcommand{\docversion}{v1.4 alpha2}
 % 设定文档的基本信息。
 \pkuthssinfo{
 	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
@@ -35,7 +43,8 @@
 	studentid = {00910???},
 	date = {二〇一二年五月},
 	school = {化学与分子工程学院},
-	cmajor = {化学}, emajor = {Chemistry}, direction = {XX 化学},
+	cmajor = {化学}, emajor = {Chemistry},
+	direction = {据说 Casper 自己也不知道},
 	cmentor = {XX 教授}, ementor = {Prof.\ XX},
 	ckeywords = {\LaTeX2e{}，排版，文档类，\CTeX{}},
 	ekeywords = {\LaTeX2e{}, typesetting, document class, \CTeX{}}
