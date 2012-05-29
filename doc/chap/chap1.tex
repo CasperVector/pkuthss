@@ -63,7 +63,7 @@
 		\end{itemize}
 			\emph{%
 				注：
-				pdf\LaTeX{} 方式编译（见第 \ref{sec:compile} 节）
+				\hologo{pdfLaTeX} 方式编译（见第 \ref{sec:compile} 节）
 				可能需要将 eps 图片转换为 pdf 格式，
 				而使用 Makefile 或伪“Makefile”时这些图片可以自动生成；
 				不使用 Makefile 的用户可以手动运行 %
@@ -77,7 +77,7 @@
 	正确编译需要以下几部分：
 	\begin{itemize}
 		\item 一个基本的 \TeX{} 发行版。
-		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
+		\item CJK 或 XeCJK（供 \hologo{XeLaTeX} 使用）宏包。
 		\item ctex 宏包\cite{ctex,ctex-faq}（提供了 ctexbook 文档类）。
 		\item 中文字体。\emph{%
 			注：
@@ -173,15 +173,15 @@ $HOME/texmf
 		\item \LaTeX{} -- dvipdfmx 方式：\\
 			依次执行 \verb|latex|，\verb|bibtex|，%
 			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。
-		\item pdf\LaTeX{} 方式：\\
+		\item \hologo{pdfLaTeX} 方式：\\
 			依次执行 \verb|pdflatex|，\verb|bibtex|，%
 			\verb|pdflatex| 和 \verb|pdflatex|。
-		\item Xe\LaTeX{} 方式：\\
+		\item \hologo{XeLaTeX} 方式：\\
 			依次执行 \verb|xelatex|，\verb|bibtex|，%
 			\verb|xelatex| 和 \verb|xelatex|。\\
 			\emph{%
-				注意：Xe\LaTeX{} 对非 UTF-8 的编码支持不好，
-				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。
+				注意：\hologo{XeLaTeX} 对非 UTF-8 的编码支持不好，
+				因此 \hologo{XeLaTeX} 方式的编译不支持 GBK 编码。
 			}
 	\end{itemize}
 
