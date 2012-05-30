@@ -67,9 +67,6 @@
 \RequirePackage{graphicx}[1999/02/16]
 % Provide utilities for setting page layout.
 \RequirePackage{geometry}
-% Provide utilities for setting format of citation labels.
-% Use the numerical scheme as default.
-\RequirePackage[numbers]{natbib}
 % Provide \AtEndPreamble used later.
 % To be removed by summer in 2013, see the fix of `\hypersetup' below.
 \RequirePackage{etoolbox}

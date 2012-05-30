@@ -95,7 +95,7 @@
 				}，
 				因此不建议使用。
 				基于上述考虑，%
-				\emph{%
+				\myemph{%
 					pkuthss-extra 宏包默认启用 \texttt{nouppermark} 选项，
 					即在不在页眉中使用大写的章节名%
 				}。
@@ -106,13 +106,10 @@
 				是否启用第 \ref{ssec:misc} 小节中介绍的 %
 				\verb|\specialchap| 命令。
 
-			\item \textbf{\texttt{[no]upcite}}：
-				是否默认使引用标记成为上标。
-
 			\item \textbf{\texttt{[no]pdfprop}}：
 				是否自动根据设定的论文文档信息（如作者、标题等）
 				设置生成的 pdf 文档的相应属性。%
-				\emph{%
+				\myemph{%
 					注意：
 					该选项实际上是在 \texttt{\string\maketitle} 时生效的，
 					这是因为考虑到%
@@ -136,7 +133,7 @@
 
 		例如，在提交打印版的论文时，
 		彩色的链接文字在黑白打印出来之后可能颜色会很浅。
-		此时用户\emph{%
+		此时用户\myemph{%
 			可以启用 pkuthss-extra 宏包的 nocolorlinks 选项，
 			使所有的链接变为黑色，以免影响打印%
 		}：
@@ -218,7 +215,7 @@
 
 		当文档信息的内容包含了逗号等有干扰的字符时，
 		可以用大括号将这一项文档信息的全部内容括起来。%
-		\emph{%
+		\myemph{%
 			我们推荐用户总用大括号将文档信息的内容括起来，
 			以避免很多不必要的麻烦。%
 		}
@@ -242,7 +239,7 @@
 		\texttt{\bfseries\string\specialchap} 命令%
 		用于开始不进行标号但计入目录的一章，
 		并合理安排其页眉。%
-		\emph{%
+		\myemph{%
 			注意：
 			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项%
 			才能使用此命令。
@@ -260,7 +257,7 @@
 		但用户有时可能不需要输出标题页，
 		从而不会调用 \verb|\maketitle| 命令，
 		此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。
-		\emph{%
+		\myemph{%
 			注意：
 			需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项%
 			才能使用此命令。%
@@ -268,11 +265,11 @@
 
 		\subsection{从其它文档类和宏包继承的命令}
 
-		pkuthss 文档类建立在 ctexbook\cite{ctex} 文档类的基础上，
+		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类的基础上，
 		并调用了 CJKfntef、%
-		graphicx\cite{graphicx}、geometry\cite{geometry}、%
-		fancyhdr\cite{fancyhdr}、natbib\cite{natbib} 和 %
-		etoolbox\cite{etoolbox} 等几个宏包。
+		graphicx\supercite{graphicx}、geometry\supercite{geometry}、%
+		fancyhdr\supercite{fancyhdr} 和 %
+		etoolbox\supercite{etoolbox} 等几个宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
 		例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
@@ -281,27 +278,19 @@
 \CTEXoptions{contentsname = {目{\quad\quad}录}}
 \end{Verbatim}
 
-		又例如，用户有时可能需要使用非上标的引用标记，
-		此时可以使用 natbib 宏包提供的相关命令，
-		例如在本文档中的以下代码
-\begin{Verbatim}[frame = single]
-文献 \citenum{ctex} 中提到
-\end{Verbatim}
-		将产生“文献 \citenum{ctex} 中提到”。
-
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
 			\item 启用 \verb|spacing| 选项时会调用 %
-				setspace 和 footmisc\cite{footmisc} 宏包。
+				setspace 和 footmisc\supercite{footmisc} 宏包。
 			\item 启用 \verb|tightlist| 选项时会调用 %
-				enumitem\cite{enumitem} 宏包。
+				enumitem\supercite{enumitem} 宏包。
 			\item 启用 \verb|tocbibind| 选项时会调用 %
-				tocbibind\cite{tocbibind} 宏包。
+				tocbibind\supercite{tocbibind} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
 		\subsection{不建议更改的设置}
-		\emph{%
+		\myemph{%
 			pkuthss 文档类中有一些一旦改动就有可能破坏预设排版规划的设置，
 			因此不建议更改这些设置，它们是：
 			\begin{itemize}

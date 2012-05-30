@@ -9,6 +9,8 @@
 % 在黑白打印时彩色链接可能变成浅灰色，此时可将“colorlinks”改为“nocolorlinks”。
 \documentclass[UTF8, colorlinks]{pkuthss}
 
+% 使用 biblatex 排版参考文献，并规定其格式。
+\usepackage[backend = biber, style = caspervector, utf8]{biblatex}
 % 使得打字机粗体可以被使用。
 \usepackage{lmodern}
 % 产生 originauth.tex 里的 \square。
@@ -19,10 +21,7 @@
 \usepackage{hologo}
 
 % 使被强调的内容为红色。
-\let\oldemph\emph
-\renewcommand{\emph}[1]{\oldemph{\textcolor{red}{#1}}}
-% 参考文献格式。
-\bibliographystyle{ref/chinesebst-mod}
+\newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
 
 % pkuthss 文档模版的版本。
 \newcommand{\docversion}{v1.4 alpha2}
@@ -49,6 +48,8 @@
 	ckeywords = {\LaTeX2e{}，排版，文档类，\CTeX{}},
 	ekeywords = {\LaTeX2e{}, typesetting, document class, \CTeX{}}
 }
+% 导入参考文献数据库（注意不要省略“.bib”）。
+\addbibresource{pkuthss.bib}
 
 \begin{document}
 	% 以下为正文之前的部分。
@@ -78,7 +79,7 @@
 	% 正文中的附录部分。
 	\appendix
 	% 参考文献。
-	\bibliography{ref/pkuthss}
+	\printbibliography[heading = bibnumbered]
 	% 各附录。
 	\include{chap/encl1}
 	\include{chap/encl2}

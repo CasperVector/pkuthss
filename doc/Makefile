@@ -8,7 +8,7 @@
 JOBNAME = pkuthss
 # 这个变量的值可以为 latex、pdflatex 或 xelatex。
 LATEX = latex
-BIBTEX = bibtex
+BIBTEX = biber -f -l zh_CN.UTF-8
 GBK2UNI = gbk2uni
 DVIPDF = dvipdfmx
 
@@ -46,14 +46,11 @@ doc:
 	$(BIBTEX) $(JOBNAME)
 	$(DOGBK2UNI)
 	$(LATEX) $(JOBNAME)
-	$(LATEX) $(JOBNAME)
 	$(DODVIPDF)
 
 clean:
-	$(RM) $(JOBNAME).log $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).blg \
-		$(JOBNAME).toc $(JOBNAME).lof $(JOBNAME).lot $(JOBNAME).out \
-		$(JOBNAME).dvi missfont.log
-	$(RM) chap/*.aux
+	$(RM) $(JOBNAME).{aux,bbl,bcf,blg,dvi,lof,log,lot,run.xml,toc,out} \
+		{missfont,texput}.log chap/*.aux
 
 dist-clean: clean img-clean
 	$(RM) $(JOBNAME).pdf

@@ -35,7 +35,8 @@ cd ..
 goto end
 
 :clear
-del *.log *.aux *.bbl *.blg *.toc *.lof *.lot *.out *.dvi missfont.log chap\*.aux
+del *.aux *.bbl *.bcf *.blg *.dvi *.lof *.log *.lot *.run.xml *.toc *.out
+del missfont.log chap\*.aux
 goto end
 
 :usage

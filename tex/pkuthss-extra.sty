@@ -54,8 +54,6 @@
 \pkuthssextra@int@boolopt{uppermark}{false}
 % Whether to enable the `\spacialchap' command.
 \pkuthssextra@int@boolopt{spechap}{true}
-% Whether to make citation labels superscript as default.
-\pkuthssextra@int@boolopt{upcite}{true}
 % Whether to automatically set properties for generated PDF from user defined
 % document information (author, title, etc.).
 \pkuthssextra@int@boolopt{pdfprop}{true}
@@ -83,14 +81,14 @@
 \ifpkuthssextra@opt@tightlist
 	% Lists often appear to be too sparse when items are just one or two lines long.
 	% Here we cancel the extra vertical spacing between list items.
+	% Biblatex uses `\itemsep' as default `\bibitemsep', no need to change it.
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
-	% Similarly for bibliography items.
-	\setlength{\bibsep}{\parsep}
 \fi
 
 \ifpkuthssextra@opt@tocbibind
 	% Add bibliography and indexes in table of contents, but not contents itself.
+	% Note that bibliography numbering might be managed by biblatex.
 	\RequirePackage[nottoc]{tocbibind}
 	% Add PDF bookmark for table of contents.
 	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
@@ -111,11 +109,6 @@
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
 		\markboth{#1}{}\phantomsection
 	}
-\fi
-
-\ifpkuthssextra@opt@upcite
-	% Make citation labels superscript as default.
-	\setcitestyle{super,square,comma}
 \fi
 
 \AtBeginDocument{

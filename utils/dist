@@ -33,7 +33,8 @@ doc-utf8lf:
 doc-gbkcrlf:
 	find $(DOC_GBKCRLF) -type f -exec $(TOCRLF) '{}' ';'
 	find $(DOC_GBKCRLF) -not $(FIND_UTF8) -type f -exec $(TOGBK) '{}' ';'
-	sed -i 's;\(\\documentclass\[[^][]*\)UTF8\([^][]*\]{pkuthss}\);\1GBK\2;g' \
+	sed -i -e '/\\documentclass/ s/UTF8/GBK/' \
+		-e '/^\\usepackage.*{biblatex}$$/ s/utf8/gbk/' \
 		$(DOC_GBKCRLF)/pkuthss.tex
 	sed -i 's;\(\.\./tex/pkuthss-\)utf8\(.def\);\1gbk\2;g' \
 		$(DOC_GBKCRLF)/chap/encl1.tex
