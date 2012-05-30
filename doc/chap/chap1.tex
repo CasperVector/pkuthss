@@ -21,8 +21,8 @@
 	\end{itemize}
 
 	除此之外，
-	pkuthss 文档模版也搭载了模版作者编写的 %
-	biblatex\supercite{biblatex} 样式\supercite{biblatex-caspervector}，
+	pkuthss 文档模版也搭载了作者编写的 biblatex\supercite{biblatex} 样式
+	（biblatex-caspervector 宏包\supercite{biblatex-caspervector}），
 	用于排版参考文献和引用，
 	其文件也置于 \verb|tex/| 目录中，
 	包括：
@@ -142,7 +142,11 @@
 	对于支持 \TeX{} 目录结构（TDS）标准的 \TeX{} 发行版%
 	（其中包括 \TeX{}Live 和 \CTeX{}），
 	安装 pkuthss 文档模版都可以通过类似的方式：
-	将 \verb|tex/| 中内容放在 \verb|$TEXMF/tex/latex/pkuthss/|，
+	将 \verb|tex/| 中内容\footnote{%
+		如果已经分开安装了 biblatex-caspervector 宏包，
+		则不需要重复安装 \texttt{caspervector.*} 和 %
+		\texttt{biblatex-caspervector-*.def}。%
+	}放在 \verb|$TEXMF/tex/latex/pkuthss/|，
 	将本文档（\verb|README.pdf|）和 \verb|doc/| 中内容%
 	放在 \verb|$TEXMF/doc/latex/pkuthss/|。
 	其中 \verb|$TEXMF| 是用户系统上的 texmf 目录，
