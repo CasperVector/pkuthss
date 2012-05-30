@@ -46,7 +46,7 @@
 % See pkuthss-extra.sty for an explanation of the options.
 \pkuthss@int@extraopt{spacing}
 \pkuthss@int@extraopt{tightlist}
-\pkuthss@int@extraopt{tocbibind}
+\pkuthss@int@extraopt{pdftoc}
 \pkuthss@int@extraopt{uppermark}
 \pkuthss@int@extraopt{spechap}
 \pkuthss@int@extraopt{upcite}

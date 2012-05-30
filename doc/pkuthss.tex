@@ -4,10 +4,11 @@
 % Copyright (c) 2010-2012 Casper Ti. Vector
 % Public domain.
 %
-% 使用前请先仔细阅读文档，特别是其中的 FAQ 部分和用红色强调的部分，谢谢！
+% 使用前请先仔细阅读文档（包括 README.pdf 和 README-biblatex.pdf），
+% 特别是其中的 FAQ 部分和用红色强调的部分，谢谢！
 
 % 在黑白打印时彩色链接可能变成浅灰色，此时可将“colorlinks”改为“nocolorlinks”。
-\documentclass[UTF8, colorlinks]{pkuthss}
+\documentclass[UTF8, colorlinks, notocbibind]{pkuthss}
 
 % 使用 biblatex 排版参考文献，并规定其格式。
 \usepackage[backend = biber, style = caspervector, utf8]{biblatex}
@@ -78,8 +79,9 @@
 
 	% 正文中的附录部分。
 	\appendix
-	% 参考文献。
-	\printbibliography[heading = bibnumbered]
+	% 排版参考文献列表，并使其出现在目录中。
+	% 如果同时要使参考文献列表参与章节编号，可将“bibintoc”改为“bibnumbered”。
+	\printbibliography[heading = bibintoc]
 	% 各附录。
 	\include{chap/encl1}
 	\include{chap/encl2}

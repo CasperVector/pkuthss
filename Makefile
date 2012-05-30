@@ -4,17 +4,14 @@
 # Public domain.
 
 TITLE = pkuthss
-README = README
 MAJORVER = 1.4
 MINORVER = alpha2
 
 dist:
-	utils/dist TITLE=$(TITLE) README=$(README) \
-		MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
+	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
 
 dist-clean:
-	utils/dist TITLE=$(TITLE) README=$(README) \
-		MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) dist-clean
+	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) dist-clean
 
 toutf8lf:
 	utils/enclt toutf8lf

@@ -73,16 +73,15 @@
 				启用 \verb|tightlist| 选项后，
 				将去掉这些环境中额外增加的（垂直）间隔。
 
-			\item \textbf{\texttt{[no]tocbibind}}\footnote{%
-					“tocbibind”是%
-					“\textbf{t}able \textbf{o}f \textbf{c}ontents”%
-					“\textbf{bib}liography”和“\textbf{ind}ex”的缩写。%
+			\item \textbf{\texttt{[no]pdftoc}}\footnote{%
+					此选项部分等价于 1.4 alpha2 及以前版本 pkuthss-extra 宏包%
+					的 \texttt{[no]tocbibind} 选项。
+					因为 tocbibind 宏包和 biblatex 宏包冲突，
+					pkuthss-extra 宏包不再调用 tocbibind 宏包。%
 				}：
-				启用 \verb|tocbibind| 选项后，%
-				\verb|\tableofcontents| 命令生成的目录中%
-				将自动加入参考文献、索引（如果存在）等的条目，
-				但不包括“目录”本身；
-				此外，在生成的 pdf 文档中将会自动加入“目录”的书签。
+				启用 \verb|pdftoc| 选项后，
+				用 \verb|\tableofcontents| 命令生成目录时%
+				会自动添加“目录”的 pdf 书签。
 
 			\item \textbf{\texttt{[no]uppermark}}：
 				是否在页眉中将章节名中的小写字母转换为大写字母。
@@ -263,7 +262,7 @@
 			才能使用此命令。%
 		}
 
-		\subsection{从其它文档类和宏包继承的命令}
+		\subsection{从其它文档类和宏包继承的功能}
 
 		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类的基础上，
 		并调用了 CJKfntef、%
@@ -278,14 +277,23 @@
 \CTEXoptions{contentsname = {目{\quad\quad}录}}
 \end{Verbatim}
 
+		在默认的配置下，%
+		pkuthss 文档模版使用 biblatex\supercite{biblatex} 进行排版，
+		用户可以使用其提供的功能。
+		例如，
+		用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite| %
+		生成未格式化的、带方括号的和上标且带方括号的引用标记：
+\begin{Verbatim}[frame = single]
+\cite{ctex}，\parencite{ctex}，\supercite{ctex}
+\end{Verbatim}
+		在本文中将产生“\cite{ctex}，\parencite{ctex}，\supercite{ctex}”。
+
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
 			\item 启用 \verb|spacing| 选项时会调用 %
 				setspace 和 footmisc\supercite{footmisc} 宏包。
 			\item 启用 \verb|tightlist| 选项时会调用 %
 				enumitem\supercite{enumitem} 宏包。
-			\item 启用 \verb|tocbibind| 选项时会调用 %
-				tocbibind\supercite{tocbibind} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
@@ -317,7 +325,7 @@
 \begin{Verbatim}[frame = single]
 \pkuthss@int@fillinblank{行数}{行宽}{内容}
 \end{Verbatim}
-		例如，如果研究方向需要两行的空白，
+		例如，如果“研究方向”一栏需要两行的空白，
 		可以将 \verb|pkuthss.cls| 里的
 \begin{Verbatim}[frame = single]
 \pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}

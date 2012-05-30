@@ -9,7 +9,6 @@
 	\subsection{\texttt{tex/} 目录}
 
 	本目录中包含了 pkuthss 文档类和 pkuthss-extra 宏包：
-
 	\begin{itemize}
 		\item \verb|pkuthss.cls|：%
 			pkuthss 文档类的主文件。
@@ -19,6 +18,19 @@
 			pkuthss 文档类中使用的一些标题和标记文字，使用 GBK 编码。
 		\item \verb|pkuthss-extra.sty|：
 			在论文中一些常见的额外设置。
+	\end{itemize}
+
+	除此之外，
+	pkuthss 文档模版也搭载了模版作者编写的 %
+	biblatex\supercite{biblatex} 样式\supercite{biblatex-caspervector}，
+	用于排版参考文献和引用，
+	其文件也置于 \verb|tex/| 目录中，
+	包括：
+	\begin{itemize}
+		\item \verb|caspervector.bbx|
+		\item \verb|caspervector.cbx|
+		\item \verb|biblatex-caspervector-utf8.def|
+		\item \verb|biblatex-caspervector-gbk.def|
 	\end{itemize}
 	
 	\subsection{\texttt{doc/} 目录}
@@ -62,7 +74,7 @@
 			\item \verb|pkuword.eps|：“北京大学”字样。
 		\end{itemize}
 			\myemph{%
-				注：
+				注：%
 				\hologo{pdfLaTeX} 方式编译（见第 \ref{sec:compile} 节）
 				可能需要将 eps 图片转换为 pdf 格式，
 				而使用 Makefile 或伪“Makefile”时这些图片可以自动生成；
@@ -94,6 +106,11 @@
 		\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
 			但如果使用由批处理实现的伪“Makefile”就不用了。
 	\end{itemize}
+	除此之外，
+	如果要使用 biblatex 进行文献列表和引用的排版的话，
+	还需要 biblatex 宏包\supercite{biblatex}；
+	如果需要对中文文献进行按汉语拼音的排序的话，
+	还需要 biber 程序\supercite{biber}。
 
 	最新的 \TeX{}Live 系统和 \CTeX{} 套装都已经包含%
 	除中文字体之外所有要求的项目；
@@ -105,9 +122,10 @@
 	\hspace*{\parindent}%
 	\url{http://gnuwin32.sourceforge.net/packages/make.htm}
 
-	为了获得最好的支持，
-	我们建议用户使用最新版的 \TeX{} 系统和各宏包。
-	根据目前已有的测试结果，
+	\myemph{%
+		为了获得最好的支持，
+		我们建议用户使用最新版的 \TeX{} 系统和各宏包。%
+	}根据目前已有的测试结果，
 	使用 \TeX{}Live 2009 及其以上稳定版本%
 	或 \CTeX{} 套装 v2.8 系列及其以上版本
 	的用户可以正常使用本模版。

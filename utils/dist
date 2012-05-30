@@ -32,7 +32,7 @@ doc-gbkcrlf:
 
 pdf-license: doc/
 	cd doc && make
-	mv doc/$(TITLE).pdf $(PROJECT)/$(README).pdf
+	mv doc/$(TITLE).pdf $(PROJECT)/README.pdf
 	cd doc && make dist-clean
 	mv -f $(DOC_UTF8LF)/license/ $(PROJECT)/
 	rm -rf $(DOC_GBKCRLF)/license/
@@ -42,6 +42,8 @@ biblatex:
 	$(call KPSE_CP,caspervector.cbx)
 	$(call KPSE_CP,biblatex-caspervector-utf8.def)
 	$(call KPSE_CP,biblatex-caspervector-gbk.def)
+	cp `texdoc -l -M biblatex-caspervector | cut -f 3 | grep pdf` \
+		$(PROJECT)/README-biblatex.pdf
 
 dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/

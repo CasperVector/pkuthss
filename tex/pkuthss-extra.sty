@@ -49,7 +49,7 @@
 \pkuthssextra@int@boolopt{tightlist}{true}
 % Whether to use some common settings about table of contents, bibliography and
 % indexes.
-\pkuthssextra@int@boolopt{tocbibind}{true}
+\pkuthssextra@int@boolopt{pdftoc}{true}
 % Whether to enable `\Uppercase' (works problematically) in heading marks.
 \pkuthssextra@int@boolopt{uppermark}{false}
 % Whether to enable the `\spacialchap' command.
@@ -86,10 +86,7 @@
 	\setlist{nolistsep}
 \fi
 
-\ifpkuthssextra@opt@tocbibind
-	% Add bibliography and indexes in table of contents, but not contents itself.
-	% Note that bibliography numbering might be managed by biblatex.
-	\RequirePackage[nottoc]{tocbibind}
+\ifpkuthssextra@opt@pdftoc
 	% Add PDF bookmark for table of contents.
 	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
 	\renewcommand{\tableofcontents}{
