@@ -13,10 +13,9 @@ PROJECT = $(TITLE)-$(call VER_GEN,)
 DIST_DOC = $(PROJECT)/doc
 DOC_UTF8LF = $(DIST_DOC)/utf8lf
 DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
+KPSE_CP = cp $(shell kpsewhich '$(1)') $(PROJECT)/tex/$(1)
 
-FIND_UTF8 = -name '*utf8*'
-
-dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf pdf-license dist-zip
+dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf pdf-license biblatex dist-zip
 
 dist-dir: tex/ doc/
 	mkdir -p $(DIST_DOC)/
@@ -37,6 +36,12 @@ pdf-license: doc/
 	cd doc && make dist-clean
 	mv -f $(DOC_UTF8LF)/license/ $(PROJECT)/
 	rm -rf $(DOC_GBKCRLF)/license/
+
+biblatex:
+	$(call KPSE_CP,caspervector.bbx)
+	$(call KPSE_CP,caspervector.cbx)
+	$(call KPSE_CP,biblatex-caspervector-utf8.def)
+	$(call KPSE_CP,biblatex-caspervector-gbk.def)
 
 dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
