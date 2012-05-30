@@ -42,6 +42,6 @@ dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
 
 dist-clean:
-	cd doc && make dist-clean && cd -
+	cd doc && make dist-clean
 	rm -rf $(PROJECT)/ $(PROJECT).zip
 
