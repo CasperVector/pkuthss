@@ -16,6 +16,12 @@ dist-clean:
 	utils/dist TITLE=$(TITLE) README=$(README) \
 		MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) dist-clean
 
+toutf8lf:
+	utils/enclt toutf8lf
+
+togbkcrlf:
+	utils/enclt togbkcrlf
+
 qa:
 	utils/qa
 

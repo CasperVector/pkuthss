@@ -16,28 +16,27 @@ DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
 
 FIND_UTF8 = -name '*utf8*'
 
-dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf dist-zip
+dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf pdf-license dist-zip
 
 dist-dir: tex/ doc/
 	mkdir -p $(DIST_DOC)/
 	cp -r tex/ $(PROJECT)/
-	cp -r doc/ $(DOC_UTF8LF)/
-	mv -f $(DOC_UTF8LF)/license/ $(DIST_DOC)/
-	cp -r $(DOC_UTF8LF)/ $(DOC_GBKCRLF)/
 
 doc-utf8lf:
-	cd $(DOC_UTF8LF)/ && make
-	mv $(DOC_UTF8LF)/$(TITLE).pdf $(PROJECT)/$(README).pdf
-	cd $(DOC_UTF8LF)/ && make dist-clean
+	make toutf8lf
+	cp -r doc/ $(DOC_UTF8LF)/
 
 doc-gbkcrlf:
-	find $(DOC_GBKCRLF) -type f -exec $(TOCRLF) '{}' ';'
-	find $(DOC_GBKCRLF) -not $(FIND_UTF8) -type f -exec $(TOGBK) '{}' ';'
-	sed -i -e '/\\documentclass/ s/UTF8/GBK/' \
-		-e '/^\\usepackage.*{biblatex}$$/ s/utf8/gbk/' \
-		$(DOC_GBKCRLF)/pkuthss.tex
-	sed -i 's;\(\.\./tex/pkuthss-\)utf8\(.def\);\1gbk\2;g' \
-		$(DOC_GBKCRLF)/chap/encl1.tex
+	make togbkcrlf
+	cp -r doc/ $(DOC_GBKCRLF)/
+	make toutf8lf
+
+pdf-license: doc/
+	cd doc && make
+	mv doc/$(TITLE).pdf $(PROJECT)/$(README).pdf
+	cd doc && make dist-clean
+	mv -f $(DOC_UTF8LF)/license/ $(PROJECT)/
+	rm -rf $(DOC_GBKCRLF)/license/
 
 dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
