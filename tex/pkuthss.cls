@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2012/05/12 v1.4-alpha2 Peking University dissertation document class]
+	[2012/05/30 v1.4-alpha3 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
@@ -49,7 +49,6 @@
 \pkuthss@int@extraopt{pdftoc}
 \pkuthss@int@extraopt{uppermark}
 \pkuthss@int@extraopt{spechap}
-\pkuthss@int@extraopt{upcite}
 \pkuthss@int@extraopt{pdfprop}
 \pkuthss@int@extraopt{colorlinks}
 % Pass all other options to `ctexbook' document class.

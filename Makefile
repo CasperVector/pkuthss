@@ -5,7 +5,7 @@
 
 TITLE = pkuthss
 MAJORVER = 1.4
-MINORVER = alpha2
+MINORVER = alpha3
 
 dist:
 	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)

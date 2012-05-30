@@ -1,3 +1,34 @@
+2012-05-30, v1.4 alpha3
+	* API Changes:
+	- `[no]tocbibind' -> `[no]pdftoc', functionality reduced (see below).
+	- `[no]upcite' removed since biblatex supports it quite flexibly.
+
+	* Changes to package code:
+	- Remove uses of tocbibind because it crashes with biblatex.
+
+	* Changes to documentation:
+	- Use biblatex for bibliography formatting.
+	- Add instructions for natbib, remove instructions for natbib.
+	- (Re)add the FAQ section.
+	- Use more printer-friendly colours.
+	- Enhance `doc/Make.bat' with bat's `call'.
+	- Use the hologo package for TeX logos.
+	- Use tabs in `pkuthss.bib'.
+	- Update bib file for Casper's biblatex style.
+	- `thanks.tex' -> `acknowledge.tex'
+	- Use better determined format for .bib files.
+
+	* Misc:
+	- Split Makefile functionalities to executable in `utils/'.
+	- `maintcheck' -> `qa', `revbump' -> `bump'.
+	- Split encoding and line terminator stuffs to `enclt'.
+	- `dist' now automatically joins caspervector-biblatex files.
+	- Update find(1) usage.
+	- QA script updated.
+	- Use sed(1)'s `y' instead of python's `str.translate()' in `bump'.
+	- Add appropriate copyright notices.
+	- Add indentation modelines.
+
 2012-05-12, v1.4 alpha2
 
 	* Changes to package code:
