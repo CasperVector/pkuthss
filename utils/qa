@@ -9,7 +9,7 @@ FIND_CRLF = -name '*.bat*'
 FIND_VCS = '(' -type d -name '.git' -prune ')'
 
 # IGNORE "error"s intentionally.
-.IGNORE qa: enc lt sync spell tail
+.IGNORE qa: enc lt sync spell blx-cv-ver tail
 
 enc:
 	@echo '======================================================================'
@@ -40,6 +40,15 @@ spell:
 	@echo '$@: use "模版" instead of "模板"'
 	@echo '======================================================================'
 	grep -r '模板' .
+
+blx-cv-ver:
+	@echo '======================================================================'
+	@echo '$@: check biblatex-caspervector version'
+	@echo '======================================================================'
+	@docver=$$(grep -oP '(?<=biblatex-caspervector-)[.0-9]+(?=\.zip)' doc/pkuthss.bib); \
+		texver=$$(grep -oP '(?<= v)[.0-9]+' $$(kpsewhich caspervector.bbx)); \
+		echo "(docver, texver) = ($$docver, $$texver)"; \
+		[[ "$$docver" == "$$texver" ]]
 
 tail:
 	@echo '======================================================================'
