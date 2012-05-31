@@ -1,4 +1,18 @@
+2012-05-31, v1.4 beta1
+
+	* Changes to documentation:
+	- Use `biber -l zh__pinyin'.
+	- Add notice for biber in the "compilation" section.
+	- Recommend users to use standalone TeXLive.
+	- Minor adjustment to documentation order.
+
+	* Misc:
+	- Minor fixes and improvements.
+	- Add QA test for biblatex-caspervector version.
+	- Remove spaces and tabs on blank lines, add related QA check.
+
 2012-05-30, v1.4 alpha3
+
 	* API Changes:
 	- `[no]tocbibind' -> `[no]pdftoc', functionality reduced (see below).
 	- `[no]upcite' removed since biblatex supports it quite flexibly.
