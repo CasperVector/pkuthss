@@ -22,7 +22,7 @@
 	- Split Makefile functionalities to executable in `utils/'.
 	- `maintcheck' -> `qa', `revbump' -> `bump'.
 	- Split encoding and line terminator stuffs to `enclt'.
-	- `dist' now automatically joins caspervector-biblatex files.
+	- `dist' now automatically joins biblatex-caspervector files.
 	- Update find(1) usage.
 	- QA script updated.
 	- Use sed(1)'s `y' instead of python's `str.translate()' in `bump'.
