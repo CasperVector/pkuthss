@@ -17,11 +17,15 @@
 
 	\verb|img/| 目录中 eps 图片未转换为 pdf 格式时，%
 	pdf\LaTeX{} 方式编译可能出错，
-	解决方式见第 \ref{sec:files} 节。
+	解决方式见第 \ref{ssec:doc-dir} 小节。
 
 	使用过旧的 \TeX{} 系统和各宏包可能引起一些问题，
 	同时也无谓地花费了用户和开发者的时间，
 	详见第 \ref{sec:req} 节。
+
+	一些高级设置，
+	如设定封面中部分内容长度超过预设空间容量时的设置，
+	见第 \ref{sec:advanced} 节。
 
 	\section{其它可能存在的问题}
 		\subsection{上游宏包可能引起的问题}
@@ -45,7 +49,7 @@
 		\subsection{其它一些问题}
 
 		使用 GBK 编码和 \hologo{pdfLaTeX} 编译方式时需要用户%
-		运行 \verb|gbk2uni| 程序来转换 .out 文件，
+		运行 \verb|gbk2uni| 程序来转换 \verb|.out| 文件，
 		否则生成的 pdf 书签可能乱码。
 		考虑到用户可能没有 \verb|gbk2uni| 程序，
 		默认的 \verb|Makefile| 和 \verb|Make.bat| 中将相关代码注释掉了，

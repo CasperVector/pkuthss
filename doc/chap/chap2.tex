@@ -278,7 +278,9 @@
 \end{Verbatim}
 
 		在默认的配置下，%
-		pkuthss 文档模版使用 biblatex\supercite{biblatex} 进行排版，
+		pkuthss 文档模版使用作者编写的 %
+		biblatex\supercite{biblatex} 样式\supercite{biblatex-caspervector}%
+		进行参考文献和引用的排版，
 		用户可以使用其提供的功能。
 		例如，
 		用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite| %
@@ -310,29 +312,29 @@
 			\end{itemize}%
 		}
 
-		\subsection{高级设置}
+	\section{高级设置}\label{sec:advanced}
 
-		pkuthss 文档模版的实现是简洁、清晰、灵活的。
-		当一些细节的自定义无法通过模版提供的外部接口实现时，
-		我们鼓励用户（在适当理解相关部分代码的前提下）通过修改模版进行自定义。
+	pkuthss 文档模版的实现是简洁、清晰、灵活的。
+	当一些细节的自定义无法通过模版提供的外部接口实现时，
+	我们鼓励用户（在适当理解相关部分代码的前提下）通过修改模版进行自定义。
 
-		一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
-		超出了在预设的空间。
-		此时，
-		用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
-		\verb|\pkuthss@int@fillinblank| 宏的参数来改变
-		带下划线的空白的行数和行宽，其语法为：
+	一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
+	超出了在预设的空间。
+	此时，
+	用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
+	\verb|\pkuthss@int@fillinblank| 宏的参数来改变
+	带下划线的空白的行数和行宽，其语法为：
 \begin{Verbatim}[frame = single]
 \pkuthss@int@fillinblank{行数}{行宽}{内容}
 \end{Verbatim}
-		例如，如果“研究方向”一栏需要两行的空白，
-		可以将 \verb|pkuthss.cls| 里的
+	例如，如果“研究方向”一栏需要两行的空白，
+	可以将 \verb|pkuthss.cls| 里的
 \begin{Verbatim}[frame = single]
 \pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
-		改为
+	改为
 \begin{Verbatim}[frame = single]
 \pkuthss@int@fillinblank{2}{\pkuthss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
-		当然，为了美观，可以将多于一行的部分移到封面中作者信息部分的最下方。
+	当然，为了美观，可以将多于一行的部分移到封面中作者信息部分的最下方。
 
