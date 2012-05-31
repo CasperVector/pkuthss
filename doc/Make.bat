@@ -1,15 +1,16 @@
+@echo off
+
 @rem vim:ts=4:sw=4
 @rem
 @rem Copyright (c) 2008-2009 solvethis
 @rem Copyright (c) 2010-2012 Casper Ti. Vector
 @rem Public domain.
 
-@echo off
-
 set JOBNAME=pkuthss
 @rem 这个变量的值可以为 latex 或 pdflatex。
 set LATEX=latex
-set BIBTEX=bibtex
+@rem 如果无法使用 biber，可以改为“bibtex”。
+set BIBTEX=biber -l zh__pinyin
 set GBK2UNI=gbk2uni
 set DVIPDF=dvipdfmx
 
