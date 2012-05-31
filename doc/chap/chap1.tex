@@ -198,13 +198,13 @@ $HOME/texmf
 	pkuthss 文档模版支持三种编译方式，即
 	\begin{itemize}
 		\item \LaTeX{} -- dvipdfmx 方式：\\
-			依次执行 \verb|latex|，\verb|bibtex|，%
+			依次执行 \verb|latex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。
 		\item \hologo{pdfLaTeX} 方式：\\
-			依次执行 \verb|pdflatex|，\verb|bibtex|，%
+			依次执行 \verb|pdflatex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|pdflatex| 和 \verb|pdflatex|。
 		\item \hologo{XeLaTeX} 方式：\\
-			依次执行 \verb|xelatex|，\verb|bibtex|，%
+			依次执行 \verb|xelatex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|xelatex| 和 \verb|xelatex|。\\
 			\myemph{%
 				注意：\hologo{XeLaTeX} 对非 UTF-8 的编码支持不好，
