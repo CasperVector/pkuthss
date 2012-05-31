@@ -9,7 +9,7 @@ FIND_CRLF = -name '*.bat*'
 FIND_VCS = '(' -type d -name '.git' -prune ')'
 
 # IGNORE "error"s intentionally.
-.IGNORE qa: enc lt sync spell blx-cv-ver tail
+.IGNORE qa: enc lt sync spell blank blx-cv-ver tail
 
 enc:
 	@echo '======================================================================'
@@ -39,7 +39,13 @@ spell:
 	@echo '======================================================================'
 	@echo '$@: use "模版" instead of "模板"'
 	@echo '======================================================================'
-	grep -r '模板' .
+	grep -r --exclude-dir=.git '模板' .
+
+blank:
+	@echo '======================================================================'
+	@echo '$@: check for spaces and tabs on blank lines'
+	@echo '======================================================================'
+	! grep -r --exclude-dir=.git '^[ 	]\+$$' .
 
 blx-cv-ver:
 	@echo '======================================================================'
