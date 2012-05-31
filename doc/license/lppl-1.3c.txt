@@ -44,7 +44,7 @@ In this license document the following terms are used:
 
    `Work'
     Any work being distributed under this License.
-    
+
    `Derived Work'
     Any work that under any applicable law is derived from the Work.
 
@@ -58,7 +58,7 @@ In this license document the following terms are used:
    `Modify'
     To apply any procedure that produces a Derived Work under any
     applicable law.
-    
+
    `Distribution'
     Making copies of the Work available from one person to another, in
     whole or in part.  Distribution includes (but is not limited to)
@@ -140,13 +140,13 @@ to a component of the Work.
      clearly and unambiguously identifies itself as a modified version
      of this component to the user when used interactively with that
      Base Interpreter.
-     
+
   b. Every component of the Derived Work contains prominent notices
      detailing the nature of the changes to that component, or a
      prominent reference to another file that is distributed as part
      of the Derived Work and that contains a complete and accurate log
      of the changes.
-  
+
   c. No information in the Derived Work implies that any persons,
      including (but not limited to) the authors of the original version
      of the Work, provide any support, including (but not limited to)
@@ -183,12 +183,12 @@ format, where the Work or that Derived Work (in whole or in part) is
 then produced by applying some process to that format, does not relax or
 nullify any sections of this license as they pertain to the results of
 applying that process.
-     
+
 10. a. A Derived Work may be distributed under a different license
        provided that license itself honors the conditions listed in
        Clause 6 above, in regard to the Work, though it does not have
        to honor the rest of the conditions in this license.
-      
+
     b. If a Derived Work is distributed under a different license, that
        Derived Work must provide sufficient documentation as part of
        itself to allow each recipient of that Derived Work to honor the 
@@ -260,7 +260,7 @@ the Work through the following steps:
 
   a. If it is being maintained, then ask the Current Maintainer
      to update their communication data within one month.
-     
+
   b. If the search is unsuccessful or no action to resume active
      maintenance is taken by the Current Maintainer, then announce
      within the pertinent community your intention to take over
@@ -270,17 +270,17 @@ the Work through the following steps:
  3a. If the Current Maintainer is reachable and agrees to pass
      maintenance of the Work to you, then this takes effect
      immediately upon announcement.
-     
+
   b. If the Current Maintainer is not reachable and the Copyright
      Holder agrees that maintenance of the Work be passed to you,
      then this takes effect immediately upon announcement.  
-    
+
  4.  If you make an `intention announcement' as described in 2b. above
      and after three months your intention is challenged neither by
      the Current Maintainer nor by the Copyright Holder nor by other
      people, then you may arrange for the Work to be changed so as
      to name you as the (new) Current Maintainer.
-     
+
  5.  If the previously unreachable Current Maintainer becomes
      reachable once more within three months of a change completed
      under the terms of 3b) or 4), then that Current Maintainer must
@@ -407,7 +407,7 @@ Important Recommendations
    using a line such as:
 
     % This work consists of all files listed in manifest.txt.
-   
+
    in that place.  In the absence of an unequivocal list it might be
    impossible for the licensee to determine what is considered by you
    to comprise the Work and, in such a case, the licensee would be
