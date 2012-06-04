@@ -49,6 +49,7 @@ doc:
 	$(BIBTEX) $(JOBNAME)
 	$(DOGBK2UNI)
 	$(LATEX) $(JOBNAME)
+	$(LATEX) $(JOBNAME)
 	$(DODVIPDF)
 
 clean:
