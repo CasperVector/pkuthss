@@ -21,6 +21,8 @@ endif
 # 使用 GBK 编码和 pdflatex 编译方式时，可能需要使用 gbk2uni 转换 .out
 # 文件编码，以防书签乱码。
 ifeq ($(LATEX), pdflatex)
+	# 考虑到可能有用户未安装 gbk2uni，默认用“#”注释掉了 DOGBK2UNI 的定义，
+	# 用户可以手动取消其注释（去掉下一行中的“#”）。
 	#DOGBK2UNI = $(GBK2UNI) $(JOBNAME)
 endif
 
@@ -34,9 +36,9 @@ else
 	RM = del
 endif
 
-all: img doc
+all: img_ doc
 
-img:
+img_:
 	cd img && $(MAKE)
 
 img-clean:
@@ -50,7 +52,7 @@ doc:
 	$(DODVIPDF)
 
 clean:
-	$(RM) $(JOBNAME).{aux,bbl,bcf,blg,dvi,lof,log,lot,run.xml,toc,out} \
+	$(RM) $(JOBNAME).{aux,bbl,bcf,blg,dvi,lof,log,lot,run.xml,toc,out{,.bak}} \
 		{missfont,texput}.log chap/*.aux
 
 dist-clean: clean img-clean
