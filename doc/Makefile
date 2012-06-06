@@ -24,7 +24,7 @@ ifeq ($(LATEX), pdflatex)
 	# 考虑到可能有用户未安装 gbk2uni，且有用户使用 UTF-8 编码，
 	# 默认用“#”注释掉了 DOGBK2UNI 的定义。
 	# 用户可以手动取消其注释（去掉下一行中的“#”）。
-	DOGBK2UNI = $(GBK2UNI) $(JOBNAME)
+	#DOGBK2UNI = $(GBK2UNI) $(JOBNAME)
 endif
 
 # 区分是 Windows 环境还是类 UNIX 环境。
