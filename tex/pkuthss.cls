@@ -193,15 +193,15 @@
 		\begin{center}
 			% Emblem and inscription of the university, and type of thesis.
 			{
-				\includegraphics[height = 0.07\textheight]{img/pkulogo}\hspace{1em}
-				\includegraphics[height = 0.07\textheight]{img/pkuword}\\[2.25em]
-				{\zihao{1}\bfseries\cthesisname}
+				\zihao{1}%
+				\includegraphics[height = 2.4em]{img/pkulogo}\hspace{0.4em}%
+				\raisebox{0.4em}{\includegraphics[height = 1.6em]{img/pkuword}}\\[0.8em]
+				{\bfseries{\cthesisname}}
 			}
 			\vfill
 			% Title of the thesis.
 			{
-				\zihao{2}
-				{\label@ctitle}%
+				\zihao{2}{\label@ctitle}%
 				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}
 			}
 			\vfill
