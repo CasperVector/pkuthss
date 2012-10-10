@@ -57,6 +57,6 @@ clean:
 	$(RM) $(JOBNAME).{aux,bbl,bcf,blg,dvi,lof,log,lot,run.xml,toc,out{,.bak}} \
 		{missfont,texput}.log chap/*.aux
 
-dist-clean: clean img-clean
+distclean: clean img-clean
 	$(RM) $(JOBNAME).pdf
 

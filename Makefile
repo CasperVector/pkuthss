@@ -10,8 +10,8 @@ MINORVER = beta1
 dist:
 	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
 
-dist-clean:
-	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) dist-clean
+distclean:
+	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) distclean
 
 toutf8lf:
 	utils/enclt toutf8lf

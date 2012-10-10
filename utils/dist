@@ -15,7 +15,7 @@ DOC_UTF8LF = $(DIST_DOC)/utf8lf
 DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
 KPSE_CP = cp $(shell kpsewhich '$(1)') $(PROJECT)/tex/$(1)
 
-dist: dist-clean dist-dir doc-utf8lf doc-gbkcrlf pdf-license biblatex dist-zip
+dist: distclean dist-dir doc-utf8lf doc-gbkcrlf pdf-license biblatex dist-zip
 
 dist-dir: tex/ doc/
 	mkdir -p $(DIST_DOC)/
@@ -33,7 +33,7 @@ doc-gbkcrlf:
 pdf-license: doc/
 	cd doc && make
 	mv doc/$(TITLE).pdf $(PROJECT)/README.pdf
-	cd doc && make dist-clean
+	cd doc && make distclean
 	mv -f $(DOC_UTF8LF)/license/ $(PROJECT)/
 	rm -rf $(DOC_GBKCRLF)/license/
 
@@ -48,7 +48,7 @@ biblatex:
 dist-zip: $(PROJECT)
 	zip -rmT $(PROJECT).zip $(PROJECT)/
 
-dist-clean:
-	cd doc && make dist-clean
+distclean:
+	cd doc && make distclean
 	rm -rf $(PROJECT)/ $(PROJECT).zip
 
