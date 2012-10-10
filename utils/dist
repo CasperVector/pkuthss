@@ -4,51 +4,55 @@
 # Copyright (c) 2011-2012 Casper Ti. Vector
 # Public domain.
 
-TOLF = dos2unix -q
-TOCRLF = unix2dos -q
-TOGBK = recode UTF-8..GBK
-
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
-PROJECT = $(TITLE)-$(call VER_GEN,)
-DIST_DOC = $(PROJECT)/doc
-DOC_UTF8LF = $(DIST_DOC)/utf8lf
-DOC_GBKCRLF = $(DIST_DOC)/gbkcrlf
-KPSE_CP = cp $(shell kpsewhich '$(1)') $(PROJECT)/tex/$(1)
+VERSION = $(call VER_GEN,)
 
-dist: distclean dist-dir doc-utf8lf doc-gbkcrlf pdf-license biblatex dist-zip
+dist:
+	make distclean
+	make doc-dist
+	make doc-pdf
+	make dist-ctan
+	make dist-tds
+	make clean
 
-dist-dir: tex/ doc/
-	mkdir -p $(DIST_DOC)/
-	cp -r tex/ $(PROJECT)/
-
-doc-utf8lf:
+doc-dist: doc/
+	mkdir -p $@/
 	make toutf8lf
-	cp -r doc/ $(DOC_UTF8LF)/
-
-doc-gbkcrlf:
+	cp -r doc/ $@/utf8lf
 	make togbkcrlf
-	cp -r doc/ $(DOC_GBKCRLF)/
+	cp -r doc/ $@/gbkcrlf
 	make toutf8lf
 
-pdf-license: doc/
-	cd doc && make
-	mv doc/$(TITLE).pdf $(PROJECT)/README.pdf
-	cd doc && make distclean
-	mv -f $(DOC_UTF8LF)/license/ $(PROJECT)/
-	rm -rf $(DOC_GBKCRLF)/license/
+doc-pdf: doc/
+	cd doc && make && make clean
+	mv -f doc/$(TITLE).pdf doc-dist/
 
-biblatex:
-	$(call KPSE_CP,caspervector.bbx)
-	$(call KPSE_CP,caspervector.cbx)
-	$(call KPSE_CP,biblatex-caspervector-utf8.def)
-	$(call KPSE_CP,biblatex-caspervector-gbk.def)
-	cp `texdoc -l -M biblatex-caspervector | cut -f 3 | grep pdf` \
-		$(PROJECT)/README-biblatex.pdf
+dir-ctan: $(TITLE)-ctan
+$(TITLE)-ctan: tex/ doc/ README
+	mkdir -p $@/$(TITLE)
+	cp -r tex/ $@/$(TITLE)/
+	cp -r doc-dist/ $@/$(TITLE)/doc
+	cp README $@/$(TITLE)/
 
-dist-zip: $(PROJECT)
-	zip -rmT $(PROJECT).zip $(PROJECT)/
+dist-ctan: $(TITLE)-$(VERSION)-ctan.zip
+$(TITLE)-$(VERSION)-ctan.zip: $(TITLE)-ctan
+	cd $^ && zip -rT ../$@ $(TITLE)/
+
+dir-tds: $(TITLE)-tds
+$(TITLE)-tds: tex/ doc/ README
+	mkdir -p $@/$(TITLE)/tex/latex/ $@/$(TITLE)/doc/latex/
+	cp -r tex/ $@/$(TITLE)/tex/latex/$(TITLE)
+	cp -r doc-dist/ $@/$(TITLE)/doc/latex/$(TITLE)
+
+dist-tds: $(TITLE)-$(VERSION)-tds.zip
+$(TITLE)-$(VERSION)-tds.zip: $(TITLE)-tds
+	cd $^ && zip -rT ../$@ $(TITLE)/
+
+clean:
+	cd doc/ && make distclean
+	rm -rf $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
 
 distclean:
-	cd doc && make distclean
-	rm -rf $(PROJECT)/ $(PROJECT).zip
+	make clean
+	rm -rf $(TITLE)-$(VERSION)-ctan.zip  $(TITLE)-$(VERSION)-tds.zip
 

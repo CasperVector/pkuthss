@@ -6,12 +6,28 @@
 TITLE = pkuthss
 MAJORVER = 1.4
 MINORVER = beta1
+DIST_FLAGS = TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
 
 dist:
-	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
+	utils/dist $(DIST_FLAGS)
+
+doc-dist:
+	utils/dist $(DIST_FLAGS) doc-dist
+
+doc-pdf:
+	utils/dist $(DIST_FLAGS) doc-pdf
+
+dist-ctan:
+	utils/dist $(DIST_FLAGS) dist-ctan
+
+dist-tds:
+	utils/dist $(DIST_FLAGS) dist-tds
+
+clean:
+	utils/dist $(DIST_FLAGS) clean
 
 distclean:
-	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) distclean
+	utils/dist $(DIST_FLAGS) distclean
 
 toutf8lf:
 	utils/enclt toutf8lf
