@@ -41,11 +41,11 @@ $(TITLE)-ctan: tex/ doc-dist/ README $(TITLE)-$(VERSION).tds.zip
 	mkdir -p $@/$(TITLE)/
 	cp -r tex/ README $@/$(TITLE)/
 	cp -r doc-dist/ $@/$(TITLE)/doc
-	mv -f $(TITLE)-$(VERSION).tds.zip $@/$(TITLE)/
+	mv -f $(TITLE)-$(VERSION).tds.zip $@/
 
 dist-ctan: $(TITLE)-$(VERSION).zip
 $(TITLE)-$(VERSION).zip: $(TITLE)-ctan
-	cd $< && zip -rT ../$@ $(TITLE)/
+	cd $< && zip -rT ../$@ $(TITLE)/ $(TITLE)-$(VERSION).tds.zip
 
 clean:
 	cd doc/ && make distclean
