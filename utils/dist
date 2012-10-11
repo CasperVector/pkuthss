@@ -12,7 +12,6 @@ dist:
 	make doc-dist
 	make doc-pdf
 	make dist-ctan
-	make dist-tds
 	make clean
 
 doc-dist: doc/
@@ -27,26 +26,26 @@ doc-pdf: doc/
 	cd doc && make && make clean
 	mv -f doc/$(TITLE).pdf doc-dist/
 
-dir-ctan: $(TITLE)-ctan
-$(TITLE)-ctan: tex/ doc/ README
-	mkdir -p $@/$(TITLE)
-	cp -r tex/ $@/$(TITLE)/
-	cp -r doc-dist/ $@/$(TITLE)/doc
-	cp README $@/$(TITLE)/
-
-dist-ctan: $(TITLE)-$(VERSION)-ctan.zip
-$(TITLE)-$(VERSION)-ctan.zip: $(TITLE)-ctan
-	cd $^ && zip -rT ../$@ $(TITLE)/
-
 dir-tds: $(TITLE)-tds
 $(TITLE)-tds: tex/ doc/ README
 	mkdir -p $@/$(TITLE)/tex/latex/ $@/$(TITLE)/doc/latex/
 	cp -r tex/ $@/$(TITLE)/tex/latex/$(TITLE)
 	cp -r doc-dist/ $@/$(TITLE)/doc/latex/$(TITLE)
 
-dist-tds: $(TITLE)-$(VERSION)-tds.zip
-$(TITLE)-$(VERSION)-tds.zip: $(TITLE)-tds
-	cd $^ && zip -rT ../$@ $(TITLE)/
+dist-tds: $(TITLE)-$(VERSION).tds.zip
+$(TITLE)-$(VERSION).tds.zip: $(TITLE)-tds
+	cd $< && zip -rT ../$@ $(TITLE)/
+
+dir-ctan: $(TITLE)-ctan
+$(TITLE)-ctan: tex/ doc-dist/ README $(TITLE)-$(VERSION).tds.zip
+	mkdir -p $@/$(TITLE)/
+	cp -r tex/ README $@/$(TITLE)/
+	cp -r doc-dist/ $@/$(TITLE)/doc
+	mv -f $(TITLE)-$(VERSION).tds.zip $@/$(TITLE)/
+
+dist-ctan: $(TITLE)-$(VERSION).zip
+$(TITLE)-$(VERSION).zip: $(TITLE)-ctan
+	cd $< && zip -rT ../$@ $(TITLE)/
 
 clean:
 	cd doc/ && make distclean
@@ -54,5 +53,5 @@ clean:
 
 distclean:
 	make clean
-	rm -rf $(TITLE)-$(VERSION)-ctan.zip  $(TITLE)-$(VERSION)-tds.zip
+	rm -rf $(TITLE)-$(VERSION).tds.zip  $(TITLE)-$(VERSION).zip
 
