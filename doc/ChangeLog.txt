@@ -1,3 +1,16 @@
+2012-10-11, v1.4 beta2
+	* Changes to package code:
+	- Adjust pkulogo/pkuword typesetting according to
+	  <http://web5.pku.edu.cn/bs/images/cgzs/images1/13.png>
+
+	* Changes to documentation:
+	- Add (more) useful notices and hints.
+	- Bibliography sanitation.
+
+	* Misc:
+	- Add CTAN support.
+	- utils/bump: Improve date conversion code.
+
 2012-05-31, v1.4 beta1
 
 	* Changes to documentation:
