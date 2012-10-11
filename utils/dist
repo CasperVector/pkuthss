@@ -28,13 +28,13 @@ doc-pdf: doc/
 
 dir-tds: $(TITLE)-tds
 $(TITLE)-tds: tex/ doc/ README
-	mkdir -p $@/$(TITLE)/tex/latex/ $@/$(TITLE)/doc/latex/
-	cp -r tex/ $@/$(TITLE)/tex/latex/$(TITLE)
-	cp -r doc-dist/ $@/$(TITLE)/doc/latex/$(TITLE)
+	mkdir -p $@/tex/latex/ $@/doc/latex/
+	cp -r tex/ $@/tex/latex/$(TITLE)
+	cp -r doc-dist/ $@/doc/latex/$(TITLE)
 
 dist-tds: $(TITLE)-$(VERSION).tds.zip
 $(TITLE)-$(VERSION).tds.zip: $(TITLE)-tds
-	cd $< && zip -rT ../$@ $(TITLE)/
+	cd $< && zip -rT ../$@ tex/ doc/
 
 dir-ctan: $(TITLE)-ctan
 $(TITLE)-ctan: tex/ doc-dist/ README $(TITLE)-$(VERSION).tds.zip
