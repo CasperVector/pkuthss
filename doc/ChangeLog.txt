@@ -1,3 +1,9 @@
+2012-11-12, v1.4 beta3
+
+	* Misc:
+	- Fix incorrect CTAN support.
+	- utils/dist: Fix date conversion code again.
+
 2012-10-11, v1.4 beta2
 	* Changes to package code:
 	- Adjust pkulogo/pkuword typesetting according to
