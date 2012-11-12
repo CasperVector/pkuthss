@@ -13,5 +13,6 @@ License:
 This package provides a simple, clear and flexible LaTeX template for
 dissertations in Peking University.
 
-See the file `pkuthss.pdf' for details.
+This file (README) is *NOT* intended as the documentation for this
+package; please see the file `pkuthss.pdf' instead.
 
