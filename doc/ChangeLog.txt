@@ -1,3 +1,13 @@
+2013-01-10, v1.4 rc1
+
+	* Changes to documentation:
+	- Remove troublesome `hologo' package.
+	- chap3.tex: add notice about biblatex's `\bibname' issue.
+	- introduction.tex: update info about location of example source code.
+
+	* Misc:
+	- README: add not-intended-as-documentation notice.
+
 2012-11-12, v1.4 beta3
 
 	* Misc:
@@ -5,6 +15,7 @@
 	- utils/dist: Fix date conversion code again.
 
 2012-10-11, v1.4 beta2
+
 	* Changes to package code:
 	- Adjust pkulogo/pkuword typesetting according to
 	  <http://web5.pku.edu.cn/bs/images/cgzs/images1/13.png>
