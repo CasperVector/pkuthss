@@ -15,7 +15,10 @@
 \documentclass[UTF8, colorlinks]{pkuthss}
 
 % 使用 biblatex 排版参考文献，并规定其格式。
-\usepackage[backend = biber, style = caspervector, utf8]{biblatex}
+% 默认按照引用顺序排序，详见 biblatex-caspervector 的文档。
+% 若需要按照英文文献在前，中文文献在后排序，请设置“sorting = ecnty”；
+% 若需要按照中文文献在前，英文文献在后排序，请设置“sorting = centy”。
+\usepackage[backend = biber, style = caspervector, utf8, sorting = none]{biblatex}
 % 使得打字机粗体可以被使用。
 \usepackage{lmodern}
 % 产生 originauth.tex 里的 \square。
@@ -82,8 +85,14 @@
 	% 正文中的附录部分。
 	\appendix
 	% 排版参考文献列表，并使其出现在目录中。
-	% 如果同时要使参考文献列表参与章节编号，可将“bibintoc”改为“bibnumbered”。
-	\printbibliography[heading = bibintoc]
+	\printbibliography[
+		% 如果同时要使参考文献列表参与章节编号，可将“bibintoc”改为“bibnumbered”。
+		heading = bibintoc,
+		% 只有同时使用 2.x 或之后版本的 biblatex 和相应兼容版本的 biber，
+		% 才能对每个 \printbibliography 命令采用不同的排序方案，
+		% 否则只能在导入 biblatex 宏包时就（全局）指定排序方案。
+		sorting = ecnty
+	]
 	% 各附录。
 	\include{chap/encl1}
 	\include{chap/encl2}
