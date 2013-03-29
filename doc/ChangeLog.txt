@@ -1,3 +1,15 @@
+2013-03-30, v1.4 rc2
+
+	* Changes to package code:
+	- Use the internal hyperref support in ctex 1.02c+.
+	- Remove usage of etoolbox.
+
+	* Changes to documentation:
+	- Add hint for split sorting with biblatex.
+
+	* Misc:
+	- Minor improvements.
+
 2013-01-10, v1.4 rc1
 
 	* Changes to documentation:
