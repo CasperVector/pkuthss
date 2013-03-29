@@ -229,7 +229,7 @@
 }
 \end{Verbatim}
 
-		\subsection{pkuthss 文档模版提供的其它命令和环境\label{ssec:misc}}
+		\subsection{pkuthss 文档模版提供的其它命令和环境}\label{ssec:misc}
 
 		\texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract} %
 		环境用于编写中英文摘要。
@@ -262,7 +262,7 @@
 			才能使用此命令。%
 		}
 
-		\subsection{从其它文档类和宏包继承的功能}
+		\subsection{从其它文档类和宏包继承的功能}\label{ssec:thirdparty}
 
 		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类的基础上，
 		并调用了 CJKfntef、%
@@ -281,7 +281,7 @@
 		pkuthss 文档模版使用作者编写的 %
 		biblatex\supercite{biblatex} 样式\supercite{biblatex-caspervector}%
 		进行参考文献和引用的排版，
-		用户可以使用其提供的功能。
+		用户可以使用它以及 biblatex 本身所提供的功能。
 		例如，
 		用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite| %
 		生成未格式化的、带方括号的和上标且带方括号的引用标记：
@@ -289,6 +289,10 @@
 \cite{ctex}，\parencite{ctex}，\supercite{ctex}
 \end{Verbatim}
 		在本文中将产生“\cite{ctex}，\parencite{ctex}，\supercite{ctex}”。
+
+		通过更复杂的设置，还可以满足例如被引用的文献按照引用顺序排序，
+		而未引用的文献按照英文文献在前、中文文献在后排序这样的需求，
+		详见 biblatex-caspervector 的文档\supercite{biblatex-caspervector}。
 
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
