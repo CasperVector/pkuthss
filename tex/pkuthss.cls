@@ -59,16 +59,13 @@
 % pkuthss is based on ctexbook; We use A4 paper, and `xiao 4' as default font size.
 % CJKfntef provides \CJKunderline used in \maketitle.
 % fancyhdr provides utilities for setting headers and footers.
-\LoadClass[fntef,a4paper,fancyhdr,cs4size]{ctexbook}[2009/10/20]
+\LoadClass[hyperref, a4paper, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
 % Provide support for `key = val' grammar.
 \RequirePackage{keyval}
 % Graphics support.
 \RequirePackage{graphicx}[1999/02/16]
 % Provide utilities for setting page layout.
 \RequirePackage{geometry}
-% Provide \AtEndPreamble used later.
-% To be removed by summer in 2013, see the fix of `\hypersetup' below.
-\RequirePackage{etoolbox}
 % Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
@@ -87,29 +84,6 @@
 	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
 	\else\input{pkuthss-utf8.def}
 	\fi
-
-	% Automatically generate hyperlinks and bookmarks for table of contents,
-	% citations and index.
-	% Code copied with minor modifications from ctex-common.def in `ctex' package.
-	% Not directly using the `hyperref' option of `ctex' package in order to avoid
-	% the conflicts caused by loading of `hyperref' before `setspace' in `ctex'
-	% package older than 1.02c.
-	% This piece of code will be removed by summer in 2013, and we will use the
-	% `hyperref' option of `ctex' package instead, considering most people
-	% will be using newer versions of `ctex' package at that time.
-	\providecommand\hypersetup[1]{\PassOptionsToPackage{#1}{hyperref}}
-	\AtEndPreamble{\RequirePackage{hyperref}}
-	\ifpkuthss@opt@gbk
-		\unless\ifxetex
-			\hypersetup{CJKbookmarks}
-			\unless\ifpdf
-				\AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}}
-			\fi
-		\fi
-	\else
-		\hypersetup{unicode}
-	\fi
-	\hypersetup{driverfallback = dvipdfmx}
 }
 
 % Set page layout.
