@@ -1,6 +1,6 @@
 # vim:ts=4:sw=4
 #
-# Copyright (c) 2011-2012 Casper Ti. Vector
+# Copyright (c) 2011-2013 Casper Ti. Vector
 # Public domain.
 
 TITLE = pkuthss
