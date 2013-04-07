@@ -23,7 +23,7 @@
 %   pkuthss-extra.sty
 
 \ProvidesFile{pkuthss-utf8.def}
-	[2013/03/30 v1.4-rc2 Labels and captions in UTF-8 encoding
+	[2013/04/07 v1.4-rc3 Labels and captions in UTF-8 encoding
 		for the pkuthss document class]
 
 \def\label@ctitle{题目：}

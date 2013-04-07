@@ -24,7 +24,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2013/03/30 v1.4-rc2 Peking University dissertation document class]
+	[2013/04/07 v1.4-rc3 Peking University dissertation document class]
 
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
