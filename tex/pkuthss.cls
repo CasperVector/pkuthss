@@ -56,10 +56,10 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% pkuthss is based on ctexbook; We use A4 paper, and `xiao 4' as default font size.
+% pkuthss is based on ctexbook; We use `xiao 4' as default font size.
 % CJKfntef provides \CJKunderline used in \maketitle.
 % fancyhdr provides utilities for setting headers and footers.
-\LoadClass[hyperref, a4paper, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
+\LoadClass[hyperref, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
 % Provide support for `key = val' grammar.
 \RequirePackage{keyval}
 % Graphics support.
@@ -87,7 +87,9 @@
 }
 
 % Set page layout.
-\geometry{height = 240mm, width = 150mm, includeheadfoot, headheight = 1.2em}
+\geometry{
+	a4paper, height = 240mm, width = 150mm, includeheadfoot, headheight = 1.2em
+}
 % Set headers and footers.
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[LE]{\small\normalfont\leftmark}
