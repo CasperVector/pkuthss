@@ -49,8 +49,6 @@
 \pkuthssextra@int@boolopt{tightlist}{true}
 % Add PDF bookmark for table of contents.
 \pkuthssextra@int@boolopt{pdftoc}{true}
-% Whether to enable `\Uppercase' (works problematically) in heading marks.
-\pkuthssextra@int@boolopt{uppermark}{false}
 % Whether to enable the `\spacialchap' command.
 \pkuthssextra@int@boolopt{spechap}{true}
 % Whether to automatically set properties for generated PDF from user defined
@@ -108,33 +106,6 @@
 \fi
 
 \AtBeginDocument{
-	% `\MakeUppercase' works problematically.
-	% eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
-	% This option can disable `\MakeUppercase' in left/right heading marks.
-	\unless\ifpkuthssextra@opt@uppermark
-		% Code modified from part of ctex-book.def in `ctex' package.
-		% The main difference is the deletion of calls to `\MakeUppercase' here.
-		\if@twoside
-			\renewcommand\chaptermark[1]{%
-				\markboth{%
-					\ifnum\value{secnumdepth}>-1 \if@mainmatter \CTEXthechapter \quad \fi\fi
-					#1%
-				}{}%
-			}
-			\renewcommand\sectionmark[1]{%
-				\markright{\ifnum\value{secnumdepth}>-1 \CTEXthesection \quad \fi #1}%
-			}
-		% One side typesetting should also be considered.
-		\else
-			\renewcommand\chaptermark[1]{%
-				\markright{%
-					\ifnum\value{secnumdepth}>-1 \if@mainmatter \CTEXthechapter \quad \fi\fi
-					#1%
-				}%
-			}
-		\fi
-	\fi
-
 	\ifpkuthssextra@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.

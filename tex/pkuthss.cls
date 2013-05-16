@@ -31,6 +31,10 @@
 \DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
 \DeclareOption{UTF8}%
 	{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
+% Whether to enable `\Uppercase' (works problematically) in heading marks.
+\newif\ifpkuthss@opt@uppermark \pkuthss@opt@uppermarkfalse
+\DeclareOption{uppermark}{\pkuthss@opt@uppermarktrue}
+\DeclareOption{nouppermark}{\pkuthss@opt@uppermarkfalse}
 % Whether to enable the default extra settings.
 \newif\ifpkuthss@opt@extra \pkuthss@opt@extratrue
 \DeclareOption{extra}{\pkuthss@opt@extratrue}
@@ -47,7 +51,6 @@
 \pkuthss@int@extraopt{spacing}
 \pkuthss@int@extraopt{tightlist}
 \pkuthss@int@extraopt{pdftoc}
-\pkuthss@int@extraopt{uppermark}
 \pkuthss@int@extraopt{spechap}
 \pkuthss@int@extraopt{pdfprop}
 \pkuthss@int@extraopt{colorlinks}
@@ -90,17 +93,45 @@
 \geometry{
 	a4paper, height = 240mm, width = 150mm, includeheadfoot, headheight = 1.2em
 }
-% Set headers and footers.
-\pagestyle{fancy}\fancyhf{}
-\fancyhead[LE]{\small\normalfont\leftmark}
-\fancyhead[RO]{\small\normalfont\rightmark}
-\fancyhead[LO,RE]{\small\normalfont\cuniversity\cthesisname}
-\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
-% Set the headers and footers on the first page in every chapter.
-\fancypagestyle{plain}{
-	\fancyhf{}\renewcommand{\headrulewidth}{0pt}
-	\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
+% Internal command to set headers and footers.
+\def\pkuthss@int@setpagestyle{
+	% Set the headers and footers on the first page in every chapter.
+	\fancypagestyle{plain}{
+		\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+		\if@twoside
+			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
+		\else
+			\fancyfoot[C]{\small\normalfont --~\thepage~--}
+		\fi
+	}
+	% Set the headers and footers on other pages.
+	\fancypagestyle{pkuthss}{
+		\fancyhf{}
+		\if@twoside
+			\fancyhead[LE]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
+			\fancyhead[RO]{\small\normalfont\pkuthss@int@setcase{\rightmark}}
+			\fancyhead[LO,RE]{%
+				\small\normalfont\pkuthss@int@setcase{\cuniversity\cthesisname}%
+			}
+			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
+		\else
+			\fancyhead[L]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
+			\fancyhead[R]{\small\normalfont\pkuthss@int@setcase{\rightmark}}
+			\fancyfoot[C]{\small\normalfont --~\thepage~--}
+		\fi
+	}
+	\pagestyle{pkuthss}
 }
+% `\MakeUppercase' works problematically.
+% eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
+% This option can disable `\MakeUppercase' in left/right heading marks.
+\ifpkuthss@opt@uppermark
+	\def\pkuthss@int@setcase#1{#1}
+	\pkuthss@int@setpagestyle
+\else
+	\def\pkuthss@int@setcase#1{\nouppercase{#1}}
+	\pkuthss@int@setpagestyle
+\fi
 
 % eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}
