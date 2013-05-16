@@ -15,6 +15,22 @@
 				用户如果不需要自动载入 pkuthss-extra 宏包，
 				则需要在载入 pkuthss 时加上 \verb|noextra| 选项。
 
+			\item \textbf{\texttt{[no]uppermark}}：
+				是否在页眉中将章节名中的小写字母转换为大写字母。
+				就目前而言，
+				这样的转换存在着一些较为严重的缺陷\footnote{%
+					准确地说是 \texttt{\string\MakeUppercase} 宏的问题，
+					其在某些地方的转换不够健壮，
+					例如 \texttt{\string\cite\string{ctex\string}}
+					会被转换成 \texttt{\string\cite\string{CTEX\string}}。%
+				}，
+				因此不建议使用。
+				基于上述考虑，%
+				\myemph{%
+					pkuthss 文档类默认启用 \texttt{nouppermark} 选项，
+					即在不在页眉中使用大写的章节名%
+				}。
+
 			\item \textbf{pkuthss-extra 宏包提供的选项}：
 				这些选项将被传递给 pkuthss-extra 宏包
 				（用户需要启用 \verb|extra| 选项）。
@@ -82,22 +98,6 @@
 				启用 \verb|pdftoc| 选项后，
 				用 \verb|\tableofcontents| 命令生成目录时%
 				会自动添加“目录”的 pdf 书签。
-
-			\item \textbf{\texttt{[no]uppermark}}：
-				是否在页眉中将章节名中的小写字母转换为大写字母。
-				就目前而言，
-				这样的转换存在着一些较为严重的缺陷\footnote{%
-					准确地说是 \texttt{\string\MakeUppercase} 宏的问题，
-					其在某些地方的转换不够健壮，
-					例如 \texttt{\string\cite\string{ctex\string}}
-					会被转换成 \texttt{\string\cite\string{CTEX\string}}。%
-				}，
-				因此不建议使用。
-				基于上述考虑，%
-				\myemph{%
-					pkuthss-extra 宏包默认启用 \texttt{nouppermark} 选项，
-					即在不在页眉中使用大写的章节名%
-				}。
 
 			\item \textbf{\texttt{[no]spechap}}\footnote{%
 					“spechap”是“\textbf{spec}ial \textbf{chap}ter”的缩写。%
