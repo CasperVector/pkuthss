@@ -27,7 +27,7 @@
 % 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
 
-% 使被强调的内容为红色。hyperref 宏包引入了 xcolor 宏包，
+% 使被强调的内容为红色。hyperref 宏包在设置了 colorlinks 时会引入 xcolor 宏包，
 % 后者定义了 \textcolor 命令，故不用单独引入宏包。
 \newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
 
