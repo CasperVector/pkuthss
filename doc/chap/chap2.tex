@@ -89,6 +89,21 @@
 				启用 \verb|tightlist| 选项后，
 				将去掉这些环境中额外增加的（垂直）间隔。
 
+			\item \textbf{\texttt{[no]caption}}：
+				是否使图表标题使用和正文不同的字体
+				（此处设为中文楷书、英文斜体，
+				如图 \ref{fig:example} 所示）。
+				根据排版中常见的审美原则，
+				一般应使图表标题的字体、字号轻
+				（例如楷书之于宋体、五号字之于小四号字）于正文，
+				图表内容的字体、字号轻于图表标题。
+
+			\begin{figure}[htbp!]
+				\centering
+				\includegraphics[width = 0.5\textwidth]{img/pkuword}
+				\caption{示例插图}\label{fig:example}
+			\end{figure}
+
 			\item \textbf{\texttt{[no]pdftoc}}\footnote{%
 					此选项部分等价于 1.4 alpha2 及以前版本 pkuthss-extra 宏包%
 					的 \texttt{[no]tocbibind} 选项。
@@ -299,6 +314,8 @@
 				setspace 和 footmisc\supercite{footmisc} 宏包。
 			\item 启用 \verb|tightlist| 选项时会调用 %
 				enumitem\supercite{enumitem} 宏包。
+			\item 启用 \verb|caption| 选项时会调用 %
+				caption\supercite{caption} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 

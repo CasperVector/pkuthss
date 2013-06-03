@@ -47,6 +47,8 @@
 \pkuthssextra@int@boolopt{spacing}{true}
 % Whether to use list environments that are tighter than LaTeX defaults.
 \pkuthssextra@int@boolopt{tightlist}{true}
+% Whether to let captions use a different font from the main text.
+\pkuthssextra@int@boolopt{caption}{true}
 % Add PDF bookmark for table of contents.
 \pkuthssextra@int@boolopt{pdftoc}{true}
 % Whether to enable the `\spacialchap' command.
@@ -81,6 +83,12 @@
 	% Biblatex uses `\itemsep' as default `\bibitemsep', no need to change it.
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
+\fi
+
+\ifpkuthssextra@opt@caption
+	% According to common aesthetics of typography, it is nice to make the font of
+	% captions lighter than main text, and tables lighter than captions.
+	\RequirePackage[font = it]{caption}
 \fi
 
 \ifpkuthssextra@opt@pdftoc
