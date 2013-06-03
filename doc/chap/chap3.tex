@@ -51,6 +51,29 @@
 		此文件通常和执行 \verb|texdoc hyperref| %
 		时打开的 pdf 文件位于同一目录中。
 
+		biber 运行时有一定概率出现形如（目录名可能稍有不同）
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+data source .../par-xxxxxxxx/cache-xxxxxxxx/
+	inc/lib/Biber/LaTeX/recode_data.xml not found in .
+\end{Verbatim}
+		的错误。
+		这种错误一般是 biber 在自解压阶段被终止之后，
+		未删除临时目录 \verb|.../par-xxxxxxxx/| 就重新运行 biber 时出现。
+		遇到这种情况时，删除掉上述临时目录及其所有内容，
+		再重新运行 biber 通常便可解决问题。
+
+		caption 宏包\supercite{caption}对于其不认识的宏包均会提示
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+\end{Verbatim}
+		pkuthss 文档模板基于 ctexbook 文档类，
+		而后者基于标准的 book 文档类。
+		因此，这个警告并不影响用户正常使用\footnote{%
+			\url{http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=63117&pid=402145}.%
+		}。
+
 		\subsection{文档格式可能存在的问题}
 
 		研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面并不一致。
