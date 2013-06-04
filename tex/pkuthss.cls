@@ -239,51 +239,33 @@
 	\end{titlepage}
 }
 
-% Internal environment for typesetting abstracts.
-\newenvironment{pkuthss@int@abstract}{
-	\cleardoublepage
-	\pdfbookmark[1]{\pkuthss@tmp@abstractname}{\pkuthss@tmp@abstlabel}
-	\chapter*{\zihao{-2}\pkuthss@tmp@title}
-	\markboth{\pkuthss@tmp@abstractname}{}
-	\vspace{-2em}\par
-	\begin{center}
- 		\zihao{-3}
- 		{\pkuthss@tmp@author}\quad{\pkuthss@tmp@major}\\
- 		{\pkuthss@tmp@label@mentor}{\pkuthss@tmp@mentor}
-	\end{center}
-	\vspace{1em}\par
-	\section*{\zihao{4}\pkuthss@tmp@abstractname}
-	\vskip 0.5em
-}{% Keywords at the bottom of the page.
-	\vfill\noindent\textbf{\pkuthss@tmp@label@keywords}{\pkuthss@tmp@keywords}
-}
-
 % Typesetting the Chinese abstract.
 \newenvironment{cabstract}{
-	\def\pkuthss@tmp@abstlabel{cabstract}
-	\let\pkuthss@tmp@title\@ctitle
- 	\let\pkuthss@tmp@author\@cauthor
-	\let\pkuthss@tmp@major\@cmajor
- 	\let\pkuthss@tmp@mentor\@cmentor
- 	\let\pkuthss@tmp@keywords\@ckeywords
- 	\let\pkuthss@tmp@label@mentor\label@cmentorb
- 	\let\pkuthss@tmp@label@keywords\label@ckeywords
-	\let\pkuthss@tmp@abstractname\cabstractname
-	\begin{pkuthss@int@abstract}
-}{\end{pkuthss@int@abstract}}
+	\cleardoublepage
+	\pdfbookmark[1]{\cabstractname}{cabstract}
+	\chapter*{\zihao{-2}\cabstractname}
+	\markboth{\cabstractname}{}
+}{% Keywords at the bottom of the page.
+	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}
+}
 
 % Typesetting the English abstract.
 \newenvironment{eabstract}{
-	\def\pkuthss@tmp@abstlabel{eabstract}
-	\let\pkuthss@tmp@title\@etitle
- 	\let\pkuthss@tmp@author\@eauthor
-	\let\pkuthss@tmp@major\@emajor
- 	\let\pkuthss@tmp@mentor\@ementor
- 	\let\pkuthss@tmp@keywords\@ekeywords
- 	\let\pkuthss@tmp@label@mentor\label@ementor
- 	\let\pkuthss@tmp@label@keywords\label@ekeywords
-	\let\pkuthss@tmp@abstractname\eabstractname
-	\begin{pkuthss@int@abstract}
-}{\end{pkuthss@int@abstract}}
+	\cleardoublepage
+	\pdfbookmark[1]{\eabstractname}{eabstract}
+	\chapter*{\zihao{-2}\@etitle}
+	\markboth{\eabstractname}{}
+	\vspace{-2em}\par
+	\begin{center}
+		\zihao{-3}
+		{\@eauthor}\quad{\@emajor}\\
+		{\label@ementor}{\@ementor}
+	\end{center}
+	\vspace{1em}\par
+	\section*{\zihao{4}\eabstractname}
+	\vskip 0.5em
+}{% Keywords at the bottom of the page.
+	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}
+}
 
 \endinput
