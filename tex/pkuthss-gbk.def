@@ -32,8 +32,7 @@
 \def\label@school{院\hphantom{汉字}系：}
 \def\label@cmajor{专\hphantom{汉字}业：}
 \def\label@direction{研究方向：}
-\def\label@cmentora{导\hphantom{汉字}师：}
-\def\label@cmentorb{导师：}
+\def\label@cmentor{导\hphantom{汉字}师：}
 \def\label@ementor{Directed by\ }
 \def\label@ckeywords{关键词：}
 \def\label@ekeywords{Keywords:\ }

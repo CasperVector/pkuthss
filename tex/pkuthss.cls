@@ -228,7 +228,7 @@
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmajor}			\\
 					{\label@direction}	&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}	\\
-					{\label@cmentora}		&
+					{\label@cmentor}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmentor}		\\
 				\end{tabular}
 			}
