@@ -258,7 +258,7 @@
 	\vspace{-2em}\par
 	\begin{center}
 		\zihao{-3}
-		{\@eauthor}\quad({\@emajor})\\
+		{\@eauthor} ({\@emajor})\\
 		{\label@ementor}{\@ementor}
 	\end{center}
 	\vspace{1em}\par
