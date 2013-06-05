@@ -93,6 +93,7 @@ texdoc pkuthss
 			被 Make 工具调用的 Makefile，用于使编译工作自动化。
 		\item \verb|Make.bat|：%
 			Windows 下的伪“Makefile”，用 Windows 批处理实现。
+
 		\item \verb|chap/|：目录，包含各章节内容：
 		\begin{itemize}
 			\item \verb|copyright.tex|：
@@ -103,12 +104,17 @@ texdoc pkuthss
 					但用 \texttt{\string\iffalse{} ...\ \string\fi} %
 					注释掉了，
 					用户可以考虑使用这个版本。
-					这个版本可以排版二维码，
-					请参考 \texttt{copyright.tex} 中的相关注释。
 				}。
 			\item \verb|originauth.tex|：
 				原创性声明和使用授权说明部分\supercite{pku-originauth}。
 		\end{itemize}
+		\myemph{%
+			注：%
+			pkuthss 文档模板支持排版学校要求的二维码，
+			请参考 \texttt{copyright.tex} 和
+			\texttt{originauth.tex} 中的相关注释。%
+		}
+
 		\item \verb|img/|：目录，包含论文中所有图片：
 		\begin{itemize}
 			\item \verb|Makefile|：图片部分的 Makefile。
