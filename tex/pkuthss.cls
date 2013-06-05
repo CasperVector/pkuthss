@@ -223,9 +223,9 @@
 					{\label@studentid}	&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@studentid}	\\
 					{\label@school}			&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@school}			\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@school}		\\
 					{\label@cmajor}			&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmajor}			\\
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmajor}		\\
 					{\label@direction}	&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}	\\
 					{\label@cmentor}		&
