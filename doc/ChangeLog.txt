@@ -1,3 +1,20 @@
+2013-12-26, v1.4 rc4
+
+	* API Changes:
+	- Add `caption' option to customise caption fonts.
+	- Remove `\label@cmentorb'; `\label@cmentora' -> `\label@cmentor'.
+	- Move `[no]uppermark' to pkuthss.cls.
+
+	* Changes to package code:
+	- Consider `oneside' in page style.
+
+	* Changes to documentation:
+	- Add support for 2-dimensional bar code.
+	- Add and refine lots of hints.
+
+	* Misc:
+	- Minor fixes and improvements.
+
 2013-04-07, v1.4 rc3
 
 	* Misc:
