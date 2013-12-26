@@ -51,6 +51,30 @@
 		此文件通常和执行 \verb|texdoc hyperref| %
 		时打开的 pdf 文件位于同一目录中。
 
+		使用 Xe\LaTeX{} 的用户可能遇到形如（其中 xxxxxxxx 为具体字体名）
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! fontspec error: "font-not-found"
+!
+! The font "xxxxxxxx" cannot be found.
+!
+! See the fontspec documentation for further information.
+!
+! For immediate help type H <return>.
+!...............................................
+\end{Verbatim}
+		的错误。
+		这种错误一般是（主要是非 Windows 平台的）用户采用了自定义的（包括大小写
+		不同于原文件的）字体文件名，
+		并改动 ctex.cfg 等配置文件之后没有在调用 pkuthss 文档类时加入
+		\verb|nofonts| 选项，
+		又使用 Xe\LaTeX{} 编译造成的，使用
+\begin{Verbatim}[frame = single]
+\documentclass[nofonts, ...]{pkuthss} % “...”代表其它的选项。
+\end{Verbatim}
+		即可解决此问题。
+
 		biber 运行时有一定概率出现形如（目录名可能稍有不同）
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 data source .../par-xxxxxxxx/cache-xxxxxxxx/
@@ -76,7 +100,7 @@ See the caption package documentation for explanation.
 
 		\subsection{文档格式可能存在的问题}
 
-		研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面并不一致。
+		研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面可能并不一致，
 		这里以电子版为准。
 
 		\subsection{其它一些问题}
