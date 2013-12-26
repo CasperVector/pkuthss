@@ -11,8 +11,8 @@ TOUTF8 = enca -L zh -x UTF-8
 TOGBK = enca -L zh -x GBK
 
 toutf8lf:
-	find doc -not $(FIND_GBKCRLF) -type f -exec $(TOLF) '{}' '+'
 	find doc -not $(FIND_GBKCRLF) -type f -exec $(TOUTF8) '{}' '+'
+	find doc -not $(FIND_GBKCRLF) -type f -exec $(TOLF) '{}' '+'
 	sed -i -e '/\\documentclass/ s/GBK/UTF8/' \
 		-e '/^\\usepackage.*{biblatex}$$/ s/gbk/utf8/' \
 		doc/pkuthss.tex
@@ -20,8 +20,8 @@ toutf8lf:
 
 
 togbkcrlf:
-	find doc -type f -exec $(TOCRLF) '{}' '+'
 	find doc -type f -exec $(TOGBK) '{}' '+'
+	find doc -type f -exec $(TOCRLF) '{}' '+'
 	sed -i -e '/\\documentclass/ s/UTF8/GBK/' \
 		-e '/^\\usepackage.*{biblatex}$$/ s/utf8/gbk/' \
 		doc/pkuthss.tex
