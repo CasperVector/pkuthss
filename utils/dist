@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
 #
-# Copyright (c) 2011-2012 Casper Ti. Vector
+# Copyright (c) 2011-2013 Casper Ti. Vector
 # Public domain.
 
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
