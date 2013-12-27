@@ -75,19 +75,27 @@ mpm --install=pkuthss
 texdoc pkuthss
 \end{Verbatim}
 	所打开的 pdf 所在的同一目录中包含本文档（\verb|pkuthss.pdf|）的源代码%
-	（\verb|utf8lf/| 和 \verb|gbkcrlf/| 两个子目录，
-	两目录中代码除使用的编码和换行符外基本上完全相同）。
+	（\verb|utf8/| 和 \verb|gbk/| 两个子目录，
+	两目录中代码除使用的字符编码基本上完全相同）。
 
 	其中，%
-	\verb|utf8lf/| 目录下的源代码使用的是 UTF-8 编码、\verb|\n|（LF）换行，
-	适合类 UNIX 系统用户使用；%
-	\verb|gbkcrlf/| 目录下的源代码使用的是 GBK 编码、\verb|\r\n|（CRLF）换行，
-	适合 Windows 用户使用。%
-	用户可以试情况将 \verb|utf8lf/| 或 \verb|gbkcrlf/| 中
-	的所有内容复制到合适的目录，
+	\verb|utf8/| 目录下的源代码使用的是 UTF-8 编码，适合类 UNIX 系统用户使用；%
+	\verb|gbk/| 目录下的源代码使用的是 GBK 编码，适合 Windows 用户使用。%
+	用户可以试情况将 \verb|utf8/| 或 \verb|gbk/| 中的所有内容复制到合适的目录，
 	并在此目录中根据模版修改出自己的论文。
 
-	\verb|utf8lf/| 和 \verb|gbkcrlf/| 目录中的重要文件有：
+	\myemph{%
+		注意：
+		在 1.4 rc4 之后版本的 pkuthss 文档模版中，除了 \texttt{Make.bat} 之外，
+		所有文件均是 LF（\texttt{\string\n}）换行。
+		在 Windows 下用“记事本”打开这些文件时，
+		所有的换行会变成某个奇怪的字符，而所有文字会挤在一行上。
+		这是“记事本”的固有问题，
+		因此 pkuthss 文档模版的作者建议用户
+		使用支持 LF 换行的文本编辑器编辑文件。%
+	}
+
+	\verb|utf8/| 和 \verb|gbk/| 目录中的重要文件有：
 	\begin{itemize}
 		\item \verb|Makefile|：
 			被 Make 工具调用的 Makefile，用于使编译工作自动化。
@@ -167,14 +175,37 @@ texdoc pkuthss
 	指定被编译的主文件名，
 	并通过设定变量 \verb|LATEX| 的值指定采用哪种编译方式，
 	即可通过在主文件所在目录调用 Make 工具来实现自动编译：
-	如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|；
+	如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|：
+\begin{Verbatim}[frame = single]
+cd /path/to/directory/with/pkuthss.tex
+make
+\end{Verbatim}
 	而如果是在 Windows 环境下，
-	则用户应该调用的命令名可能为 \verb|mingw32-make|。
+	则用户应该调用的命令名可能为 \verb|mingw32-make|：
+\begin{Verbatim}[frame = single]
+cd \path\to\directory\with\pkuthss.tex
+mingw32-make
+\end{Verbatim}
 
 	用户如果不想配置 Windows 下的 GNU Make，
 	则也可以使用由 Windows 批处理实现的伪“Makefile”，
 	通过在主文件所在目录调用 \verb|make|\footnote{%
 		Windows 将批处理文件作为可执行文件，
 		调用时可以不显式地指出扩展名。%
-	} 或直接双击 \verb|Make.bat| 的图标运行之。
+	}：
+\begin{Verbatim}[frame = single]
+cd \path\to\directory\with\pkuthss.tex
+make
+\end{Verbatim}
+	\myemph{%
+		注意：%
+		Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题。
+		在命令提示符（cmd）下执行这些批处理文件时没有问题，
+		但双击文件图标执行时就会出错。
+		作者在 Google Code 和北大未名 BBS 上发布的压缩包中 \texttt{Make.bat}
+		均是 CRLF（\texttt{\string\r\string\n}）换行，
+		但 \TeX{}Live、\CTeX{} 套装中安装的 \texttt{Make.bat} 和
+		CTAN 上提供的压缩包里的 \texttt{Make.bat}
+		可能是 LF（\texttt{\string\n}）换行的。%
+	}
 

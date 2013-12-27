@@ -29,11 +29,11 @@ clean:
 distclean:
 	utils/dist $(DIST_FLAGS) distclean
 
-toutf8lf:
-	utils/enclt toutf8lf
+toutf8:
+	utils/enc toutf8
 
-togbkcrlf:
-	utils/enclt togbkcrlf
+togbk:
+	utils/enc togbk
 
 qa:
 	utils/qa

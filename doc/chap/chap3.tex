@@ -16,9 +16,17 @@
 	生成的 pdf 文档中可能缺少部分字符，
 	解决方式见第 \ref{sec:req} 节。
 
+	Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题，
+	解决方式见第 \ref{sec:compile} 节。
+
 	\verb|img/| 目录中 eps 图片未转换为 pdf 格式时，%
 	pdf\LaTeX{} 方式编译可能出错，
 	解决方式见第 \ref{sec:doc-dir} 节。
+
+	Windows 的“记事本”程序在查看 LF（\texttt{\string\n}）
+	换行的文本文件时存在着一些问题，
+	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
+	详见第 \ref{sec:doc-dir} 节。
 
 	使用过旧的 \TeX{} 系统和各宏包，
 	或使用某些 Linux 发行版软件仓库所提供的 \TeX{}Live 时，

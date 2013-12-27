@@ -16,11 +16,11 @@ dist:
 
 doc-dist: doc/
 	mkdir -p $@/
-	make toutf8lf
-	cp -r doc/ $@/utf8lf
-	make togbkcrlf
-	cp -r doc/ $@/gbkcrlf
-	make toutf8lf
+	make toutf8
+	cp -r doc/ $@/utf8
+	make togbk
+	cp -r doc/ $@/gbk
+	make toutf8
 
 doc-pdf: doc/
 	cd doc && make && make clean
