@@ -129,7 +129,14 @@
 	\def\pkuthss@int@setcase#1{#1}
 	\pkuthss@int@setpagestyle
 \else
-	\def\pkuthss@int@setcase#1{\nouppercase{#1}}
+	% Code copied from fancyhdr's `\nouppercase', with the redefinition of
+	% `\uppercase' dropped to avoid disrupting CJKutf8.
+	% cf. <https://code.google.com/p/ctex-kit/issues/detail?id=147>.
+	\def\pkuthss@int@setcase#1{%
+		\let\MakeUppercase\relax%
+		\expandafter\let\csname MakeUppercase \endcsname\relax%
+		#1%
+	}
 	\pkuthss@int@setpagestyle
 \fi
 
