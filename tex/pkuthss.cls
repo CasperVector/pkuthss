@@ -110,9 +110,7 @@
 		\if@twoside
 			\fancyhead[LE]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
 			\fancyhead[RO]{\small\normalfont\pkuthss@int@setcase{\rightmark}}
-			\fancyhead[LO,RE]{%
-				\small\normalfont\pkuthss@int@setcase{\cuniversity\cthesisname}%
-			}
+			\fancyhead[LO,RE]{\small\normalfont\cuniversity\cthesisname}}
 			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
 		\else
 			\fancyhead[L]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
