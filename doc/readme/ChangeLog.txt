@@ -1,3 +1,17 @@
+2014-04-11, v1.5.0
+
+	* Changes to example template:
+	- Just split from documentation.
+	- Now also offer pdf for the example template.
+
+	* Changes to documentation:
+	- Relicense to LPPL v1.3+ (not including the example template).
+
+	* Misc:
+	- Switch to the x.y.z version scheme, thus no longer use alpha/beta/rc.
+	- Utility Makefiles easier to reason about.
+	- Minor improvements.
+
 2014-04-11, v1.4
 
 	* Changes to package code:
