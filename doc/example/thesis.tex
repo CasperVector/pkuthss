@@ -30,44 +30,25 @@
 % 若需要按照英文文献在前，中文文献在后排序，请设置“sorting = ecnty”；
 % 若需要按照中文文献在前，英文文献在后排序，请设置“sorting = centy”。
 \usepackage[backend = biber, style = caspervector, utf8, sorting = none]{biblatex}
-% 使得打字机粗体可以被使用。
-\usepackage{lmodern}
 % 产生 originauth.tex 里的 \square。
 \usepackage{amssymb}
-% 提供 Verbatim 环境和 \VerbatimInput 命令。
-\usepackage{fancyvrb}
 
-% 使被强调的内容为红色。hyperref 宏包在设置了 colorlinks 时会引入 color 宏包，
-% 后者定义了 \textcolor 命令，故不用单独引入宏包。
-\newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
-
-% pkuthss 文档模版的版本。
-\newcommand{\docversion}{v1.4}
 % 设定文档的基本信息。
 \pkuthssinfo{
 	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
-	ctitle = {北京大学论文文档模版\\pkuthss \docversion},
-	% “\\”在设定 pdf 属性时会被自动过滤掉，于是得到的 pdf 属性中标题为
-	%   The PKU dissertation document classpkuthss [版本号]
-	% 此处指定其被替换为“: ”，以使之为
-	%   The PKU dissertation document class: pkuthss [版本号]
-	etitle = {%
-		The PKU dissertation document class\texorpdfstring{\\}{: }%
-		pkuthss \docversion%
-	},
-	cauthor = {盖茨波 $\cdot$ 钛 $\cdot$ 维克托},
-	eauthor = {Casper Ti.\ Vector},
-	studentid = {00910???},
-	date = {二〇一四年四月},
-	school = {化学与分子工程学院},
-	cmajor = {化学（？）}, emajor = {Chemistry ... ?},
-	direction = {据说 Casper 自己也不知道},
-	cmentor = {XX 教授}, ementor = {Prof.\ XX},
-	ckeywords = {\LaTeX2e{}，排版，文档类，\CTeX{}},
-	ekeywords = {\LaTeX2e{}, typesetting, document class, \CTeX{}}
+	ctitle = {测试文档}, etitle = {Test Document},
+	cauthor = {某某},
+	eauthor = {Test},
+	studentid = {0123456789},
+	date = {某年某月},
+	school = {某某学院},
+	cmajor = {某某专业}, emajor = {Some major},
+	direction = {某某方向},
+	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
+	ckeywords = {某某}, ekeywords = {Something}
 }
 % 导入参考文献数据库（注意不要省略“.bib”）。
-\addbibresource{pkuthss.bib}
+\addbibresource{thesis.bib}
 
 \begin{document}
 	% 以下为正文之前的部分。
@@ -89,8 +70,6 @@
 	\include{chap/introduction}
 	% 各章节。
 	\include{chap/chap1}
-	\include{chap/chap2}
-	\include{chap/chap3}
 	% 结论。
 	\include{chap/conclusion}
 
@@ -110,7 +89,6 @@
 	]
 	% 各附录。
 	\include{chap/encl1}
-	\include{chap/encl2}
 
 	% 以下为正文之后的部分。
 	\backmatter

@@ -5,7 +5,7 @@
 # Public domain.
 
 # 被编译的主文件的文件名，不包括扩展名。
-JOBNAME = pkuthss
+JOBNAME = thesis
 # 这个变量的值可以为 latex、pdflatex 或 xelatex。
 LATEX = latex
 # 如果无法使用 biber，可以改为“bibtex”。

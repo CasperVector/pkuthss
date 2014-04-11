@@ -6,7 +6,7 @@
 @rem Copyright (c) 2010-2012 Casper Ti. Vector
 @rem Public domain.
 
-set JOBNAME=pkuthss
+set JOBNAME=thesis
 @rem 这个变量的值可以为 latex 或 pdflatex。
 set LATEX=latex
 @rem 如果无法使用 biber，可以改为“bibtex”。
