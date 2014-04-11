@@ -3,54 +3,20 @@
 % Copyright (c) 2008-2009 solvethis
 % Copyright (c) 2010-2014 Casper Ti. Vector
 % Public domain.
-%
-% 使用前请先仔细阅读 pkuthss 和 biblatex-caspervector 的文档，
-% 特别是其中的 FAQ 部分和用红色强调的部分。
-% 两者可在终端/命令提示符中用
-%   texdoc pkuthss
-%   texdoc biblatex-caspervector
-% 调出。
 
-% 在黑白打印时彩色链接可能变成浅灰色，此时可将“colorlinks”改为“nocolorlinks”。
-% 北大图书馆要求上传的电子版论文中目录采用黑色字体，可以用同样的方法处理。
-%
-% 采用了自定义的（包括大小写不同于原文件的）字体文件名，
-% 并改动 ctex.cfg 等配置文件的用户请自行加入 nofonts 选项；
-% 其它用户不用加入 nofonts 选项，加入之后反而会产生错误。
 \documentclass[UTF8, colorlinks]{pkuthss}
 
-% 使用 biblatex 排版参考文献，并规定其格式。
-%
-% 如果无法使用 biber，可以把“backend = biber”改为“backend = bibtex”，
-% 并改用 bibtex 产生参考文献，详见 pkuthss 的文档。
-% 使用 biber 时，请去掉所有的 sorting 选项，否则会出错。
-%
-% 默认按照引用顺序排序（“sorting = none”），详见 biblatex-caspervector 的文档
-% （因为是默认设置所以其实不用写，不过出于完备性的考虑仍然在这里列出）。
-% 若需要按照英文文献在前，中文文献在后排序，请设置“sorting = ecnty”；
-% 若需要按照中文文献在前，英文文献在后排序，请设置“sorting = centy”。
 \usepackage[backend = biber, style = caspervector, utf8, sorting = none]{biblatex}
-% 使得打字机粗体可以被使用。
 \usepackage{lmodern}
-% 产生 originauth.tex 里的 \square。
 \usepackage{amssymb}
-% 提供 Verbatim 环境和 \VerbatimInput 命令。
 \usepackage{fancyvrb}
 
-% 使被强调的内容为红色。hyperref 宏包在设置了 colorlinks 时会引入 color 宏包，
-% 后者定义了 \textcolor 命令，故不用单独引入宏包。
 \newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
-
-% pkuthss 文档模版的版本。
 \newcommand{\docversion}{v1.4.9}
-% 设定文档的基本信息。
+
 \pkuthssinfo{
 	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
 	ctitle = {北京大学论文文档模版\\pkuthss \docversion},
-	% “\\”在设定 pdf 属性时会被自动过滤掉，于是得到的 pdf 属性中标题为
-	%   The PKU dissertation document classpkuthss [版本号]
-	% 此处指定其被替换为“: ”，以使之为
-	%   The PKU dissertation document class: pkuthss [版本号]
 	etitle = {%
 		The PKU dissertation document class\texorpdfstring{\\}{: }%
 		pkuthss \docversion%
@@ -66,58 +32,33 @@
 	ckeywords = {\LaTeX2e{}，排版，文档类，\CTeX{}},
 	ekeywords = {\LaTeX2e{}, typesetting, document class, \CTeX{}}
 }
-% 导入参考文献数据库（注意不要省略“.bib”）。
 \addbibresource{pkuthss.bib}
 
 \begin{document}
-	% 以下为正文之前的部分。
 	\frontmatter
 
-	% 自动生成标题页。
 	\maketitle
-	% 版权声明。
 	\include{chap/copyright}
-	% 中英文摘要。
 	\include{chap/abstract}
-	% 自动生成目录。
 	\tableofcontents
 
-	% 以下为正文。
 	\mainmatter
 
-	% 绪言。
 	\include{chap/introduction}
-	% 各章节。
 	\include{chap/chap1}
 	\include{chap/chap2}
 	\include{chap/chap3}
-	% 结论。
 	\include{chap/conclusion}
 
-	% 正文中的附录部分。
 	\appendix
-	% 排版参考文献列表。
-	\printbibliography[
-		% 使“参考文献”出现在目录中；如果同时要使参考文献列表参与章节编号，
-		% 可将“bibintoc”改为“bibnumbered”。
-		heading = bibintoc,
-		% 单独设定排序方案。此设定会局部覆盖之前的全局设置。
-		% 注：只有同时使用 2.x 或之后版本的 biblatex 和相应兼容版本的 biber，
-		% 才能对每个 \printbibliography 命令采用不同的排序方案，
-		% 否则只能在导入 biblatex 宏包时就（全局）指定排序方案。
-		% 在这样的情况下，请去掉所有的 sorting 选项，否则可能出错。
-		sorting = ecnty
-	]
-	% 各附录。
+
+	\printbibliography[heading = bibintoc, sorting = ecnty]
 	\include{chap/encl1}
 	\include{chap/encl2}
 
-	% 以下为正文之后的部分。
 	\backmatter
 
-	% 致谢。
 	\include{chap/acknowledge}
-	% 原创性声明和使用授权说明。
 	\include{chap/originauth}
 \end{document}
 
