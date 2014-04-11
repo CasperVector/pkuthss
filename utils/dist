@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
 #
-# Copyright (c) 2011-2013 Casper Ti. Vector
+# Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
 
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
@@ -9,25 +9,25 @@ VERSION = $(call VER_GEN,)
 
 dist:
 	make distclean
-	make doc-dist
-	make doc-pdf
 	make dist-ctan
 	make clean
 
 doc-dist: doc/
+	# Make the directory.
 	mkdir -p $@/
+	# Example.
 	make toutf8
-	cp -r doc/ $@/utf8
+	cp -r doc/example/ $@/example-utf8
 	make togbk
-	cp -r doc/ $@/gbk
+	cp -r doc/example/ $@/example-gbk
 	make toutf8
-
-doc-pdf: doc/
-	cd doc && make && make clean
-	mv -f doc/$(TITLE).pdf doc-dist/
+	# Readme.
+	cd doc/readme/ && make && make clean
+	mv -f doc/readme/$(TITLE).pdf $@/README.pdf
+	cp -r doc/readme/ $@/readme-src
 
 dir-tds: $(TITLE)-tds
-$(TITLE)-tds: tex/ doc/ README
+$(TITLE)-tds: tex/ doc-dist README
 	mkdir -p $@/tex/latex/ $@/doc/latex/
 	cp -r tex/ $@/tex/latex/$(TITLE)
 	cp -r doc-dist/ $@/doc/latex/$(TITLE)
@@ -37,7 +37,7 @@ $(TITLE)-$(VERSION).tds.zip: $(TITLE)-tds
 	cd $< && zip -rT ../$@ tex/ doc/
 
 dir-ctan: $(TITLE)-ctan
-$(TITLE)-ctan: tex/ doc-dist/ README $(TITLE)-$(VERSION).tds.zip
+$(TITLE)-ctan: tex/ doc-dist README $(TITLE)-$(VERSION).tds.zip
 	mkdir -p $@/$(TITLE)/
 	cp -r tex/ README $@/$(TITLE)/
 	cp -r doc-dist/ $@/$(TITLE)/doc
@@ -48,7 +48,8 @@ $(TITLE)-$(VERSION).zip: $(TITLE)-ctan
 	cd $< && zip -rT ../$@ $(TITLE)/ $(TITLE)-$(VERSION).tds.zip
 
 clean:
-	cd doc/ && make distclean
+	cd doc/readme/ && make distclean
+	cd doc/example/ && make distclean
 	rm -rf $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
 
 distclean:

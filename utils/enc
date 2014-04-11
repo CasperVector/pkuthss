@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
 #
-# Copyright (c) 2011-2013 Casper Ti. Vector
+# Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
 
 FIND_GBKCRLF = -name '*.bat*'
@@ -9,16 +9,14 @@ TOUTF8 = enca -L zh -x UTF-8
 TOGBK = enca -L zh -x GBK
 
 toutf8:
-	find doc -not $(FIND_GBKCRLF) -type f -exec $(TOUTF8) '{}' '+'
+	find doc/example -not $(FIND_GBKCRLF) -type f -exec $(TOUTF8) '{}' '+'
 	sed -i -e '/\\documentclass/ s/GBK/UTF8/' \
 		-e '/^\\usepackage.*{biblatex}$$/ s/gbk/utf8/' \
-		doc/pkuthss.tex
-	sed -i '/{pkuthss-gbk\.def}$$/ s/gbk/utf8/g' doc/chap/encl1.tex
+		doc/example/thesis.tex
 
 togbk:
-	find doc -not $(FIND_GBKCRLF) -type f -exec $(TOGBK) '{}' '+'
+	find doc/example -not $(FIND_GBKCRLF) -type f -exec $(TOGBK) '{}' '+'
 	sed -i -e '/\\documentclass/ s/UTF8/GBK/' \
 		-e '/^\\usepackage.*{biblatex}$$/ s/utf8/gbk/' \
-		doc/pkuthss.tex
-	sed -i '/{pkuthss-utf8\.def}$$/ s/utf8/gbk/g' doc/chap/encl1.tex
+		doc/example/thesis.tex
 

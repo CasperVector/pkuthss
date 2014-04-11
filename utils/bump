@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # vim:ts=4:sw=4
 #
-# Copyright (c) 2012-2013 Casper Ti. Vector
+# Copyright (c) 2012-2014 Casper Ti. Vector
 # Public domain.
 
 NUMDATE = $(shell date '+%Y/%m/%d')
@@ -15,7 +15,7 @@ revbump:
 		tex/*
 	sed -i -e '/date = / s;{[^{}]\+},$$;{$(CNDATE)},;g' \
 		-e '/\\newcommand{\\docversion}/ s;{[^{}]\+}$$;{v$(call VER_GEN, )};g' \
-		doc/pkuthss.tex
+		doc/readme/pkuthss.tex
 	@echo '$@: remember to update the ChangeLog'
 	@echo '$@: remember to tag the commit'
 	@echo '$@: remember to `git push --tags'\'
