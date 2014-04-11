@@ -4,13 +4,14 @@
 # Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
 
+SELF = utils/dist
 VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
 VERSION = $(call VER_GEN,)
 
 dist:
-	make distclean
-	make dist-ctan
-	make clean
+	$(SELF) distclean
+	$(SELF) dist-ctan
+	$(SELF) clean
 
 doc-dist: doc/
 	# Make the directory.
@@ -53,6 +54,6 @@ clean:
 	rm -rf $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
 
 distclean:
-	make clean
+	$(SELF) clean
 	rm -rf $(TITLE)-$(VERSION).tds.zip  $(TITLE)-$(VERSION).zip
 
