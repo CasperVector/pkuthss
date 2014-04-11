@@ -14,14 +14,17 @@ dist:
 doc-dist: doc/
 	# Make the directory.
 	mkdir -p $@/
-	# Example.
+	# Example pdf.
 	make toutf8
+	cd doc/example/ && make && make clean && make img-clean
+	mv -f doc/example/$(EXAMPLE).pdf $@/example.pdf
+	# Example src.
 	cp -r doc/example/ $@/example-utf8
 	make togbk
 	cp -r doc/example/ $@/example-gbk
 	make toutf8
-	# Readme.
-	cd doc/readme/ && make && make clean
+	# Readme src and pdf.
+	cd doc/readme/ && make && make clean && make img-clean
 	mv -f doc/readme/$(TITLE).pdf $@/README.pdf
 	cp -r doc/readme/ $@/readme-src
 

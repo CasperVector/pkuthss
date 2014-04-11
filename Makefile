@@ -4,6 +4,7 @@
 # Public domain.
 
 TITLE = pkuthss
+EXAMPLE = thesis
 VERSION = 1.4.9
 
 default: dist
@@ -18,5 +19,5 @@ bump:
 	utils/bump VERSION=$(VERSION)
 
 dist clean distclean:
-	utils/dist TITLE=$(TITLE) VERSION=$(VERSION) $@
+	utils/dist TITLE=$(TITLE) EXAMPLE=$(EXAMPLE) VERSION=$(VERSION) $@
 
