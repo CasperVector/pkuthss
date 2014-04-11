@@ -59,6 +59,7 @@ blx-cv-ver:
 tail:
 	@echo '======================================================================'
 	@echo '$@: remember to update documentation after modifications'
+	@echo '$@: remember to update copyright lines'
 	@echo '$@: remember to review `git diff`'
 	@echo '======================================================================'
 
