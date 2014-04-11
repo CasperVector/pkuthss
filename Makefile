@@ -4,8 +4,7 @@
 # Public domain.
 
 TITLE = pkuthss
-MAJORVER = 1.4
-MINORVER =
+VERSION = 1.4.9
 
 default: dist
 
@@ -16,8 +15,8 @@ toutf8 togbk:
 	utils/enc $@
 
 bump:
-	utils/bump MAJORVER=$(MAJORVER) MINORVER=$(MINORVER)
+	utils/bump VERSION=$(VERSION)
 
 dist clean distclean:
-	utils/dist TITLE=$(TITLE) MAJORVER=$(MAJORVER) MINORVER=$(MINORVER) $@
+	utils/dist TITLE=$(TITLE) VERSION=$(VERSION) $@
 

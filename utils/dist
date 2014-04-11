@@ -5,8 +5,6 @@
 # Public domain.
 
 SELF = utils/dist
-VER_GEN = $(if $(MINORVER),$(MAJORVER)$(1)$(MINORVER),$(MAJORVER))
-VERSION = $(call VER_GEN,)
 
 dist:
 	$(SELF) distclean
