@@ -99,14 +99,14 @@ mpm --install=pkuthss
 \begin{Verbatim}[frame = single]
 texdoc pkuthss
 \end{Verbatim}
-	所打开的 pdf 所在的同一目录中包含本文档（\verb|pkuthss.pdf|）的源代码%
-	（\verb|utf8/| 和 \verb|gbk/| 两个子目录，
-	两目录中代码除使用的字符编码基本上完全相同）。
-
-	其中，%
-	\verb|utf8/| 目录下的源代码使用的是 UTF-8 编码，适合类 UNIX 系统用户使用；%
-	\verb|gbk/| 目录下的源代码使用的是 GBK 编码，适合 Windows 用户使用。%
-	用户可以试情况将 \verb|utf8/| 或 \verb|gbk/| 中的所有内容复制到合适的目录，
+	所打开的 pdf 文件所在的同一目录中包含三个子目录，
+	其中 \verb|doc-src| 为说明文档（即本文档）的源代码，
+	\verb|example-utf8/| 和 \verb|example-gbk/| 为模版文档的源代码。
+	\verb|example-utf8/| 目录下的源代码使用的是 UTF-8 编码，
+	适合类 UNIX 系统用户或编辑器对 UTF-8 有良好支持的用户使用；%
+	\verb|example-gbk/| 目录下的源代码使用的是 GBK 编码，适合其它用户使用。%
+	用户可以视情况将 \verb|example-utf8/| 或 \verb|example-gbk/|
+	中的所有内容复制到合适的目录，
 	并在此目录中根据模版修改出自己的论文。
 
 	\myemph{%
@@ -120,7 +120,7 @@ texdoc pkuthss
 		使用支持 LF 换行的文本编辑器编辑文件。%
 	}
 
-	\verb|utf8/| 和 \verb|gbk/| 目录中的重要文件有：
+	模版中的重要文件有：
 	\begin{itemize}
 		\item \verb|Makefile|：
 			被 Make 工具调用的 Makefile，用于使编译工作自动化。
@@ -130,14 +130,7 @@ texdoc pkuthss
 		\item \verb|chap/|：目录，包含各章节内容：
 		\begin{itemize}
 			\item \verb|copyright.tex|：
-				版权声明部分\footnote{%
-					本文档中的版权声明并不是%
-					学校默认要求的形式\supercite{pku-copyright}。
-					符合学校要求的一个版权声明已经放在此文件中，
-					但用 \texttt{\string\iffalse{} ...\ \string\fi} %
-					注释掉了，
-					用户可以考虑使用这个版本。
-				}。
+				版权声明部分。
 			\item \verb|originauth.tex|：
 				原创性声明和使用授权说明部分\supercite{pku-originauth}。
 		\end{itemize}
