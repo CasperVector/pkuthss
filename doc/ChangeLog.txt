@@ -1,3 +1,14 @@
+2014-04-11, v1.4
+
+	* Changes to package code:
+	- pkuthss.cls: do not disable `\uppercase' in `nouppermark' mode.
+
+	* Changes to documentation:
+	- Remove support for CRLF (except for Windows .bat's), as required by CTAN.
+
+	* Misc:
+	- Minor fixes and improvements.
+
 2013-12-26, v1.4 rc4
 
 	* API Changes:
