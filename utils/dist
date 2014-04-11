@@ -4,6 +4,12 @@
 # Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
 
+CP = cp -rL
+MV = mv -f
+MD = mkdir -p
+RD = rm -rf
+ZIP = zip -rT
+MAKE = make
 SELF = utils/dist
 
 dist:
@@ -13,48 +19,48 @@ dist:
 
 doc-dist: doc/
 	# Make the directory.
-	mkdir -p $@/
+	$(MD) $@/
 	# Example pdf.
-	make toutf8
-	cd doc/example/ && make && make clean && make img-clean
-	mv -f doc/example/$(EXAMPLE).pdf $@/example.pdf
+	$(MAKE) toutf8
+	cd doc/example/ && $(MAKE) && $(MAKE) clean && $(MAKE) img-clean
+	$(MV) doc/example/$(EXAMPLE).pdf $@/example.pdf
 	# Example src.
-	cp -r doc/example/ $@/example-utf8
-	make togbk
-	cp -r doc/example/ $@/example-gbk
-	make toutf8
+	$(CP) doc/example/ $@/example-utf8
+	$(MAKE) togbk
+	$(CP) doc/example/ $@/example-gbk
+	$(MAKE) toutf8
 	# Readme src and pdf.
-	cd doc/readme/ && make && make clean && make img-clean
-	mv -f doc/readme/$(TITLE).pdf $@/README.pdf
-	cp -r doc/readme/ $@/readme-src
+	cd doc/readme/ && $(MAKE) && $(MAKE) clean && $(MAKE) img-clean
+	$(MV) doc/readme/$(TITLE).pdf $@/README.pdf
+	$(CP) doc/readme/ $@/readme-src
 
 dir-tds: $(TITLE)-tds
 $(TITLE)-tds: tex/ doc-dist README
-	mkdir -p $@/tex/latex/ $@/doc/latex/
-	cp -r tex/ $@/tex/latex/$(TITLE)
-	cp -r doc-dist/ $@/doc/latex/$(TITLE)
+	$(MD) $@/tex/latex/ $@/doc/latex/
+	$(CP) tex/ $@/tex/latex/$(TITLE)
+	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
 
 dist-tds: $(TITLE)-$(VERSION).tds.zip
 $(TITLE)-$(VERSION).tds.zip: $(TITLE)-tds
-	cd $< && zip -rT ../$@ tex/ doc/
+	cd $< && $(ZIP) ../$@ tex/ doc/
 
 dir-ctan: $(TITLE)-ctan
 $(TITLE)-ctan: tex/ doc-dist README $(TITLE)-$(VERSION).tds.zip
-	mkdir -p $@/$(TITLE)/
-	cp -r tex/ README $@/$(TITLE)/
-	cp -r doc-dist/ $@/$(TITLE)/doc
-	mv -f $(TITLE)-$(VERSION).tds.zip $@/
+	$(MD) $@/$(TITLE)/
+	$(CP) tex/ README $@/$(TITLE)/
+	$(CP) doc-dist/ $@/$(TITLE)/doc
+	$(MV) $(TITLE)-$(VERSION).tds.zip $@/
 
 dist-ctan: $(TITLE)-$(VERSION).zip
 $(TITLE)-$(VERSION).zip: $(TITLE)-ctan
-	cd $< && zip -rT ../$@ $(TITLE)/ $(TITLE)-$(VERSION).tds.zip
+	cd $< && $(ZIP) ../$@ $(TITLE)/ $(TITLE)-$(VERSION).tds.zip
 
 clean:
-	cd doc/readme/ && make distclean
-	cd doc/example/ && make distclean
-	rm -rf $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
+	cd doc/readme/ && $(MAKE) distclean
+	cd doc/example/ && $(MAKE) distclean
+	$(RD) $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
 
 distclean:
 	$(SELF) clean
-	rm -rf $(TITLE)-$(VERSION).tds.zip  $(TITLE)-$(VERSION).zip
+	$(RD) $(TITLE)-$(VERSION).tds.zip  $(TITLE)-$(VERSION).zip
 
