@@ -1,0 +1,63 @@
+2011/12/21，ver 1.3（包括前面所有 alpha、beta 和 rc 版本）：
+--- 进一步重构，
+	将核心设置集中于 pkuthss 文档类中，
+	常见的额外设置集中于 pkuthss-extra 宏包中。
+--- 统一宏的命名规则。
+--- 支持使用 key=val 语法进行文档信息的设置，使文档结构更加清晰。
+--- 设定 pdf 元数据时使用英文的文档信息，绕过字符编码的问题。
+--- 在文档中加入一份代码的 listing，
+	以尽量避免不断有人抱怨的文档类代码“乱码”的问题。
+--- 去掉了 FAQ 部分，
+	因为其中内容或是比较陈旧，或是已经在前面提到。
+--- 重新选择 license，尽量减少对用户不必要的约束。
+
+2010/11/30，ver 1.2（包括前面所有 beta 版本）：
+--- 支持 UTF-8 和 GBK 编码。
+	支持 XeLaTeX（但不可和 GBK 同用）。
+--- 较大规模重构：
+	定义了一些新命令以实现一些重复的代码的功能，
+	删除了冗余代码和一些用处不大的旧命令，调整了目录结构。
+--- 将部分重复代码统一，
+	并把一些将来可能引起不兼容的命令以标准 LaTeX 命令代替。
+--- 考虑到现在的 ctex 宏包已经对中文排版的格式做出了较好的设定，
+	并且已经较好地支持了 hyperref，
+	删除了类文件中规定排版格式的部分代码，
+	且去除了对 ifpdf 宏包的直接依赖。
+--- 统一各处的长度单位，均使用 pt 或 em，以免引起困惑。
+--- 从美的角度调整了部分排版格式，
+	特别是去掉了所有用 poor man's bold 实现的“粗宋体”。
+
+2008/03/13，ver 1.1：
+--- 更正了“geometry”，将纸张大小设为“a4paper”。
+--- 更新了 chaps/mydefs.tex，将“colorlinks”设为“false”，
+	因为带颜色的链接在黑白打印机上打出来往往颜色很浅。
+--- 更正了 chaps/sample.bib，将“SOURCE”改为“URL”。
+	这样 BibTeX 虽然又会 Warning，不过这样概念上更正确，
+	而且结果还不错。
+--- 删除了 pkuthss.cls 和 pkuthss.def 的部分内容，
+	因为最后的两个声明都不必装订到论文中。
+
+2007/12/12，ver 1.0 rc4：
+--- 将“\bibstyle”设为“chinesebst”。
+
+2007/09/05，ver 1.0 rc3：
+--- 封面页作了小的调整，当标题只有一行时也不会产生 Warning。
+	现在的实现方法使用的是标准的 LaTeX box。
+--- 加入了“graphicx”的版本要求。
+
+2007/09/04，ver 1.0 rc2：
+--- 在 preamble 部分现在可使用中文。
+--- 更正了版心尺寸，即在“geometry”的选项中加入“includeheadfoot”。
+--- 改进了 pkulogo.ps ，并提供了 img/Makefile。
+
+2007/09/02，ver 1.0 rc1：
+--- 由于“\ifx\pdfoutput\undefined”在 teTeX-3.0 中不起作用，
+	改为使用“ifpdf”宏包。
+--- sample.tex and chaps/1.tex changed accordingly。
+--- Linux/Unix 的默认编译方式改为使用 pdflatex，见 Makefile。
+--- 消除了运行 BibTeX 时出现的一个 Warning。
+
+2007/09/01，ver 1.0 beta：
+--- 最初的尝试。
+
+# vim:ts=4:sw=4

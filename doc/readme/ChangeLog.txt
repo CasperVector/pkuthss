@@ -1,0 +1,155 @@
+2014-04-11, v1.4
+
+	* Changes to package code:
+	- pkuthss.cls: do not disable `\uppercase' in `nouppermark' mode.
+
+	* Changes to documentation:
+	- Remove support for CRLF (except for Windows .bat's), as required by CTAN.
+
+	* Misc:
+	- Minor fixes and improvements.
+
+2013-12-26, v1.4 rc4
+
+	* API Changes:
+	- Add `caption' option to customise caption fonts.
+	- Remove `\label@cmentorb'; `\label@cmentora' -> `\label@cmentor'.
+	- Move `[no]uppermark' to pkuthss.cls.
+
+	* Changes to package code:
+	- Consider `oneside' in page style.
+
+	* Changes to documentation:
+	- Add support for 2-dimensional bar code.
+	- Add and refine lots of hints.
+
+	* Misc:
+	- Minor fixes and improvements.
+
+2013-04-07, v1.4 rc3
+
+	* Misc:
+	- Update copyright notices.
+	- Minor fixes and improvements.
+
+2013-03-30, v1.4 rc2
+
+	* Changes to package code:
+	- Use the internal hyperref support in ctex 1.02c+.
+	- Remove usage of etoolbox.
+
+	* Changes to documentation:
+	- Add hint for split sorting with biblatex.
+
+	* Misc:
+	- Minor improvements.
+
+2013-01-10, v1.4 rc1
+
+	* Changes to documentation:
+	- Remove troublesome `hologo' package.
+	- chap3.tex: add notice about biblatex's `\bibname' issue.
+	- introduction.tex: update info about location of example source code.
+
+	* Misc:
+	- README: add not-intended-as-documentation notice.
+
+2012-11-12, v1.4 beta3
+
+	* Misc:
+	- Fix incorrect CTAN support.
+	- utils/dist: Fix date conversion code again.
+
+2012-10-11, v1.4 beta2
+
+	* Changes to package code:
+	- Adjust pkulogo/pkuword typesetting according to
+	  <http://web5.pku.edu.cn/bs/images/cgzs/images1/13.png>
+
+	* Changes to documentation:
+	- Add (more) useful notices and hints.
+	- Bibliography sanitation.
+
+	* Misc:
+	- Add CTAN support.
+	- utils/bump: Improve date conversion code.
+
+2012-05-31, v1.4 beta1
+
+	* Changes to documentation:
+	- Use `biber -l zh__pinyin'.
+	- Add notice for biber in the "compilation" section.
+	- Recommend users to use standalone TeXLive.
+	- Minor adjustment to documentation order.
+
+	* Misc:
+	- Minor fixes and improvements.
+	- Add QA test for biblatex-caspervector version.
+	- Remove spaces and tabs on blank lines, add related QA check.
+
+2012-05-30, v1.4 alpha3
+
+	* API Changes:
+	- `[no]tocbibind' -> `[no]pdftoc', functionality reduced (see below).
+	- `[no]upcite' removed since biblatex supports it quite flexibly.
+
+	* Changes to package code:
+	- Remove uses of tocbibind because it crashes with biblatex.
+
+	* Changes to documentation:
+	- Use biblatex for bibliography formatting.
+	- Add instructions for natbib, remove instructions for natbib.
+	- (Re)add the FAQ section.
+	- Use more printer-friendly colours.
+	- Enhance `doc/Make.bat' with bat's `call'.
+	- Use the hologo package for TeX logos.
+	- Use tabs in `pkuthss.bib'.
+	- Update bib file for Casper's biblatex style.
+	- `thanks.tex' -> `acknowledge.tex'
+	- Use better determined format for .bib files.
+
+	* Misc:
+	- Split Makefile functionalities to executable in `utils/'.
+	- `maintcheck' -> `qa', `revbump' -> `bump'.
+	- Split encoding and line terminator stuffs to `enclt'.
+	- `dist' now automatically joins biblatex-caspervector files.
+	- Update find(1) usage.
+	- QA script updated.
+	- Use sed(1)'s `y' instead of python's `str.translate()' in `bump'.
+	- Add appropriate copyright notices.
+	- Add indentation modelines.
+
+2012-05-12, v1.4 alpha2
+
+	* Changes to package code:
+	- Fix positioning of boxes on title page.
+	- Unify code that fill in blanks on the title page.
+	- Merge ctex-kit updates with minor modifications.
+
+	* Changes to documentation:
+	- Add indication for customising title page by modifying `pkuthss.cls'.
+
+	* Misc:
+	- Add `maintcheck' and `revbump' to root Makefile to ease automation.
+
+2012-04-13, v1.4 alpha1
+
+	* API Changes:
+	- `[no]linkcolor' -> `[no]colorlinks'.
+	- `[no]pdfmeta' -> `[no]pdfprop'.
+	- `\setpdfmetadata' -> `\setpdfproperties'.
+
+	* Changes to package code:
+	- Simplify package code with `\@nameuse' and `\@namedef'.
+	- Use `导\hspace{2em}师：' for title page and `导师：' for abstract.
+
+	* Changes to documentation:
+	- Fix typos: "模板" -> "模版".
+	- Indicate that `texdoc' requires pkuthss be installed "regular"ly.
+	- Improve spacing details.
+
+	* Misc:
+	- Update copyright notices.
+	- Revise Makefiles.
+
+# vim:ts=4:sw=4

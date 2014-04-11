@@ -1,0 +1,143 @@
+% vim:ts=4:sw=4
+%
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2013 Casper Ti. Vector
+% Public domain.
+
+\chapter{问题及其解决}
+	\section{文档中已经提到的常见问题（按重要性排序）}
+
+	北大图书馆要求上传的论文中目录采用黑色字体；
+	在默认设置（启用 \verb|colorlinks| 选项）下，
+	黑白打印时文档中的部分彩色链接可能会变成浅灰色，
+	解决方式见第 \ref{ssec:extra} 小节。
+
+	中文字体字库不全（只包含 GB2312 字符集内字符）时，
+	生成的 pdf 文档中可能缺少部分字符，
+	解决方式见第 \ref{sec:req} 节。
+
+	Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题，
+	解决方式见第 \ref{sec:compile} 节。
+
+	\verb|img/| 目录中 eps 图片未转换为 pdf 格式时，%
+	pdf\LaTeX{} 方式编译可能出错，
+	解决方式见第 \ref{sec:doc-dir} 节。
+
+	Windows 的“记事本”程序在查看 LF（\texttt{\string\n}）
+	换行的文本文件时存在着一些问题，
+	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
+	详见第 \ref{sec:doc-dir} 节。
+
+	使用过旧的 \TeX{} 系统和各宏包，
+	或使用某些 Linux 发行版软件仓库所提供的 \TeX{}Live 时，
+	可能引起一些问题，
+	详见第 \ref{sec:req} 节。
+
+	文档默认情况下是双面模式，章末可能产生空白页，详见第 \ref{ssec:options} 小节。
+
+	通过一些设置，还可以满足例如被引用的文献按照引用顺序排序，
+	而未引用的文献按照英文文献在前、中文文献在后排序这样的需求，
+	见第 \ref{ssec:thirdparty} 小节。
+
+	无法使用 biber 的用户可以使用 bibtex，具体设置方式请见第 \ref{sec:compile} 节。
+
+	一些高级设置，
+	如封面中部分内容长度超过预设空间容量时的设置，
+	见第 \ref{sec:advanced} 节。
+
+	\section{其它可能存在的问题}
+		\subsection{上游宏包可能引起的问题}
+
+		biblatex 宏包\supercite{biblatex}会自行设定 \verb|\bibname|，
+		故会覆盖通过 \verb|\CTEXoptions| 设定的参考文献列表标题。
+		使用 biblatex 的用户可以使用 \verb|\printbibliography| 的
+		\verb|title| 选项来手动设定参考文献列表的标题，例如：
+\begin{Verbatim}[frame = single]
+\printbibliography[title = {文献}, ...] % “...”为其它选项。
+\end{Verbatim}
+
+		hyperref 宏包\supercite{hyperref}和一些宏包可能发生冲突。
+		关于如何避免这些冲突，
+		可以参考 hyperref 宏包的 README 文件中的“Package Compatibility”一节。
+		此文件通常和执行 \verb|texdoc hyperref| %
+		时打开的 pdf 文件位于同一目录中。
+
+		使用 Xe\LaTeX{} 的用户可能在已经安装字体的情况下遇到形如（其中
+		\verb|xxxxxxxx| 为具体字体名）
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+! fontspec error: "font-not-found"
+! The font "xxxxxxxx" cannot be found.
+! See the fontspec documentation for further information.
+! For immediate help type H <return>.
+\end{Verbatim}
+		的错误。
+		这种错误一般是（主要是非 Windows 平台的）用户采用了自定义的（包括大小写
+		不同于原文件的）字体文件名，
+		并改动 ctex.cfg 等配置文件之后没有在调用 pkuthss 文档类时加入
+		\verb|nofonts| 选项，
+		又使用 Xe\LaTeX{} 编译造成的，使用
+\begin{Verbatim}[frame = single]
+\documentclass[nofonts, ...]{pkuthss} % “...”代表其它的选项。
+\end{Verbatim}
+		即可解决此问题。
+
+		biber 运行时有一定概率出现形如（目录名可能稍有不同）
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+data source .../par-xxxxxxxx/cache-xxxxxxxx/
+	inc/lib/Biber/LaTeX/recode_data.xml not found in .
+\end{Verbatim}
+		的错误。
+		这种错误一般是 biber 在自解压阶段被终止之后，
+		未删除临时目录 \verb|.../par-xxxxxxxx/| 就重新运行 biber 时出现。
+		遇到这种情况时，删除掉上述临时目录及其所有内容，
+		再重新运行 biber 通常便可解决问题。
+
+		caption 宏包\supercite{caption}对于其不认识的宏包均会提示
+\begin{Verbatim}[frame = single, fontsize = {\small}]
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+\end{Verbatim}
+		pkuthss 文档模版基于 ctexbook 文档类，
+		而后者基于标准的 book 文档类。
+		因此，这个警告并不影响用户正常使用\footnote{%
+			\url{http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=63117&pid=402145}.%
+		}。
+
+		\subsection{文档格式可能存在的问题}
+
+		研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面可能并不一致，
+		这里以电子版为准。
+
+		\subsection{其它一些问题}
+
+		使用 GBK 编码和 pdf\LaTeX{} 编译方式时需要用户%
+		运行 \verb|gbk2uni| 程序来转换 \verb|.out| 文件，
+		否则生成的 pdf 书签可能乱码。
+		考虑到用户可能没有 \verb|gbk2uni| 程序，且有用户使用 UTF-8 编码，
+		默认的 \verb|Makefile| 和 \verb|Make.bat| 中将相关代码注释掉了，
+		用户可以自行去掉相应的注释。
+
+	\section{反馈意见和建议}
+
+	关于 pkuthss 文档模版的意见和建议，
+	请在北大未名 BBS 的 MathTools 版或 %
+	Google Code 上 pkuthss 项目的 issue tracker%
+	\footnote{\url{http://code.google.com/p/caspervector/issues/list}.}%
+	上提出，
+	或通过电子邮件\footnote%
+	{\href{mailto:CasperVector@gmail.com}{\texttt{CasperVector@gmail.com}}.}%
+	告知 Casper Ti. Vector。
+	上述三种反馈方法中，建议用户尽量采用靠前的方法。
+
+	在进行反馈时，请尽量确保已经仔细阅读本文档中的说明。
+	如果是通过 BBS 或电子邮件进行反馈，
+	请在标题中说明是关于 pkuthss 文档模版的反馈；
+	如果是通过 Google Code 进行反馈，
+	请给 issue 加上 \verb|Proj-Pkuthss| 标签。
+	如果是错误报告，
+	请说明所使用 pkuthss 模版的版本、
+	自己使用的操作系统和 \TeX{} 系统的类型和版本；
+	同时强烈建议附上一个出错的最小例子及其相应的编译日志（\verb|.log| 文件），
+	在文件较长时请使用附件。
+

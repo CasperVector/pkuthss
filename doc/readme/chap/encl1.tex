@@ -1,0 +1,48 @@
+% vim:ts=4:sw=4
+%
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2012 Casper Ti. Vector
+% Public domain.
+
+\chapter{pkuthss 文档模版的实现}
+\raggedbottom % 避免某些奇怪的“Underfull \vbox”警告。
+
+	\section{pkuthss 文档类和 pkuthss-extra 宏包的实现}	
+		\subsection{共用文件头部}
+		\VerbatimInput[
+			frame = lines, fontsize = {\footnotesize}, tabsize = 2,
+			baselinestretch = 1, lastline = 23, numbers = left
+		]{pkuthss.cls}
+
+		\subsection{\texttt{pkuthss.cls}}
+		\VerbatimInput[
+			frame = lines, fontsize = {\footnotesize}, tabsize = 2,
+			baselinestretch = 1, firstline = 25, numbers = left
+		]{pkuthss.cls}
+
+		\subsection{\texttt{pkuthss-utf8.def} 和 \texttt{pkuthss-gbk.def}}
+		\VerbatimInput[
+			frame = lines, fontsize = {\footnotesize}, tabsize = 2,
+			baselinestretch = 1, firstline = 25, numbers = left
+		]{pkuthss-utf8.def}
+
+		\subsection{\texttt{pkuthss-extra.sty}}
+		\VerbatimInput[
+			frame = lines, fontsize = {\footnotesize}, tabsize = 2,
+			baselinestretch = 1, firstline = 25, numbers = left
+		]{pkuthss-extra.sty}
+
+	\section{pkuthss 说明（示例）文档的源代码}
+
+	本文档的源代码中大部分已经有了较为详细的注释，
+	故请直接参照相应文件中的注释。
+
+	\myemph{%
+		注：%
+		\texttt{img/} 目录中的 \texttt{Makefile} 和%
+		两个 PostScript（\texttt{.eps}）文件（都是文本文件）中%
+		也有详细的注释哦 :)%
+	}
+
+\flushbottom % 取消 \raggedbottom 的作用。
+

@@ -1,0 +1,211 @@
+% vim:ts=4:sw=4
+%
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2013 Casper Ti. Vector
+% Public domain.
+
+\chapter{使用介绍}
+	\section{系统要求}\label{sec:req}
+
+	正确编译需要以下几部分：
+	\begin{itemize}
+		\item 一个基本的 \TeX{} 发行版。
+		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
+		\item ctex 宏包\supercite{ctex,ctex-faq}（提供了 ctexbook 文档类）。
+		\item 中文字体。
+		\item 如果要使用 biblatex 进行文献列表和引用的排版的话，
+			还需要 biblatex 宏包\supercite{biblatex}；
+		\item 如果需要对中文文献进行按汉语拼音的排序的话，
+			还需要 biber 程序\supercite{biber}。
+		\item 如果默认的文献列表和引用样式的话，
+			还需要作者编写的 biblatex 样式
+			（biblatex-caspervector）\supercite{biblatex-caspervector}。
+		\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
+			但如果使用由批处理实现的伪“Makefile”就不用了。
+	\end{itemize}
+
+	\myemph{最新}的\myemph{完全版} \TeX{}Live 系统（\myemph{%
+		注：
+		某些 Linux 发行版软件仓库中的 \TeX{}Live 有问题，
+		建议使用独立安装版的 \TeX{}Live%
+		\footnote{\url{http://www.tug.org/texlive/}.}。%
+	}）和 \CTeX{} 套装都已经包含除中文字体和 Make 之外所有要求的项目。%
+	\myemph{%
+		为了获得最好的支持，
+		我们建议用户使用最新完全版的 \TeX{} 系统和各宏包。%
+	}
+
+	中文字体需要用户自行获得。\myemph{%
+		注：
+		一些中文字体的字库不全，
+		只有 GB2312 字符集内字符的字体信息。
+		这种情况通常会造成编译生成的 pdf 文件中缺少部分字符，
+		其中一种典型症状是封面的“〇”字显示不出来。
+		如果要使用中易公司的字体，
+		则建议使用 Windows Vista 及其以后版本提供的%
+		宋体、黑体、楷体和仿宋体，
+		以及 Microsoft Office 2003 及其以后版本提供的隶书和幼圆体，
+		这些字体是 GB18030 字符集的，不存在上述问题。%
+	}
+
+	Linux 用户可以从软件源获得 GNU 的 make；
+	其它类 UNIX 系统应该也会提供 make 工具，请参阅相应的文档以获得帮助。%
+	Windows 用户可以从以下地址下载 Windows 下的 GNU make 工具：\\
+	\hspace*{\parindent}%
+	\url{http://gnuwin32.sourceforge.net/packages/make.htm}
+
+	\section{安装方法}\label{sec:inst}
+
+	使用 \TeX{}Live 的用户可以通过在终端中以管理员权限执行
+\begin{Verbatim}[frame = single]
+tlmgr install pkuthss
+\end{Verbatim}
+	来安装 pkuthss 文档模版。
+
+	使用 \CTeX{} 套装的用户可以通过在命令提示符中执行
+\begin{Verbatim}[frame = single]
+mpm --install=pkuthss
+\end{Verbatim}
+	来安装 pkuthss 文档模版。
+
+	\section{模版文件}\label{sec:doc-dir}
+
+	在正确安装 pkuthss 文档模版之后，在终端/命令提示符中执行
+\begin{Verbatim}[frame = single]
+texdoc pkuthss
+\end{Verbatim}
+	所打开的 pdf 所在的同一目录中包含本文档（\verb|pkuthss.pdf|）的源代码%
+	（\verb|utf8/| 和 \verb|gbk/| 两个子目录，
+	两目录中代码除使用的字符编码基本上完全相同）。
+
+	其中，%
+	\verb|utf8/| 目录下的源代码使用的是 UTF-8 编码，适合类 UNIX 系统用户使用；%
+	\verb|gbk/| 目录下的源代码使用的是 GBK 编码，适合 Windows 用户使用。%
+	用户可以试情况将 \verb|utf8/| 或 \verb|gbk/| 中的所有内容复制到合适的目录，
+	并在此目录中根据模版修改出自己的论文。
+
+	\myemph{%
+		注意：
+		在 1.4 rc4 之后版本的 pkuthss 文档模版中，除了 \texttt{Make.bat} 之外，
+		所有文件均是 LF（\texttt{\string\n}）换行。
+		在 Windows 下用“记事本”打开这些文件时，
+		所有的换行会变成某个奇怪的字符，而所有文字会挤在一行上。
+		这是“记事本”的固有问题，
+		因此 pkuthss 文档模版的作者建议用户
+		使用支持 LF 换行的文本编辑器编辑文件。%
+	}
+
+	\verb|utf8/| 和 \verb|gbk/| 目录中的重要文件有：
+	\begin{itemize}
+		\item \verb|Makefile|：
+			被 Make 工具调用的 Makefile，用于使编译工作自动化。
+		\item \verb|Make.bat|：%
+			Windows 下的伪“Makefile”，用 Windows 批处理实现。
+
+		\item \verb|chap/|：目录，包含各章节内容：
+		\begin{itemize}
+			\item \verb|copyright.tex|：
+				版权声明部分\footnote{%
+					本文档中的版权声明并不是%
+					学校默认要求的形式\supercite{pku-copyright}。
+					符合学校要求的一个版权声明已经放在此文件中，
+					但用 \texttt{\string\iffalse{} ...\ \string\fi} %
+					注释掉了，
+					用户可以考虑使用这个版本。
+				}。
+			\item \verb|originauth.tex|：
+				原创性声明和使用授权说明部分\supercite{pku-originauth}。
+		\end{itemize}
+		\myemph{%
+			注：%
+			pkuthss 文档模版支持排版学校要求的二维码，
+			请参考 \texttt{copyright.tex} 和
+			\texttt{originauth.tex} 中的相关注释。%
+		}
+
+		\item \verb|img/|：目录，包含论文中所有图片：
+		\begin{itemize}
+			\item \verb|Makefile|：图片部分的 Makefile。
+			\item \verb|Make.bat|：%
+				Windows 下的伪“Makefile”，用 Windows 批处理实现。
+			\item \verb|pkulogo.eps|：北京大学校徽。
+			\item \verb|pkuword.eps|：“北京大学”字样。
+		\end{itemize}
+		\myemph{%
+			注：%
+			pdf\LaTeX{} 方式编译（见第 \ref{sec:compile} 节）
+			可能需要将 eps 图片转换为 pdf 格式，
+			而使用 Makefile 或伪“Makefile”时这些图片可以自动生成；
+			不使用 Makefile 的用户可以手动运行 %
+			\texttt{img/} 目录中的 Makefile 或伪“Makefile”
+			来生成这些图片。%
+		}
+	\end{itemize}
+
+	\section{编译方式}\label{sec:compile}
+
+	pkuthss 文档模版支持三种编译方式，即
+	\begin{itemize}
+		\item \LaTeX{} -- dvipdfmx 方式：\\
+			依次执行 \verb|latex|，\verb|biber|（或 \verb|bibtex|），%
+			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。\\
+			\myemph{%
+				注意：除非无法使用 biber，否则不建议使用 bibtex。
+				如果的确要使用 bibtex，请将 biblatex 宏包的\texttt{backend}
+				选项从 \texttt{biber} 改为 \texttt{bibtex}，
+				在 Makefile 中将变量 \texttt{BIBTEX} 的值改为 \texttt{bibtex}，
+				并去掉 biblatex 宏包和 \texttt{\string\printbibliography} 命令
+				的 \texttt{sorting} 选项。
+				以下各编译方式也存在类似的注意事项，不再重复说明。%
+			}
+		\item pdf\LaTeX{} 方式：\\
+			依次执行 \verb|pdflatex|，\verb|biber|（或 \verb|bibtex|），%
+			\verb|pdflatex| 和 \verb|pdflatex|。
+		\item Xe\LaTeX{} 方式：\\
+			依次执行 \verb|xelatex|，\verb|biber|（或 \verb|bibtex|），%
+			\verb|xelatex| 和 \verb|xelatex|。\\
+			\myemph{%
+				注意：Xe\LaTeX{} 对非 UTF-8 的编码支持不好，
+				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。%
+			}
+	\end{itemize}
+
+	pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行了完整的配置。
+	用户只需要在 Makefile 中通过设定变量 \verb|JOBNAME| 的值%
+	指定被编译的主文件名，
+	并通过设定变量 \verb|LATEX| 的值指定采用哪种编译方式，
+	即可通过在主文件所在目录调用 Make 工具来实现自动编译：
+	如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|：
+\begin{Verbatim}[frame = single]
+cd /path/to/directory/with/pkuthss.tex
+make
+\end{Verbatim}
+	而如果是在 Windows 环境下，
+	则用户应该调用的命令名可能为 \verb|mingw32-make|：
+\begin{Verbatim}[frame = single]
+cd \path\to\directory\with\pkuthss.tex
+mingw32-make
+\end{Verbatim}
+
+	用户如果不想配置 Windows 下的 GNU Make，
+	则也可以使用由 Windows 批处理实现的伪“Makefile”，
+	通过在主文件所在目录调用 \verb|make|\footnote{%
+		Windows 将批处理文件作为可执行文件，
+		调用时可以不显式地指出扩展名。%
+	}：
+\begin{Verbatim}[frame = single]
+cd \path\to\directory\with\pkuthss.tex
+make
+\end{Verbatim}
+	\myemph{%
+		注意：%
+		Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题。
+		在命令提示符（cmd）下执行这些批处理文件时没有问题，
+		但双击文件图标执行时就会出错。
+		作者在 Google Code 和北大未名 BBS 上发布的压缩包中 \texttt{Make.bat}
+		均是 CRLF（\texttt{\string\r\string\n}）换行，
+		但 \TeX{}Live、\CTeX{} 套装中安装的 \texttt{Make.bat} 和
+		CTAN 上提供的压缩包里的 \texttt{Make.bat}
+		可能是 LF（\texttt{\string\n}）换行的。%
+	}
+

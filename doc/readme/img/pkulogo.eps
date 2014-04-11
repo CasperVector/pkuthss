@@ -1,0 +1,146 @@
+%!PS
+%%BoundingBox: 0 0 400 400
+%%Pages: 1
+%%Page: 1 1
+
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2012 Casper Ti. Vector
+% All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions are
+% met:
+%
+% * Redistributions of source code must retain the above copyright notice,
+%   this list of conditions and the following disclaimer.
+% * Redistributions in binary form must reproduce the above copyright
+%   notice, this list of conditions and the following disclaimer in the
+%   documentation and/or other materials provided with the distribution.
+% * Neither the name of Peking University nor the names of its contributors
+%   may be used to endorse or promote products derived from this software
+%   without specific prior written permission.
+% 
+% THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+% IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+% THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+% PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+% CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+% EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+% PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+% PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+% LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+% NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+% SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+% 设置北大红的色值（http://web5.pku.edu.cn/bs/cjwt/，问题 5）。
+% 要想将颜色改为黑色，只需将下面一行改为“0 setgray”即可。
+0.0 1.0 1.0 0.45 setcmykcolor
+% 设置线的属性。
+1 setlinecap
+1 setlinejoin
+
+% 将坐标原点移到图片的中心。
+200 200 translate
+% 作出外圆。
+newpath
+6 setlinewidth
+0 0 195 0 360 arc
+stroke
+% 作出内圆。
+newpath
+5 setlinewidth
+0 0 143 0 360 arc
+stroke
+
+% 描出“北大”字样。
+newpath
+0 setlinewidth
+-10 101 moveto
+-10 101 -10 38 lineto
+-10 35 -14 29 -19 28 curveto
+-30 28 -60 15 -89 -26 curveto
+-104 -39 -108 -24 -105 -16 curveto
+-76 27 -36 45 -32 45 curveto
+-30 46 -29 47 -29 49 curveto
+-29 49 -29 68 lineto
+-29 69 -30 69 -31 69 curveto
+-38 67 -58 63 -83 42 curveto
+-95 35 -103 49 -94 57 curveto
+-72 74 -53 83 -31 88 curveto
+-30 88 -29 89 -29 90 curveto
+-29 90 -29 102 lineto
+-29 111 -10 111 -10 101 curveto
+10 101 moveto
+10 101 10 38 lineto
+10 35 14 29 19 28 curveto
+30 28 60 15 89 -26 curveto
+104 -39 108 -24 105 -16 curveto
+76 27 36 45 32 45 curveto
+30 46 29 47 29 49 curveto
+29 49 29 68 lineto
+29 69 30 69 31 69 curveto
+38 67 58 63 83 42 curveto
+95 35 103 49 94 57 curveto
+72 74 53 83 31 88 curveto
+30 88 29 89 29 90 curveto
+29 90 29 102 lineto
+29 111 10 111 10 101 curveto
+-11 5 moveto
+-11 4 -11 4 -12 4 curveto
+-33 2 -65 -25 -80 -58 curveto
+-82 -71 -70 -74 -63 -64 curveto
+-45 -32 -27 -17 -12 -15 curveto
+-11 -15 -11 -15 -11 -16 curveto
+-11 -16 -11 -35 lineto
+-11 -38 -11 -38 -13 -40 curveto
+-28 -48 -34 -57 -45 -85 curveto
+-48 -97 -32 -103 -28 -94 curveto
+-15 -44 15 -44 28 -94 curveto
+32 -103 48 -97 45 -85 curveto
+34 -57 28 -48 13 -40 curveto
+11 -38 11 -38 11 -35 curveto
+11 -35 11 -16 lineto
+11 -15 11 -15 12 -15 curveto
+27 -17 45 -32 63 -64 curveto
+70 -74 82 -71 80 -58 curveto
+65 -25 33 2 12 4 curveto
+11 4 11 4 11 5 curveto
+11 5 11 12 lineto
+11 25 -11 25 -11 12 curveto
+-11 12 -11 5 lineto
+133 0 moveto
+0 0 133 0 360 arc
+% 对刚作出的线条执行奇偶相间的填充，使中间空出的“北大”字样就是透明的。
+% 从而，即使页面带背景色，插入这个图片时也会很正常。
+eofill
+
+% 添加文字“PEKING UNIVERSITY 1898”。
+/Times-Bold findfont 40 scalefont setfont
+/offset { dup stringwidth pop 2 div neg 155 moveto show } def
+
+gsave  112 rotate (P) offset grestore
+gsave   98 rotate (E) offset grestore
+gsave   84 rotate (K) offset grestore
+gsave   70 rotate (I) offset grestore
+gsave   56 rotate (N) offset grestore
+gsave   41 rotate (G) offset grestore
+gsave   15 rotate (U) offset grestore
+gsave             (N) offset grestore
+gsave  -14 rotate (I) offset grestore
+gsave  -28 rotate (V) offset grestore
+gsave  -42 rotate (E) offset grestore
+gsave  -56 rotate (R) offset grestore
+gsave  -70 rotate (S) offset grestore
+gsave  -84 rotate (I) offset grestore
+gsave  -98 rotate (T) offset grestore
+gsave -112 rotate (Y) offset grestore
+
+/onset { dup stringwidth pop 2 div neg -182 moveto show } def
+
+gsave  -24 rotate (1) onset grestore
+gsave   -8 rotate (8) onset grestore
+gsave    8 rotate (9) onset grestore
+gsave   24 rotate (8) onset grestore
+
+showpage
+%%EOF

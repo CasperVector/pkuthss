@@ -1,0 +1,46 @@
+% vim:ts=4:sw=4
+%
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2012 Casper Ti. Vector
+% Public domain.
+
+\specialchap{绪言}
+
+本文档是“北京大学论文文档模版”的说明文档，
+同时也是使用模版的一个示例。
+
+pkuthss 文档模版由三部分构成：
+\begin{itemize}
+	\item \textbf{pkuthss 文档类}：
+		其中进行了学位论文所需要的一些基本的设定，
+		主要包括对基本排版格式的设定和提供设置论文信息的命令。
+	\item \textbf{pkuthss-extra 宏包}：
+		其中实现了学位论文中用户可能较多用到的一些额外功能，
+		例如自动在目录中加入参考文献和索引的条目和%
+		自动根据用户设定的文档信息对所生成 pdf 的作者、标题等属性进行设置等。
+	\item \textbf{说明（示例）文档}：
+		说明文档即本文档，
+		在安装（见第 \ref{sec:inst} 节）之后应该可以用 \TeX{} 系统提供的
+		\verb|texdoc| 命令调出：
+\begin{Verbatim}[frame=single]
+texdoc pkuthss
+\end{Verbatim}
+		同时，
+		本文档的源代码（位和本文档的 pdf 文件处于同一目录下）%
+		也正是用户撰写自己的学位论文时的一个模版：
+		用户只需按照模版中的框架修改代码，
+		即可写出自己的论文。
+\end{itemize}
+
+在此之前，包括 dypang\supercite{dypang}、FerretL\supercite{FerretL}、%
+lwolf\supercite{lwolf}、Langpku\supercite{Langpku}、%
+solvethis\supercite{solvethis} 等的数位网友均做过学位论文模版的工作。
+本论文模版是 solvethis 的 pkuthss 模版的更新版本，
+更新的重点是重构和对新文档类、宏包的支持。
+
+pkuthss 文档模版现在的维护者是 Casper Ti. Vector\footnote%
+{\href{mailto:CasperVector@gmail.com}{\texttt{CasperVector@gmail.com}}}。%
+pkuthss 文档模版目前托管在 Google Code 上，
+其项目主页是：\\
+\hspace*{\parindent}\url{http://code.google.com/p/caspervector/}
+
