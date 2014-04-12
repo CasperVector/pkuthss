@@ -10,27 +10,24 @@
 # 可以使用 ghostscript 将 eps 文件转换为 和 pdf 格式，
 # 则 pdfLaTeX 方式也可以编译成功。
 
-OPTS = -q -dSAFER -dNOPAUSE -dBATCH -sDEVICE=pdfwrite
+PS2PDF = ps2pdf
 WIDTHOPT = -dDEVICEWIDTHPOINTS=
 HEIGHTOPT = -dDEVICEHEIGHTPOINTS=
-OUTPUTOPT = -sOutputFile=
 
 # 区分是 Windows 环境还是类 UNIX 环境。
 ifdef PATH
-	GS = gs
 	RM = rm -f
 else
-	GS = gswin32c
 	RM = del
 endif
 
 all: pkulogo.pdf pkuword.pdf
 
 pkulogo.pdf: pkulogo.eps
-	$(GS) $(OPTS) $(WIDTHOPT)400 $(HEIGHTOPT)400 $(OUTPUTOPT)$@ -f $<
+	$(PS2PDF) $(WIDTHOPT)400 $(HEIGHTOPT)400 $< $@
 
 pkuword.pdf: pkuword.eps
-	$(GS) $(OPTS) $(WIDTHOPT)525 $(HEIGHTOPT)150 $(OUTPUTOPT)$@ -f $<
+	$(PS2PDF) $(WIDTHOPT)525 $(HEIGHTOPT)150 $< $@
 
 clean:
 	$(RM) pkulogo.pdf pkuword.pdf
