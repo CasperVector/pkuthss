@@ -21,6 +21,8 @@
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
 %   pkuthss-extra.sty
+%   pkulogo.eps
+%   pkuword.eps
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}

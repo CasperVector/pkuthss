@@ -21,6 +21,8 @@
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
 %   pkuthss-extra.sty
+%   pkulogo.eps
+%   pkuword.eps
 
 \ProvidesFile{pkuthss-utf8.def}
 	[2014/04/12 v1.5.0 Labels and captions in UTF-8 encoding
