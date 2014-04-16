@@ -47,16 +47,6 @@ blank:
 	@echo '======================================================================'
 	! grep -r --exclude-dir=.git '[ 	]\+$$' .
 
-blx-cv-ver:
-	@echo '======================================================================'
-	@echo '$@: check biblatex-caspervector version'
-	@echo '======================================================================'
-	@docver=$$(grep -oP '(?<=biblatex-caspervector-)[.0-9]+(?=\.zip)' \
-			doc/readme/pkuthss.bib); \
-		texver=$$(grep -oP '(?<= v)[.0-9]+' $$(kpsewhich caspervector.bbx)); \
-		echo "(docver, texver) = ($$docver, $$texver)"; \
-		[[ "$$docver" == "$$texver" ]]
-
 tail:
 	@echo '======================================================================'
 	@echo '$@: remember to update documentation after modifications'
