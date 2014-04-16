@@ -35,7 +35,7 @@ doc-dist: doc/
 	$(MAKE) toutf8
 	# Readme src and pdf.
 	cd doc/readme/ && $(MAKE) && $(MAKE) clean
-	$(MV) doc/readme/$(TITLE).pdf $@/README.pdf
+	$(MV) doc/readme/$(TITLE).pdf $@/readme.pdf
 	$(CP) doc/readme/ $@/readme-src
 
 dir-tds: tex-dist doc-dist
