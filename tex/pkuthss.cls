@@ -206,8 +206,8 @@
 			% Emblem and inscription of the university, and type of thesis.
 			{
 				\zihao{1}%
-				\includegraphics[height = 2.4em]{img/pkulogo}\hspace{0.4em}%
-				\raisebox{0.4em}{\includegraphics[height = 1.6em]{img/pkuword}}\\[0.8em]
+				\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
 				{\bfseries{\cthesisname}}
 			}
 			\vfill
