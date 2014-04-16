@@ -25,7 +25,7 @@
 %   pkuword.eps
 
 \ProvidesFile{pkuthss-utf8.def}
-	[2014/04/16 v1.5.1 Labels and captions in UTF-8 encoding
+	[2014/04/17 v1.5.2 Labels and captions in UTF-8 encoding
 		for the pkuthss document class]
 
 \def\label@ctitle{题目：}
