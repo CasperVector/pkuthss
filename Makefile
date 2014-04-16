@@ -5,7 +5,7 @@
 
 TITLE = pkuthss
 EXAMPLE = thesis
-VERSION = 1.5.0
+VERSION = 1.5.1
 
 default: dist
 
