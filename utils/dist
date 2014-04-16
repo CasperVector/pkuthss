@@ -39,7 +39,7 @@ doc-dist: doc/
 	$(CP) doc/readme/ $@/readme-src
 
 dir-tds: $(TITLE)-tds
-$(TITLE)-tds: tex-dist doc-dist README
+$(TITLE)-tds: tex-dist doc-dist
 	$(MD) $@/tex/latex/ $@/doc/latex/
 	$(CP) tex-dist/ $@/tex/latex/$(TITLE)
 	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
