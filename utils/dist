@@ -11,7 +11,7 @@ RD = rm -rf
 ZIP = zip -rT
 MAKE = make
 SELF = utils/dist
-PERM = find . -type d -exec chmod 755 '{}' +; \
+PERM = find . -type d -exec chmod 755 '{}' + && \
 	find . -type f -exec chmod 644 '{}' +
 
 dist:
