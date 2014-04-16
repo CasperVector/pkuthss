@@ -9,7 +9,7 @@ FIND_CRLF = -name '*.bat*'
 FIND_VCS = '(' -type d -name '.git' -prune ')'
 
 # IGNORE "error"s intentionally.
-.IGNORE qa: enc lt sync spell blank blx-cv-ver tail
+.IGNORE qa: enc lt sync spell blank tail
 
 enc:
 	@echo '======================================================================'
