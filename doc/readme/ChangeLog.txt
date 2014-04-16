@@ -3,6 +3,9 @@
 	* API Changes:
 	- pkulogo and pkuword are moved into tex/ and relicensed to LPPL.
 
+	* Changes to package code:
+	- Improve eps-to-pdf related script.
+
 	* Misc:
 	- qa: fix whitespace check.
 	- Minor improvements.
