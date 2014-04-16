@@ -17,12 +17,16 @@ dist:
 	$(SELF) dist-ctan
 	$(SELF) clean
 
+tex-dist: tex/
+	$(CP) tex/ $@
+	cd $@ && $(MAKE) && rm -f Makefile
+
 doc-dist: doc/
 	# Make the directory.
 	$(MD) $@/
 	# Example pdf.
 	$(MAKE) toutf8
-	cd doc/example/ && $(MAKE) && $(MAKE) clean && $(MAKE) img-clean
+	cd doc/example/ && $(MAKE) && $(MAKE) clean
 	$(MV) doc/example/$(EXAMPLE).pdf $@/example.pdf
 	# Example src.
 	$(CP) doc/example/ $@/example-utf8
@@ -30,14 +34,14 @@ doc-dist: doc/
 	$(CP) doc/example/ $@/example-gbk
 	$(MAKE) toutf8
 	# Readme src and pdf.
-	cd doc/readme/ && $(MAKE) && $(MAKE) clean && $(MAKE) img-clean
+	cd doc/readme/ && $(MAKE) && $(MAKE) clean
 	$(MV) doc/readme/$(TITLE).pdf $@/README.pdf
 	$(CP) doc/readme/ $@/readme-src
 
 dir-tds: $(TITLE)-tds
-$(TITLE)-tds: tex/ doc-dist README
+$(TITLE)-tds: tex-dist doc-dist README
 	$(MD) $@/tex/latex/ $@/doc/latex/
-	$(CP) tex/ $@/tex/latex/$(TITLE)
+	$(CP) tex-dist/ $@/tex/latex/$(TITLE)
 	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
 
 dist-tds: $(TITLE)-$(VERSION).tds.zip
@@ -45,9 +49,10 @@ $(TITLE)-$(VERSION).tds.zip: $(TITLE)-tds
 	cd $< && $(ZIP) ../$@ tex/ doc/
 
 dir-ctan: $(TITLE)-ctan
-$(TITLE)-ctan: tex/ doc-dist README $(TITLE)-$(VERSION).tds.zip
+$(TITLE)-ctan: tex-dist doc-dist README $(TITLE)-$(VERSION).tds.zip
 	$(MD) $@/$(TITLE)/
-	$(CP) tex/ README $@/$(TITLE)/
+	$(CP) README $@/$(TITLE)/
+	$(CP) tex-dist/ $@/$(TITLE)/tex
 	$(CP) doc-dist/ $@/$(TITLE)/doc
 	$(MV) $(TITLE)-$(VERSION).tds.zip $@/
 
@@ -58,7 +63,7 @@ $(TITLE)-$(VERSION).zip: $(TITLE)-ctan
 clean:
 	cd doc/readme/ && $(MAKE) distclean
 	cd doc/example/ && $(MAKE) distclean
-	$(RD) $(TITLE)-ctan/ $(TITLE)-tds/ doc-dist/
+	$(RD) $(TITLE)-ctan/ $(TITLE)-tds/ tex-dist/ doc-dist/
 
 distclean:
 	$(SELF) clean
