@@ -150,27 +150,30 @@ texdoc pkuthss
 	\begin{itemize}
 		\item \LaTeX{} -- dvipdfmx 方式：\\
 			依次执行 \verb|latex|，\verb|biber|（或 \verb|bibtex|），%
-			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。\\
-			\myemph{%
-				注意：除非无法使用 biber，否则不建议使用 bibtex。
-				如果的确要使用 bibtex，请将 biblatex 宏包的\texttt{backend}
-				选项从 \texttt{biber} 改为 \texttt{bibtex}，
-				在 Makefile 中将变量 \texttt{BIBTEX} 的值改为 \texttt{bibtex}，
-				并去掉 biblatex 宏包和 \texttt{\string\printbibliography} 命令
-				的 \texttt{sorting} 选项。
-				以下各编译方式也存在类似的注意事项，不再重复说明。%
-			}
+			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。
 		\item pdf\LaTeX{} 方式：\\
 			依次执行 \verb|pdflatex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|pdflatex| 和 \verb|pdflatex|。
 		\item Xe\LaTeX{} 方式：\\
 			依次执行 \verb|xelatex|，\verb|biber|（或 \verb|bibtex|），%
-			\verb|xelatex| 和 \verb|xelatex|。\\
-			\myemph{%
-				注意：Xe\LaTeX{} 对非 UTF-8 的编码支持不好，
-				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。%
-			}
+			\verb|xelatex| 和 \verb|xelatex|。
 	\end{itemize}
+
+	\myemph{%
+		注意：
+		\begin{itemize}
+			\item 除非无法使用 biber，否则不建议使用 bibtex。
+				如果的确要使用 bibtex，请将 biblatex 宏包的\texttt{backend}
+				选项从 \texttt{biber} 改为 \texttt{bibtex}，
+				在 Makefile 中将变量 \texttt{BIBTEX} 的值改为 \texttt{bibtex}，
+				并去掉 biblatex 宏包和 \texttt{\string\printbibliography} 命令
+				的 \texttt{sorting} 选项。%
+			\item bibtex 对 UTF-8 编码的支持不好，
+				因此不建议在编译 UTF-8 编码的源文件时使用 bibtex。
+			\item Xe\LaTeX{} 对非 UTF-8 编码的支持不好，
+				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。
+		\end{itemize}%
+	}
 
 	pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行了完整的配置。
 	用户只需要在 Makefile 中通过设定变量 \verb|JOBNAME| 的值%
