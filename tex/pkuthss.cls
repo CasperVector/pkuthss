@@ -74,15 +74,22 @@
 % Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
-\ifxetex\ifpkuthss@opt@gbk
-	% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
-	\ClassError{pkuthss}%
-		{XeLaTeX compilation is not supported without UTF-8}%
-		{%
-			XeLaTeX compilation without UTF-8 is very problematic.\MessageBreak
-			Therefore please use UTF-8 encoding for the LaTeX code.%
-		}
-\fi\fi
+\ifpkuthss@opt@gbk
+	\ifxetex
+		% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
+		\ClassError{pkuthss}%
+			{XeLaTeX compilation is not supported without UTF-8}%
+			{%
+				XeLaTeX compilation without UTF-8 is very problematic.\MessageBreak
+				Therefore please use UTF-8 encoding for the LaTeX code.%
+			}
+	\else\ifpdf
+		% Fix garbled text in bookmarks for pdfLaTeX compilation in GBK.
+		% Temporary fix until release of ctex 2.x, which will by itself
+		% load xCJK2uni when necessary.
+		\RequirePackage{xCJK2uni}
+	\fi\fi
+\fi
 
 \AtEndOfClass{
 	% Setting chinese captions and labels.
