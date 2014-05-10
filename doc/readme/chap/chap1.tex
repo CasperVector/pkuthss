@@ -33,8 +33,8 @@
 
 	正确编译需要以下几部分：
 	\begin{itemize}
-		\item 一个基本的 \TeX{} 发行版。
-		\item CJK 或 XeCJK（供 Xe\LaTeX{} 使用）宏包。
+		\item 一个基本的 \hologo{TeX} 发行版。
+		\item CJK 或 XeCJK（供 \hologo{XeLaTeX} 使用）宏包。
 		\item ctex 宏包\supercite{ctex,ctex-faq}（提供了 ctexbook 文档类）。
 		\item 中文字体。
 		\item 如果要使用 biblatex 进行文献列表和引用的排版的话，
@@ -48,15 +48,15 @@
 			但如果使用由批处理实现的伪“Makefile”就不用了。
 	\end{itemize}
 
-	\myemph{最新}的\myemph{完全版} \TeX{}Live 系统（\myemph{%
+	\myemph{最新}的\myemph{完全版} \hologo{TeX}Live 系统（\myemph{%
 		注：
-		某些 Linux 发行版软件仓库中的 \TeX{}Live 有问题，
-		建议使用独立安装版的 \TeX{}Live%
+		某些 Linux 发行版软件仓库中的 \hologo{TeX}Live 有问题，
+		建议使用独立安装版的 \hologo{TeX}Live%
 		\footnote{\url{http://www.tug.org/texlive/}.}。%
 	}）都已经包含除中文字体和 Make 之外所有要求的项目。%
 	\myemph{%
 		为了获得最好的支持，
-		我们建议用户使用最新完全版的 \TeX{} 系统和各宏包。%
+		我们建议用户使用最新完全版的 \hologo{TeX} 系统和各宏包。%
 	}
 
 	中文字体需要用户自行获得。\myemph{%
@@ -134,13 +134,13 @@ texdoc pkuthss
 
 	pkuthss 文档模版支持三种编译方式，即
 	\begin{itemize}
-		\item \LaTeX{} -- dvipdfmx 方式：\\
+		\item \hologo{LaTeX} -- dvipdfmx 方式：\\
 			依次执行 \verb|latex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|latex|，\verb|latex| 和 \verb|dvipdfmx|。
-		\item pdf\LaTeX{} 方式：\\
+		\item \hologo{pdfLaTeX} 方式：\\
 			依次执行 \verb|pdflatex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|pdflatex| 和 \verb|pdflatex|。
-		\item Xe\LaTeX{} 方式：\\
+		\item \hologo{XeLaTeX} 方式：\\
 			依次执行 \verb|xelatex|，\verb|biber|（或 \verb|bibtex|），%
 			\verb|xelatex| 和 \verb|xelatex|。
 	\end{itemize}
@@ -156,8 +156,8 @@ texdoc pkuthss
 				的 \texttt{sorting} 选项。%
 			\item bibtex 对 UTF-8 编码的支持不好，
 				因此不建议在编译 UTF-8 编码的源文件时使用 bibtex。
-			\item Xe\LaTeX{} 对非 UTF-8 编码的支持不好，
-				因此 Xe\LaTeX{} 方式的编译不支持 GBK 编码。
+			\item \hologo{XeLaTeX} 对非 UTF-8 编码的支持不好，
+				因此 \hologo{XeLaTeX} 方式的编译不支持 GBK 编码。
 		\end{itemize}%
 	}
 
@@ -195,7 +195,7 @@ make
 		但双击文件图标执行时就会出错。
 		作者在 Google Code 和北大未名 BBS 上发布的压缩包中 \texttt{Make.bat}
 		均是 CRLF（\texttt{\string\r\string\n}）换行，
-		但 \TeX{}Live 中安装的 \texttt{Make.bat} 和
+		但 \hologo{TeX}Live 中安装的 \texttt{Make.bat} 和
 		CTAN 上提供的压缩包里的 \texttt{Make.bat}
 		可能是 LF（\texttt{\string\n}）换行的。%
 	}

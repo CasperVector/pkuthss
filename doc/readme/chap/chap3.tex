@@ -48,8 +48,8 @@
 	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
 	详见第 \ref{sec:doc-dir} 节。
 
-	使用过旧的 \TeX{} 系统和各宏包，
-	或使用某些 Linux 发行版软件仓库所提供的 \TeX{}Live 时，
+	使用过旧的 \hologo{TeX} 系统和各宏包，
+	或使用某些 Linux 发行版软件仓库所提供的 \hologo{TeX}Live 时，
 	可能引起一些问题，
 	详见第 \ref{sec:req} 节。
 
@@ -83,7 +83,7 @@
 		此文件通常和执行 \verb|texdoc hyperref| %
 		时打开的 pdf 文件位于同一目录中。
 
-		使用 Xe\LaTeX{} 的用户可能在已经安装字体的情况下遇到形如（其中
+		使用 \hologo{XeLaTeX} 的用户可能在已经安装字体的情况下遇到形如（其中
 		\verb|xxxxxxxx| 为具体字体名）
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 ! fontspec error: "font-not-found"
@@ -96,7 +96,7 @@
 		不同于原文件的）字体文件名，
 		并改动 ctex.cfg 等配置文件之后没有在调用 pkuthss 文档类时加入
 		\verb|nofonts| 选项，
-		又使用 Xe\LaTeX{} 编译造成的，使用
+		又使用 \hologo{XeLaTeX} 编译造成的，使用
 \begin{Verbatim}[frame = single]
 \documentclass[nofonts, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
@@ -149,7 +149,7 @@ See the caption package documentation for explanation.
 	请给 issue 加上 \verb|Proj-Pkuthss| 标签。
 	如果是错误报告，
 	请说明所使用 pkuthss 模版的版本、
-	自己使用的操作系统和 \TeX{} 系统的类型和版本；
+	自己使用的操作系统和 \hologo{TeX} 系统的类型和版本；
 	同时强烈建议附上一个出错的最小例子及其相应的编译日志（\verb|.log| 文件），
 	在文件较长时请使用附件。
 
