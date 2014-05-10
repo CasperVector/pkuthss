@@ -7,7 +7,6 @@
 JOBNAME = pkuthss
 LATEX = latex
 BIBTEX = biber -l zh__pinyin
-GBK2UNI = gbk2uni
 DVIPDF = dvipdfmx
 MAKE = make
 RM = rm -f
@@ -15,14 +14,10 @@ RM = rm -f
 ifeq ($(LATEX), latex)
 	DODVIPDF = $(DVIPDF) $(JOBNAME)
 endif
-ifeq ($(LATEX), pdflatex)
-	DOGBK2UNI = $(GBK2UNI) $(JOBNAME)
-endif
 
 doc:
 	$(LATEX) $(JOBNAME)
 	$(BIBTEX) $(JOBNAME)
-	$(DOGBK2UNI)
 	$(LATEX) $(JOBNAME)
 	$(LATEX) $(JOBNAME)
 	$(DODVIPDF)
