@@ -106,7 +106,7 @@
 \def\pkuthss@int@setpagestyle{
 	% Set the headers and footers on the first page in every chapter.
 	\fancypagestyle{plain}{
-		\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+		\fancyhf{}\renewcommand*{\headrulewidth}{0pt}
 		\if@twoside
 			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
 		\else
@@ -181,7 +181,7 @@
 \pkuthss@int@infoitemb{cabstractname}
 \pkuthss@int@infoitemb{eabstractname}
 % Set document information using the `key = value' grammar.
-\newcommand{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
+\newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
 % Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
 \def\pkuthss@int@fillinblank#1#2#3{

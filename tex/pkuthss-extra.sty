@@ -76,7 +76,7 @@
 	\linespread{1.41}\selectfont
 	% Automatically insert a space between the label and the text in footnotes.
 	\RequirePackage{footmisc}
-	\renewcommand{\footnotelayout}{\ }
+	\renewcommand*{\footnotelayout}{\ }
 \fi
 
 \ifpkuthssextra@opt@tightlist
@@ -119,7 +119,7 @@
 	\ifpkuthssextra@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
-		\newcommand{\setpdfproperties}{
+		\newcommand*{\setpdfproperties}{
 			\hypersetup{
 				pdfauthor = {\@eauthor}, pdftitle = {\@etitle},
 				pdfsubject = {\euniversity\ \ethesisname}, pdfkeywords = {\@ekeywords}
