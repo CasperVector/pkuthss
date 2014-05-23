@@ -7,7 +7,7 @@
 CP = cp -rL
 MV = mv -f
 MD = mkdir -p
-RD = rm -rf
+RM = rm -rf
 ZIP = zip -rT
 MAKE = make
 SELF = utils/dist
@@ -64,9 +64,9 @@ $(TITLE)-$(VERSION).zip: dir-ctan
 clean:
 	cd doc/readme/ && $(MAKE) distclean
 	cd doc/example/ && $(MAKE) distclean
-	$(RD) dir-ctan/ dir-tds/ tex-dist/ doc-dist/
+	$(RM) dir-ctan/ dir-tds/ tex-dist/ doc-dist/
 
 distclean:
 	$(SELF) clean
-	$(RD) $(TITLE)-$(VERSION).tds.zip $(TITLE)-$(VERSION).zip
+	$(RM) $(TITLE)-$(VERSION).tds.zip $(TITLE)-$(VERSION).zip
 
