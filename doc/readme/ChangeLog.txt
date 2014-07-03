@@ -1,3 +1,14 @@
+2014-07-04, v1.5.4
+
+	* Changes to example template:
+	- make TOC black, as stupidly required by PKU Library.
+
+	* Changes to documentation:
+	- re-sort and re-organise common problems.
+
+	* Misc:
+	- Minor fixes and improvements.
+
 2014-05-23, v1.5.3
 
 	* Changes to package code:
