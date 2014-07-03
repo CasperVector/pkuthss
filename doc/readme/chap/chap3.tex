@@ -31,27 +31,6 @@
 \chapter{问题及其解决}
 	\section{文档中已经提到的常见问题（按重要性排序）}
 
-	在默认设置（启用 \verb|colorlinks| 选项）下，
-	黑白打印时文档中的部分彩色链接可能会变成浅灰色，
-	解决方式见第 \ref{ssec:extra} 小节。
-
-	中文字体字库不全（只包含 GB2312 字符集内字符）时，
-	生成的 pdf 文档中可能缺少部分字符，
-	解决方式见第 \ref{sec:req} 节。
-
-	Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题，
-	解决方式见第 \ref{sec:compile} 节。
-
-	Windows 的“记事本”程序在查看 LF（\texttt{\string\n}）
-	换行的文本文件时存在着一些问题，
-	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
-	详见第 \ref{sec:doc-dir} 节。
-
-	使用过旧的 \hologo{TeX} 系统和各宏包，
-	或使用某些 Linux 发行版软件仓库所提供的 \hologo{TeX} Live 时，
-	可能引起一些问题，
-	详见第 \ref{sec:req} 节。
-
 	文档默认情况下是双面模式，章末可能产生空白页，详见第 \ref{ssec:options} 小节。
 
 	通过一些设置，还可以满足例如被引用的文献按照引用顺序排序，
@@ -64,6 +43,27 @@
 	一些高级设置，
 	如封面中部分内容长度超过预设空间容量时的设置，
 	见第 \ref{sec:advanced} 节。
+
+	在默认设置（启用 \verb|colorlinks| 选项）下，
+	黑白打印时文档中的部分彩色链接可能会变成浅灰色，
+	解决方式见第 \ref{ssec:extra} 小节。
+
+	中文字体字库不全（只包含 GB2312 字符集内字符）时，
+	生成的 pdf 文档中可能缺少部分字符，
+	解决方式见第 \ref{sec:req} 节。
+
+	使用过旧的 \hologo{TeX} 系统和各宏包，
+	或使用某些 Linux 发行版软件仓库所提供的 \hologo{TeX} Live 时，
+	可能引起一些问题，
+	详见第 \ref{sec:req} 节。
+
+	Windows 批处理对于 LF（\texttt{\string\n}）换行的批处理文件支持有问题，
+	解决方式见第 \ref{sec:compile} 节。
+
+	Windows 的“记事本”程序在查看 LF（\texttt{\string\n}）
+	换行的文本文件时存在着一些问题，
+	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
+	详见第 \ref{sec:doc-dir} 节。
 
 	\section{其它可能存在的问题}
 		\subsection{上游宏包可能引起的问题}
