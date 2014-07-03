@@ -4,6 +4,7 @@
 # Public domain.
 
 TITLE = pkuthss
+README = $(TITLE)
 EXAMPLE = thesis
 VERSION = 1.5.3
 
@@ -19,5 +20,5 @@ bump:
 	utils/bump VERSION=$(VERSION)
 
 dist clean distclean:
-	utils/dist TITLE=$(TITLE) EXAMPLE=$(EXAMPLE) VERSION=$(VERSION) $@
+	utils/dist TITLE=$(TITLE) README=$(README) EXAMPLE=$(EXAMPLE) VERSION=$(VERSION) $@
 
