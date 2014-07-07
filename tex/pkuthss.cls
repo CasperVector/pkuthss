@@ -42,11 +42,11 @@
 \DeclareOption{extra}{\pkuthss@opt@extratrue}
 \DeclareOption{noextra}{\pkuthss@opt@extrafalse}
 % eg. `\pkuthss@int@extraopt{spacing}' will expand to:
-%   \DeclareOption{spacing}{\PassOptionsToClass{spacing}{pkuthss-extra}}
-%   \DeclareOption{nospacing}{\PassOptionsToClass{nospacing}{pkuthss-extra}}
+%   \DeclareOption{spacing}{\PassOptionsToPackage{spacing}{pkuthss-extra}}
+%   \DeclareOption{nospacing}{\PassOptionsToPackage{nospacing}{pkuthss-extra}}
 \def\pkuthss@int@extraopt#1{
-	\DeclareOption{#1}{\PassOptionsToClass{#1}{pkuthss-extra}}
-	\DeclareOption{no#1}{\PassOptionsToClass{no#1}{pkuthss-extra}}
+	\DeclareOption{#1}{\PassOptionsToPackage{#1}{pkuthss-extra}}
+	\DeclareOption{no#1}{\PassOptionsToPackage{no#1}{pkuthss-extra}}
 }
 % Pass options to `pkuthss-extra'.
 % See pkuthss-extra.sty for an explanation of the options.
