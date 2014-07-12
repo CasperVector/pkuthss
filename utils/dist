@@ -45,21 +45,21 @@ dir-tds: tex-dist doc-dist
 	$(CP) tex-dist/ $@/tex/latex/$(TITLE)
 	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
 
-dist-tds: $(TITLE)-$(VERSION).tds.zip
-$(TITLE)-$(VERSION).tds.zip: dir-tds
+dist-tds: $(TITLE).tds.zip
+$(TITLE).tds.zip: dir-tds
 	cd $< && $(PERM) && $(ZIP) ../$@ tex/ doc/
 
-dir-ctan: README tex-dist doc-dist $(TITLE)-$(VERSION).tds.zip
+dir-ctan: README tex-dist doc-dist $(TITLE).tds.zip
 	$(MD) $@/$(TITLE)/
 	$(CP) README $@/$(TITLE)/
 	$(CP) tex-dist/ $@/$(TITLE)/tex
 	$(CP) doc-dist/ $@/$(TITLE)/doc
-	$(MV) $(TITLE)-$(VERSION).tds.zip $@/
+	$(MV) $(TITLE).tds.zip $@/
 
 dist-ctan: $(TITLE)-$(VERSION).zip
 $(TITLE)-$(VERSION).zip: dir-ctan
 	cd $< && $(PERM) && \
-		$(ZIP) ../$@ $(TITLE)/ $(TITLE)-$(VERSION).tds.zip
+		$(ZIP) ../$@ $(TITLE)/ $(TITLE).tds.zip
 
 clean:
 	cd doc/readme/ && $(MAKE) distclean
@@ -68,5 +68,5 @@ clean:
 
 distclean:
 	$(SELF) clean
-	$(RM) $(TITLE)-$(VERSION).tds.zip $(TITLE)-$(VERSION).zip
+	$(RM) $(TITLE).tds.zip $(TITLE)-$(VERSION).zip
 
