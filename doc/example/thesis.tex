@@ -70,7 +70,7 @@
 	未格式化的、带方括号的和上标且带方括号的引用标记：%
 	\cite{test-en}，\parencite{test-zh}、\supercite{test-en, test-zh}。
 
-	若要避免章末空白页，请在调用 pkuthss 文档类时加入 \texttt{oneside} 选项。
+	若要避免章末空白页，请在调用 pkuthss 文档类时加入 \texttt{openany} 选项。
 
 	如果编译时不出参考文献，
 	请参考 \texttt{texdoc pkuthss} “问题及其解决”一章
@@ -78,21 +78,30 @@
 }
 
 \begin{document}
-	% 以下为正文之前的部分。
+	% 以下为正文之前的部分，默认不进行章节编号。
 	\frontmatter
+	% 此后到下一 \pagestyle 命令之前不排版页眉或页脚。
+	\pagestyle{empty}
 
 	% 自动生成标题页。
 	\maketitle
 	% 版权声明。
 	\include{chap/copyright}
+
+	% 此后到下一 \pagestyle 命令之前正常排版页眉和页脚。
+	\cleardoublepage
+	\pagestyle{plain}
+	% 重置页码计数器，用大写罗马数字排版此部分页码。
+	\setcounter{page}{0}
+	\pagenumbering{Roman}
+
 	% 中英文摘要。
 	\include{chap/abstract}
 	% 自动生成目录。
 	\tableofcontents
 
-	% 以下为正文。
+	% 以下为正文部分，默认要进行章节编号。
 	\mainmatter
-
 	% 序言。
 	\include{chap/introduction}
 	% 各章节。
@@ -117,11 +126,15 @@
 	% 各附录。
 	\include{chap/encl1}
 
-	% 以下为正文之后的部分。
+	% 以下为正文之后的部分，默认不进行章节编号。
 	\backmatter
-
 	% 致谢。
 	\include{chap/acknowledge}
+
+	% 此后不排版页眉或页脚。
+	\cleardoublepage
+	\pagestyle{empty}
+
 	% 原创性声明和使用授权说明。
 	\include{chap/originauth}
 \end{document}

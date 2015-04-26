@@ -99,37 +99,34 @@
 	\fi
 }
 
-% Set page layout.
+% Set up page layout.
 \geometry{
-	a4paper, height = 240mm, width = 150mm, includeheadfoot, headheight = 1.2em
+	a4paper, includefoot, hmargin = 2.6cm, top = 3cm, bottom = 2.5cm,
+	headheight = 1.5cm, headsep = 0.5cm, footskip = 0.75cm
 }
-% Internal command to set headers and footers.
+
+% Set up spacing for displayed formulae.
+\setlength{\abovedisplayskip}{6bp plus 1.5bp minus 3.5bp}
+\setlength{\abovedisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
+\setlength{\belowdisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
+\setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
+
+% Internal command to set up headers and footers.
 \def\pkuthss@int@setpagestyle{
-	% Set the headers and footers on the first page in every chapter.
+	% The actual setup commands.
 	\fancypagestyle{plain}{
-		\fancyhf{}\renewcommand*{\headrulewidth}{0pt}
+		\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
+		\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
 		\if@twoside
-			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
+			\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity\cthesisname}}
+			\fancyhead[CO]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
 		\else
-			\fancyfoot[C]{\small\normalfont --~\thepage~--}
+			\fancyhead[C]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
 		\fi
 	}
-	% Set the headers and footers on other pages.
-	\fancypagestyle{pkuthss}{
-		\fancyhf{}
-		\if@twoside
-			\fancyhead[LE]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
-			\fancyhead[RO]{\small\normalfont\pkuthss@int@setcase{\rightmark}}
-			\fancyhead[LO,RE]{\small\normalfont\cuniversity\cthesisname}
-			\fancyfoot[RO,LE]{\small\normalfont --~\thepage~--}
-		\else
-			\fancyhead[L]{\small\normalfont\pkuthss@int@setcase{\leftmark}}
-			\fancyhead[R]{\small\normalfont\pkuthss@int@setcase{\rightmark}}
-			\fancyfoot[C]{\small\normalfont --~\thepage~--}
-		\fi
-	}
-	\pagestyle{pkuthss}
+	\pagestyle{plain}
 }
+
 % `\MakeUppercase' works problematically.
 % eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
 % This option can disable `\MakeUppercase' in left/right heading marks.

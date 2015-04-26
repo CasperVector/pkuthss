@@ -63,14 +63,20 @@
 
 \begin{document}
 	\frontmatter
+	\pagestyle{empty}
 
 	\maketitle
 	\include{chap/copyright}
+
+	\cleardoublepage
+	\pagestyle{plain}
+	\setcounter{page}{0}
+	\pagenumbering{Roman}
+
 	\include{chap/abstract}
 	\tableofcontents
 
 	\mainmatter
-
 	\include{chap/introduction}
 	\include{chap/chap1}
 	\include{chap/chap2}
@@ -78,13 +84,15 @@
 	\include{chap/conclusion}
 
 	\appendix
-
 	\printbibliography[heading = bibintoc, sorting = ecnty]
 	\include{chap/encl1}
 
 	\backmatter
-
 	\include{chap/acknowledge}
+
+	\cleardoublepage
+	\pagestyle{empty}
+
 	\include{chap/originauth}
 \end{document}
 
