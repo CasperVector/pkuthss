@@ -45,6 +45,8 @@
 	\DeclareOption{#1}{\@nameuse{pkuthssextra@opt@#1true}}
 	\DeclareOption{no#1}{\@nameuse{pkuthssextra@opt@#1false}}
 }
+% Whethet to modify footnote format.
+\pkuthssextra@int@boolopt{footfmt}{true}
 % Whethet to use some common settings for adjusting spacing.
 \pkuthssextra@int@boolopt{spacing}{true}
 % Whether to use list environments that are tighter than LaTeX defaults.
@@ -63,6 +65,31 @@
 % Process all class options now.
 \ProcessOptions\relax
 
+\ifpkuthssextra@opt@footfmt
+	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
+	\unless\ifxetex\unless\ifpdf
+		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}
+	\fi\fi
+	% Circled text, cf. <https://tex.stackexchange.com/questions/7032/>.
+	\RequirePackage{tikz}
+	\newcommand*\pkuthssextra@int@circled[1]{%
+		\scalebox{0.8}{\tikz[baseline = (char.base)]{
+			\node[
+				shape = circle, draw = black, minimum size = 1.25em, inner sep = 0pt
+			] (char) {#1};
+		}}%
+	}
+	% Use circled numbers as footnote symbols. Does not affect title page, but
+	% footnote is rarely used in dissertation covers ;)
+	\renewcommand\thefootnote{\protect\pkuthssextra@int@circled{\arabic{footnote}}}
+	% Provides utility to modify footnote spacing.
+	% Option used to make sure it does not render interleaf pages totally blank.
+	\RequirePackage[cleardoublepage = current]{scrextend}
+	% Set up footnote spacing: symbol indent 2 ccwd, paragraph indent 3.5 ccwd,
+	% 0.75 ccwd between symbol and paragraph.
+	\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
+\fi
+
 \ifpkuthssextra@opt@spacing
 	% Automatically ignore spaces between CJK characters and preserve spaces in other
 	% situations. XeCJK itself will handle this issue, therefore we do not use
@@ -74,9 +101,6 @@
 	\geometry{centering}
 	% Set line skip.
 	\linespread{1.41}\selectfont
-	% Automatically insert a space between the label and the text in footnotes.
-	\RequirePackage{footmisc}
-	\renewcommand*{\footnotelayout}{\ }
 \fi
 
 \ifpkuthssextra@opt@tightlist

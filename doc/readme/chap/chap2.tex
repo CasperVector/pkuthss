@@ -91,6 +91,16 @@
 		下面提到的选项中都是不带“\verb|no|”的版本被启用。
 
 		\begin{itemize}
+			\item \textbf{\texttt{[no]footfmt}}：
+				是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+				修改和脚注相关的一些格式。
+				具体地说，启用 \verb|footfmt| 选项后会进行以下几项设置：
+			\begin{itemize}
+				\item 脚注参用带圈的编号。
+				\item 页脚中脚注编号使用正文（而非上标）字体。
+				\item 页脚中脚注编号和脚注文本之间默认间隔一个空格。
+			\end{itemize}
+
 			\item \textbf{\texttt{[no]spacing}}：
 				是否采用一些常用的对空白进行调整的版式设定。
 				具体地说，启用 \verb|space| 选项后会进行以下几项设置：
@@ -102,7 +112,6 @@
 				\item 设定行距为 1.41\footnote{%
 					为什么是 1.41？因为 $\sqrt{2}\approx1.41$。%
 				}。
-				\item 使脚注编号和脚注文本之间默认间隔一个空格。
 			\end{itemize}
 
 			\item \textbf{\texttt{[no]tightlist}}：
@@ -333,8 +342,9 @@
 
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
-			\item 启用 \verb|spacing| 选项时会调用 %
-				setspace 和 footmisc\supercite{footmisc} 宏包。
+			\item 启用 \verb|footfmt| 选项时会调用 %
+				tikz\supercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
+			\item 启用 \verb|spacing| 选项时会调用 setspace 宏包。
 			\item 启用 \verb|tightlist| 选项时会调用 %
 				enumitem\supercite{enumitem} 宏包。
 			\item 启用 \verb|caption| 选项时会调用 %
