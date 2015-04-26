@@ -230,26 +230,26 @@
 			% Information about the author.
 			{
 				% Slightly adjust the line skip when using new font size.
-				\zihao{-2}\linespread{1.75}\selectfont
+				\zihao{3}\linespread{1.75}\selectfont
 				\def\pkuthss@tmp@len{0.56\textwidth}
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
-					{\label@cauthor}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cauthor}		\\
-					{\label@studentid}	&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@studentid}	\\
-					{\label@school}			&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@school}		\\
-					{\label@cmajor}			&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmajor}		\\
-					{\label@direction}	&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}	\\
-					{\label@cmentor}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@cmentor}		\\
+					{\heiti\label@cauthor}		&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cauthor}		\\
+					{\heiti\label@studentid}	&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@studentid}	\\
+					{\heiti\label@school}			&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@school}		\\
+					{\heiti\label@cmajor}			&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmajor}		\\
+					{\heiti\label@direction}	&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@direction}	\\
+					{\heiti\label@cmentor}		&
+					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmentor}		\\
 				\end{tabular}
 			}
 			\vfill
 			% Date.
-			{\kaishu\zihao{2}\@date}
+			{\zihao{-2}\@date}
 		\end{center}
 	\end{titlepage}
 }
@@ -258,7 +258,7 @@
 \newenvironment{cabstract}{
 	\cleardoublepage
 	\pdfbookmark[1]{\cabstractname}{cabstract}
-	\chapter*{\zihao{-2}\cabstractname}
+	\chapter*{\cabstractname}
 	\markboth{\cabstractname}{}
 }{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}
@@ -268,17 +268,14 @@
 \newenvironment{eabstract}{
 	\cleardoublepage
 	\pdfbookmark[1]{\eabstractname}{eabstract}
-	\chapter*{\zihao{-2}\@etitle}
+	\chapter*{\sffamily\@etitle}
 	\markboth{\eabstractname}{}
-	\vspace{-2em}\par
 	\begin{center}
-		\zihao{-3}
 		{\@eauthor} ({\@emajor})\\
-		{\label@ementor}{\@ementor}
+		{\label@ementor}{\@ementor}\\[2em]
+		\textbf{\sffamily\eabstractname}
 	\end{center}
-	\vspace{1em}\par
-	\section*{\zihao{4}\eabstractname}
-	\vskip 0.5em
+	\par
 }{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}
 }
