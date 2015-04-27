@@ -51,8 +51,8 @@
 % Pass options to `pkuthss-extra'.
 % See pkuthss-extra.sty for an explanation of the options.
 \pkuthss@int@extraopt{footfmt}
+\pkuthss@int@extraopt{pkuspace}
 \pkuthss@int@extraopt{spacing}
-\pkuthss@int@extraopt{tightlist}
 \pkuthss@int@extraopt{pdftoc}
 \pkuthss@int@extraopt{spechap}
 \pkuthss@int@extraopt{pdfprop}

@@ -47,12 +47,10 @@
 }
 % Whethet to modify footnote format.
 \pkuthssextra@int@boolopt{footfmt}{true}
+% Whethet to modify spacing according to school regulation.
+\pkuthssextra@int@boolopt{pkuspace}{true}
 % Whethet to use some common settings for adjusting spacing.
 \pkuthssextra@int@boolopt{spacing}{true}
-% Whether to use list environments that are tighter than LaTeX defaults.
-\pkuthssextra@int@boolopt{tightlist}{true}
-% Whether to let captions use a different font from the main text.
-\pkuthssextra@int@boolopt{caption}{true}
 % Add PDF bookmark for table of contents.
 \pkuthssextra@int@boolopt{pdftoc}{true}
 % Whether to enable the `\spacialchap' command.
@@ -90,6 +88,23 @@
 	\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
 \fi
 
+\ifpkuthssextra@opt@pkuspace
+	% Quite harmless and frequently used package. Loaded together with `tocloft'
+	% plus a compatibility option to avoid package clash.
+	\RequirePackage{subfig}
+	% Provides utilities for setting TOC format; `titles' applied to avoid
+	% interfering with LaTeX's own title mechanism.
+	\RequirePackage[subfigure, titles]{tocloft}
+	\setlength{\cftbeforechapskip}{6bp plus 1bp}
+	\setlength{\cftsecindent}{\ccwd}
+	\setlength{\cftsubsecindent}{2\ccwd}
+	% Modify font size and separator of captions.
+	\RequirePackage{caption}
+	\DeclareCaptionFont{cfive}{\zihao{5}}
+	\DeclareCaptionLabelSeparator{quad}{\quad}
+	\captionsetup{font = cfive, labelsep = quad}
+\fi
+
 \ifpkuthssextra@opt@spacing
 	% Automatically ignore spaces between CJK characters and preserve spaces in other
 	% situations. XeCJK itself will handle this issue, therefore we do not use
@@ -101,20 +116,10 @@
 	\geometry{centering}
 	% Set line skip.
 	\linespread{1.41}\selectfont
-\fi
-
-\ifpkuthssextra@opt@tightlist
 	% Lists often appear to be too sparse when items are just one or two lines long.
 	% Here we cancel the extra vertical spacing between list items.
-	% Biblatex uses `\itemsep' as default `\bibitemsep', no need to change it.
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
-\fi
-
-\ifpkuthssextra@opt@caption
-	% According to common aesthetics of typography, it is nice to make the font of
-	% captions lighter than main text, and tables lighter than captions.
-	\RequirePackage[font = it]{caption}
 \fi
 
 \ifpkuthssextra@opt@pdftoc
@@ -140,6 +145,18 @@
 \fi
 
 \AtBeginDocument{
+	\ifpkuthssextra@opt@pkuspace
+		% Kludge for `tocloft' used with `ctex'.
+		% <http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=43535&pid=310238>.
+		\renewcommand{\numberline}[1]{%
+			\settowidth\@tempdimb{#1\hspace{0.5em}}%
+			\ifdim\@tempdima<\@tempdimb%
+				\@tempdima=\@tempdimb%
+			\fi%
+			\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb%
+		}%
+	\fi
+
 	\ifpkuthssextra@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.

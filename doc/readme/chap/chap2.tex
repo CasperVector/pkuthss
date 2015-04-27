@@ -101,9 +101,31 @@
 				\item 页脚中脚注编号和脚注文本之间默认间隔一个空格。
 			\end{itemize}
 
-			\item \textbf{\texttt{[no]spacing}}：
-				是否采用一些常用的对空白进行调整的版式设定。
-				具体地说，启用 \verb|space| 选项后会进行以下几项设置：
+			\item \textbf{\texttt{[no]pkuspace}}：
+				是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+				修改排版中的一些间距及相关设置。
+				具体地说，启用 \verb|pkuspace| 选项后会按
+				\parencite{pku-thesisstyle} 中的要求修改以下几项设置：
+			\begin{itemize}
+				\item 目录中条目的缩进方式。
+				\item 图表标题的字号，
+					以及标题中编号和标题文字之间的间隔方式
+					（例如图 \ref{fig:example} 所示）。
+			\end{itemize}
+
+			\begin{figure}[htbp!]
+				\centering
+				\includegraphics[width = 0.5\textwidth]{pkuword}
+				\caption{示例插图}\label{fig:example}
+			\end{figure}
+
+			\item \textbf{\texttt{[no]spacing}}\footnote{%
+					因为代码重构的缘故，
+					此选项同时提供 1.5.5 及以前版本 pkuthss-extra 宏包%
+					中 \texttt{[no]tightlist} 选项所提供的功能。%
+				}：
+				是否采用一些常用的调整间距的额外版式设定。
+				具体地说，启用 \verb|spacing| 选项后会进行以下几项设置：
 			\begin{itemize}
 				\item 自动忽略 CJK 文字之间的空白而%
 					保留（CJK 文字与英文之间等的）其它空白。
@@ -112,30 +134,15 @@
 				\item 设定行距为 1.41\footnote{%
 					为什么是 1.41？因为 $\sqrt{2}\approx1.41$。%
 				}。
+				\item 采用比 \hologo{LaTeX} 默认设定更加紧密的枚举环境%
+					\footnote{%
+						在枚举环境（itemize、enumerate 和 description）中，
+						每个条目的内容较少时，条目往往显得稀疏；
+						在参考文献列表中也有类似的现象。
+						启用 \texttt{spacing} 选项后，
+						将去掉这些环境中额外增加的（垂直）间隔。%
+					}。
 			\end{itemize}
-
-			\item \textbf{\texttt{[no]tightlist}}：
-				是否采用比 \hologo{LaTeX} 默认设定更加紧密的枚举环境。
-				在枚举环境（itemize、enumerate 和 description）中，
-				每个条目的内容较少时，条目往往显得稀疏；
-				在参考文献列表中也有类似的现象。
-				启用 \verb|tightlist| 选项后，
-				将去掉这些环境中额外增加的（垂直）间隔。
-
-			\item \textbf{\texttt{[no]caption}}：
-				是否使图表标题使用和正文不同的字体
-				（此处设为中文楷书、英文斜体，
-				如图 \ref{fig:example} 所示）。
-				根据排版中常见的审美原则，
-				一般应使图表标题的字体、字号轻
-				（例如楷书之于宋体、五号字之于小四号字）于正文，
-				图表内容的字体、字号轻于图表标题。
-
-			\begin{figure}[htbp!]
-				\centering
-				\includegraphics[width = 0.5\textwidth]{pkuword}
-				\caption{示例插图}\label{fig:example}
-			\end{figure}
 
 			\item \textbf{\texttt{[no]pdftoc}}\footnote{%
 					此选项部分等价于 1.4 alpha2 及以前版本 pkuthss-extra 宏包%
@@ -344,11 +351,11 @@
 		\begin{itemize}
 			\item 启用 \verb|footfmt| 选项时会调用 %
 				tikz\supercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
-			\item 启用 \verb|spacing| 选项时会调用 setspace 宏包。
-			\item 启用 \verb|tightlist| 选项时会调用 %
-				enumitem\supercite{enumitem} 宏包。
-			\item 启用 \verb|caption| 选项时会调用 %
+			\item 启用 \verb|pkuspace| 选项时会调用 %
+				tocloft\supercite{tocloft}、subfig\supercite{subfig} 和 %
 				caption\supercite{caption} 宏包。
+			\item 启用 \verb|spacing| 选项时会调用 setspace 和 %
+				enumitem\supercite{enumitem} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
