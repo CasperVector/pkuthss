@@ -89,6 +89,8 @@
 \fi
 
 \ifpkuthssextra@opt@pkuspace
+	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
+	\linespread{1.39}\selectfont
 	% Quite harmless and frequently used package. Loaded together with `tocloft'
 	% plus a compatibility option to avoid package clash.
 	\RequirePackage{subfig}
@@ -112,8 +114,6 @@
 	\unless\ifxetex\RequirePackage{CJKspace}\fi
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
-	% Set line skip.
-	\linespread{1.41}\selectfont
 	% Lists often appear to be too sparse when items are just one or two lines long.
 	% Here we cancel the extra vertical spacing between list items.
 	\RequirePackage{enumitem}

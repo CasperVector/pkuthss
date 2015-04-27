@@ -31,11 +31,16 @@
 % 若需要按照英文文献在前，中文文献在后排序，请设置“sorting = ecnty”；
 % 若需要按照中文文献在前，英文文献在后排序，请设置“sorting = centy”。
 \usepackage[backend = biber, style = caspervector, utf8, sorting = none]{biblatex}
+% 提供近似于学校所要求的 Times New Roman / Arial 的字体。
+\usepackage[defaultsups]{newtxtext}
+\usepackage{newtxmath}
 % 产生 originauth.tex 里的 \square。
 \usepackage{amssymb}
 
-% 按学校要求设定参考文献列表中的条目间距。
+% 按学校要求设定参考文献列表中的条目之内及之间的距离。
 \setlength{\bibitemsep}{3bp}
+% 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss-extra.sty。
+\renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
 
 % 设定文档的基本信息。
 \pkuthssinfo{
@@ -59,7 +64,7 @@
 \def\pkuthssffaq{%
 	\emph{\textcolor{red}{pkuthss 文档模版最常见问题：}}
 
-	最终打印和提交论文前，
+	在最终打印和提交论文之前，
 	请将 pkuthss 文档类选项中的 %
 	\texttt{colorlinks} 改为 \texttt{nocolorlinks}，
 	因为图书馆要求电子版论文的目录必须为黑色，

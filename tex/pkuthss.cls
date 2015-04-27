@@ -111,6 +111,28 @@
 \setlength{\belowdisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
 \setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
 
+% Set up chapter/section/... captions.
+\CTEXsetup[
+	nameformat = {\zihao{-2}\bfseries},
+	titleformat = {\zihao{-2}\bfseries},
+	beforeskip = {20bp}, afterskip = {18bp}
+]{chapter}
+\CTEXsetup[
+	format = {\zihao{-3}\bfseries},
+	beforeskip = {-20bp plus -1ex minus -0.2ex},
+	afterskip = {6bp plus 0.2ex}
+]{section}
+\CTEXsetup[
+	format = {\zihao{4}\bfseries},
+	beforeskip = {-12bp plus -1ex minus -0.2ex},
+	afterskip = {6bp plus 0.2ex}
+]{subsection}
+\CTEXsetup[
+	format = {\bfseries},
+	beforeskip = {-12bp plus -1ex minus -0.2ex},
+	afterskip = {6bp plus 0.2ex}
+]{subsubsection}
+
 % Internal command to set up headers and footers.
 \def\pkuthss@int@setpagestyle{
 	% The actual setup commands.
