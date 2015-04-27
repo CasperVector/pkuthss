@@ -62,15 +62,15 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% pkuthss is based on ctexbook; We use `xiao 4' as default font size.
-% CJKfntef provides \CJKunderline used in \maketitle.
-% fancyhdr provides utilities for setting headers and footers.
+% pkuthss is based on ctexbook; we use `xiao 4' as default font size.
+% CJKfntef provides `\CJKunderline' used in `\maketitle'.
+% fancyhdr provides utilities for setting up headers and footers.
 \LoadClass[hyperref, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
-% Provide support for `key = val' grammar.
+% Provides support for `key = val' grammar.
 \RequirePackage{keyval}
 % Graphics support.
 \RequirePackage{graphicx}[1999/02/16]
-% Provide utilities for setting page layout.
+% Provides utilities for setting up page layout.
 \RequirePackage{geometry}
 % Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
@@ -93,7 +93,7 @@
 \fi
 
 \AtEndOfClass{
-	% Setting chinese captions and labels.
+	% Set up chinese captions and labels.
 	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
 	\else\input{pkuthss-utf8.def}
 	\fi
@@ -179,7 +179,7 @@
 \def\pkuthss@int@infoitemb#1{
 	\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
 }
-% Setting document information entries.
+% Set up document information entries.
 \pkuthss@int@infoitema{ctitle}
 \pkuthss@int@infoitema{etitle}
 \pkuthss@int@infoitema{cauthor}
@@ -200,7 +200,7 @@
 \pkuthss@int@infoitemb{ethesisname}
 \pkuthss@int@infoitemb{cabstractname}
 \pkuthss@int@infoitemb{eabstractname}
-% Set document information using the `key = value' grammar.
+% Set up document information using the `key = value' grammar.
 \newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
 % Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
@@ -228,7 +228,7 @@
 	% Add PDF bookmark for the title page.
 	\pdfbookmark[1]{\titlepagename}{titlepage}
 	\begin{titlepage}
-		% It will be more nice to use this line skip level in the title page.
+		% It will be nicer to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
 		% Make the title page centered.
 		\begin{center}
@@ -273,7 +273,7 @@
 	\end{titlepage}
 }
 
-% Typesetting the Chinese abstract.
+% Typeset the Chinese abstract.
 \newenvironment{cabstract}{
 	\cleardoublepage
 	\pdfbookmark[1]{\cabstractname}{cabstract}
@@ -283,7 +283,7 @@
 	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}
 }
 
-% Typesetting the English abstract.
+% Typeset the English abstract.
 \newenvironment{eabstract}{
 	\cleardoublepage
 	\pdfbookmark[1]{\eabstractname}{eabstract}

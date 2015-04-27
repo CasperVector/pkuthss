@@ -43,14 +43,13 @@
 				是否在页眉中将章节名中的小写字母转换为大写字母。
 				就目前而言，
 				这样的转换存在着一些较为严重的缺陷\footnote{%
-					准确地说是 \texttt{\string\MakeUppercase} 宏的问题，
+					准确地说是 \texttt{\string\MakeUppercase} 宏的问题：
 					其在某些地方的转换不够健壮，
 					例如 \texttt{\string\cite\string{ctex\string}}
 					会被转换成 \texttt{\string\cite\string{CTEX\string}}。%
 				}，
 				因此不建议使用。
-				基于上述考虑，%
-				\myemph{%
+				基于上述考虑，\myemph{%
 					pkuthss 文档类默认启用 \texttt{nouppermark} 选项，
 					即在不在页眉中使用大写的章节名%
 				}。
@@ -152,8 +151,7 @@
 
 			\item \textbf{\texttt{[no]pdfprop}}：
 				是否自动根据设定的论文文档信息（如作者、标题等）
-				设置生成的 pdf 文档的相应属性。%
-				\myemph{%
+				设置生成的 pdf 文档的相应属性。\myemph{%
 					注意：
 					该选项实际上是在 \texttt{\string\maketitle} 时生效的，
 					这是因为考虑到%
@@ -255,9 +253,8 @@
 		或自身存储文档信息的命令名（不带反斜杠）。
 
 		当文档信息的内容包含了逗号等有干扰的字符时，
-		可以用大括号将这一项文档信息的全部内容括起来。%
-		\myemph{%
-			我们推荐用户总用大括号将文档信息的内容括起来，
+		可以用大括号将这一项文档信息的全部内容括起来。\myemph{%
+			我们建议用户总用大括号将文档信息的内容括起来，
 			以避免很多不必要的麻烦。%
 		}
 
@@ -279,8 +276,7 @@
 
 		\texttt{\bfseries\string\specialchap} 命令%
 		用于开始不进行标号但计入目录的一章，
-		并合理安排其页眉。%
-		\myemph{%
+		并合理安排其页眉。\myemph{%
 			注意：
 			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项%
 			才能使用此命令。
@@ -297,7 +293,7 @@
 		因此通常不需要用户自己使用；
 		但用户有时可能不需要输出标题页，
 		从而不会调用 \verb|\maketitle| 命令，
-		此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。
+		此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
 		\myemph{%
 			注意：
 			需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项%
@@ -306,10 +302,10 @@
 
 		\subsection{从其它文档类和宏包继承的功能}\label{ssec:thirdparty}
 
-		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类的基础上，
-		并调用了 CJKfntef、%
-		graphicx\supercite{graphicx}、geometry\supercite{geometry} 和 %
-		fancyhdr\supercite{fancyhdr} 等几个宏包；
+		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类之上，
+		并调用了 CJKfntef、graphicx\supercite{graphicx}、%
+		geometry\supercite{geometry} 和 fancyhdr\supercite{fancyhdr} %
+		等几个宏包；
 		使用 \hologo{pdfLaTeX} 方式编译 GBK 编码的源文件时还会调用
 		xCJK2uni\supercite{xCJK2uni} 宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。

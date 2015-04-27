@@ -55,8 +55,8 @@
 \pkuthssextra@int@boolopt{pdftoc}{true}
 % Whether to enable the `\spacialchap' command.
 \pkuthssextra@int@boolopt{spechap}{true}
-% Whether to automatically set properties for generated PDF from user defined
-% document information (author, title, etc.).
+% Whether to automatically set up properties for generated PDF from user
+% defined document information (author, title, etc.).
 \pkuthssextra@int@boolopt{pdfprop}{true}
 % Whether to use coloured hyperlinks in generated PDF.
 \pkuthssextra@int@boolopt{colorlinks}{true}
@@ -79,7 +79,8 @@
 	}
 	% Use circled numbers as footnote symbols. Does not affect title page, but
 	% footnote is rarely used in dissertation covers ;)
-	\renewcommand\thefootnote{\protect\pkuthssextra@int@circled{\arabic{footnote}}}
+	\renewcommand\thefootnote%
+		{\protect\pkuthssextra@int@circled{\arabic{footnote}}}
 	% Provides utility to modify footnote spacing.
 	% Option used to make sure it does not render interleaf pages totally blank.
 	\RequirePackage[cleardoublepage = current]{scrextend}
@@ -108,14 +109,14 @@
 \fi
 
 \ifpkuthssextra@opt@spacing
-	% Automatically ignore spaces between CJK characters and preserve spaces in other
-	% situations. XeCJK itself will handle this issue, therefore we do not use
+	% Automatically ignore spaces between CJK characters, or otherwise preserve
+	% spaces. XeCJK itself will handle this issue, therefore we do not use
 	% `CJKspace' when using XeLaTeX.
 	\unless\ifxetex\RequirePackage{CJKspace}\fi
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
-	% Lists often appear to be too sparse when items are just one or two lines long.
-	% Here we cancel the extra vertical spacing between list items.
+	% Lists often appear to be too sparse when items are just one or two lines
+	% long. Here we cancel the extra vertical spacing between list items.
 	\RequirePackage{enumitem}
 	\setlist{nolistsep}
 \fi
@@ -135,7 +136,7 @@
 
 \ifpkuthssextra@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
-	% the headers and footers in the chapter.
+	% up the headers and footers in the chapter.
 	\newcommand\specialchap[1]{
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
 		\markboth{#1}{}\phantomsection
@@ -164,7 +165,7 @@
 				pdfsubject = {\euniversity\ \ethesisname}, pdfkeywords = {\@ekeywords}
 			}
 		}
-		% Set the properties when generating the title page because the document
+		% Set up the properties when generating the title page because the document
 		% information should have been all defined before this.
 		\let\pkuthssextra@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
@@ -176,8 +177,8 @@
 		% Use coloured hyperlinks in generated PDF.
 		\hypersetup{colorlinks = true, allcolors = blue}
 	\else
-		% Set hyperlink colour to black in order to prevent hyperlinks from being too
-		% hard-to-recognise in printed thesis.
+		% Set hyperlink colour to black in order to prevent hyperlinks from being
+		% too hard-to-recognise in printed thesis.
 		\hypersetup{hidelinks}
 	\fi
 }
