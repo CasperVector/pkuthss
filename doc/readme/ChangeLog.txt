@@ -1,15 +1,37 @@
+2014-04-28, v1.6.0
+
+	* API Changes:
+	- New package option: `footfmt' and `pkuspace'.
+	- `tightlist' option merged into `spacing'; `caption' option removed.
+
+	* Changes to example template:
+	- Some changes regarding updates in school regulation.
+	- thesis.tex: add color package for \pkuthssffaq with noncolorlinks.
+	- chap/: again try to make enca(1) happy.
+
+	* Changes to package code:
+	- Major changes regarding updates in school regulation.
+
+	* Changes to documentation:
+	- Reorganise section tree.
+
+	* Misc:
+	- Update URL of project homepage.
+	- Minor fixes and aesthetic improvements.
+	- dist: remove version string from file name of TDS archive.
+
 2014-07-07, v1.5.5
 
 	* Changes to example template:
 	- Use the most frequently asked questions as the sample text.
-	- revert the black TOC, considering the new sample text.
+	- Revert the black TOC, considering the new sample text.
 
 	* Changes to package code:
 	- pkuthss.cls: use `PassOptionsToPackage' for *packages*.
 	- pkuthss-extra.sty: `hidelinks' does not hold a value.
 
 	* Changes to documentation:
-	- update info on `colorlinks'.
+	- Update info on `colorlinks'.
 
 	* Misc:
 	- Minor improvements.
@@ -17,7 +39,7 @@
 2014-07-04, v1.5.4
 
 	* Changes to example template:
-	- make TOC black, as stupidly required by PKU Library.
+	- Make TOC black, as stupidly required by PKU Library.
 
 	* Changes to documentation:
 	- re-sort and re-organise common problems.
