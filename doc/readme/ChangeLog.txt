@@ -17,8 +17,8 @@
 
 	* Misc:
 	- Update URL of project homepage.
+	- Fixes to packaging scripts regarding CTAN requirements.
 	- Minor fixes and aesthetic improvements.
-	- dist: remove version string from file name of TDS archive.
 
 2014-07-07, v1.5.5
 
@@ -27,7 +27,7 @@
 	- Revert the black TOC, considering the new sample text.
 
 	* Changes to package code:
-	- pkuthss.cls: use `PassOptionsToPackage' for *packages*.
+	- pkuthss.cls: use `\PassOptionsToPackage' for *packages*.
 	- pkuthss-extra.sty: `hidelinks' does not hold a value.
 
 	* Changes to documentation:
@@ -42,7 +42,7 @@
 	- Make TOC black, as stupidly required by PKU Library.
 
 	* Changes to documentation:
-	- re-sort and re-organise common problems.
+	- Re-sort and re-organise common problems.
 
 	* Misc:
 	- Minor fixes and improvements.
