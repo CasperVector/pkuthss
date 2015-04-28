@@ -60,69 +60,68 @@
 	因此建议用户使用支持 LF 换行的文本编辑器编辑文件，
 	详见第 \ref{sec:doc-dir} 节。
 
-	\section{其它可能存在的问题}
-		\subsection{上游宏包可能引起的问题}
+	\section{上游宏包可能引起的问题}
 
-		biblatex 宏包\supercite{biblatex}会自行设定 \verb|\bibname|，
-		故会覆盖通过 \verb|\CTEXoptions| 设定的参考文献列表标题。
-		使用 biblatex 的用户可以使用 \verb|\printbibliography| 的
-		\verb|title| 选项来手动设定参考文献列表的标题，例如：
+	biblatex 宏包\supercite{biblatex}会自行设定 \verb|\bibname|，
+	故会覆盖通过 \verb|\CTEXoptions| 设定的参考文献列表标题。
+	使用 biblatex 的用户可以使用 \verb|\printbibliography| 的
+	\verb|title| 选项来手动设定参考文献列表的标题，例如：
 \begin{Verbatim}[frame = single]
 \printbibliography[title = {文献}, ...] % “...”为其它选项。
 \end{Verbatim}
 
-		hyperref 宏包\supercite{hyperref}和一些宏包可能发生冲突。
-		关于如何避免这些冲突，
-		可以参考 hyperref 宏包的 README 文件中的“Package Compatibility”一节。
-		此文件通常和执行 \verb|texdoc hyperref| %
-		时打开的 pdf 文件位于同一目录中。
+	hyperref 宏包\supercite{hyperref}和一些宏包可能发生冲突。
+	关于如何避免这些冲突，
+	可以参考 hyperref 宏包的 README 文件中的“Package Compatibility”一节。
+	此文件通常和执行 \verb|texdoc hyperref| %
+	时打开的 pdf 文件位于同一目录中。
 
-		使用 \hologo{XeLaTeX} 的用户可能在已经安装字体的情况下遇到形如（其中
-		\verb|xxxxxxxx| 为具体字体名）
+	使用 \hologo{XeLaTeX} 的用户可能在已经安装字体的情况下遇到形如（其中
+	\verb|xxxxxxxx| 为具体字体名）
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 ! fontspec error: "font-not-found"
 ! The font "xxxxxxxx" cannot be found.
 ! See the fontspec documentation for further information.
 ! For immediate help type H <return>.
 \end{Verbatim}
-		的错误。
-		这种错误一般是（主要是非 Windows 平台的）用户采用了自定义的（包括大小写
-		不同于原文件的）字体文件名，
-		并改动 ctex.cfg 等配置文件之后没有在调用 pkuthss 文档类时加入
-		\verb|nofonts| 选项，
-		又使用 \hologo{XeLaTeX} 编译造成的，使用
+	的错误。
+	这种错误一般是（主要是非 Windows 平台的）用户采用了自定义的（包括大小写
+	不同于原文件的）字体文件名，
+	并改动 ctex.cfg 等配置文件之后没有在调用 pkuthss 文档类时加入
+	\verb|nofonts| 选项，
+	又使用 \hologo{XeLaTeX} 编译造成的，使用
 \begin{Verbatim}[frame = single]
 \documentclass[nofonts, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
-		即可解决此问题。
+	即可解决此问题。
 
-		biber 运行时有一定概率出现形如（目录名可能稍有不同）
+	biber 运行时有一定概率出现形如（目录名可能稍有不同）
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 data source .../par-xxxxxxxx/cache-xxxxxxxx/
 	inc/lib/Biber/LaTeX/recode_data.xml not found in .
 \end{Verbatim}
-		的错误。
-		这种错误一般是 biber 在自解压阶段被终止之后，
-		未删除 \verb|.../par-xxxxxxxx/| 这个临时目录就重新运行 biber 时出现。
-		遇到这种情况时，删除掉上述临时目录及其所有内容，
-		再重新运行 biber 通常便可解决问题。
+	的错误。
+	这种错误一般是 biber 在自解压阶段被终止之后，
+	未删除 \verb|.../par-xxxxxxxx/| 这个临时目录就重新运行 biber 时出现。
+	遇到这种情况时，删除掉上述临时目录及其所有内容，
+	再重新运行 biber 通常便可解决问题。
 
-		caption 宏包\supercite{caption}对于其不认识的宏包均会提示
+	caption 宏包\supercite{caption}对于其不认识的宏包均会提示
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 Package caption Warning: Unsupported document class (or package) detected,
 (caption)                usage of the caption package is not recommended.
 See the caption package documentation for explanation.
 \end{Verbatim}
-		pkuthss 文档模版基于 ctexbook 文档类，
-		而后者基于标准的 book 文档类。
-		因此，这个警告并不影响用户正常使用\footnote{%
-			\url{http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=63117&pid=402145}.%
-		}。
+	pkuthss 文档模版基于 ctexbook 文档类，
+	而后者基于标准的 book 文档类。
+	因此，这个警告并不影响用户正常使用\footnote{%
+		\url{http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=63117&pid=402145}.%
+	}。
 
-		\subsection{文档格式可能存在的问题}
+	\section{文档格式可能存在的问题}
 
-		研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面可能并不一致，
-		这里以电子版为准。
+	研究生手册和其电子版\supercite{pku-thesisstyle}要求的论文封面可能并不一致，
+	这里以电子版为准。
 
 	\section{反馈意见和建议}
 
