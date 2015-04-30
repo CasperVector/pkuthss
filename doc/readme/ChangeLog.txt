@@ -6,7 +6,7 @@
 
 	* Changes to example template:
 	- Some changes regarding updates in school regulation.
-	- thesis.tex: add color package for \pkuthssffaq with noncolorlinks.
+	- thesis.tex: add color package for `\pkuthssffaq' with noncolorlinks.
 	- chap/: again try to make enca(1) happy.
 
 	* Changes to package code:
