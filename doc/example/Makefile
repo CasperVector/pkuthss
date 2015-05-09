@@ -8,7 +8,6 @@
 JOBNAME = thesis
 # 这个变量的值可以为 latex、pdflatex 或 xelatex。
 LATEX = latex
-# 如果无法使用 biber，可以改为“bibtex”。
 BIBTEX = biber -l zh__pinyin
 DVIPDF = dvipdfmx
 
