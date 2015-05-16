@@ -1,4 +1,4 @@
-2014-05-16, v1.6.1
+2015-05-16, v1.6.1
 
 	* Changes to example template:
 	- Fix support for `openany'.
@@ -14,7 +14,7 @@
 	- Remove bibtex support because of upstream changes.
 	- Minor fixes and cosmetics.
 
-2014-04-28, v1.6.0
+2015-04-28, v1.6.0
 
 	* API Changes:
 	- New package option: `footfmt' and `pkuspace'.
