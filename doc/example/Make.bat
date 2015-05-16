@@ -36,4 +36,5 @@ echo %0 [doc] [clear]
 goto end
 
 :end
+pause
 
