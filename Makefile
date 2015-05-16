@@ -6,7 +6,7 @@
 TITLE = pkuthss
 README = $(TITLE)
 EXAMPLE = thesis
-VERSION = 1.6.0
+VERSION = 1.6.1
 
 default: dist
 

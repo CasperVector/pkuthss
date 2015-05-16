@@ -1,3 +1,19 @@
+2014-04-28, v1.6.1
+
+	* Changes to example template:
+	- Fix support for `openany'.
+	- Use more lightweight `latexsym' instead of `amssymb' for `\Box'.
+
+	* Changes to package code:
+	- Fix support for `openany'.
+
+	* Changes to documentation:
+	- Add note (and rant) about required format of bibliographies.
+
+	* Misc:
+	- Remove bibtex support because of upstream changes.
+	- Minor fixes and cosmetics.
+
 2014-04-28, v1.6.0
 
 	* API Changes:
@@ -49,13 +65,13 @@
 
 2014-05-23, v1.5.3
 
-	* Changes to package code:
-	- Use `\newcommand*'/`\renewcommand*' when appropriate.
-	- Fix bookmarks in pdflatex/gbk compilation by introducing xCJK2uni.
-
 	* Changes to example template:
 	- No longer require gbk2uni.
 	- Exemplify `\cite', `\parencite' and `\supercite'.
+
+	* Changes to package code:
+	- Use `\newcommand*'/`\renewcommand*' when appropriate.
+	- Fix bookmarks in pdflatex/gbk compilation by introducing xCJK2uni.
 
 	* Changes to documentation:
 	- No longer recommend the CTeX Suite.
