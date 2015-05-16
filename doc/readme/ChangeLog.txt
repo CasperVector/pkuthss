@@ -1,4 +1,4 @@
-2014-04-28, v1.6.1
+2014-05-16, v1.6.1
 
 	* Changes to example template:
 	- Fix support for `openany'.
