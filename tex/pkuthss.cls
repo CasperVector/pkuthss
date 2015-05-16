@@ -99,6 +99,42 @@
 	\fi
 }
 
+% eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
+%   \def\ctitle#1{\def\@ctitle{#1}}
+%   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
+\def\pkuthss@int@infoitema#1{
+	\@namedef{#1}##1{\@namedef{@#1}{##1}}
+	\define@key{pkuthss@info}{#1}{\@nameuse{#1}{##1}}
+}
+% eg. `\pkuthss@int@infoitemb{cuniversity}' will expand to:
+%   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
+\def\pkuthss@int@infoitemb#1{
+	\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
+}
+% Set up document information entries.
+\pkuthss@int@infoitema{ctitle}
+\pkuthss@int@infoitema{etitle}
+\pkuthss@int@infoitema{cauthor}
+\pkuthss@int@infoitema{eauthor}
+\pkuthss@int@infoitema{studentid}
+\pkuthss@int@infoitema{date}
+\pkuthss@int@infoitema{school}
+\pkuthss@int@infoitema{cmajor}
+\pkuthss@int@infoitema{emajor}
+\pkuthss@int@infoitema{direction}
+\pkuthss@int@infoitema{cmentor}
+\pkuthss@int@infoitema{ementor}
+\pkuthss@int@infoitema{ckeywords}
+\pkuthss@int@infoitema{ekeywords}
+\pkuthss@int@infoitemb{cuniversity}
+\pkuthss@int@infoitemb{euniversity}
+\pkuthss@int@infoitemb{cthesisname}
+\pkuthss@int@infoitemb{ethesisname}
+\pkuthss@int@infoitemb{cabstractname}
+\pkuthss@int@infoitemb{eabstractname}
+% Set up document information using the `key = value' grammar.
+\newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
+
 % Set up page layout.
 \geometry{
 	a4paper, includefoot, hmargin = 2.6cm, top = 3cm, bottom = 2.5cm,
@@ -166,42 +202,6 @@
 	}
 	\pkuthss@int@setpagestyle
 \fi
-
-% eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
-%   \def\ctitle#1{\def\@ctitle{#1}}
-%   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
-\def\pkuthss@int@infoitema#1{
-	\@namedef{#1}##1{\@namedef{@#1}{##1}}
-	\define@key{pkuthss@info}{#1}{\@nameuse{#1}{##1}}
-}
-% eg. `\pkuthss@int@infoitemb{cuniversity}' will expand to:
-%   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
-\def\pkuthss@int@infoitemb#1{
-	\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
-}
-% Set up document information entries.
-\pkuthss@int@infoitema{ctitle}
-\pkuthss@int@infoitema{etitle}
-\pkuthss@int@infoitema{cauthor}
-\pkuthss@int@infoitema{eauthor}
-\pkuthss@int@infoitema{studentid}
-\pkuthss@int@infoitema{date}
-\pkuthss@int@infoitema{school}
-\pkuthss@int@infoitema{cmajor}
-\pkuthss@int@infoitema{emajor}
-\pkuthss@int@infoitema{direction}
-\pkuthss@int@infoitema{cmentor}
-\pkuthss@int@infoitema{ementor}
-\pkuthss@int@infoitema{ckeywords}
-\pkuthss@int@infoitema{ekeywords}
-\pkuthss@int@infoitemb{cuniversity}
-\pkuthss@int@infoitemb{euniversity}
-\pkuthss@int@infoitemb{cthesisname}
-\pkuthss@int@infoitemb{ethesisname}
-\pkuthss@int@infoitemb{cabstractname}
-\pkuthss@int@infoitemb{eabstractname}
-% Set up document information using the `key = value' grammar.
-\newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
 % This places a bookmark pointing to somewhere near the page header;
 % Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
