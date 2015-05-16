@@ -84,6 +84,9 @@
 	* Changes to package code:
 	- Improve eps-to-pdf related script.
 
+	* Changes to documentation:
+	- Remove now legacy package code listings.
+
 	* Misc:
 	- qa: fix whitespace check.
 	- Minor improvements.
