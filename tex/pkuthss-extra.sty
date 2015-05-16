@@ -124,18 +124,18 @@
 \ifpkuthssextra@opt@pdftoc
 	% Add PDF bookmark for table of contents.
 	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
-	\renewcommand{\tableofcontents}{
+	\renewcommand{\tableofcontents}{%
 		\pkuthss@int@pdfmark{\contentsname}{contents}
-		\pkuthssextra@tmp@tableofcontents
+		\pkuthssextra@tmp@tableofcontents%
 	}
 \fi
 
 \ifpkuthssextra@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% up the headers and footers in the chapter.
-	\newcommand\specialchap[1]{
+	\newcommand\specialchap[1]{%
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
-		\markboth{#1}{}\phantomsection
+		\markboth{#1}{}\phantomsection%
 	}
 \fi
 
@@ -155,11 +155,11 @@
 	\ifpkuthssextra@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
-		\newcommand*{\setpdfproperties}{
+		\newcommand*{\setpdfproperties}{%
 			\hypersetup{
 				pdfauthor = {\@eauthor}, pdftitle = {\@etitle},
 				pdfsubject = {\euniversity\ \ethesisname}, pdfkeywords = {\@ekeywords}
-			}
+			}%
 		}
 		% Set up the properties when generating the title page because the document
 		% information should have been all defined before this.

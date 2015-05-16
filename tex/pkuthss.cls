@@ -206,13 +206,13 @@
 % This places a bookmark pointing to somewhere near the page header;
 % Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
 % because the bookmark will point to somewhere below the chapter mark.
-\def\pkuthss@int@pdfmark#1#2{
+\def\pkuthss@int@pdfmark#1#2{%
 	\if@openright\cleardoublepage\else\clearpage\fi
-	\pdfbookmark[1]{#1}{#2}
+	\pdfbookmark[1]{#1}{#2}%
 }
 
 % Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
-\def\pkuthss@int@fillinblank#1#2#3{
+\def\pkuthss@int@fillinblank#1#2#3{%
 	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
 	\parbox[t]{#2}{%
 		\newcount\pkuthss@tmp@linecount
@@ -232,7 +232,7 @@
 }
 
 % Set up format of the title page (cover).
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}{%
 	\pkuthss@int@pdfmark{\titlepagename}{titlepage}
 	\begin{titlepage}
 		% It will be nicer to use this line skip level in the title page.
@@ -240,21 +240,21 @@
 		% Make the title page centered.
 		\begin{center}
 			% Emblem and inscription of the university, and type of thesis.
-			{
+			{%
 				\zihao{1}%
 				\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
 				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
-				{\bfseries{\cthesisname}}
+				{\bfseries{\cthesisname}}%
 			}
 			\vfill
 			% Title of the thesis.
-			{
+			{%
 				\zihao{2}{\label@ctitle}%
-				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}
+				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
 			}
 			\vfill
 			% Information about the author.
-			{
+			{%
 				% Slightly adjust the line skip when using new font size.
 				\zihao{3}\linespread{1.75}\selectfont
 				\def\pkuthss@tmp@len{0.56\textwidth}
@@ -271,26 +271,26 @@
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@direction}	\\
 					{\heiti\label@cmentor}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmentor}		\\
-				\end{tabular}
+				\end{tabular}%
 			}
 			\vfill
 			% Date.
 			{\zihao{-2}\@date}
 		\end{center}
-	\end{titlepage}
+	\end{titlepage}%
 }
 
 % Typeset the Chinese abstract.
-\newenvironment{cabstract}{
+\newenvironment{cabstract}{%
 	\pkuthss@int@pdfmark{\cabstractname}{cabstract}
 	\chapter*{\cabstractname}
-	\markboth{\cabstractname}{}
+	\markboth{\cabstractname}{}%
 }{% Keywords at the bottom of the page.
-	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}
+	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}%
 }
 
 % Typeset the English abstract.
-\newenvironment{eabstract}{
+\newenvironment{eabstract}{%
 	\pkuthss@int@pdfmark{\eabstractname}{eabstract}
 	\chapter*{\sffamily\@etitle}
 	\markboth{\eabstractname}{}
@@ -299,9 +299,9 @@
 		{\label@ementor}{\@ementor}\\[2em]
 		\textbf{\sffamily\eabstractname}
 	\end{center}
-	\par
+	\par%
 }{% Keywords at the bottom of the page.
-	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}
+	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}%
 }
 
 \endinput
