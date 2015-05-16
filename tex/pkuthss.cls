@@ -230,7 +230,8 @@
 		\repeat%
 	}%
 }
-% Set format of the title page (cover).
+
+% Set up format of the title page (cover).
 \renewcommand{\maketitle}{
 	\pkuthss@int@pdfmark{\titlepagename}{titlepage}
 	\begin{titlepage}
