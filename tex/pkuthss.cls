@@ -203,6 +203,14 @@
 % Set up document information using the `key = value' grammar.
 \newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
 
+% This places a bookmark pointing to somewhere near the page header;
+% Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
+% because the bookmark will point to somewhere below the chapter mark.
+\def\pkuthss@int@pdfmark#1#2{
+	\if@openright\cleardoublepage\else\clearpage\fi
+	\pdfbookmark[1]{#1}{#2}
+}
+
 % Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
 \def\pkuthss@int@fillinblank#1#2#3{
 	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
@@ -224,9 +232,7 @@
 }
 % Set format of the title page (cover).
 \renewcommand{\maketitle}{
-	\cleardoublepage
-	% Add PDF bookmark for the title page.
-	\pdfbookmark[1]{\titlepagename}{titlepage}
+	\pkuthss@int@pdfmark{\titlepagename}{titlepage}
 	\begin{titlepage}
 		% It will be nicer to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
@@ -275,8 +281,7 @@
 
 % Typeset the Chinese abstract.
 \newenvironment{cabstract}{
-	\cleardoublepage
-	\pdfbookmark[1]{\cabstractname}{cabstract}
+	\pkuthss@int@pdfmark{\cabstractname}{cabstract}
 	\chapter*{\cabstractname}
 	\markboth{\cabstractname}{}
 }{% Keywords at the bottom of the page.
@@ -285,8 +290,7 @@
 
 % Typeset the English abstract.
 \newenvironment{eabstract}{
-	\cleardoublepage
-	\pdfbookmark[1]{\eabstractname}{eabstract}
+	\pkuthss@int@pdfmark{\eabstractname}{eabstract}
 	\chapter*{\sffamily\@etitle}
 	\markboth{\eabstractname}{}
 	\begin{center}

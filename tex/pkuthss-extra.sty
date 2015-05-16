@@ -125,11 +125,7 @@
 	% Add PDF bookmark for table of contents.
 	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
 	\renewcommand{\tableofcontents}{
-		% Make the `Contents' bookmark point correctly to the title of the table of
-		% contents.
-		\cleardoublepage
-		% Actually add the PDF bookmark.
-		\pdfbookmark[1]{\contentsname}{contents}
+		\pkuthss@int@pdfmark{\contentsname}{contents}
 		\pkuthssextra@tmp@tableofcontents
 	}
 \fi
