@@ -151,7 +151,7 @@
 \CTEXsetup[
 	nameformat = {\zihao{-2}\bfseries},
 	titleformat = {\zihao{-2}\bfseries},
-	beforeskip = {20bp}, afterskip = {18bp}
+	beforeskip = {0bp}, afterskip = {18bp}
 ]{chapter}
 \CTEXsetup[
 	format = {\zihao{-3}\bfseries},
