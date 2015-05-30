@@ -26,19 +26,14 @@ tex-dist: tex/
 doc-dist: doc/
 	# Make the directory.
 	$(MD) $@/
-	# Example pdf.
-	$(MAKE) toutf8
+	# Example src and pdf.
 	cd doc/example/ && $(MAKE) && $(MAKE) clean
 	$(MV) doc/example/$(EXAMPLE).pdf $@/example.pdf
-	# Example src.
-	$(CP) doc/example/ $@/example-utf8
-	$(MAKE) togbk
-	$(CP) doc/example/ $@/example-gbk
-	$(MAKE) toutf8
+	$(CP) doc/example/ $@/example
 	# Readme src and pdf.
 	cd doc/readme/ && $(MAKE) && $(MAKE) clean
 	$(MV) doc/readme/$(README).pdf $@/readme.pdf
-	$(CP) doc/readme/ $@/readme-src
+	$(CP) doc/readme/ $@/readme
 
 dir-tds: tex-dist doc-dist
 	$(MD) $@/tex/latex/ $@/doc/latex/
