@@ -80,11 +80,15 @@
 \begin{document}
 	% 以下为正文之前的部分，默认不进行章节编号。
 	\frontmatter
+	% 此后到下一 \pagestyle 命令之前不排版页眉或页脚。
+	\pagestyle{empty}
 	% 自动生成封面。
 	\maketitle
 
-	% 封面要求单面打印，故需新开右页。
+	% 此后到下一 \pagestyle 命令之前正常排版页眉和页脚。
+	% 封面要求单面打印，故需新开右页，此处已一并实现。
 	\cleardoublepage
+	\pagestyle{plain}
 	% 重置页码计数器，用大写罗马数字排版此部分页码。
 	\setcounter{page}{0}
 	\pagenumbering{Roman}
