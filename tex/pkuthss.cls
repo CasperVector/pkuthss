@@ -86,8 +86,8 @@
 			}
 	\else\ifpdf
 		% Fix garbled text in bookmarks for pdfLaTeX compilation in GBK.
-		% Temporary fix until release of ctex 2.x, which will by itself
-		% load xCJK2uni when necessary.
+		% Compatibility settings for ctex 1.x, to be removed in 2017; ctex 2.x
+		% loads xCJK2uni by itself when necessary.
 		\RequirePackage{xCJK2uni}
 	\fi\fi
 \fi
@@ -155,17 +155,17 @@
 ]{chapter}
 \CTEXsetup[
 	format = {\zihao{-3}\bfseries},
-	beforeskip = {-20bp plus -1ex minus -0.2ex},
+	beforeskip = {20bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{section}
 \CTEXsetup[
 	format = {\zihao{4}\bfseries},
-	beforeskip = {-12bp plus -1ex minus -0.2ex},
+	beforeskip = {12bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{subsection}
 \CTEXsetup[
 	format = {\bfseries},
-	beforeskip = {-12bp plus -1ex minus -0.2ex},
+	beforeskip = {12bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{subsubsection}
 

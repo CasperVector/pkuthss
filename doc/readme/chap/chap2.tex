@@ -174,7 +174,7 @@
 		\end{itemize}
 
 		例如，图书馆要求电子版论文的目录必须为黑色，
-		且某些教务要求打印版论文的文字部分为纯黑色而非灰度打印。
+		且某些教务要求打印版论文的文字部分为纯黑而非灰度打印。
 		此时用户\myemph{%
 			可以启用 pkuthss-extra 宏包的 \texttt{nocolorlinks} 选项，
 			使所有的链接变为黑色，以免影响提交%
@@ -306,7 +306,12 @@
 		geometry\supercite{geometry}、fancyhdr\supercite{fancyhdr} %
 		和 graphicx\supercite{graphicx} 等几个宏包；
 		使用 \hologo{pdfLaTeX} 方式编译 GBK 编码的源文件时还会调用
-		xCJK2uni\supercite{xCJK2uni} 宏包。
+		xCJK2uni\supercite{xCJK2uni} 宏包\footnote{\ %
+			ctex 2.x 会自行调用 xCJK2uni 宏包，
+			不用在 pkuthss 文档类中重复调用；
+			这里调用 xCJK2un 是为了兼容 ctex 1.x 而进行的设定，
+			该设定将在 2017 年被去除。%
+		}。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
 		例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
