@@ -25,7 +25,7 @@ endif
 doc:
 	$(LATEX1) $(JOBNAME)
 	$(BIBTEX) $(JOBNAME)
-	$(LATEX1) $(JOBNAME)
+	$(LATEX2) $(JOBNAME)
 	$(LATEX2) $(JOBNAME)
 	$(DODVIPDF)
 
