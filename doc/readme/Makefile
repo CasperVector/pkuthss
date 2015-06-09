@@ -5,21 +5,28 @@
 # Public domain.
 
 JOBNAME = pkuthss
-LATEX = latex
 BIBTEX = biber -l zh__pinyin
 DVIPDF = dvipdfmx
 MAKE = make
 RM = rm -f
+
+ifndef LATEX
+	LATEX1 = latex
+	LATEX2 = xelatex
+else
+	LATEX1 = $(LATEX)
+	LATEX2 = $(LATEX)
+endif
 
 ifeq ($(LATEX), latex)
 	DODVIPDF = $(DVIPDF) $(JOBNAME)
 endif
 
 doc:
-	$(LATEX) $(JOBNAME)
+	$(LATEX1) $(JOBNAME)
 	$(BIBTEX) $(JOBNAME)
-	$(LATEX) $(JOBNAME)
-	$(LATEX) $(JOBNAME)
+	$(LATEX1) $(JOBNAME)
+	$(LATEX2) $(JOBNAME)
 	$(DODVIPDF)
 
 clean:
