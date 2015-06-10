@@ -126,9 +126,26 @@ texdoc pkuthss
 			请参考 \texttt{copyright.tex} 和
 			\texttt{originauth.tex} 中的相关注释。%
 		}
+
+		\item \verb|misc/|：
+			目录，目前包含比较常用的字体配置：
+		\begin{itemize}
+			\item \verb|ctexopts.cfg|、\verb|ctex-fontset-pkuthss.def|：
+				适用于 2.0 及以后版本的 ctex 宏包\supercite{ctex}。
+			\item \verb|ctex-xecjk-windows.def|：
+				适用于 2.0 以前版本的 ctex 宏包。
+		\end{itemize}
+		使用时，
+		请将和用户系统中 ctex 宏包版本相匹配的\myemph{所有}配置文件
+		复制到模板的主目录中。
 	\end{itemize}
 
 	\section{编译方式}\label{sec:compile}
+
+	首次编译前，
+	请将 \verb|misc/| 目录中和
+	用户系统中 ctex 宏包版本相匹配的配置文件复制到模板的主目录中，
+	详见第 \ref{sec:doc-dir} 节。
 
 	pkuthss 文档模版支持三种编译方式，即
 	\begin{itemize}
