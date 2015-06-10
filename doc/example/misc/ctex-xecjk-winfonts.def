@@ -8,15 +8,15 @@
 \setCJKfamilyfont{zhhei}{SimHei}
 \setCJKfamilyfont{zhkai}{[simkai.ttf]}
 \setCJKfamilyfont{zhfs}{[simfang.ttf]}
-%\setCJKfamilyfont{zhyou}{YouYuan}
 %\setCJKfamilyfont{zhli}{LiSu}
+%\setCJKfamilyfont{zhyou}{YouYuan}
 
 \newcommand*{\songti}{\CJKfamily{zhsong}}
 \newcommand*{\heiti}{\CJKfamily{zhhei}}
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}
 \newcommand*{\fangsong}{\CJKfamily{zhfs}}
-%\newcommand*{\youyuan}{\CJKfamily{zhyou}}
 %\newcommand*{\lishu}{\CJKfamily{zhli}}
+%\newcommand*{\youyuan}{\CJKfamily{zhyou}}
 
 \endinput
 
