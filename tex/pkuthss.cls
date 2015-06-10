@@ -259,17 +259,17 @@
 				\zihao{3}\linespread{1.75}\selectfont
 				\def\pkuthss@tmp@len{0.56\textwidth}
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
-					{\heiti\label@cauthor}		&
+					{\bfseries\label@cauthor}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cauthor}		\\
-					{\heiti\label@studentid}	&
+					{\bfseries\label@studentid}	&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@studentid}	\\
-					{\heiti\label@school}			&
+					{\bfseries\label@school}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@school}		\\
-					{\heiti\label@cmajor}			&
+					{\bfseries\label@cmajor}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmajor}		\\
-					{\heiti\label@direction}	&
+					{\bfseries\label@direction}	&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@direction}	\\
-					{\heiti\label@cmentor}		&
+					{\bfseries\label@cmentor}		&
 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmentor}		\\
 				\end{tabular}%
 			}
