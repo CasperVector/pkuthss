@@ -1,3 +1,23 @@
+2015-05-30, v1.6.2
+
+	* Changes to example template:
+	- Template in GBK no longer provided because of UTF-8 popularisation.
+	- Add font configuration files.
+	- Previously overlooked format update about `copyright' and `originauth'.
+	- Make.bat: add `pause' to ease debugging; `clear' -> `clean'.
+
+	* Changes to package code:
+	- pkuthss.cls: refine `beforeskip' for `\chapter'.
+
+	* Changes to documentation:
+	- Makefile: default to the latex/biber/xelatex/xelatex procedure.
+	- acknowledge.tex: Casper was here.
+
+	* Misc:
+	- Adapt to ctex 2.x.
+	- Somehow alleviate the sorting issue with biblatex 3.0.
+	- Minor fixes and cosmetics.
+
 2015-05-16, v1.6.1
 
 	* Changes to example template:
