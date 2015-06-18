@@ -60,7 +60,7 @@
 
 	\section{上游宏包可能引起的问题}
 
-	biblatex 宏包\supercite{biblatex}会自行设定 \verb|\bibname|，
+	biblatex\supercite{biblatex} 宏包会自行设定 \verb|\bibname|，
 	故会覆盖通过 \verb|\CTEXoptions| 设定的参考文献列表标题。
 	使用 biblatex 的用户可以使用 \verb|\printbibliography| 的
 	\verb|title| 选项来手动设定参考文献列表的标题，例如：
@@ -68,7 +68,7 @@
 \printbibliography[title = {文献}, ...] % “...”为其它选项。
 \end{Verbatim}
 
-	hyperref 宏包\supercite{hyperref}和一些宏包可能发生冲突。
+	hyperref\supercite{hyperref} 宏包和一些宏包可能发生冲突。
 	关于如何避免这些冲突，
 	可以参考 hyperref 宏包的 README 文件中的“Package Compatibility”一节。
 	此文件通常和执行 \verb|texdoc hyperref| %
@@ -104,7 +104,7 @@ data source .../par-xxxxxxxx/cache-xxxxxxxx/
 	遇到这种情况时，删除掉上述临时目录及其所有内容，
 	再重新运行 biber 通常便可解决问题。
 
-	caption 宏包\supercite{caption}对于其不认识的宏包均会提示
+	caption\supercite{caption} 宏包对于其不认识的宏包均会提示
 \begin{Verbatim}[frame = single, fontsize = {\small}]
 Package caption Warning: Unsupported document class (or package) detected,
 (caption)                usage of the caption package is not recommended.
