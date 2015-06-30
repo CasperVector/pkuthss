@@ -1,3 +1,12 @@
+2015-06-30, v1.6.3
+
+	* Changes to documentation:
+	- Disambiguate file names wrt CTAN recommendation.
+	- pkuthss-chap2.tex: fix some minor details.
+
+	* Misc:
+	- dist: reduce duplication in zipballs according to CTAN recommendation.
+
 2015-05-30, v1.6.2
 
 	* Changes to example template:
