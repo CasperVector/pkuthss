@@ -81,6 +81,10 @@
 \RequirePackage{graphicx}[1999/02/16]
 % Provides utilities for setting up page layout.
 \RequirePackage{geometry}
+% `hyperref', `fntef', `fancyhdr' and `cs4size' are deprecated in ctex 2.x.
+% hyperref now does not make citation hyperlinks if not explicitly loaded.
+% All compatibility support for ctex 1.x is scheduled for removal in 2017.
+\RequirePackage{hyperref}
 % Whether to enable the default extra settings.
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
