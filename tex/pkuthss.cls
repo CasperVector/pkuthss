@@ -28,19 +28,16 @@
 \ProvidesClass{pkuthss}
 	[2015/06/30 v1.6.3 Peking University dissertation document class]
 
-% Process the encoding options.
-\newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
-\DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
-\DeclareOption{UTF8}%
-	{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
-% Whether to enable `\Uppercase' (works problematically) in heading marks.
-\newif\ifpkuthss@opt@uppermark \pkuthss@opt@uppermarkfalse
-\DeclareOption{uppermark}{\pkuthss@opt@uppermarktrue}
-\DeclareOption{nouppermark}{\pkuthss@opt@uppermarkfalse}
-% Whether to enable the default extra settings.
-\newif\ifpkuthss@opt@extra \pkuthss@opt@extratrue
-\DeclareOption{extra}{\pkuthss@opt@extratrue}
-\DeclareOption{noextra}{\pkuthss@opt@extrafalse}
+% eg. `\pkuthss@int@boolopt{spacing}{true}' will expand to:
+%   \newif\ifpkuthss@opt@spacing \pkuthss@opt@spacingtrue
+%   \DeclareOption{spacing}{\pkuthss@opt@spacingtrue}
+%   \DeclareOption{nospacing}{\pkuthss@opt@spacingfalse}
+\def\pkuthss@int@boolopt#1#2{
+	\expandafter\newif\csname ifpkuthss@opt@#1\endcsname
+	\@nameuse{pkuthss@opt@#1#2}
+	\DeclareOption{#1}{\@nameuse{pkuthss@opt@#1true}}
+	\DeclareOption{no#1}{\@nameuse{pkuthss@opt@#1false}}
+}
 % eg. `\pkuthss@int@extraopt{spacing}' will expand to:
 %   \DeclareOption{spacing}{\PassOptionsToPackage{spacing}{pkuthss-extra}}
 %   \DeclareOption{nospacing}{\PassOptionsToPackage{nospacing}{pkuthss-extra}}
@@ -48,6 +45,14 @@
 	\DeclareOption{#1}{\PassOptionsToPackage{#1}{pkuthss-extra}}
 	\DeclareOption{no#1}{\PassOptionsToPackage{no#1}{pkuthss-extra}}
 }
+% Process the encoding options.
+\newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
+\DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
+\DeclareOption{UTF8}{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
+% Whether to enable `\Uppercase' (works problematically) in heading marks.
+\pkuthss@int@boolopt{uppermark}{false}
+% Whether to enable the default extra settings.
+\pkuthss@int@boolopt{extra}{true}
 % Pass options to `pkuthss-extra'.
 % See pkuthss-extra.sty for an explanation of the options.
 \pkuthss@int@extraopt{footfmt}

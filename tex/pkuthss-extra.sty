@@ -35,35 +35,25 @@
 		{The pkuthss-extra package depends on the pkuthss document class.}
 }
 
-% eg. `\pkuthssextra@int@boolopt{spacing}{true}' will expand to:
-%   \newif\ifpkuthssextra@opt@spacing \pkuthssextra@opt@spacingtrue
-%   \DeclareOption{spacing}{\pkuthssextra@opt@spacingtrue}
-%   \DeclareOption{nospacing}{\pkuthssextra@opt@spacingfalse}
-\def\pkuthssextra@int@boolopt#1#2{
-	\expandafter\newif\csname ifpkuthssextra@opt@#1\endcsname
-	\@nameuse{pkuthssextra@opt@#1#2}
-	\DeclareOption{#1}{\@nameuse{pkuthssextra@opt@#1true}}
-	\DeclareOption{no#1}{\@nameuse{pkuthssextra@opt@#1false}}
-}
 % Whether to modify footnote format.
-\pkuthssextra@int@boolopt{footfmt}{true}
+\pkuthss@int@boolopt{footfmt}{true}
 % Whether to modify spacing according to school regulation.
-\pkuthssextra@int@boolopt{pkuspace}{true}
+\pkuthss@int@boolopt{pkuspace}{true}
 % Whether to use some common settings for adjusting spacing.
-\pkuthssextra@int@boolopt{spacing}{true}
+\pkuthss@int@boolopt{spacing}{true}
 % Add PDF bookmark for table of contents.
-\pkuthssextra@int@boolopt{pdftoc}{true}
+\pkuthss@int@boolopt{pdftoc}{true}
 % Whether to enable the `\spacialchap' command.
-\pkuthssextra@int@boolopt{spechap}{true}
+\pkuthss@int@boolopt{spechap}{true}
 % Whether to automatically set up properties for generated PDF from user
 % defined document information (author, title, etc.).
-\pkuthssextra@int@boolopt{pdfprop}{true}
+\pkuthss@int@boolopt{pdfprop}{true}
 % Whether to use coloured hyperlinks in generated PDF.
-\pkuthssextra@int@boolopt{colorlinks}{true}
+\pkuthss@int@boolopt{colorlinks}{true}
 % Process all class options now.
 \ProcessOptions\relax
 
-\ifpkuthssextra@opt@footfmt
+\ifpkuthss@opt@footfmt
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
 	\unless\ifxetex\unless\ifpdf
 		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}
@@ -89,7 +79,7 @@
 	\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
 \fi
 
-\ifpkuthssextra@opt@pkuspace
+\ifpkuthss@opt@pkuspace
 	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
 	\linespread{1.39}\selectfont
 	% Quite harmless and frequently used package. Loaded together with `tocloft'
@@ -108,7 +98,7 @@
 	\captionsetup{font = cfive, labelsep = quad}
 \fi
 
-\ifpkuthssextra@opt@spacing
+\ifpkuthss@opt@spacing
 	% Automatically ignore spaces between CJK characters, or otherwise preserve
 	% spaces. XeCJK itself will handle this issue, therefore we do not use
 	% `CJKspace' when using XeLaTeX.
@@ -121,7 +111,7 @@
 	\setlist{nolistsep}
 \fi
 
-\ifpkuthssextra@opt@pdftoc
+\ifpkuthss@opt@pdftoc
 	% Add PDF bookmark for table of contents.
 	\let\pkuthssextra@tmp@tableofcontents\tableofcontents
 	\renewcommand{\tableofcontents}{%
@@ -130,7 +120,7 @@
 	}
 \fi
 
-\ifpkuthssextra@opt@spechap
+\ifpkuthss@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% up the headers and footers in the chapter.
 	\newcommand\specialchap[1]{%
@@ -140,7 +130,7 @@
 \fi
 
 \AtBeginDocument{
-	\ifpkuthssextra@opt@pkuspace
+	\ifpkuthss@opt@pkuspace
 		% Kludge for `tocloft' used with `ctex'.
 		% <http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=43535&pid=310238>.
 		\renewcommand{\numberline}[1]{%
@@ -152,7 +142,7 @@
 		}%
 	\fi
 
-	\ifpkuthssextra@opt@pdfprop
+	\ifpkuthss@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
 		\newcommand*{\setpdfproperties}{%
@@ -169,7 +159,7 @@
 		\renewcommand\maketitle{\setpdfproperties\pkuthssextra@tmp@maketitle}
 	\fi
 
-	\ifpkuthssextra@opt@colorlinks
+	\ifpkuthss@opt@colorlinks
 		% Use coloured hyperlinks in generated PDF.
 		\hypersetup{colorlinks = true, allcolors = blue}
 	\else
