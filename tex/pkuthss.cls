@@ -51,6 +51,8 @@
 \DeclareOption{UTF8}{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
 % Whether to enable `\Uppercase' (works problematically) in heading marks.
 \pkuthss@int@boolopt{uppermark}{false}
+% Whether to modify fonts according to school regulation.
+\pkuthss@int@boolopt{pkufont}{true}
 % Whether to enable the default extra settings.
 \pkuthss@int@boolopt{extra}{true}
 % Pass options to `pkuthss-extra'.
@@ -67,6 +69,8 @@
 % Process all class options now.
 \ProcessOptions\relax
 
+% Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
+\ifpkuthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
 % CJKfntef provides `\CJKunderline' used in `\maketitle'.
 % fancyhdr provides utilities for setting up headers and footers.
@@ -103,6 +107,16 @@
 	\else\input{pkuthss-utf8.def}
 	\fi
 }
+
+\ifpkuthss@opt@pkufont
+	% Use Times New Roman / Arial according to school regulation.
+	% Option used to prevent newtxtext from manipulating footnote marks.
+	\RequirePackage[defaultsups]{newtxtext}
+	\RequirePackage{newtxmath}
+\else
+	% Provides `\Box' for originauth.tex if newtx is absent.
+	\RequirePackage{latexsym}
+\fi
 
 % eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}

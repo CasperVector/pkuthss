@@ -39,6 +39,10 @@
 				用户如果不需要自动载入 pkuthss-extra 宏包，
 				则需要在载入 pkuthss 时加上 \verb|noextra| 选项。
 
+			\item \textbf{\texttt{[no]pkufont}}：
+				是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+				将英文字体改为类似于 Times New Roman / Arial 的字体。
+
 			\item \textbf{\texttt{[no]uppermark}}：
 				是否在页眉中将章节名中的小写字母转换为大写字母。
 				就目前而言，
@@ -312,7 +316,10 @@
 			不用在 pkuthss 文档类中重复调用；
 			这里调用 xCJK2un 是为了兼容 ctex 1.x 而进行的设定，
 			该设定将在 2017 年被去除。%
-		}。
+		}；
+		启用 \verb|pkufont| 选项时会调用 %
+		newtxtext 和 newtxmath\supercite{newtx} 宏包，
+		否则会调用 latexsym\supercite{latexsym} 宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
 		例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
