@@ -62,6 +62,9 @@
 % Process all class options now.
 \ProcessOptions\relax
 
+% Non-opentype font packages for text/math (no \ifxetex needed)
+\PassOptionsToPackage{no-math}{fontspec}
+
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
 % CJKfntef provides `\CJKunderline' used in `\maketitle'.
 % fancyhdr provides utilities for setting up headers and footers.
