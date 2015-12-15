@@ -85,6 +85,7 @@
 \ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
 \ifpkuthss@opt@gbk
+	\input{pkuthss-gbk.def}
 	\ifxetex
 		% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
 		\ClassError{pkuthss}%
@@ -99,14 +100,9 @@
 		% loads xCJK2uni by itself when necessary.
 		\RequirePackage{xCJK2uni}
 	\fi\fi
+\else
+	\input{pkuthss-utf8.def}
 \fi
-
-\AtEndOfClass{
-	% Set up chinese captions and labels.
-	\ifpkuthss@opt@gbk\input{pkuthss-gbk.def}
-	\else\input{pkuthss-utf8.def}
-	\fi
-}
 
 \ifpkuthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
