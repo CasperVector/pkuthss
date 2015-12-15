@@ -25,7 +25,7 @@
 %   pkuword.eps
 
 \ProvidesFile{pkuthss-gbk.def}
-	[2015/06/30 v1.6.3 Labels and captions in GBK encoding
+	[2015/12/15 v1.6.4 Labels and captions in GBK encoding
 		for the pkuthss document class]
 
 \def\label@ctitle{ÌâÄ¿£º}

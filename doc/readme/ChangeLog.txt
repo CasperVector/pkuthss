@@ -1,3 +1,27 @@
+2015-12-15, v1.6.4
+
+	* API Changes:
+	- New package option: `pkufont'.
+
+	* Changes to example template:
+	- Loading of newtx packages moved into package code.
+	- originauth.tex: `\square' -> `\Box'.
+	- ctex-fontset-pkuthss.def: comment out li/you to avoid surprises.
+
+	* Changes to package code:
+	- Fix maths fonts with newtx when using XeLaTeX, thanks to @LeoLiu.
+	- pkuthss.cls: work around non-hyperlinked citations.
+	- `\pkuthssextra@int@boolopt' -> `\pkuthss@int@boolopt'.
+	- pkuthss.cls: remove unnecessary `\AtEndofClass'.
+
+	* Changes to documentation:
+	- pkuthss.bib: pku-thesisstyle updated to v2.0, no substantial changes.
+	- pkuthss-acknowledge.tex: some "lyric" text.
+
+	* Misc:
+	- Homepage moved to GitLab.
+	- Minor fixes and cosmetics.
+
 2015-06-30, v1.6.3
 
 	* Changes to documentation:
