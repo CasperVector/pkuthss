@@ -1,6 +1,6 @@
 2015-12-15, v1.6.4
 
-	* API Changes:
+	* API changes:
 	- New package option: `pkufont'.
 
 	* Changes to example template:
@@ -69,7 +69,7 @@
 
 2015-04-28, v1.6.0
 
-	* API Changes:
+	* API changes:
 	- New package option: `footfmt' and `pkuspace'.
 	- `tightlist' option merged into `spacing'; `caption' option removed.
 
@@ -147,7 +147,7 @@
 
 2014-04-16, v1.5.1
 
-	* API Changes:
+	* API changes:
 	- pkulogo and pkuword are moved into tex/ and relicensed to LPPL.
 
 	* Changes to package code:
@@ -187,7 +187,7 @@
 
 2013-12-26, v1.4 rc4
 
-	* API Changes:
+	* API changes:
 	- Add `caption' option to customise caption fonts.
 	- Remove `\label@cmentorb'; `\label@cmentora' -> `\label@cmentor'.
 	- Move `[no]uppermark' to pkuthss.cls.
@@ -265,7 +265,7 @@
 
 2012-05-30, v1.4 alpha3
 
-	* API Changes:
+	* API changes:
 	- `[no]tocbibind' -> `[no]pdftoc', functionality reduced (see below).
 	- `[no]upcite' removed since biblatex supports it quite flexibly.
 
@@ -310,7 +310,7 @@
 
 2012-04-13, v1.4 alpha1
 
-	* API Changes:
+	* API changes:
 	- `[no]linkcolor' -> `[no]colorlinks'.
 	- `[no]pdfmeta' -> `[no]pdfprop'.
 	- `\setpdfmetadata' -> `\setpdfproperties'.
