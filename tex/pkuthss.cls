@@ -45,8 +45,8 @@
 \pkuthss@int@boolopt{uppermark}{false}
 % Whether to modify fonts according to school regulation.
 \pkuthss@int@boolopt{pkufont}{true}
-% Whether to modify footnote format.
-\pkuthss@int@boolopt{footfmt}{true}
+% Whether to modify footnote format according to school regulation.
+\pkuthss@int@boolopt{pkufoot}{true}
 % Whether to modify spacing according to school regulation.
 \pkuthss@int@boolopt{pkuspace}{true}
 % Whether to use some common settings for adjusting spacing.
@@ -112,7 +112,7 @@
 	\RequirePackage{latexsym}
 \fi
 
-\ifpkuthss@opt@footfmt
+\ifpkuthss@opt@pkufoot
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
 	\unless\ifxetex\unless\ifpdf
 		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}

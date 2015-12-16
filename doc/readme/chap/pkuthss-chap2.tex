@@ -51,10 +51,14 @@
 		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
 		将英文字体改为类似于 Times New Roman / Arial 的字体。
 
-	\item \textbf{\texttt{[no]footfmt}}：
+	\item \textbf{\texttt{[no]pkufoot}}\footnote{%
+			此选项等价于 1.6.4 及以前版本 pkuthss-extra 宏包的
+			\texttt{[no]footfmt} 选项；
+			更改名称是为了使文档类选项名更加规则。%
+		}：
 		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
 		修改和脚注相关的一些格式。
-		具体地说，启用 \verb|footfmt| 选项后会进行以下几项设置：
+		具体地说，启用 \verb|pkufoot| 选项后会进行以下几项设置：
 	\begin{itemize}
 		\item 脚注参用带圈的编号。
 		\item 页脚中脚注编号使用正文（而非上标）字体。
@@ -315,7 +319,7 @@ pkuthss 文档类可能调用以下这些宏包：
 	\item 启用 \verb|pkufont| 选项时会调用
 		newtxtext 和 newtxmath\supercite{newtx} 宏包，
 		否则会调用 latexsym\supercite{latexsym} 宏包。
-	\item 启用 \verb|footfmt| 选项时会调用
+	\item 启用 \verb|pkufoot| 选项时会调用
 		tikz\supercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
 	\item 启用 \verb|pkuspace| 选项时会调用
 		tocloft\supercite{tocloft}、subfig\supercite{subfig} 和
