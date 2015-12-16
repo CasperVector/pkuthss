@@ -7,7 +7,7 @@ Homepage: <https://gitlab.com/CasperVector/pkuthss>
 License:
 * New BSD License for `copyright.tex' and `originauth.tex'.
 * LaTeX Project Public License 1.3 or later for files in `tex/'
-  and `doc/readme-*', except for those mentioned above.
+  and `doc/readme/', except for those mentioned above.
 * Public domain for all other files.
 
 This package provides a simple, clear and flexible LaTeX template for
