@@ -4,7 +4,7 @@
 # Copyright (c) 2011-2015 Casper Ti. Vector
 # Public domain.
 
-CP = cp -r
+CP = cp -a
 MV = mv -f
 MD = mkdir -p
 RM = rm -rf
@@ -54,7 +54,7 @@ dir-ctan: README tex-dist doc-dist $(TITLE).tds.zip
 dist-ctan: $(TITLE)-$(VERSION).zip
 $(TITLE)-$(VERSION).zip: dir-ctan
 	cd $< && $(PERM) && \
-		$(ZIP) --symlinks ../$@ $(TITLE)/ $(TITLE).tds.zip
+		$(ZIP) -y ../$@ $(TITLE)/ $(TITLE).tds.zip
 
 clean:
 	cd doc/readme/ && $(MAKE) distclean
