@@ -227,7 +227,7 @@
 % because the bookmark will point to somewhere below the chapter mark.
 \def\pkuthss@int@pdfmark#1#2{%
 	\if@openright\cleardoublepage\else\clearpage\fi
-	\pdfbookmark[1]{#1}{#2}%
+	\pdfbookmark[0]{#1}{#2}%
 }
 
 % Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
