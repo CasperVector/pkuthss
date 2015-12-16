@@ -1,3 +1,19 @@
+2015-12-16, v1.7.0
+
+	* API changes:
+	- pkuthss-extra.sty merged into pkuthss.cls; `extra' removed accordingly.
+	- `footfmt' renamed to `pkufoot'; `colorlinks' removed.
+
+	* Changes to example template:
+	- {,pkuthss-}copyright.tex: use `\specialchap'.
+
+	* Changes to package code:
+	- pkuthss.cls: fix pdf bookmark level.
+
+	* Misc:
+	- Format overhaul of documentation code.
+	- Minor fixes and cosmetics.
+
 2015-12-15, v1.6.4
 
 	* API changes:
