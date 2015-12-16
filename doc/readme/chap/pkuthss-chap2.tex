@@ -119,13 +119,13 @@
 
 			\item \textbf{\texttt{[no]spacing}}\footnote{%
 					因为代码重构的缘故，
-					此选项同时提供 1.5.5 及以前版本 pkuthss-extra 宏包%
+					此选项同时提供 1.5.5 及以前版本 pkuthss-extra 宏包
 					中 \texttt{[no]tightlist} 选项所提供的功能。%
 				}：
 				是否采用一些常用的调整间距的额外版式设定。
 				具体地说，启用 \verb|spacing| 选项后会进行以下几项设置：
 			\begin{itemize}
-				\item 自动忽略 CJK 文字之间的空白而%
+				\item 自动忽略 CJK 文字之间的空白而
 					保留（CJK 文字与英文之间等的）其它空白。
 				\item 调用 setspace 宏包以使某些细节处的空间安排更美观。
 				\item 采用比 \hologo{LaTeX} 默认设定更加紧密的枚举环境%
@@ -139,19 +139,19 @@
 			\end{itemize}
 
 			\item \textbf{\texttt{[no]pdftoc}}\footnote{%
-					此选项部分等价于 1.4 alpha2 及以前版本 pkuthss-extra 宏包%
+					此选项部分等价于 1.4 alpha2 及以前版本 pkuthss-extra 宏包
 					的 \texttt{[no]tocbibind} 选项。
 					因为 tocbibind 宏包和 biblatex 宏包冲突，%
 					pkuthss-extra 宏包不再调用 tocbibind 宏包。%
 				}：
 				启用 \verb|pdftoc| 选项后，
-				用 \verb|\tableofcontents| 命令生成目录时%
+				用 \verb|\tableofcontents| 命令生成目录时
 				会自动添加“目录”的 pdf 书签。
 
 			\item \textbf{\texttt{[no]spechap}}\footnote{%
 					“spechap”是“\textbf{spec}ial \textbf{chap}ter”的缩写。%
 				}：
-				是否启用第 \ref{ssec:misc} 小节中介绍的 %
+				是否启用第 \ref{ssec:misc} 小节中介绍的
 				\verb|\specialchap| 命令。
 
 			\item \textbf{\texttt{[no]pdfprop}}：
@@ -159,18 +159,18 @@
 				设置生成的 pdf 文档的相应属性。\myemph{%
 					注意：
 					该选项实际上是在 \texttt{\string\maketitle} 时生效的，
-					这是因为考虑到%
-					通常用户在调用 \texttt{\string\maketitle} 前%
+					这是因为考虑到
+					通常用户在调用 \texttt{\string\maketitle} 前
 					已经设置好所有的文档信息。
 					若用户不调用 \texttt{\string\maketitle}，
-					则需在设定完文档信息之后自行调用%
-					第 \ref{ssec:misc} 小节中介绍的 %
+					则需在设定完文档信息之后自行调用
+					第 \ref{ssec:misc} 小节中介绍的
 					\texttt{\string\setpdfproperties} 命令以完成
 					pdf 文档属性的设定。%
 				}
 
 			\item \textbf{\texttt{[no]colorlinks}}\footnote{%
-					此选项等价于 1.3 及以前版本 pkuthss-extra 宏包%
+					此选项等价于 1.3 及以前版本 pkuthss-extra 宏包
 					的 \texttt{[no]linkcolor} 选项，
 					但后来发现这会和 hyperref 宏包的一个同名选项冲突，
 					故改为 \texttt{[no]colorlinks}。%
@@ -254,7 +254,7 @@
 % key1、key2、value1、value2 等为具体文档信息的项目名和内容。
 \pkuthssinfo{key1 = value1, key2 = value2, ...}
 \end{Verbatim}
-		其中文档信息的项目名为前面提到的设定文档信息的命令名%
+		其中文档信息的项目名为前面提到的设定文档信息的命令名
 		或自身存储文档信息的命令名（不带反斜杠）。
 
 		当文档信息的内容包含了逗号等有干扰的字符时，
@@ -275,24 +275,24 @@
 
 		\subsection{pkuthss 文档模版提供的其它命令和环境}\label{ssec:misc}
 
-		\texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract} %
+		\texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract}
 		环境用于编写中英文摘要。
 		用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
 
-		\texttt{\bfseries\string\specialchap} 命令%
+		\texttt{\bfseries\string\specialchap} 命令
 		用于开始不进行标号但计入目录的一章，
 		并合理安排其页眉。\myemph{%
 			注意：
-			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项%
+			需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项
 			才能使用此命令。
 			另外，在此章内的节或小节等命令应使用带星号的版本，
 			例如 \texttt{\string\section\string*} 等，
 			以免造成章节编号混乱。%
 		}%
-		例如，本文档中的“序言”一章就是用 \verb|\specialchap{序言}| %
+		例如，本文档中的“序言”一章就是用 \verb|\specialchap{序言}|
 		这条命令开始的。%
 
-		\texttt{\bfseries\string\setpdfproperties} 命令%
+		\texttt{\bfseries\string\setpdfproperties} 命令
 		用于根据用户设定的文档信息自动设定生成的 pdf 文档的属性。
 		此命令会在用户调用 \verb|\maketitle| 命令时被自动调用，
 		因此通常不需要用户自己使用；
@@ -300,7 +300,7 @@
 		此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
 		\myemph{%
 			注意：
-			需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项%
+			需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项
 			才能使用此命令。%
 		}
 
@@ -308,7 +308,7 @@
 
 		pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类之上，
 		并调用了 CJKfntef、hyperref\supercite{hyperref}、%
-		geometry\supercite{geometry}、fancyhdr\supercite{fancyhdr} %
+		geometry\supercite{geometry}、fancyhdr\supercite{fancyhdr}
 		和 graphicx\supercite{graphicx} 等几个宏包；
 		使用 \hologo{pdfLaTeX} 方式编译 GBK 编码的源文件时还会调用
 		xCJK2uni\supercite{xCJK2uni} 宏包\footnote{\ %
@@ -317,7 +317,7 @@
 			这里调用 xCJK2un 是为了兼容 ctex 1.x 而进行的设定，
 			该设定将在 2017 年被去除。%
 		}；
-		启用 \verb|pkufont| 选项时会调用 %
+		启用 \verb|pkufont| 选项时会调用
 		newtxtext 和 newtxmath\supercite{newtx} 宏包，
 		否则会调用 latexsym\supercite{latexsym} 宏包。
 		因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
@@ -334,7 +334,7 @@
 		进行参考文献和引用的排版，
 		用户可以使用它以及 biblatex 本身所提供的功能。
 		例如，
-		用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite| %
+		用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite|
 		生成未格式化的、带方括号的和上标且带方括号的引用标记：
 \begin{Verbatim}[frame = single]
 \cite{ctex}，\parencite{ctex}，\supercite{ctex}
@@ -348,12 +348,12 @@
 
 		pkuthss-extra 宏包可能调用以下这些宏包：
 		\begin{itemize}
-			\item 启用 \verb|footfmt| 选项时会调用 %
+			\item 启用 \verb|footfmt| 选项时会调用
 				tikz\supercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
-			\item 启用 \verb|pkuspace| 选项时会调用 %
-				tocloft\supercite{tocloft}、subfig\supercite{subfig} 和 %
+			\item 启用 \verb|pkuspace| 选项时会调用
+				tocloft\supercite{tocloft}、subfig\supercite{subfig} 和
 				caption\supercite{caption} 宏包。
-			\item 启用 \verb|spacing| 选项时会调用 setspace 和 %
+			\item 启用 \verb|spacing| 选项时会调用 setspace 和
 				enumitem\supercite{enumitem} 宏包。
 		\end{itemize}
 		因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
