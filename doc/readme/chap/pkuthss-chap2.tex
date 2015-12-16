@@ -132,14 +132,6 @@
 			pdf 文档属性的设定。%
 		}
 
-	\item \textbf{\texttt{[no]colorlinks}}\footnote{%
-			此选项等价于 1.3 及以前版本 pkuthss-extra 宏包
-			的 \texttt{[no]linkcolor} 选项，
-			但后来发现这会和 hyperref 宏包的一个同名选项冲突，
-			故改为 \texttt{[no]colorlinks}。%
-		}：
-		是否在生成的 pdf 文档中使用彩色的链接。
-
 	\item \textbf{其余文档类选项}：%
 		pkuthss 文档类以 ctexbook 文档类为基础，
 		其接受的其余所有文档类选项均被传递给 ctexbook。
@@ -157,15 +149,6 @@
 如果希望改成一章可以从任意页开始，可以这样设置：
 \begin{Verbatim}[frame = single]
 \documentclass[openany, ...]{pkuthss} % 每章从任意页开始。
-\end{Verbatim}
-
-又例如，图书馆要求电子版论文的目录必须为黑色，
-且某些教务要求打印版论文的文字部分为纯黑而非灰度打印。
-此时用户\myemph{%
-	可以启用 \texttt{nocolorlinks} 选项，使所有的链接变为黑色，以免影响提交%
-}：
-\begin{Verbatim}[frame = single]
-\documentclass[..., nocolorlinks]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 
 \section{pkuthss 文档类提供的命令和环境}

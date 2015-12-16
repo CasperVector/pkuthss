@@ -14,11 +14,7 @@
 % 采用了自定义的（包括大小写不同于原文件的）字体文件名，
 % 并改动 ctex.cfg 等配置文件的用户请自行加入 nofonts 选项；
 % 其它用户不用加入 nofonts 选项，加入之后反而会产生错误。
-%
-% 图书馆要求电子版论文的目录必须为黑色，
-% 且某些教务要求打印版论文的文字部分为纯黑色而非灰度打印，
-% 【因此最终打印和提交论文前，请将“colorlinks”改为“nocolorlinks”。】
-\documentclass[UTF8, colorlinks]{pkuthss}
+\documentclass[UTF8]{pkuthss}
 
 % 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex-caspervector 的文档）。
 % 这里按照英文文献在前，中文文献在后排序（“sorting = ecnty”）；
@@ -52,12 +48,6 @@
 \usepackage{color}
 \def\pkuthssffaq{%
 	\emph{\textcolor{red}{pkuthss 文档模版最常见问题：}}
-
-	在最终打印和提交论文之前，
-	请将 pkuthss 文档类选项中的 %
-	\texttt{colorlinks} 替换为 \texttt{nocolorlinks}，
-	因为图书馆要求电子版论文的目录必须为黑色，
-	且某些教务要求打印版论文的文字部分为纯黑色而非灰度打印。
 
 	\texttt{\string\cite}、\texttt{\string\parencite} %
 	和 \texttt{\string\supercite} 三个命令分别产生%

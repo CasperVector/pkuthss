@@ -58,8 +58,6 @@
 % Whether to automatically set up properties for generated PDF from user
 % defined document information (author, title, etc.).
 \pkuthss@int@boolopt{pdfprop}{true}
-% Whether to use coloured hyperlinks in generated PDF.
-\pkuthss@int@boolopt{colorlinks}{true}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
@@ -216,15 +214,6 @@
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
 		% act as wished.
 		\renewcommand\maketitle{\setpdfproperties\pkuthss@tmp@maketitle}
-	\fi
-
-	\ifpkuthss@opt@colorlinks
-		% Use coloured hyperlinks in generated PDF.
-		\hypersetup{colorlinks = true, allcolors = blue}
-	\else
-		% Set hyperlink colour to black in order to prevent hyperlinks from being
-		% too hard-to-recognise in printed thesis.
-		\hypersetup{hidelinks}
 	\fi
 }
 
