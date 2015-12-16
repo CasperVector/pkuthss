@@ -41,16 +41,14 @@
 		还需要 biblatex\supercite{biblatex} 宏包；
 	\item 如果需要对中文文献进行按汉语拼音的排序的话，
 		还需要 biber\supercite{biber} 程序。
-	\item 如果使用默认的文献列表和引用样式的话，
-		还需要作者编写的 biblatex 样式
+	\item 如果使用默认的文献列表和引用样式的话，还需要作者编写的 biblatex 样式
 		（biblatex-caspervector\supercite{biblatex-caspervector}）。
 	\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
 		但如果使用由批处理实现的伪“Makefile”就不用了。
 \end{itemize}
 
 \myemph{最新}的\myemph{完全版} \hologo{TeX} Live 系统（\myemph{%
-	注：
-	某些 Linux 发行版软件仓库中的 \hologo{TeX} Live 有问题，
+	注：某些 Linux 发行版软件仓库中的 \hologo{TeX} Live 有问题，
 	建议使用独立安装版的 \hologo{TeX} Live%
 	\unemph{\footnote{\url{http://www.tug.org/texlive/}.}}。%
 }）都已经包含除中文字体和 Make 之外所有要求的项目。%
@@ -60,14 +58,11 @@
 }
 
 中文字体需要用户自行获得。\myemph{%
-	注：
-	一些中文字体的字库不全，
-	只有 GB2312 字符集内字符的字体信息。
+	注：一些中文字体的字库不全，只有 GB2312 字符集内字符的字体信息。
 	这种情况通常会造成编译生成的 pdf 文件中缺少部分字符，
 	其中一种典型症状是“〇”字显示不出来。
 	如果要使用中易公司的字体，
-	则建议使用 Windows Vista 及其以后版本提供的
-	宋体、黑体、楷体和仿宋体，
+	则建议使用 Windows Vista 及其以后版本提供的宋体、黑体、楷体和仿宋体，
 	以及 Microsoft Office 2003 及其以后版本提供的隶书和幼圆体，
 	这些字体是 GB18030 字符集的，不存在上述问题。%
 }
@@ -96,14 +91,12 @@ texdoc pkuthss
 并在此目录中根据模版修改出自己的论文。
 
 \myemph{%
-	注意：
-	在 1.4 rc4 之后版本的 pkuthss 文档模版中，除了 \texttt{Make.bat} 之外，
-	所有文件均是 LF（\texttt{\string\n}）换行。
+	注意：在 1.4 rc4 之后版本的 pkuthss 文档模版中，
+	除了 \texttt{Make.bat} 之外，所有文件均是 LF（\texttt{\string\n}）换行。
 	在 Windows 下用“记事本”打开这些文件时，
 	所有的换行会变成某个奇怪的字符，而所有文字会挤在一行上。
 	这是“记事本”的固有问题，
-	因此 pkuthss 文档模版的作者建议用户
-	使用支持 LF 换行的文本编辑器编辑文件。%
+	因此 pkuthss 文档模版的作者建议用户使用支持 LF 换行的文本编辑器编辑文件。%
 }
 
 模版中的重要文件有：
@@ -115,14 +108,12 @@ texdoc pkuthss
 
 	\item \verb|chap/|：目录，包含各章节内容：
 	\begin{itemize}
-		\item \verb|copyright.tex|：
-			版权声明部分。
+		\item \verb|copyright.tex|：版权声明部分。
 		\item \verb|originauth.tex|：
 			原创性声明和使用授权说明部分\supercite{pku-originauth}。
 	\end{itemize}
 	\myemph{%
-		注：%
-		pkuthss 文档模版支持排版学校要求的二维码，
+		注：pkuthss 文档模版支持排版学校要求的二维码，
 		请参考 \texttt{copyright.tex} 和
 		\texttt{originauth.tex} 中的相关注释。%
 	}
@@ -142,9 +133,8 @@ texdoc pkuthss
 
 \section{编译方式}\label{sec:compile}
 
-首次编译前，
-请将 \verb|misc/| 目录中和
-用户系统中 ctex 宏包版本相匹配的配置文件复制到模版的主目录中，
+首次编译前，请将 \verb|misc/| 目录中和用户系统中
+ctex 宏包版本相匹配的配置文件复制到模版的主目录中，
 详见第 \ref{sec:doc-dir} 节。
 
 pkuthss 文档模版支持三种编译方式，即
@@ -165,8 +155,7 @@ pkuthss 文档模版支持三种编译方式，即
 }
 
 pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行了完整的配置。
-用户只需要在 Makefile 中通过设定变量 \verb|JOBNAME| 的值
-指定被编译的主文件名，
+用户只需要在 Makefile 中通过设定变量 \verb|JOBNAME| 的值指定被编译的主文件名，
 并通过设定变量 \verb|LATEX| 的值指定采用哪种编译方式，
 即可通过在主文件所在目录调用 Make 工具来实现自动编译：
 如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|：
@@ -174,8 +163,7 @@ pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行�
 cd /path/to/directory/with/thesis.tex
 make
 \end{Verbatim}
-而如果是在 Windows 环境下，
-则用户应该调用的命令名可能为 \verb|mingw32-make|：
+而如果是在 Windows 环境下，则用户应该调用的命令名可能为 \verb|mingw32-make|：
 \begin{Verbatim}[frame = single]
 cd \path\to\directory\with\thesis.tex
 mingw32-make
@@ -184,8 +172,7 @@ mingw32-make
 用户如果不想配置 Windows 下的 GNU Make，
 则也可以使用由 Windows 批处理实现的伪“Makefile”，
 通过在主文件所在目录调用 \verb|make|\footnote{%
-	Windows 将批处理文件作为可执行文件，
-	调用时可以不显式地指出扩展名。%
+	Windows 将批处理文件作为可执行文件，调用时可以不显式地指出扩展名。%
 }：
 \begin{Verbatim}[frame = single]
 cd \path\to\directory\with\thesis.tex

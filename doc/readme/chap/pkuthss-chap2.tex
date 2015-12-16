@@ -45,14 +45,12 @@
 
 	\item \textbf{\texttt{[no]uppermark}}：
 		是否在页眉中将章节名中的小写字母转换为大写字母。
-		就目前而言，
-		这样的转换存在着一些较为严重的缺陷\footnote{%
+		就目前而言，这样的转换存在着一些较为严重的缺陷\footnote{%
 			准确地说是 \texttt{\string\MakeUppercase} 宏的问题：
 			其在某些地方的转换不够健壮，
 			例如 \texttt{\string\cite\string{ctex\string}}
 			会被转换成 \texttt{\string\cite\string{CTEX\string}}。%
-		}，
-		因此不建议使用。
+		}，因此不建议使用。
 		基于上述考虑，\myemph{%
 			pkuthss 文档类默认启用 \texttt{nouppermark} 选项，
 			即不在页眉中使用大写的章节名%
@@ -84,8 +82,7 @@
 
 \subsection{pkuthss-extra 宏包提供的选项}\label{ssec:extra}
 
-除非特别说明，
-下面提到的选项中都是不带“\verb|no|”的版本被启用。
+除非特别说明，下面提到的选项中都是不带“\verb|no|”的版本被启用。
 
 \begin{itemize}
 	\item \textbf{\texttt{[no]footfmt}}：
@@ -106,8 +103,7 @@
 	\begin{itemize}
 		\item 正文的行距。
 		\item 目录中条目的缩进方式。
-		\item 图表标题的字号，
-			以及标题中编号和标题文字之间的间隔方式
+		\item 图表标题的字号，以及标题中编号和标题文字之间的间隔方式
 			（例如图 \ref{fig:example} 所示）。
 	\end{itemize}
 
@@ -145,20 +141,17 @@
 			pkuthss-extra 宏包不再调用 tocbibind 宏包。%
 		}：
 		启用 \verb|pdftoc| 选项后，
-		用 \verb|\tableofcontents| 命令生成目录时
-		会自动添加“目录”的 pdf 书签。
+		用 \verb|\tableofcontents| 命令生成目录时会自动添加“目录”的 pdf 书签。
 
 	\item \textbf{\texttt{[no]spechap}}\footnote{%
 			“spechap”是“\textbf{spec}ial \textbf{chap}ter”的缩写。%
 		}：
-		是否启用第 \ref{ssec:misc} 小节中介绍的
-		\verb|\specialchap| 命令。
+		是否启用第 \ref{ssec:misc} 小节中介绍的 \verb|\specialchap| 命令。
 
 	\item \textbf{\texttt{[no]pdfprop}}：
 		是否自动根据设定的论文文档信息（如作者、标题等）
 		设置生成的 pdf 文档的相应属性。\myemph{%
-			注意：
-			该选项实际上是在 \texttt{\string\maketitle} 时生效的，
+			注意：该选项实际上是在 \texttt{\string\maketitle} 时生效的，
 			这是因为考虑到
 			通常用户在调用 \texttt{\string\maketitle} 前
 			已经设置好所有的文档信息。
@@ -248,8 +241,7 @@
 
 \subsection{以“key = value”格式设置文档信息}
 
-用户可以通过 \verb|\pkuthssinfo| 命令集中设定文档信息，
-其语法为：
+用户可以通过 \verb|\pkuthssinfo| 命令集中设定文档信息，其语法为：
 \begin{Verbatim}[frame = single]
 % key1、key2、value1、value2 等为具体文档信息的项目名和内容。
 \pkuthssinfo{key1 = value1, key2 = value2, ...}
@@ -282,9 +274,8 @@
 \texttt{\bfseries\string\specialchap} 命令
 用于开始不进行标号但计入目录的一章，
 并合理安排其页眉。\myemph{%
-	注意：
-	需要启用 pkuthss-extra 宏包的 \texttt{spechap} 选项
-	才能使用此命令。
+	注意：需要启用 pkuthss-extra 宏包的 \texttt{spechap}
+	选项才能使用此命令。
 	另外，在此章内的节或小节等命令应使用带星号的版本，
 	例如 \texttt{\string\section\string*} 等，
 	以免造成章节编号混乱。%
@@ -299,9 +290,8 @@
 但用户有时可能不需要输出封面，从而不会调用 \verb|\maketitle| 命令，
 此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
 \myemph{%
-	注意：
-	需要启用 pkuthss-extra 宏包的 \texttt{pdfprop} 选项
-	才能使用此命令。%
+	注意：需要启用 pkuthss-extra 宏包的 \texttt{pdfprop}
+	选项才能使用此命令。%
 }
 
 \subsection{从其它文档类和宏包继承的功能}\label{ssec:thirdparty}
@@ -330,11 +320,9 @@ newtxtext 和 newtxmath\supercite{newtx} 宏包，
 
 在默认的配置下，%
 pkuthss 文档模版使用作者编写的 biblatex\supercite{biblatex} 样式%
-\mbox{\supercite{biblatex-caspervector}}%
-进行参考文献和引用的排版，
+\mbox{\supercite{biblatex-caspervector}}进行参考文献和引用的排版，
 用户可以使用它以及 biblatex 本身所提供的功能。
-例如，
-用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite|
+例如，用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite|
 生成未格式化的、带方括号的和上标且带方括号的引用标记：
 \begin{Verbatim}[frame = single]
 \cite{ctex}，\parencite{ctex}，\supercite{ctex}
@@ -366,8 +354,7 @@ pkuthss 文档模版的实现是简洁、清晰、灵活的。
 
 一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
 超出了在预设的空间。
-此时，
-用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
+此时，用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
 \verb|\pkuthss@int@fillinblank| 宏的参数来改变
 带下划线的空白的行数和行宽，其语法为：
 \begin{Verbatim}[frame = single]
