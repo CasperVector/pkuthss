@@ -20,7 +20,6 @@
 %   pkuthss.cls
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
-%   pkuthss-extra.sty
 %   pkulogo.eps
 %   pkuword.eps
 
@@ -38,13 +37,6 @@
 	\DeclareOption{#1}{\@nameuse{pkuthss@opt@#1true}}
 	\DeclareOption{no#1}{\@nameuse{pkuthss@opt@#1false}}
 }
-% eg. `\pkuthss@int@extraopt{spacing}' will expand to:
-%   \DeclareOption{spacing}{\PassOptionsToPackage{spacing}{pkuthss-extra}}
-%   \DeclareOption{nospacing}{\PassOptionsToPackage{nospacing}{pkuthss-extra}}
-\def\pkuthss@int@extraopt#1{
-	\DeclareOption{#1}{\PassOptionsToPackage{#1}{pkuthss-extra}}
-	\DeclareOption{no#1}{\PassOptionsToPackage{no#1}{pkuthss-extra}}
-}
 % Process the encoding options.
 \newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
 \DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
@@ -53,17 +45,21 @@
 \pkuthss@int@boolopt{uppermark}{false}
 % Whether to modify fonts according to school regulation.
 \pkuthss@int@boolopt{pkufont}{true}
-% Whether to enable the default extra settings.
-\pkuthss@int@boolopt{extra}{true}
-% Pass options to `pkuthss-extra'.
-% See pkuthss-extra.sty for an explanation of the options.
-\pkuthss@int@extraopt{footfmt}
-\pkuthss@int@extraopt{pkuspace}
-\pkuthss@int@extraopt{spacing}
-\pkuthss@int@extraopt{pdftoc}
-\pkuthss@int@extraopt{spechap}
-\pkuthss@int@extraopt{pdfprop}
-\pkuthss@int@extraopt{colorlinks}
+% Whether to modify footnote format.
+\pkuthss@int@boolopt{footfmt}{true}
+% Whether to modify spacing according to school regulation.
+\pkuthss@int@boolopt{pkuspace}{true}
+% Whether to use some common settings for adjusting spacing.
+\pkuthss@int@boolopt{spacing}{true}
+% Add PDF bookmark for table of contents.
+\pkuthss@int@boolopt{pdftoc}{true}
+% Whether to enable the `\spacialchap' command.
+\pkuthss@int@boolopt{spechap}{true}
+% Whether to automatically set up properties for generated PDF from user
+% defined document information (author, title, etc.).
+\pkuthss@int@boolopt{pdfprop}{true}
+% Whether to use coloured hyperlinks in generated PDF.
+\pkuthss@int@boolopt{colorlinks}{true}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
@@ -85,8 +81,6 @@
 % hyperref now does not make citation hyperlinks if not explicitly loaded.
 % All compatibility support for ctex 1.x is scheduled for removal in 2017.
 \RequirePackage{hyperref}
-% Whether to enable the default extra settings.
-\ifpkuthss@opt@extra\RequirePackage{pkuthss-extra}\fi
 
 \ifpkuthss@opt@gbk
 	\input{pkuthss-gbk.def}
@@ -117,6 +111,122 @@
 	% Provides `\Box' for originauth.tex if newtx is absent.
 	\RequirePackage{latexsym}
 \fi
+
+\ifpkuthss@opt@footfmt
+	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
+	\unless\ifxetex\unless\ifpdf
+		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}
+	\fi\fi
+	% Circled text, cf. <https://tex.stackexchange.com/questions/7032/>.
+	\RequirePackage{tikz}
+	\newcommand*\pkuthss@int@circled[1]{%
+		\scalebox{0.8}{\tikz[baseline = (char.base)]{
+			\node[
+				shape = circle, draw = black, minimum size = 1.25em, inner sep = 0pt
+			] (char) {#1};
+		}}%
+	}
+	% Use circled numbers as footnote symbols. Does not affect title page, but
+	% footnote is rarely used in dissertation covers ;)
+	\renewcommand\thefootnote%
+		{\protect\pkuthss@int@circled{\arabic{footnote}}}
+	% Provides utility to modify footnote spacing.
+	% Option used to make sure it does not render interleaf pages totally blank.
+	\RequirePackage[cleardoublepage = current]{scrextend}
+	% Set up footnote spacing: symbol indent 2 ccwd, paragraph indent 3.5 ccwd,
+	% 0.75 ccwd between symbol and paragraph.
+	\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
+\fi
+
+\ifpkuthss@opt@pkuspace
+	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
+	\linespread{1.39}\selectfont
+	% Quite harmless and frequently used package. Loaded together with `tocloft'
+	% plus a compatibility option to avoid package clash.
+	\RequirePackage{subfig}
+	% Provides utilities for setting TOC format; `titles' applied to avoid
+	% interfering with LaTeX's own title mechanism.
+	\RequirePackage[subfigure, titles]{tocloft}
+	\setlength{\cftbeforechapskip}{6bp plus 1bp}
+	\setlength{\cftsecindent}{\ccwd}
+	\setlength{\cftsubsecindent}{2\ccwd}
+	% Modify font size and separator of captions.
+	\RequirePackage{caption}
+	\DeclareCaptionFont{cfive}{\zihao{5}}
+	\DeclareCaptionLabelSeparator{quad}{\quad}
+	\captionsetup{font = cfive, labelsep = quad}
+\fi
+
+\ifpkuthss@opt@spacing
+	% Automatically ignore spaces between CJK characters, or otherwise preserve
+	% spaces. XeCJK itself will handle this issue, therefore we do not use
+	% `CJKspace' when using XeLaTeX.
+	\unless\ifxetex\RequirePackage{CJKspace}\fi
+	% Make spacing nicer in some situations (eg. footnotes and verbatims).
+	\RequirePackage{setspace}
+	% Lists often appear to be too sparse when items are just one or two lines
+	% long. Here we cancel the extra vertical spacing between list items.
+	\RequirePackage{enumitem}
+	\setlist{nolistsep}
+\fi
+
+\ifpkuthss@opt@pdftoc
+	% Add PDF bookmark for table of contents.
+	\let\pkuthss@tmp@tableofcontents\tableofcontents
+	\renewcommand{\tableofcontents}{%
+		\pkuthss@int@pdfmark{\contentsname}{contents}
+		\pkuthss@tmp@tableofcontents%
+	}
+\fi
+
+\ifpkuthss@opt@spechap
+	% This command is used to start a chapter without numbering, and correctly set
+	% up the headers and footers in the chapter.
+	\newcommand\specialchap[1]{%
+		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
+		\markboth{#1}{}\phantomsection%
+	}
+\fi
+
+\AtBeginDocument{
+	\ifpkuthss@opt@pkuspace
+		% Kludge for `tocloft' used with `ctex'.
+		% <http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=43535&pid=310238>.
+		\renewcommand{\numberline}[1]{%
+			\settowidth\@tempdimb{#1\hspace{0.5em}}%
+			\ifdim\@tempdima<\@tempdimb%
+				\@tempdima=\@tempdimb%
+			\fi%
+			\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb%
+		}%
+	\fi
+
+	\ifpkuthss@opt@pdfprop
+		% Automatically generate properties for generated PDF.
+		% Use English properties to avoid problems with character encodings.
+		\newcommand*{\setpdfproperties}{%
+			\hypersetup{
+				pdfauthor = {\@eauthor}, pdftitle = {\@etitle},
+				pdfsubject = {\euniversity\ \ethesisname}, pdfkeywords = {\@ekeywords}
+			}%
+		}
+		% Set up the properties when generating the title page because the document
+		% information should have been all defined before this.
+		\let\pkuthss@tmp@maketitle\maketitle
+		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
+		% act as wished.
+		\renewcommand\maketitle{\setpdfproperties\pkuthss@tmp@maketitle}
+	\fi
+
+	\ifpkuthss@opt@colorlinks
+		% Use coloured hyperlinks in generated PDF.
+		\hypersetup{colorlinks = true, allcolors = blue}
+	\else
+		% Set hyperlink colour to black in order to prevent hyperlinks from being
+		% too hard-to-recognise in printed thesis.
+		\hypersetup{hidelinks}
+	\fi
+}
 
 % eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}
