@@ -10,8 +10,10 @@
 	* Changes to package code:
 	- pkuthss.cls: fix pdf bookmark level.
 
-	* Misc:
+	* Changes to documentation:
 	- Format overhaul of documentation code.
+
+	* Misc:
 	- Minor fixes and cosmetics.
 
 2015-12-15, v1.6.4
