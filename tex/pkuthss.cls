@@ -168,15 +168,6 @@
 	\setlist{nolistsep}
 \fi
 
-\ifpkuthss@opt@pdftoc
-	% Add PDF bookmark for table of contents.
-	\let\pkuthss@tmp@tableofcontents\tableofcontents
-	\renewcommand{\tableofcontents}{%
-		\pkuthss@int@pdfmark{\contentsname}{contents}
-		\pkuthss@tmp@tableofcontents%
-	}
-\fi
-
 \ifpkuthss@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% up the headers and footers in the chapter.
@@ -197,6 +188,15 @@
 			\fi%
 			\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb%
 		}%
+	\fi
+
+	\ifpkuthss@opt@pdftoc
+		% Add PDF bookmark for table of contents.
+		\let\pkuthss@tmp@tableofcontents\tableofcontents
+		\renewcommand{\tableofcontents}{%
+			\pkuthss@int@pdfmark{\contentsname}{contents}
+			\pkuthss@tmp@tableofcontents%
+		}
 	\fi
 
 	\ifpkuthss@opt@pdfprop
