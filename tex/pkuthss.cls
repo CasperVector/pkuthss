@@ -69,6 +69,8 @@
 % CJKfntef provides `\CJKunderline' used in `\maketitle'.
 % fancyhdr provides utilities for setting up headers and footers.
 \LoadClass[hyperref, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
+% ctex 2.x no longer loads ifxetex itself.
+\RequirePackage{ifxetex}
 % Provides support for `key = val' grammar.
 \RequirePackage{keyval}
 % Graphics support.
