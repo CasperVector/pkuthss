@@ -3,7 +3,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2015 Casper Ti. Vector
+% Copyright (c) 2010-2016 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
