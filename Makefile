@@ -1,5 +1,3 @@
-# vim:ts=4:sw=4
-#
 # Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
 
@@ -22,3 +20,4 @@ bump:
 dist clean distclean:
 	utils/dist TITLE=$(TITLE) README=$(README) EXAMPLE=$(EXAMPLE) VERSION=$(VERSION) $@
 
+# vim:ts=4:sw=4

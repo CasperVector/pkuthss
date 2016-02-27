@@ -1,5 +1,3 @@
-% vim:ft=tex
-
 \setCJKmainfont[BoldFont={SimHei},ItalicFont={[simkai.ttf]}]{SimSun}
 \setCJKsansfont{SimHei}
 \setCJKmonofont{[simfang.ttf]}
@@ -19,4 +17,4 @@
 %\newcommand*{\youyuan}{\CJKfamily{zhyou}}
 
 \endinput
-
+% vim:ft=tex

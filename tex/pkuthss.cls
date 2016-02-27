@@ -1,5 +1,3 @@
-% vim:ft=tex:ts=2:sw=2
-%
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
@@ -425,3 +423,4 @@
 }
 
 \endinput
+% vim:ft=tex:ts=2:sw=2

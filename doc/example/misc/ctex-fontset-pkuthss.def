@@ -1,5 +1,3 @@
-% vim:ft=tex:ts=2:sw=2:et
-
 \ProvidesExplFile{\ExplFileName}{}{}{}
 
 \pdftex_if_engine:TF
@@ -57,4 +55,4 @@
 %\NewDocumentCommand \youyuan  { } { \CJKfamily { zhyou } }
 
 \endinput
-
+% vim:ft=tex:ts=2:sw=2:et

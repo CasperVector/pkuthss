@@ -1,5 +1,4 @@
 #!/usr/bin/make -f
-# vim:ts=4:sw=4
 #
 # Copyright (c) 2011-2015 Casper Ti. Vector
 # Public domain.
@@ -65,3 +64,4 @@ distclean:
 	$(SELF) clean
 	$(RM) $(TITLE).tds.zip $(TITLE)-$(VERSION).zip
 
+# vim:ts=4:sw=4

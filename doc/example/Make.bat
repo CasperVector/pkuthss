@@ -1,7 +1,5 @@
 @echo off
 
-@rem vim:ts=4:sw=4
-@rem
 @rem Copyright (c) 2008-2009 solvethis
 @rem Copyright (c) 2010-2012 Casper Ti. Vector
 @rem Public domain.
@@ -38,3 +36,4 @@ goto end
 :end
 pause
 
+@rem vim:ts=4:sw=4

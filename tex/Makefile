@@ -1,5 +1,3 @@
-# vim:ts=4:sw=4
-#
 # Copyright (c) 2008-2009 solvethis
 # Copyright (c) 2010-2012,2014 Casper Ti. Vector
 # Public domain.
@@ -15,3 +13,4 @@ all: $(PDFS)
 clean:
 	$(RM) $(PDFS)
 
+# vim:ts=4:sw=4

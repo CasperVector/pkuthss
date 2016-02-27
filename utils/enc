@@ -1,5 +1,4 @@
 #!/usr/bin/make -f
-# vim:ts=4:sw=4
 #
 # Copyright (c) 2011-2014 Casper Ti. Vector
 # Public domain.
@@ -20,3 +19,4 @@ togbk:
 		-e '/^\\usepackage.*{biblatex}$$/ s/utf8/gbk/' \
 		doc/example/thesis.tex
 
+# vim:ts=4:sw=4
