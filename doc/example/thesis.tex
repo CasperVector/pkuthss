@@ -67,17 +67,16 @@
 	\pagestyle{empty}
 	% 自动生成封面。
 	\maketitle
+	% 版权声明。封面要求单面打印，故需新开右页。
+	\cleardoublepage
+	\include{chap/copyright}
 
 	% 此后到下一 \pagestyle 命令之前正常排版页眉和页脚。
-	% 封面要求单面打印，故需新开右页，此处已一并实现。
 	\cleardoublepage
 	\pagestyle{plain}
 	% 重置页码计数器，用大写罗马数字排版此部分页码。
 	\setcounter{page}{0}
 	\pagenumbering{Roman}
-
-	% 版权声明。
-	\include{chap/copyright}
 	% 中英文摘要。
 	\include{chap/abstract}
 	% 自动生成目录。
