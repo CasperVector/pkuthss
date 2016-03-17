@@ -1,3 +1,19 @@
+2016-03-17, v1.7.1
+
+	* Changes to example template:
+	- Fix TOC and heading of copyright / originauth pages.
+	- Also remind user to remove `\pkuthssffaq' from chap/.
+
+	* Changes to package code:
+	- pkuthss.cls: load ifpdf and ifxetex by ourselves (thank @LeoLiu).
+
+	* Changes to documentation:
+	- pkuthss.tex: follow biblatex-caspervector change about name sorting.
+	- Update hint about split sorting.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2015-12-16, v1.7.0
 
 	* API changes:

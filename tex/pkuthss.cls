@@ -23,7 +23,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2015/12/16 v1.7.0 Peking University dissertation document class]
+	[2016/03/17 v1.7.1 Peking University dissertation document class]
 
 % eg. `\pkuthss@int@boolopt{spacing}{true}' will expand to:
 %   \newif\ifpkuthss@opt@spacing \pkuthss@opt@spacingtrue
