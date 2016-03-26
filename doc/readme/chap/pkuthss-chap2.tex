@@ -314,7 +314,22 @@ pkuthss 文档类可能调用以下这些宏包：
 
 pkuthss 文档模版的实现是简洁、清晰、灵活的。
 当一些细节的自定义无法通过模版提供的外部接口实现时，
-我们鼓励用户（在适当理解相关部分代码的前提下）通过修改模版进行自定义。
+我们鼓励用户（在适当理解相关部分代码的前提下）
+通过修改 pkuthss 文档类的源文件进行自定义。
+在目前常用的 \hologo{TeX} 系统中，
+假设 pkuthss 的说明文档所在目录具有下述形式的路径：
+\begin{Verbatim}[frame = single]
+# 说明文档所在目录（$TEXMFDIST 的形式见下面几行）：
+$TEXMFDIST/tex/latex/pkuthss/
+# 若用户使用 Windows 下的 TeX Live 系统，则 $TEXMFDIST 一般类似于：
+C:\texlive\2015\texmf-dist
+# 若用户使用类 Unix 下的 TeX Live 系统，则 $TEXMFDIST 一般类似于：
+/usr/local/texlive/2015/texmf-dist
+\end{Verbatim}
+则其源文件所在目录应该位于以下目录：
+\begin{Verbatim}[frame = single]
+$TEXMFDIST/doc/latex/pkuthss/
+\end{Verbatim}
 
 一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
 超出了在预设的空间。
