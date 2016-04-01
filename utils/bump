@@ -14,9 +14,8 @@ revbump:
 	sed -i -e '/date = / s;{[^{}]\+},$$;{$(CNDATE)},;g' \
 		-e '/\\newcommand{\\docversion}/ s;{[^{}]\+}$$;{v$(VERSION)};g' \
 		doc/readme/pkuthss.tex
-	@echo '$@: remember to update the ChangeLog'
-	@echo '$@: remember to tag the commit'
-	@echo '$@: remember to `git push --tags'\'
+	@echo '$@: remember to update the change log and copyright lines'
+	@echo '$@: remember to tag the commit and push tags'
 	@echo '$@: remember to add new download on project homepage'
 
 # vim:ts=4:sw=4
