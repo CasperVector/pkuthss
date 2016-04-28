@@ -78,7 +78,8 @@
 % `hyperref', `fntef', `fancyhdr' and `cs4size' are deprecated in ctex 2.x.
 % hyperref now does not make citation hyperlinks if not explicitly loaded.
 % All compatibility support for ctex 1.x is scheduled for removal in 2017.
-\RequirePackage{hyperref}
+% `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
+\AtEndOfClass{\RequirePackage{hyperref}}
 
 \ifpkuthss@opt@gbk
 	\input{pkuthss-gbk.def}
