@@ -267,23 +267,33 @@
 \setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
 
 % Set up chapter/section/... captions.
+% The alternative settings in comments can be used in case the infractions
+% (intended to make the style less ugly) get caught; note that the `*skip'
+% values are not supposed to be modified: the actual style of the school's
+% guide and Word template seem to be different from the written specification
+% (when applied verbatim in LaTeX), and here the actual style is used.
 \CTEXsetup[
 	nameformat = {\zihao{-2}\bfseries},
 	titleformat = {\zihao{-2}\bfseries},
+	%nameformat = {\zihao{3}\bfseries},
+	%titleformat = {\zihao{3}\bfseries},
 	beforeskip = {0bp}, afterskip = {18bp}
 ]{chapter}
 \CTEXsetup[
 	format = {\zihao{-3}\bfseries},
+	%format = {\zihao{4}\bfseries},
 	beforeskip = {20bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{section}
 \CTEXsetup[
 	format = {\zihao{4}\bfseries},
+	%format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries},
 	beforeskip = {12bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{subsection}
 \CTEXsetup[
 	format = {\bfseries},
+	%format = {\zihao{-4}\bfseries},
 	beforeskip = {12bp plus 1ex minus 0.2ex},
 	afterskip = {6bp plus 0.2ex}
 ]{subsubsection}
