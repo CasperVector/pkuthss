@@ -1,3 +1,17 @@
+2016-05-24, v1.7.3
+
+	* Changes to package code:
+	- Replace subfig with subcaption.
+	- pkuthss.cls: fix `PDF destination not defined' regression.
+	- pkuthss.cls: add code in case the font size infractions get caught.
+
+	* Changes to documentation:
+	- pkuthss-chap2.tex: add hint about copying internal files before changes.
+	- Sanitise the README bibliography.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2016-03-22, v1.7.2
 
 	* Changes to documentation:
