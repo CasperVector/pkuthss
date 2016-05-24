@@ -140,17 +140,17 @@
 \ifpkuthss@opt@pkuspace
 	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
 	\linespread{1.39}\selectfont
-	% Quite harmless and frequently used package. Loaded together with `tocloft'
-	% plus a compatibility option to avoid package clash.
-	\RequirePackage{subfig}
 	% Provides utilities for setting TOC format; `titles' applied to avoid
 	% interfering with LaTeX's own title mechanism.
-	\RequirePackage[subfigure, titles]{tocloft}
+	\RequirePackage[titles]{tocloft}
 	\setlength{\cftbeforechapskip}{6bp plus 1bp}
 	\setlength{\cftsecindent}{\ccwd}
 	\setlength{\cftsubsecindent}{2\ccwd}
-	% Modify font size and separator of captions.
-	\RequirePackage{caption}
+	% `caption' modifies font size and separator of captions.  `subcaption'
+	% provides functions similar to `subfigure'/`subfig' but does not clash with
+	% `tocloft'; it clashes with `subfigure'/`subfig', but the error message will
+	% say they cannot be used simultaneously.
+	\RequirePackage{caption, subcaption}
 	\DeclareCaptionFont{cfive}{\zihao{5}}
 	\DeclareCaptionLabelSeparator{quad}{\quad}
 	\captionsetup{font = cfive, labelsep = quad}
