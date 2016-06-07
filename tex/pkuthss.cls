@@ -56,6 +56,8 @@
 % Whether to automatically set up properties for generated PDF from user
 % defined document information (author, title, etc.).
 \pkuthss@int@boolopt{pdfprop}{true}
+% Whether to disable some infractions intended to make the style less ugly.
+\pkuthss@int@boolopt{ugly}{false}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
@@ -267,36 +269,37 @@
 \setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
 
 % Set up chapter/section/... captions.
-% The alternative settings in comments can be used in case the infractions
-% (intended to make the style less ugly) get caught; note that the `*skip'
-% values are not supposed to be modified: the actual style of the school's
-% guide and Word template seem to be different from the written specification
-% (when applied verbatim in LaTeX), and here the actual style is used.
+% The `*skip' values are not supposed to be modified by the `ugly' option:
+% the actual style of the school's guide and Word template seem to be different
+% from the written specification (when applied verbatim in LaTeX), and here the
+% actual style is used.
+\CTEXsetup[beforeskip = {0bp}, afterskip = {18bp}]{chapter}
 \CTEXsetup[
-	nameformat = {\zihao{-2}\bfseries},
-	titleformat = {\zihao{-2}\bfseries},
-	%nameformat = {\zihao{3}\bfseries},
-	%titleformat = {\zihao{3}\bfseries},
-	beforeskip = {0bp}, afterskip = {18bp}
-]{chapter}
-\CTEXsetup[
-	format = {\zihao{-3}\bfseries},
-	%format = {\zihao{4}\bfseries},
-	beforeskip = {20bp plus 1ex minus 0.2ex},
-	afterskip = {6bp plus 0.2ex}
+	beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
 ]{section}
 \CTEXsetup[
-	format = {\zihao{4}\bfseries},
-	%format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries},
-	beforeskip = {12bp plus 1ex minus 0.2ex},
-	afterskip = {6bp plus 0.2ex}
+	beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
 ]{subsection}
 \CTEXsetup[
-	format = {\bfseries},
-	%format = {\zihao{-4}\bfseries},
-	beforeskip = {12bp plus 1ex minus 0.2ex},
-	afterskip = {6bp plus 0.2ex}
+	beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
 ]{subsubsection}
+\ifpkuthss@opt@ugly
+	\CTEXsetup[
+		nameformat = {\zihao{3}\bfseries}, titleformat = {\zihao{3}\bfseries}
+	]{chapter}
+	\CTEXsetup[format = {\zihao{4}\bfseries}]{section}
+	\CTEXsetup[
+		format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}
+	]{subsection}
+	\CTEXsetup[format = {\zihao{-4}\bfseries}]{subsubsection}
+\else
+	\CTEXsetup[
+		nameformat = {\zihao{-2}\bfseries}, titleformat = {\zihao{-2}\bfseries}
+	]{chapter}
+	\CTEXsetup[format = {\zihao{-3}\bfseries}]{section}
+	\CTEXsetup[format = {\zihao{4}\bfseries}]{subsection}
+	\CTEXsetup[format = {\bfseries}]{subsubsection}
+\fi
 
 % Internal command to set up headers and footers.
 \def\pkuthss@int@setpagestyle{
