@@ -107,7 +107,7 @@
 	% Use Times New Roman / Arial according to school regulation.
 	% Option used to prevent newtxtext from manipulating footnote marks.
 	\RequirePackage[defaultsups]{newtxtext}
-	\RequirePackage{newtxmath}
+	\RequirePackage[cmintegrals, varg]{newtxmath}
 \else
 	% Provides `\Box' for originauth.tex if newtx is absent.
 	\RequirePackage{latexsym}
