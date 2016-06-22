@@ -66,9 +66,8 @@
 % Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
 \ifpkuthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
-% CJKfntef provides `\CJKunderline' used in `\maketitle'.
 % fancyhdr provides utilities for setting up headers and footers.
-\LoadClass[hyperref, cs4size, fntef, fancyhdr]{ctexbook}[2011/03/11]
+\LoadClass[hyperref, cs4size, fancyhdr]{ctexbook}[2011/03/11]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
 \RequirePackage{ifpdf, ifxetex}
 % Provides support for `key = val' grammar.
@@ -77,7 +76,9 @@
 \RequirePackage{graphicx}[1999/02/16]
 % Provides utilities for setting up page layout.
 \RequirePackage{geometry}
-% `hyperref', `fntef', `fancyhdr' and `cs4size' are deprecated in ctex 2.x.
+% Provides `\uline' used in `\maketitle'.
+\RequirePackage{ulem}
+% `hyperref', `fancyhdr' and `cs4size' are deprecated in ctex 2.x.
 % hyperref now does not make citation hyperlinks if not explicitly loaded.
 % All compatibility support for ctex 1.x is scheduled for removal in 2017.
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
@@ -352,11 +353,11 @@
 		\loop\ifnum\pkuthss@tmp@linecount>0
 			% Fill specified space with underline on the bottom line. `\underline'
 			% draws line on the baseline (not the bottom line), and this is why
-			% `\CJKunderline' is used here instead.
+			% `\uline' is used here instead.
 			\ifnum\pkuthss@tmp@linecount=1
-				\CJKunderline{\makebox[#2]{}}
+				\uline{\makebox[#2]{}}
 			\else
-				\CJKunderline{\makebox[#2]{}}\\
+				\uline{\makebox[#2]{}}\\
 			\fi
 		\advance\pkuthss@tmp@linecount by -1\relax
 		\repeat%
