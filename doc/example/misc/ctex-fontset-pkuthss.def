@@ -1,6 +1,6 @@
 \ProvidesExplFile{\ExplFileName}{}{}{}
 
-\pdftex_if_engine:TF
+\sys_if_engine_pdftex:TF
   {
     \ctex_zhmap_case:nnn
       {
