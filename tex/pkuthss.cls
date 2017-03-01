@@ -153,10 +153,6 @@
 \fi
 
 \ifpkuthss@opt@spacing
-	% Automatically ignore spaces between CJK characters, or otherwise preserve
-	% spaces. XeCJK itself will handle this issue, therefore we do not use
-	% `CJKspace' when using XeLaTeX.
-	\unless\ifxetex\RequirePackage{CJKspace}\fi
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
 	% Lists often appear to be too sparse when items are just one or two lines
