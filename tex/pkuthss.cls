@@ -1,7 +1,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2016 Casper Ti. Vector
+% Copyright (c) 2010-2017 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -66,8 +66,7 @@
 % Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
 \ifpkuthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
-% fancyhdr provides utilities for setting up headers and footers.
-\LoadClass[hyperref, cs4size, fancyhdr]{ctexbook}[2011/03/11]
+\LoadClass[zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
 \RequirePackage{ifpdf, ifxetex}
 % Provides support for `key = val' grammar.
@@ -76,11 +75,10 @@
 \RequirePackage{graphicx}[1999/02/16]
 % Provides utilities for setting up page layout.
 \RequirePackage{geometry}
+% fancyhdr provides utilities for setting up headers and footers.
+\RequirePackage{fancyhdr}
 % Provides `\uline' used in `\maketitle'.
 \RequirePackage{ulem}
-% `hyperref', `fancyhdr' and `cs4size' are deprecated in ctex 2.x.
-% hyperref now does not make citation hyperlinks if not explicitly loaded.
-% All compatibility support for ctex 1.x is scheduled for removal in 2017.
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
 \AtEndOfClass{\RequirePackage{hyperref}}
 
@@ -94,12 +92,7 @@
 				XeLaTeX compilation without UTF-8 is very problematic.\MessageBreak
 				Therefore please use UTF-8 encoding for the LaTeX code.%
 			}
-	\else\ifpdf
-		% Fix garbled text in bookmarks for pdfLaTeX compilation in GBK.
-		% Compatibility settings for ctex 1.x, to be removed in 2017; ctex 2.x
-		% loads xCJK2uni by itself when necessary.
-		\RequirePackage{xCJK2uni}
-	\fi\fi
+	\fi
 \else
 	\input{pkuthss-utf8.def}
 \fi
@@ -274,32 +267,32 @@
 % the actual style of the school's guide and Word template seem to be different
 % from the written specification (when applied verbatim in LaTeX), and here the
 % actual style is used.
-\CTEXsetup[beforeskip = {0bp}, afterskip = {18bp}]{chapter}
-\CTEXsetup[
-	beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
-]{section}
-\CTEXsetup[
-	beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
-]{subsection}
-\CTEXsetup[
-	beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}
-]{subsubsection}
+\ctexset{
+	chapter = {beforeskip = {0bp}, afterskip = {18bp}},
+	section =
+		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
+	subsection =
+		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
+	subsubsection =
+		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}}
+}
 \ifpkuthss@opt@ugly
-	\CTEXsetup[
-		nameformat = {\zihao{3}\bfseries}, titleformat = {\zihao{3}\bfseries}
-	]{chapter}
-	\CTEXsetup[format = {\zihao{4}\bfseries}]{section}
-	\CTEXsetup[
-		format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}
-	]{subsection}
-	\CTEXsetup[format = {\zihao{-4}\bfseries}]{subsubsection}
+	\ctexset{
+		chapter =
+			{nameformat = {\zihao{3}\bfseries}, titleformat = {\zihao{3}\bfseries}},
+		section = {format = {\zihao{4}\bfseries}},
+		subsection =
+			{format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}},
+		subsubsection = {format = {\zihao{-4}\bfseries}}
+	}
 \else
-	\CTEXsetup[
-		nameformat = {\zihao{-2}\bfseries}, titleformat = {\zihao{-2}\bfseries}
-	]{chapter}
-	\CTEXsetup[format = {\zihao{-3}\bfseries}]{section}
-	\CTEXsetup[format = {\zihao{4}\bfseries}]{subsection}
-	\CTEXsetup[format = {\bfseries}]{subsubsection}
+	\ctexset{
+		chapter =
+			{nameformat = {\zihao{-2}\bfseries}, titleformat = {\zihao{-2}\bfseries}},
+		section = {format = {\zihao{-3}\bfseries}},
+		subsection = {format = {\zihao{4}\bfseries}},
+		subsubsection = {format = {\bfseries}}
+	}
 \fi
 
 % Internal command to set up headers and footers.
