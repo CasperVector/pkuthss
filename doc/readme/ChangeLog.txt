@@ -1,3 +1,20 @@
+2017-03-01, v1.7.4
+
+	* API changes:
+	- pkuthss.cls: provide undocumented option for uglification.
+
+	* Changes to example template:
+	- ctex-fontset-pkuthss.def: follow LaTeX3 change.
+	- copyright.tex: fix now inaccurate comment.
+
+	* Changes to package code:
+	- Remove support for ctex < v2.x.
+	- Replace CJKfntef's `\CJKunderline' with ulem's `\uline'.
+	- pkuthss.cls: tweak newtxmath setup.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2016-05-24, v1.7.3
 
 	* Changes to package code:
