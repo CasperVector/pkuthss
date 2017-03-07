@@ -171,18 +171,6 @@
 \fi
 
 \AtBeginDocument{
-	\ifpkuthss@opt@pkuspace
-		% Kludge for `tocloft' used with `ctex'.
-		% <http://bbs.ctex.org/forum.php?mod=redirect&goto=findpost&ptid=43535&pid=310238>.
-		\renewcommand{\numberline}[1]{%
-			\settowidth\@tempdimb{#1\hspace{0.5em}}%
-			\ifdim\@tempdima<\@tempdimb%
-				\@tempdima=\@tempdimb%
-			\fi%
-			\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb%
-		}%
-	\fi
-
 	\ifpkuthss@opt@pdftoc
 		% Add PDF bookmark for table of contents.
 		\let\pkuthss@tmp@tableofcontents\tableofcontents
