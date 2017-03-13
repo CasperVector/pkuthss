@@ -193,7 +193,7 @@
 		% information should have been all defined before this.
 		\let\pkuthss@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
-		% act as wished.
+		% act as expected.
 		\renewcommand\maketitle{\setpdfproperties\pkuthss@tmp@maketitle}
 	\fi
 }
