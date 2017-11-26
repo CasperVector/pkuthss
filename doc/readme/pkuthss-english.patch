@@ -1,0 +1,275 @@
+diff --git a/doc/example/chap/abstract.tex b/doc/example/chap/abstract.tex
+index b930654..cfa6cd3 100644
+--- a/doc/example/chap/abstract.tex
++++ b/doc/example/chap/abstract.tex
+@@ -2,7 +2,7 @@
+ % Public domain.
+ 
+ \begin{cabstract}
+-	\pkuthssffaq % 中文测试文字
++	中文摘要。
+ \end{cabstract}
+ 
+ \begin{eabstract}
+diff --git a/doc/example/chap/acknowledge.tex b/doc/example/chap/acknowledge.tex
+index 4af4d39..09de33d 100644
+--- a/doc/example/chap/acknowledge.tex
++++ b/doc/example/chap/acknowledge.tex
+@@ -1,7 +1,7 @@
+ % Copyright (c) 2014,2016 Casper Ti. Vector
+ % Public domain.
+ 
+-\chapter{致谢}
+-\pkuthssffaq % 中文测试文字。
++\chapter{Acknowledgements}
++Test text.
+ 
+ % vim:ts=4:sw=4
+diff --git a/doc/example/chap/chap1.tex b/doc/example/chap/chap1.tex
+index 85f7008..da8c177 100644
+--- a/doc/example/chap/chap1.tex
++++ b/doc/example/chap/chap1.tex
+@@ -1,7 +1,7 @@
+ % Copyright (c) 2014,2016 Casper Ti. Vector
+ % Public domain.
+ 
+-\chapter{章节}
+-\pkuthssffaq % 中文测试文字。
++\chapter{Some chapter}
++Test text.
+ 
+ % vim:ts=4:sw=4
+diff --git a/doc/example/chap/conclusion.tex b/doc/example/chap/conclusion.tex
+index 93941bc..a472892 100644
+--- a/doc/example/chap/conclusion.tex
++++ b/doc/example/chap/conclusion.tex
+@@ -1,7 +1,7 @@
+ % Copyright (c) 2014,2016 Casper Ti. Vector
+ % Public domain.
+ 
+-\specialchap{结论}
+-\pkuthssffaq % 中文测试文字。
++\specialchap{Conclusion}
++Test text.
+ 
+ % vim:ts=4:sw=4
+diff --git a/doc/example/chap/encl1.tex b/doc/example/chap/encl1.tex
+index 9834829..4296e9a 100644
+--- a/doc/example/chap/encl1.tex
++++ b/doc/example/chap/encl1.tex
+@@ -1,7 +1,7 @@
+ % Copyright (c) 2014,2016 Casper Ti. Vector
+ % Public domain.
+ 
+-\chapter{附件}
+-\pkuthssffaq % 中文测试文字。
++\chapter{Some appendix}
++Test text.
+ 
+ % vim:ts=4:sw=4
+diff --git a/doc/example/chap/introduction.tex b/doc/example/chap/introduction.tex
+index c0e033e..7c1920f 100644
+--- a/doc/example/chap/introduction.tex
++++ b/doc/example/chap/introduction.tex
+@@ -1,7 +1,7 @@
+ % Copyright (c) 2014,2016 Casper Ti. Vector
+ % Public domain.
+ 
+-\specialchap{序言}
+-\pkuthssffaq % 中文测试文字。
++\specialchap{Introduction}
++Test text.
+ 
+ % vim:ts=4:sw=4
+diff --git a/doc/example/thesis.bib b/doc/example/thesis.bib
+index ac5b0c9..9d2ad60 100644
+--- a/doc/example/thesis.bib
++++ b/doc/example/thesis.bib
+@@ -7,13 +7,4 @@
+ 	language = {english},
+ }
+ 
+-@article{test-zh,
+-	author = {作者},
+-	title = {标题},
+-	type = {J},
+-	journal = {期刊},
+-	date = {2014-04-01},
+-	language = {chinese},
+-}
+-
+ % vim:ts=4:sw=4
+diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
+index a06092c..0080051 100644
+--- a/doc/example/thesis.tex
++++ b/doc/example/thesis.tex
+@@ -14,53 +14,44 @@
+ % 其它用户不用加入 nofonts 选项，加入之后反而会产生错误。
+ \documentclass[UTF8]{pkuthss}
+ 
+-% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex-caspervector 的文档）。
+-% 这里按照英文文献在前，中文文献在后排序（“sorting = ecnty”）；
+-% 若需按照中文文献在前，英文文献在后排序，请设置“sorting = centy”；
+-% 若需按照引用顺序排序，请设置“sorting = none”。
+-% 若需在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
+-\usepackage[backend = biber, style = caspervector, utf8, sorting = ecnty]{biblatex}
++% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex 的文档）。
++\usepackage[backend = biber]{biblatex}
+ 
+ % 按学校要求设定参考文献列表中的条目之内及之间的距离。
+ \setlength{\bibitemsep}{3bp}
+ % 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss.cls。
+ \renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
+ 
++\ctexset{
++	contentsname = {Contents},
++	listfigurename = {List of Figures},
++	listtablename = {List of Tables},
++	figurename = {Figure},
++	tablename = {Table},
++	indexname = {Index},
++	appendixname = {Appendix},
++	part/name = {\partname\space},
++	part/number = {\thepart},
++	chapter/name = {\chaptername\space},
++	chapter/number = {\thechapter},
++}
++
+ % 设定文档的基本信息。
+ \pkuthssinfo{
+-	cthesisname = {博士研究生学位论文}, ethesisname = {Doctor Thesis},
+-	ctitle = {测试文档}, etitle = {Test Document},
+-	cauthor = {某某},
++	ethesisname = {Doctor Thesis},
++	etitle = {Test Document},
+ 	eauthor = {Test},
+ 	studentid = {0123456789},
+-	date = {某年某月},
+-	school = {某某学院},
+-	cmajor = {某某专业}, emajor = {Some Major},
+-	direction = {某某方向},
+-	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
++	date = {Some Date},
++	school = {Some School},
++	emajor = {Some Major},
++	direction = {Some Direction},
++	ementor = {Prof.\ Somebody},
+ 	ckeywords = {其一，其二}, ekeywords = {First, Second}
+ }
+ % 载入参考文献数据库（注意不要省略“.bib”）。
+ \addbibresource{thesis.bib}
+ 
+-% 普通用户可删除此段，并相应地删除 chap/*.tex 中的
+-% “\pkuthssffaq % 中文测试文字。”一行。
+-\usepackage{color}
+-\def\pkuthssffaq{%
+-	\emph{\textcolor{red}{pkuthss 文档模版最常见问题：}}
+-
+-	\texttt{\string\cite}、\texttt{\string\parencite} %
+-	和 \texttt{\string\supercite} 三个命令分别产生%
+-	未格式化的、带方括号的和上标且带方括号的引用标记：%
+-	\cite{test-en}，\parencite{test-zh}、\supercite{test-en, test-zh}。
+-
+-	若要避免章末空白页，请在调用 pkuthss 文档类时加入 \texttt{openany} 选项。
+-
+-	如果编译时不出参考文献，
+-	请参考 \texttt{texdoc pkuthss}“问题及其解决”一章
+-	“其它可能存在的问题”一节中关于 biber 的说明。
+-}
+-
+ \begin{document}
+ 	% 以下为正文之前的部分，默认不进行章节编号。
+ 	\frontmatter
+@@ -96,7 +87,7 @@
+ 	\appendix
+ 	% 排版参考文献列表。bibintoc 选项使“参考文献”出现在目录中；
+ 	% 如果同时要使参考文献列表参与章节编号，可将“bibintoc”改为“bibnumbered”。
+-	\printbibliography[heading = bibintoc]
++	\printbibliography[heading = bibintoc, title = Reference]
+ 	% 各附录。
+ 	\include{chap/encl1}
+ 
+diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
+index c2c951b..d453918 100644
+--- a/tex/pkuthss-utf8.def
++++ b/tex/pkuthss-utf8.def
+@@ -25,13 +25,13 @@
+ 	[2017/03/01 v1.7.4 Labels and captions in UTF-8 encoding
+ 		for the pkuthss document class]
+ 
+-\def\label@ctitle{题目：}
+-\def\label@cauthor{姓\hphantom{汉字}名：}
+-\def\label@studentid{学\hphantom{汉字}号：}
+-\def\label@school{院\hphantom{汉字}系：}
+-\def\label@cmajor{专\hphantom{汉字}业：}
+-\def\label@direction{研究方向：}
+-\def\label@cmentor{导\hphantom{汉字}师：}
++\def\label@ctitle{Title: }
++\def\label@cauthor{Name}
++\def\label@studentid{Student ID}
++\def\label@school{Affiliation}
++\def\label@cmajor{Major}
++\def\label@direction{Research Division}
++\def\label@cmentor{Supervisor}
+ \def\label@ementor{Directed by\ }
+ \def\label@ckeywords{关键词：}
+ \def\label@ekeywords{KEYWORDS:\ }
+diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
+index 383965c..40a8ae3 100644
+--- a/tex/pkuthss.cls
++++ b/tex/pkuthss.cls
+@@ -286,7 +286,7 @@
+ 		\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
+ 		\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
+ 		\if@twoside
+-			\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity\cthesisname}}
++			\fancyhead[CE]{\zihao{5}\normalfont{{\euniversity} {\ethesisname}}}
+ 			\fancyhead[CO]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+ 		\else
+ 			\fancyhead[C]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+@@ -354,13 +354,13 @@
+ 				\zihao{1}%
+ 				\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+ 				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+-				{\bfseries{\cthesisname}}%
++				{\bfseries{\ethesisname}}%
+ 			}
+ 			\vfill
+ 			% Title of the thesis.
+ 			{%
+ 				\zihao{2}{\label@ctitle}%
+-				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
++				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@etitle}}%
+ 			}
+ 			\vfill
+ 			% Information about the author.
+@@ -368,19 +368,19 @@
+ 				% Slightly adjust the line skip when using new font size.
+ 				\zihao{3}\linespread{1.75}\selectfont
+ 				\def\pkuthss@tmp@len{0.56\textwidth}
+-				\begin{tabular}{l@{\extracolsep{0.2em}}c}
+-					{\bfseries\label@cauthor}		&
+-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cauthor}		\\
+-					{\bfseries\label@studentid}	&
++				\begin{tabular}{c@{\extracolsep{0.2em}}c@{\extracolsep{0.2em}}c}
++					{\bfseries\label@cauthor}		&	: &
++					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@eauthor}		\\
++					{\bfseries\label@studentid}	&	:	&
+ 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@studentid}	\\
+-					{\bfseries\label@school}		&
++					{\bfseries\label@school}		&	:	&
+ 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@school}		\\
+-					{\bfseries\label@cmajor}		&
+-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmajor}		\\
+-					{\bfseries\label@direction}	&
++					{\bfseries\label@cmajor}		&	:	&
++					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@emajor}		\\
++					{\bfseries\label@direction}	&	:	&
+ 					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@direction}	\\
+-					{\bfseries\label@cmentor}		&
+-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmentor}		\\
++					{\bfseries\label@cmentor}		&	:	&
++					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@ementor}		\\
+ 				\end{tabular}%
+ 			}
+ 			\vfill
