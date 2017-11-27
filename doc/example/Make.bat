@@ -5,7 +5,7 @@
 @rem Public domain.
 
 set JOBNAME=thesis
-@rem 这个变量的值可以为 latex 或 pdflatex。
+@rem 这个变量的值可以为 latex、pdflatex 或 xelatex。
 set LATEX=latex
 set BIBTEX=biber -l zh__pinyin
 set DVIPDF=dvipdfmx
