@@ -100,7 +100,7 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index a06092c..0080051 100644
+index a96cb1e..0080051 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
 @@ -14,53 +14,44 @@
@@ -174,7 +174,7 @@ index a06092c..0080051 100644
 -
 -	如果编译时不出参考文献，
 -	请参考 \texttt{texdoc pkuthss}“问题及其解决”一章
--	“其它可能存在的问题”一节中关于 biber 的说明。
+-	“上游宏包可能引起的问题”一节中关于 biber 的说明。
 -}
 -
  \begin{document}
