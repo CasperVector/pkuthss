@@ -251,6 +251,8 @@
 % the actual style of the school's guide and Word template seem to be different
 % from the written specification (when applied verbatim in LaTeX), and here the
 % actual style is used.
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \ctexset{
 	chapter = {beforeskip = {0bp}, afterskip = {18bp}},
 	section =
