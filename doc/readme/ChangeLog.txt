@@ -202,7 +202,7 @@
 
 	* Changes to documentation:
 	- No longer recommend the CTeX Suite.
-	- Remove install hints (already included in TeX Live).
+	- Remove installation hints (already included in TeX Live).
 	- Discourage bibtex usage with UTF-8.
 	- hologo is back, and now we have proper XeLaTeX logo.
 
