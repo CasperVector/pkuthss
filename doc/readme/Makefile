@@ -1,9 +1,9 @@
 # Copyright (c) 2008-2009 solvethis
-# Copyright (c) 2010-2012,2014 Casper Ti. Vector
+# Copyright (c) 2010-2012,2014-2015,2018 Casper Ti. Vector
 # Public domain.
 
 JOBNAME = pkuthss
-BIBTEX = biber -l zh__pinyin
+BIBTEX = biber -l zh__pinyin --output-safechars
 DVIPDF = dvipdfmx
 MAKE = make
 RM = rm -f

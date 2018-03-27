@@ -1,12 +1,12 @@
 # Copyright (c) 2008-2009 solvethis
-# Copyright (c) 2010-2012 Casper Ti. Vector
+# Copyright (c) 2010-2012,2014-2015,2018 Casper Ti. Vector
 # Public domain.
 
 # 被编译的主文件的文件名，不包括扩展名。
 JOBNAME = thesis
 # 这个变量的值可以为 latex、pdflatex 或 xelatex。
 LATEX = latex
-BIBTEX = biber -l zh__pinyin
+BIBTEX = biber -l zh__pinyin --output-safechars
 DVIPDF = dvipdfmx
 
 # 如果用 LaTeX 编译，则使用 dvipdfmx 将 dvi 转成 pdf。
