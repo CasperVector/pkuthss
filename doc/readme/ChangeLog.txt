@@ -1,3 +1,22 @@
+2017-05-12, v1.7.5
+
+	* Changes to example template:
+	- Fix missing accented characters with xelatex.
+	- Remove ctex-xecjk-winfonts.def for ctex < v2.x.
+	- Make.bat: support xelatex now that we no longer provide the GBK example.
+	- thesis.tex: fix FAQ subsection reference (thank @peiyangium).
+
+	* Changes to package code:
+	- pkuthss.cls: fix subsubsection captions.
+	- pkuthss.cls: remove kludge for tocloft with ctex < v2.x.
+
+	* Changes to documentation:
+	- Add patch file for English dissertations.
+
+	* Misc:
+	- (A lot?) more HTTPS.
+	- Minor fixes and cosmetics.
+
 2017-03-01, v1.7.4
 
 	* API changes:
