@@ -32,8 +32,10 @@ doc:
 	$(DODVIPDF)
 
 clean:
-	$(RM) $(JOBNAME).{aux,bbl,bcf,blg,dvi,lof,log,lot,run.xml,toc,out{,.bak}} \
-		{missfont,texput}.log chap/*.aux
+	$(RM) $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).bcf $(JOBNAME).blg \
+		$(JOBNAME).dvi $(JOBNAME).lof $(JOBNAME).log $(JOBNAME).lot \
+		$(JOBNAME).run.xml $(JOBNAME).toc $(JOBNAME).out $(JOBNAME).out.bak \
+		missfont.log texput.log chap/*.aux
 
 distclean: clean
 	$(RM) $(JOBNAME).pdf
