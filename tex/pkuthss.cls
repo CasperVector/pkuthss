@@ -142,6 +142,7 @@
 	\setlength{\cftbeforechapskip}{6bp plus 1bp}
 	\setlength{\cftsecindent}{\ccwd}
 	\setlength{\cftsubsecindent}{2\ccwd}
+	\setlength{\cftsubsubsecindent}{4\ccwd}
 	% `caption' modifies font size and separator of captions.  `subcaption'
 	% provides functions similar to `subfigure'/`subfig' but does not clash with
 	% `tocloft'; it clashes with `subfigure'/`subfig', but the error message will
@@ -252,7 +253,7 @@
 % from the written specification (when applied verbatim in LaTeX), and here the
 % actual style is used.
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \ctexset{
 	chapter = {beforeskip = {0bp}, afterskip = {18bp}},
 	section =
