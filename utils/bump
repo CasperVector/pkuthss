@@ -4,14 +4,12 @@
 # Public domain.
 
 NUMDATE = $(shell date '+%Y/%m/%d')
-CNDATE = $(shell date '+%Y年%-m月' | \
-	LANG=zh_CN.UTF-8 sed 'y/0123456789/〇一二三四五六七八九/'| \
-	LANG=zh_CN.UTF-8 sed 's/一〇月/十月/g; s/一一月/十一月/g; s/一二月/十二月/g')
+CNDATE = $(shell date '+\\zhdigits{%Y}年\\zhnumber{%-m}月')
 
 revbump:
 	sed -i '/\\Provides/,+1 s;\[[^ ]* [^ ]*;[$(NUMDATE) v$(VERSION);g' \
 		tex/*
-	sed -i -e '/date = / s;{[^{}]\+},$$;{$(CNDATE)},;g' \
+	sed -i -e '/date = / s;{[^,]\+},$$;{$(CNDATE)},;g' \
 		-e '/\\newcommand{\\docversion}/ s;{[^{}]\+}$$;{v$(VERSION)};g' \
 		doc/readme/pkuthss.tex
 	@echo '$@: remember to update the change log and copyright lines'
