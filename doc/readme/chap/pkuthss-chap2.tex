@@ -47,7 +47,7 @@
 
 	\item \textbf{\texttt{[no]pkufont}}：
 		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
-		将英文字体改为类似于 Times New Roman / Arial 的字体。
+		将西文字体改为类似于 Times New Roman / Arial 的字体。
 
 	\item \textbf{\texttt{[no]pkufoot}}\footnote{%
 			此选项等价于 1.6.4 及以前版本 pkuthss-extra 宏包的
@@ -90,7 +90,7 @@
 		具体地说，启用 \verb|spacing| 选项后会进行以下几项设置：
 	\begin{itemize}
 		\item 自动忽略 CJK 文字之间的空白而
-			保留（CJK 文字与英文之间等的）其它空白。
+			保留（CJK 文字与西文之间等的）其它空白。
 		\item 调用 setspace 宏包以使某些细节处的空间安排更美观。
 		\item 采用比 \hologo{LaTeX} 默认设定更加紧密的枚举环境%
 			\footnote{%
@@ -160,19 +160,19 @@
 这些命令总结如下：
 \begin{itemize}
 	\item \texttt{\bfseries\string\ctitle}：设定论文中文标题；
-	\item \texttt{\bfseries\string\etitle}：设定论文英文标题；
+	\item \texttt{\bfseries\string\etitle}：设定论文西文标题；
 	\item \texttt{\bfseries\string\cauthor}：设定作者的中文名；
-	\item \texttt{\bfseries\string\eauthor}：设定作者的英文名；
+	\item \texttt{\bfseries\string\eauthor}：设定作者的西文名；
 	\item \texttt{\bfseries\string\studentid}：设定作者的学号；
 	\item \texttt{\bfseries\string\date}：设定日期；
 	\item \texttt{\bfseries\string\school}：设定作者的学院名；
 	\item \texttt{\bfseries\string\cmajor}：设定作者专业的中文名；
-	\item \texttt{\bfseries\string\emajor}：设定作者专业的英文名；
+	\item \texttt{\bfseries\string\emajor}：设定作者专业的西文名；
 	\item \texttt{\bfseries\string\direction}：设定作者的研究方向；
 	\item \texttt{\bfseries\string\cmentor}：设定导师的中文名；
-	\item \texttt{\bfseries\string\ementor}：设定导师的英文名；
+	\item \texttt{\bfseries\string\ementor}：设定导师的西文名；
 	\item \texttt{\bfseries\string\ckeywords}：设定中文关键词；
-	\item \texttt{\bfseries\string\ekeywords}：设定英文关键词。
+	\item \texttt{\bfseries\string\ekeywords}：设定西文关键词。
 \end{itemize}
 
 例如，如果要设定专业为“化学”（“Chemistry”），则可以使用以下命令：
@@ -192,11 +192,11 @@
 这些命令总结如下：
 \begin{itemize}
 	\item \texttt{\bfseries\string\cuniversity}：大学的中文名。
-	\item \texttt{\bfseries\string\euniversity}：大学的英文名。
+	\item \texttt{\bfseries\string\euniversity}：大学的西文名。
 	\item \texttt{\bfseries\string\cthesisname}：论文类别的中文名。
-	\item \texttt{\bfseries\string\ethesisname}：论文类别的英文名。
+	\item \texttt{\bfseries\string\ethesisname}：论文类别的西文名。
 	\item \texttt{\bfseries\string\cabstractname}：摘要的中文标题。
-	\item \texttt{\bfseries\string\eabstractname}：摘要的英文标题。
+	\item \texttt{\bfseries\string\eabstractname}：摘要的西文标题。
 \end{itemize}
 
 例如，
@@ -236,7 +236,7 @@
 \subsection{其它命令和环境}\label{ssec:misc}
 
 \texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract}
-环境用于编写中英文摘要。
+环境用于编写中西文摘要。
 用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
 
 \texttt{\bfseries\string\specialchap} 命令
@@ -285,7 +285,7 @@ pkuthss 文档模版使用作者编写的 biblatex\supercite{biblatex} 样式%
 
 就目前而言，在\myemph{除 3.0--3.3 之外版本的} biblatex 中，
 通过更复杂的设置，还可以满足例如被引用的文献按照引用顺序排序，
-而未引用的文献按照英文文献在前、中文文献在后排序这样的需求，
+而未引用的文献按照西文文献在前、中文文献在后排序这样的需求，
 详见 biblatex-caspervector 的文档\supercite{biblatex-caspervector}。
 
 除此之外，pkuthss 文档类还可能调用以下这些宏包：
