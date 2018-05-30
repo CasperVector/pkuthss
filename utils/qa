@@ -46,7 +46,7 @@ spell:
 
 blank:
 	@echo '======================================================================'
-	@echo '$@: check for spaces and tabs on blank lines'
+	@echo '$@: check for trailing spaces and tabs'
 	@echo '----------------------------------------------------------------------'
 	! grep -r --exclude-dir=.git '[ 	]\+$$' .
 	@echo
