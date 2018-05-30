@@ -2,7 +2,7 @@
 # Copyright (c) 2010-2012,2014-2015,2018 Casper Ti. Vector
 # Public domain.
 
-JOBNAME = pkuthss
+JOB = pkuthss
 BIBTEX = biber -l zh__pinyin --output-safechars
 DVIPDF = dvipdfmx
 MAKE = make
@@ -17,23 +17,22 @@ else
 endif
 
 ifeq ($(LATEX), latex)
-	DODVIPDF = $(DVIPDF) $(JOBNAME)
+	DODVIPDF = $(DVIPDF) $(JOB)
 endif
 
 doc:
-	$(LATEX1) $(JOBNAME)
-	$(BIBTEX) $(JOBNAME)
-	$(LATEX2) $(JOBNAME)
-	$(LATEX2) $(JOBNAME)
+	$(LATEX1) $(JOB)
+	$(BIBTEX) $(JOB)
+	$(LATEX2) $(JOB)
+	$(LATEX2) $(JOB)
 	$(DODVIPDF)
 
 clean:
-	$(RM) $(JOBNAME).aux $(JOBNAME).bbl $(JOBNAME).bcf $(JOBNAME).blg \
-		$(JOBNAME).dvi $(JOBNAME).lof $(JOBNAME).log $(JOBNAME).lot \
-		$(JOBNAME).run.xml $(JOBNAME).toc $(JOBNAME).out $(JOBNAME).out.bak \
-		missfont.log texput.log chap/*.aux
+	$(RM) $(JOB).aux $(JOB).bbl $(JOB).bcf $(JOB).blg $(JOB).dvi \
+		$(JOB).lof $(JOB).log $(JOB).lot $(JOB).run.xml $(JOB).toc \
+		$(JOB).out $(JOB).out.bak missfont.log texput.log chap/*.aux
 
 distclean: clean
-	$(RM) $(JOBNAME).pdf
+	$(RM) $(JOB).pdf
 
 # vim:ts=4:sw=4

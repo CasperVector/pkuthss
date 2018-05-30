@@ -4,23 +4,23 @@
 @rem Copyright (c) 2010-2012 Casper Ti. Vector
 @rem Public domain.
 
-set JOBNAME=thesis
+set JOB=thesis
 @rem 这个变量的值可以为 latex、pdflatex 或 xelatex。
 set LATEX=latex
 set BIBTEX=biber -l zh__pinyin --output-safechars
 set DVIPDF=dvipdfmx
 
-if "%LATEX%"=="latex" (set DODVIPDF=%DVIPDF% %JOBNAME%
+if "%LATEX%"=="latex" (set DODVIPDF=%DVIPDF% %JOB%
 ) else (set DODVIPDF=echo No need to run %DVIPDF%.)
 if "%1"=="" goto doc
 if "%1"=="doc" goto doc
 if "%1"=="clean" (goto clean) else (goto usage)
 
 :doc
-%LATEX% %JOBNAME%
-%BIBTEX% %JOBNAME%
-%LATEX% %JOBNAME%
-%LATEX% %JOBNAME%
+%LATEX% %JOB%
+%BIBTEX% %JOB%
+%LATEX% %JOB%
+%LATEX% %JOB%
 %DODVIPDF%
 goto end
 
