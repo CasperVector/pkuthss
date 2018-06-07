@@ -1,7 +1,7 @@
-diff --git a/doc/example/chap/abstract.tex b/doc/example/chap/abstract.tex
+diff --git a/doc/example/chap/abs.tex b/doc/example/chap/abs.tex
 index b930654..cfa6cd3 100644
---- a/doc/example/chap/abstract.tex
-+++ b/doc/example/chap/abstract.tex
+--- a/doc/example/chap/abs.tex
++++ b/doc/example/chap/abs.tex
 @@ -2,7 +2,7 @@
  % Public domain.
  
@@ -11,10 +11,10 @@ index b930654..cfa6cd3 100644
  \end{cabstract}
  
  \begin{eabstract}
-diff --git a/doc/example/chap/acknowledge.tex b/doc/example/chap/acknowledge.tex
+diff --git a/doc/example/chap/ack.tex b/doc/example/chap/ack.tex
 index 4af4d39..09de33d 100644
---- a/doc/example/chap/acknowledge.tex
-+++ b/doc/example/chap/acknowledge.tex
+--- a/doc/example/chap/ack.tex
++++ b/doc/example/chap/ack.tex
 @@ -1,7 +1,7 @@
  % Copyright (c) 2014,2016 Casper Ti. Vector
  % Public domain.
@@ -39,10 +39,10 @@ index 85f7008..da8c177 100644
 +Test text.
  
  % vim:ts=4:sw=4
-diff --git a/doc/example/chap/conclusion.tex b/doc/example/chap/conclusion.tex
+diff --git a/doc/example/chap/concl.tex b/doc/example/chap/concl.tex
 index 93941bc..a472892 100644
---- a/doc/example/chap/conclusion.tex
-+++ b/doc/example/chap/conclusion.tex
+--- a/doc/example/chap/concl.tex
++++ b/doc/example/chap/concl.tex
 @@ -1,7 +1,7 @@
  % Copyright (c) 2014,2016 Casper Ti. Vector
  % Public domain.
@@ -67,10 +67,10 @@ index 9834829..4296e9a 100644
 +Test text.
  
  % vim:ts=4:sw=4
-diff --git a/doc/example/chap/introduction.tex b/doc/example/chap/introduction.tex
+diff --git a/doc/example/chap/intro.tex b/doc/example/chap/intro.tex
 index c0e033e..7c1920f 100644
---- a/doc/example/chap/introduction.tex
-+++ b/doc/example/chap/introduction.tex
+--- a/doc/example/chap/intro.tex
++++ b/doc/example/chap/intro.tex
 @@ -1,7 +1,7 @@
  % Copyright (c) 2014,2016 Casper Ti. Vector
  % Public domain.
