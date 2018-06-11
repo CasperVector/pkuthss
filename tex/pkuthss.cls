@@ -282,28 +282,11 @@
 	}
 \fi
 
-% Internal command to set up headers and footers.
-\def\pkuthss@int@setpagestyle{
-	% The actual setup commands.
-	\fancypagestyle{plain}{
-		\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
-		\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
-		\if@twoside
-			\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity\cthesisname}}
-			\fancyhead[CO]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
-		\else
-			\fancyhead[C]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
-		\fi
-	}
-	\pagestyle{plain}
-}
-
 % `\MakeUppercase' works problematically.
 % eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
 % This option can disable `\MakeUppercase' in left/right heading marks.
 \ifpkuthss@opt@uppermark
 	\def\pkuthss@int@setcase#1{#1}
-	\pkuthss@int@setpagestyle
 \else
 	% Code copied from fancyhdr's `\nouppercase', with the redefinition of
 	% `\uppercase' dropped to avoid disrupting CJKutf8.
@@ -313,8 +296,19 @@
 		\expandafter\let\csname MakeUppercase \endcsname\relax%
 		#1%
 	}
-	\pkuthss@int@setpagestyle
 \fi
+% The actual page style setup.
+\fancypagestyle{plain}{
+	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
+	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
+	\if@twoside
+		\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity\cthesisname}}
+		\fancyhead[CO]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+	\else
+		\fancyhead[C]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+	\fi
+}
+\pagestyle{plain}
 
 % This places a bookmark pointing to somewhere near the page header;
 % Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
