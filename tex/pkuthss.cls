@@ -390,8 +390,7 @@
 % Typeset the Chinese abstract.
 \newenvironment{cabstract}{%
 	\pkuthss@int@pdfmark{\cabstractname}{cabstract}
-	\chapter*{\cabstractname}
-	\markboth{\cabstractname}{}%
+	\chapter*{\cabstractname}\markboth{\cabstractname}{}%
 }{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}%
 }
@@ -399,14 +398,12 @@
 % Typeset the English abstract.
 \newenvironment{eabstract}{%
 	\pkuthss@int@pdfmark{\eabstractname}{eabstract}
-	\chapter*{\sffamily\@etitle}
-	\markboth{\eabstractname}{}
+	\chapter*{\sffamily\@etitle}\markboth{\eabstractname}{}
 	\begin{center}
 		{\@eauthor} ({\@emajor})\\
 		{\label@ementor}{\@ementor}\\[2em]
 		\textbf{\sffamily\eabstractname}
-	\end{center}
-	\par%
+	\end{center}\par%
 }{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}%
 }
