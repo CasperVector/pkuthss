@@ -193,8 +193,8 @@
 		% Set up the properties when generating the title page because the document
 		% information should have been all defined before this.
 		\let\thss@tmp@maketitle\maketitle
-		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
-		% act as expected.
+		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might
+		% not act as expected.
 		\renewcommand\maketitle{\setpdfproperties\thss@tmp@maketitle}
 	\fi
 }
