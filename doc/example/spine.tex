@@ -1,0 +1,35 @@
+\documentclass[zihao = -4]{ctexart}
+\usepackage{calc, geometry, graphicx}
+\usepackage[defaultsups]{newtxtext}
+\usepackage[cmintegrals, varg]{newtxmath}
+\pagestyle{empty}
+\newlength{\colpad}
+\newcommand{\colwidth}{\ccwd}
+
+\geometry{paperwidth = 440mm, paperheight = 297mm, margin = 0cm}
+\newcommand{\miniwidth}{210mm}
+\newcommand{\logowidth}{64mm}
+\newcommand{\vertmargin}{\fill}
+\setlength{\colpad}{(10mm - \colwidth) / 2}
+
+\begin{document}
+\centering
+\begin{minipage}[b][\textheight][b]{\miniwidth}
+	\vspace*{\fill}\par
+	\centerline{\includegraphics[width = \logowidth]{pkulogo}}\par
+	\vspace*{\fill}\par
+\end{minipage}
+\hspace{\colpad}
+\begin{minipage}[b][\textheight][b]{\colwidth}
+	\bfseries\linespread{1}\selectfont
+	\vspace*{\vertmargin}\par
+	测试文档\par\vfill
+	\rotatebox{-90}{2018}\par{\vfill}\rotatebox{-90}{0123456789}\par
+	\vspace*{\vertmargin}\par
+\end{minipage}
+\hspace{\colpad}
+\begin{minipage}[b][\textheight][b]{\miniwidth}
+	\includegraphics[height = \textheight, page = 1]{thesis}
+\end{minipage}
+\end{document}
+
