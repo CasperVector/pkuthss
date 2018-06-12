@@ -338,19 +338,19 @@ $TEXMFDIST/tex/latex/pkuthss/
 一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
 超出了在预设的空间。
 此时，用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
-\verb|\pkuthss@int@fillinblank| 宏的参数来改变
+\verb|\thss@int@fillinblank| 宏的参数来改变
 带下划线的空白的行数和行宽，其语法为：
 \begin{Verbatim}[frame = single]
-\pkuthss@int@fillinblank{行数}{行宽}{内容}
+\thss@int@fillinblank{行数}{行宽}{内容}
 \end{Verbatim}
 例如，如果“研究方向”一栏需要两行的空白，
 可以将 \verb|pkuthss.cls| 里的
 \begin{Verbatim}[frame = single]
-\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\kaishu\@direction}
+\thss@int@fillinblank{1}{\thss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
 改为
 \begin{Verbatim}[frame = single]
-\pkuthss@int@fillinblank{2}{\pkuthss@tmp@len}{\kaishu\@direction}
+\thss@int@fillinblank{2}{\thss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
 当然，为了美观，可以将多于一行的部分移到封面中作者信息部分的最下方。
 

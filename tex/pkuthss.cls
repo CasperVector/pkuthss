@@ -25,46 +25,46 @@
 \ProvidesClass{pkuthss}
 	[2018/06/25 v1.7.5 Peking University dissertation document class]
 
-% eg. `\pkuthss@int@boolopt{spacing}{true}' will expand to:
-%   \newif\ifpkuthss@opt@spacing \pkuthss@opt@spacingtrue
-%   \DeclareOption{spacing}{\pkuthss@opt@spacingtrue}
-%   \DeclareOption{nospacing}{\pkuthss@opt@spacingfalse}
-\def\pkuthss@int@boolopt#1#2{
-	\expandafter\newif\csname ifpkuthss@opt@#1\endcsname
-	\@nameuse{pkuthss@opt@#1#2}
-	\DeclareOption{#1}{\@nameuse{pkuthss@opt@#1true}}
-	\DeclareOption{no#1}{\@nameuse{pkuthss@opt@#1false}}
+% eg. `\thss@int@boolopt{spacing}{true}' will expand to:
+%   \newif\ifthss@opt@spacing \thss@opt@spacingtrue
+%   \DeclareOption{spacing}{\thss@opt@spacingtrue}
+%   \DeclareOption{nospacing}{\thss@opt@spacingfalse}
+\def\thss@int@boolopt#1#2{
+	\expandafter\newif\csname ifthss@opt@#1\endcsname
+	\@nameuse{thss@opt@#1#2}
+	\DeclareOption{#1}{\@nameuse{thss@opt@#1true}}
+	\DeclareOption{no#1}{\@nameuse{thss@opt@#1false}}
 }
 % Process the encoding options.
-\newif\ifpkuthss@opt@gbk \pkuthss@opt@gbktrue
-\DeclareOption{GBK}{\pkuthss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
-\DeclareOption{UTF8}{\pkuthss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
+\newif\ifthss@opt@gbk \thss@opt@gbktrue
+\DeclareOption{GBK}{\thss@opt@gbktrue\PassOptionsToClass{GBK}{ctexbook}}
+\DeclareOption{UTF8}{\thss@opt@gbkfalse\PassOptionsToClass{UTF8}{ctexbook}}
 % Whether to enable `\Uppercase' (works problematically) in heading marks.
-\pkuthss@int@boolopt{uppermark}{false}
+\thss@int@boolopt{uppermark}{false}
 % Whether to modify fonts according to school regulation.
-\pkuthss@int@boolopt{pkufont}{true}
+\thss@int@boolopt{pkufont}{true}
 % Whether to modify footnote format according to school regulation.
-\pkuthss@int@boolopt{pkufoot}{true}
+\thss@int@boolopt{pkufoot}{true}
 % Whether to modify spacing according to school regulation.
-\pkuthss@int@boolopt{pkuspace}{true}
+\thss@int@boolopt{pkuspace}{true}
 % Whether to use some common settings for adjusting spacing.
-\pkuthss@int@boolopt{spacing}{true}
+\thss@int@boolopt{spacing}{true}
 % Add PDF bookmark for table of contents.
-\pkuthss@int@boolopt{pdftoc}{true}
+\thss@int@boolopt{pdftoc}{true}
 % Whether to enable the `\spacialchap' command.
-\pkuthss@int@boolopt{spechap}{true}
+\thss@int@boolopt{spechap}{true}
 % Whether to automatically set up properties for generated PDF from user
 % defined document information (author, title, etc.).
-\pkuthss@int@boolopt{pdfprop}{true}
+\thss@int@boolopt{pdfprop}{true}
 % Whether to disable some infractions intended to make the style less ugly.
-\pkuthss@int@boolopt{ugly}{false}
+\thss@int@boolopt{ugly}{false}
 % Pass all other options to `ctexbook' document class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 % Process all class options now.
 \ProcessOptions\relax
 
 % Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
-\ifpkuthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
+\ifthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
 \LoadClass[zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
@@ -82,7 +82,7 @@
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
 \AtEndOfClass{\RequirePackage{hyperref}}
 
-\ifpkuthss@opt@gbk
+\ifthss@opt@gbk
 	\input{pkuthss-gbk.def}
 	\ifxetex
 		% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
@@ -97,7 +97,7 @@
 	\input{pkuthss-utf8.def}
 \fi
 
-\ifpkuthss@opt@pkufont
+\ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
 	% Option used to prevent newtxtext from manipulating footnote marks.
 	\RequirePackage[defaultsups]{newtxtext}
@@ -107,14 +107,14 @@
 	\RequirePackage{latexsym}
 \fi
 
-\ifpkuthss@opt@pkufoot
+\ifthss@opt@pkufoot
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
 	\unless\ifxetex\unless\ifpdf
 		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}
 	\fi\fi
 	% Circled text, cf. <https://tex.stackexchange.com/questions/7032/>.
 	\RequirePackage{tikz}
-	\newcommand*\pkuthss@int@circled[1]{%
+	\newcommand*\thss@int@circled[1]{%
 		\scalebox{0.8}{\tikz[baseline = (char.base)]{
 			\node[
 				shape = circle, draw = black, minimum size = 1.25em, inner sep = 0pt
@@ -124,7 +124,7 @@
 	% Use circled numbers as footnote symbols. Does not affect title page, but
 	% footnote is rarely used in dissertation covers ;)
 	\renewcommand\thefootnote%
-		{\protect\pkuthss@int@circled{\arabic{footnote}}}
+		{\protect\thss@int@circled{\arabic{footnote}}}
 	% Provides utility to modify footnote spacing.
 	% Option used to make sure it does not render interleaf pages totally blank.
 	\RequirePackage[cleardoublepage = current]{scrextend}
@@ -133,7 +133,7 @@
 	\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
 \fi
 
-\ifpkuthss@opt@pkuspace
+\ifthss@opt@pkuspace
 	% lineskip / baselineskip = 20 bp / (12 bp * (6 / 5)).
 	\linespread{1.39}\selectfont
 	% Provides utilities for setting TOC format; `titles' applied to avoid
@@ -153,7 +153,7 @@
 	\captionsetup{font = cfive, labelsep = quad}
 \fi
 
-\ifpkuthss@opt@spacing
+\ifthss@opt@spacing
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
 	% Lists often appear to be too sparse when items are just one or two lines
@@ -162,7 +162,7 @@
 	\setlist{nolistsep}
 \fi
 
-\ifpkuthss@opt@spechap
+\ifthss@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% up the headers and footers in the chapter.
 	\newcommand\specialchap[1]{%
@@ -172,16 +172,16 @@
 \fi
 
 \AtBeginDocument{
-	\ifpkuthss@opt@pdftoc
+	\ifthss@opt@pdftoc
 		% Add PDF bookmark for table of contents.
-		\let\pkuthss@tmp@tableofcontents\tableofcontents
+		\let\thss@tmp@tableofcontents\tableofcontents
 		\renewcommand{\tableofcontents}{%
-			\pkuthss@int@pdfmark{\contentsname}{contents}
-			\pkuthss@tmp@tableofcontents%
+			\thss@int@pdfmark{\contentsname}{contents}
+			\thss@tmp@tableofcontents%
 		}
 	\fi
 
-	\ifpkuthss@opt@pdfprop
+	\ifthss@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
 		\newcommand*{\setpdfproperties}{%
@@ -192,48 +192,48 @@
 		}
 		% Set up the properties when generating the title page because the document
 		% information should have been all defined before this.
-		\let\pkuthss@tmp@maketitle\maketitle
+		\let\thss@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might not
 		% act as expected.
-		\renewcommand\maketitle{\setpdfproperties\pkuthss@tmp@maketitle}
+		\renewcommand\maketitle{\setpdfproperties\thss@tmp@maketitle}
 	\fi
 }
 
-% eg. `\pkuthss@int@infoitema{ctitle}' will expand to:
+% eg. `\thss@int@infoitema{ctitle}' will expand to:
 %   \def\ctitle#1{\def\@ctitle{#1}}
-%   \define@key{pkuthss@info}{ctitle}{\ctitle{#1}}
-\def\pkuthss@int@infoitema#1{
+%   \define@key{thss@info}{ctitle}{\ctitle{#1}}
+\def\thss@int@infoitema#1{
 	\@namedef{#1}##1{\@namedef{@#1}{##1}}
-	\define@key{pkuthss@info}{#1}{\@nameuse{#1}{##1}}
+	\define@key{thss@info}{#1}{\@nameuse{#1}{##1}}
 }
-% eg. `\pkuthss@int@infoitemb{cuniversity}' will expand to:
-%   \define@key{pkuthss@info}{cuniversity}{\def\cuniversity{#1}}
-\def\pkuthss@int@infoitemb#1{
-	\define@key{pkuthss@info}{#1}{\@namedef{#1}{##1}}
+% eg. `\thss@int@infoitemb{cuniversity}' will expand to:
+%   \define@key{thss@info}{cuniversity}{\def\cuniversity{#1}}
+\def\thss@int@infoitemb#1{
+	\define@key{thss@info}{#1}{\@namedef{#1}{##1}}
 }
 % Set up document information entries.
-\pkuthss@int@infoitema{ctitle}
-\pkuthss@int@infoitema{etitle}
-\pkuthss@int@infoitema{cauthor}
-\pkuthss@int@infoitema{eauthor}
-\pkuthss@int@infoitema{studentid}
-\pkuthss@int@infoitema{date}
-\pkuthss@int@infoitema{school}
-\pkuthss@int@infoitema{cmajor}
-\pkuthss@int@infoitema{emajor}
-\pkuthss@int@infoitema{direction}
-\pkuthss@int@infoitema{cmentor}
-\pkuthss@int@infoitema{ementor}
-\pkuthss@int@infoitema{ckeywords}
-\pkuthss@int@infoitema{ekeywords}
-\pkuthss@int@infoitemb{cuniversity}
-\pkuthss@int@infoitemb{euniversity}
-\pkuthss@int@infoitemb{cthesisname}
-\pkuthss@int@infoitemb{ethesisname}
-\pkuthss@int@infoitemb{cabstractname}
-\pkuthss@int@infoitemb{eabstractname}
+\thss@int@infoitema{ctitle}
+\thss@int@infoitema{etitle}
+\thss@int@infoitema{cauthor}
+\thss@int@infoitema{eauthor}
+\thss@int@infoitema{studentid}
+\thss@int@infoitema{date}
+\thss@int@infoitema{school}
+\thss@int@infoitema{cmajor}
+\thss@int@infoitema{emajor}
+\thss@int@infoitema{direction}
+\thss@int@infoitema{cmentor}
+\thss@int@infoitema{ementor}
+\thss@int@infoitema{ckeywords}
+\thss@int@infoitema{ekeywords}
+\thss@int@infoitemb{cuniversity}
+\thss@int@infoitemb{euniversity}
+\thss@int@infoitemb{cthesisname}
+\thss@int@infoitemb{ethesisname}
+\thss@int@infoitemb{cabstractname}
+\thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
-\newcommand*{\pkuthssinfo}[1]{\setkeys{pkuthss@info}{#1}}
+\newcommand*{\pkuthssinfo}[1]{\setkeys{thss@info}{#1}}
 
 % Set up page layout.
 \geometry{
@@ -264,7 +264,7 @@
 	subsubsection =
 		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}}
 }
-\ifpkuthss@opt@ugly
+\ifthss@opt@ugly
 	\ctexset{
 		chapter = {format = {\zihao{3}\bfseries\centering}},
 		section = {format = {\zihao{4}\bfseries}},
@@ -283,13 +283,13 @@
 % `\MakeUppercase' works problematically.
 % eg. it converts `\cite{ctex}' into `\cite{CTEX}'.
 % This option can disable `\MakeUppercase' in left/right heading marks.
-\ifpkuthss@opt@uppermark
-	\def\pkuthss@int@setcase#1{#1}
+\ifthss@opt@uppermark
+	\def\thss@int@setcase#1{#1}
 \else
 	% Code copied from fancyhdr's `\nouppercase', with the redefinition of
 	% `\uppercase' dropped to avoid disrupting CJKutf8.
 	% cf. <https://code.google.com/p/ctex-kit/issues/detail?id=147>.
-	\def\pkuthss@int@setcase#1{%
+	\def\thss@int@setcase#1{%
 		\let\MakeUppercase\relax%
 		\expandafter\let\csname MakeUppercase \endcsname\relax%
 		#1%
@@ -301,9 +301,9 @@
 	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
 	\if@twoside
 		\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity\cthesisname}}
-		\fancyhead[CO]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
 	\else
-		\fancyhead[C]{\zihao{5}\normalfont\pkuthss@int@setcase{\leftmark}}
+		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
 	\fi
 }
 \pagestyle{plain}
@@ -311,34 +311,34 @@
 % This places a bookmark pointing to somewhere near the page header;
 % Result of simple `\chapter{...} \pdfbookmark{...}' does not look nice,
 % because the bookmark will point to somewhere below the chapter mark.
-\def\pkuthss@int@pdfmark#1#2{%
+\def\thss@int@pdfmark#1#2{%
 	\if@openright\cleardoublepage\else\clearpage\fi
 	\pdfbookmark[0]{#1}{#2}%
 }
 
-% Usage: \pkuthss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
-\def\pkuthss@int@fillinblank#1#2#3{%
+% Usage: \thss@int@fillinblank{(number of lines)}{(line width)}{(contents)}
+\def\thss@int@fillinblank#1#2#3{%
 	\makebox[0pt][l]{\parbox[t]{#2}{\centering{#3}}}\mbox{}%
 	\parbox[t]{#2}{%
-		\newcount\pkuthss@tmp@linecount
-		\pkuthss@tmp@linecount=#1
-		\loop\ifnum\pkuthss@tmp@linecount>0
+		\newcount\thss@tmp@linecount
+		\thss@tmp@linecount=#1
+		\loop\ifnum\thss@tmp@linecount>0
 			% Fill specified space with underline on the bottom line. `\underline'
 			% draws line on the baseline (not the bottom line), and this is why
 			% `\uline' is used here instead.
-			\ifnum\pkuthss@tmp@linecount=1
+			\ifnum\thss@tmp@linecount=1
 				\uline{\makebox[#2]{}}
 			\else
 				\uline{\makebox[#2]{}}\\
 			\fi
-		\advance\pkuthss@tmp@linecount by -1\relax
+		\advance\thss@tmp@linecount by -1\relax
 		\repeat%
 	}%
 }
 
 % Set up format of the title page (cover).
 \renewcommand{\maketitle}{%
-	\pkuthss@int@pdfmark{\titlepagename}{titlepage}
+	\thss@int@pdfmark{\titlepagename}{titlepage}
 	\begin{titlepage}
 		% It will be nicer to use this line skip level in the title page.
 		\linespread{1.6}\selectfont
@@ -355,27 +355,27 @@
 			% Title of the thesis.
 			{%
 				\zihao{2}{\label@ctitle}%
-				\pkuthss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
+				\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
 			}
 			\vfill
 			% Information about the author.
 			{%
 				% Slightly adjust the line skip when using new font size.
 				\zihao{3}\linespread{1.75}\selectfont
-				\def\pkuthss@tmp@len{0.56\textwidth}
+				\def\thss@tmp@len{0.56\textwidth}
 				\begin{tabular}{l@{\extracolsep{0.2em}}c}
 					{\bfseries\label@cauthor}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cauthor}		\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cauthor}		\\
 					{\bfseries\label@studentid}	&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@studentid}	\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@studentid}	\\
 					{\bfseries\label@school}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@school}		\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@school}		\\
 					{\bfseries\label@cmajor}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmajor}		\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmajor}		\\
 					{\bfseries\label@direction}	&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@direction}	\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
 					{\bfseries\label@cmentor}		&
-					\pkuthss@int@fillinblank{1}{\pkuthss@tmp@len}{\fangsong\@cmentor}		\\
+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
 				\end{tabular}%
 			}
 			\vfill
@@ -387,7 +387,7 @@
 
 % Typeset the Chinese abstract.
 \newenvironment{cabstract}{%
-	\pkuthss@int@pdfmark{\cabstractname}{cabstract}
+	\thss@int@pdfmark{\cabstractname}{cabstract}
 	\chapter*{\cabstractname}\markboth{\cabstractname}{}%
 }{% Keywords at the bottom of the page.
 	\vfill\noindent\textbf{\label@ckeywords}{\@ckeywords}%
@@ -395,7 +395,7 @@
 
 % Typeset the English abstract.
 \newenvironment{eabstract}{%
-	\pkuthss@int@pdfmark{\eabstractname}{eabstract}
+	\thss@int@pdfmark{\eabstractname}{eabstract}
 	\chapter*{\sffamily\@etitle}\markboth{\eabstractname}{}
 	\begin{center}
 		{\@eauthor} ({\@emajor})\\
