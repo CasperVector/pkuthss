@@ -1,7 +1,26 @@
+2017-06-12, v1.7.6
+
+	* Changes to example template:
+	- nty -> nyt sorting following biblatex-caspervector upstream.
+	- doc: shorten chapter filenames.
+	- Assign numbers to `intro' and `concl' by default.
+	- Makefile: `JOBNAME' -> `JOB', saving some typing.
+	- Fix Makefile portability.
+	- doc: "英文" -> "西文".
+
+	* Changes to package code:
+	- pkuthss.cls: fix spacing between chapter mark/name.
+	- pkuthss.cls: fix toc depth and format.
+	- pkuthss.cls: simplify page style setup.
+	- `pkuthss@...' -> `thss@...'
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2017-05-12, v1.7.5
 
 	* Changes to example template:
-	- Fix missing accented characters with xelatex.
+	- doc: Fix missing accented characters with xelatex.
 	- Remove ctex-xecjk-winfonts.def for ctex < v2.x.
 	- Make.bat: support xelatex now that we no longer provide the GBK example.
 	- thesis.tex: fix FAQ subsection reference (thank @peiyangium).
