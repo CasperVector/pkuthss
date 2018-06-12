@@ -255,7 +255,8 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
 \ctexset{
-	chapter = {beforeskip = {0bp}, afterskip = {18bp}},
+	chapter =
+		{beforeskip = {0bp}, afterskip = {18bp}, nameformat = {}, titleformat = {}},
 	section =
 		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
 	subsection =
@@ -265,17 +266,14 @@
 }
 \ifpkuthss@opt@ugly
 	\ctexset{
-		chapter =
-			{nameformat = {\zihao{3}\bfseries}, titleformat = {\zihao{3}\bfseries}},
+		chapter = {format = {\zihao{3}\bfseries\centering}},
 		section = {format = {\zihao{4}\bfseries}},
-		subsection =
-			{format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}},
+		subsection = {format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}},
 		subsubsection = {format = {\zihao{-4}\bfseries}}
 	}
 \else
 	\ctexset{
-		chapter =
-			{nameformat = {\zihao{-2}\bfseries}, titleformat = {\zihao{-2}\bfseries}},
+		chapter = {format = {\zihao{-2}\bfseries\centering}},
 		section = {format = {\zihao{-3}\bfseries}},
 		subsection = {format = {\zihao{4}\bfseries}},
 		subsubsection = {format = {\bfseries}}
