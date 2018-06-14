@@ -9,10 +9,13 @@
 \newlength{\colpad}
 \newcommand{\colwidth}{\ccwd}
 
+% 设定论文纸尺寸。
 \geometry{paperwidth = 460mm, paperheight = 297mm, margin = 0cm}
+% 设定页面宽度、背面 logo 直径和书脊上下边界宽度。
 \newcommand{\miniwidth}{210mm}
 \newcommand{\logowidth}{64mm}
 \newcommand{\vertmargin}{\fill}
+% 减号前的值为论文厚度。
 \setlength{\colpad}{(10mm - \colwidth) / 2}
 
 \begin{document}
@@ -26,13 +29,17 @@
 \begin{minipage}[b][\textheight][b]{\colwidth}
 	\bfseries\linespread{1}\selectfont
 	\vspace*{\vertmargin}\par
+	% 标题、年份和学号。
 	测试文档\par\vfill
-	\rotatebox{-90}{2018}\par{\vfill}\rotatebox{-90}{0123456789}\par
+	\rotatebox{-90}{2018}\par\vfill\rotatebox{-90}{0123456789}\par
 	\vspace*{\vertmargin}\par
 \end{minipage}
 \hspace{\colpad}
 \begin{minipage}[b][\textheight][b]{\miniwidth}
+	% thesis.pdf 应事先编译好，此处会自动提取其首页。
+	% 因为要插入 pdf 图片，本文档应用 pdflatex 或 xelatex 编译。
 	\includegraphics[height = \textheight, page = 1]{thesis}
 \end{minipage}
 \end{document}
 
+% vim:ts=4:sw=4
