@@ -236,8 +236,8 @@
 
 % Set up page layout.
 \geometry{
-	a4paper, includefoot, hmargin = 2.6cm, top = 3cm, bottom = 2.5cm,
-	headheight = 1.5cm, headsep = 0.5cm, footskip = 0.75cm
+	a4paper, hmargin = 2.6cm, vmargin = 3cm,
+	headheight = 0.4cm, headsep = 0.6cm, footskip = 0.75cm
 }
 
 % Set up spacing for displayed formulae.
