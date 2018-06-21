@@ -254,9 +254,10 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
 \ctexset{
-	chapter =
-		{beforeskip = {0bp}, afterskip = {18bp}, nameformat = {}, titleformat = {}},
-	section =
+	chapter = {
+		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
+		nameformat = {}, titleformat = {}
+	}, section =
 		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
 	subsection =
 		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
