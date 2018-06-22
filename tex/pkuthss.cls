@@ -157,8 +157,9 @@
 	\RequirePackage{setspace}
 	% Lists often appear to be too sparse when items are just one or two lines
 	% long. Here we cancel the extra vertical spacing between list items.
+	% The list margin is adjusted due to Chinese typesetting traditions.
 	\RequirePackage{enumitem}
-	\setlist{nolistsep}
+	\setlist{nolistsep, leftmargin = 1.5\parindent}
 \fi
 
 \ifthss@opt@spechap
