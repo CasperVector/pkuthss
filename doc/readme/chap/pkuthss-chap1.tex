@@ -37,12 +37,12 @@
 	\item 中文字体。
 	\item 如果要使用 biblatex 进行文献列表和引用的排版的话，
 		还需要 biblatex\supercite{biblatex} 宏包；
-	\item 如果需要对中文文献进行按汉语拼音的排序的话，
+	\item 如果要对中文文献进行按汉语拼音的排序的话，
 		还需要 biber\supercite{biber} 程序。
 	\item 如果使用默认的文献列表和引用样式的话，还需要作者编写的 biblatex 样式
 		（biblatex-caspervector\supercite{biblatex-caspervector}），
 		此样式要求使用 biber 程序。
-	\item 如果需要使用 Makefile 来实现自动编译，还需要 Make 工具；
+	\item 如果须要使用 Makefile 来实现自动编译，还需要 Make 工具；
 		但如果使用由批处理实现的伪“Makefile”就不用了。
 \end{itemize}
 
@@ -56,7 +56,7 @@
 	我们建议用户使用最新、完全版的 \hologo{TeX} 系统和各宏包。%
 }
 
-中文字体需要用户自行获得。\myemph{%
+中文字体须要用户自行获得。\myemph{%
 	注：一些中文字体的字库不全，只有 GB2312 字符集内字符的字体信息。
 	这种情况通常会造成编译生成的 pdf 文件中缺少部分字符，
 	其中一种典型症状是“〇”字显示不出来。
@@ -154,7 +154,7 @@ pkuthss 文档模版支持三种编译方式，即
 }
 
 pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行了完整的配置。
-用户只需要在 Makefile 中通过设定变量 \verb|JOB| 的值指定被编译的主文件名，
+用户只须要在 Makefile 中通过设定变量 \verb|JOB| 的值指定被编译的主文件名，
 并通过设定变量 \verb|LATEX| 的值指定采用哪种编译方式，
 即可通过在主文件所在目录调用 Make 工具来实现自动编译：
 如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|：

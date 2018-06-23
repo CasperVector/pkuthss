@@ -109,9 +109,9 @@ index d7a575f..baed091 100644
  
 -% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex-caspervector 的文档）。
 -% 这里按照西文文献在前，中文文献在后排序（“sorting = ecnyt”）；
--% 若需按照中文文献在前，西文文献在后排序，请设置“sorting = cenyt”；
--% 若需按照引用顺序排序，请设置“sorting = none”。
--% 若需在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
+-% 若须按照中文文献在前，西文文献在后排序，请设置“sorting = cenyt”；
+-% 若须按照引用顺序排序，请设置“sorting = none”。
+-% 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
 -\usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
 +% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex 的文档）。
 +\usepackage[backend = biber]{biblatex}

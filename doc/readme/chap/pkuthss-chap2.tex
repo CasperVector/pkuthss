@@ -124,7 +124,7 @@
 			通常用户在调用 \texttt{\string\maketitle} 前
 			已经设置好所有的文档信息。
 			若用户不调用 \texttt{\string\maketitle}，
-			则需在设定完文档信息之后自行调用
+			则须在设定完文档信息之后自行调用
 			第 \ref{ssec:misc} 小节中介绍的
 			\texttt{\string\setpdfproperties} 命令以完成
 			pdf 文档属性的设定。%
@@ -137,8 +137,8 @@
 		它们选择源代码使用的字符编码，默认使用 \verb|GBK|。
 \end{itemize}
 
-例如，如果需要使用 UTF-8 编码撰写论文，
-则需要在载入 pkuthss 文档类时加上 \verb|UTF8| 选项：
+例如，如果须要使用 UTF-8 编码撰写论文，
+则应在载入 pkuthss 文档类时加上 \verb|UTF8| 选项：
 \begin{Verbatim}[frame = single]
 \documentclass[UTF8, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
@@ -237,12 +237,12 @@
 
 \texttt{\bfseries cabstract} 和 \texttt{\bfseries eabstract}
 环境用于编写中西文摘要。
-用户只需要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
+用户只须要写摘要的正文；标题、作者、导师、专业等部分会自动生成。
 
 \texttt{\bfseries\string\specialchap} 命令
 用于开始不进行标号但计入目录的一章，
 并合理安排其页眉。\myemph{%
-	注意：需要启用 \texttt{spechap} 选项才能使用此命令。
+	注意：须要启用 \texttt{spechap} 选项才能使用此命令。
 	另外，在此章内的节或小节等命令应使用带星号的版本，
 	例如 \texttt{\string\section\string*} 等，
 	以免造成章节编号混乱。%
@@ -253,10 +253,10 @@
 \texttt{\bfseries\string\setpdfproperties} 命令
 用于根据用户设定的文档信息自动设定生成的 pdf 文档的属性。
 此命令会在用户调用 \verb|\maketitle| 命令时被自动调用，
-因此通常不需要用户自己使用；
-但用户有时可能不需要输出封面，从而不会调用 \verb|\maketitle| 命令，
-此时就需要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
-\myemph{注意：需要启用 \texttt{pdfprop} 选项才能使用此命令。}
+因此通常不须要用户自己使用；
+但用户有时可能不须要输出封面，从而不会调用 \verb|\maketitle| 命令，
+此时就须要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
+\myemph{注意：须要启用 \texttt{pdfprop} 选项才能使用此命令。}
 
 \section{从其它文档类和宏包继承的功能}\label{sec:thirdparty}
 
@@ -324,7 +324,7 @@ C:\texlive\2015\texmf-dist
 $TEXMFDIST/tex/latex/pkuthss/
 \end{Verbatim}
 
-如果的确需要修改 pkuthss 文档类的源文件，\myemph{%
+如果的确须要修改 pkuthss 文档类的源文件，\myemph{%
 	建议用户将 \texttt{pkuthss.cls} 或其它需要修改的文件
 	复制到被编译的主文件所在的目录，
 	然后对此副本进行修改%
@@ -332,7 +332,7 @@ $TEXMFDIST/tex/latex/pkuthss/
 	能这样做的原因是目前常用的 \hologo{TeX} 系统在读取编译用到的文件时，
 	会优先考虑工作目录（即主文件所在目录）中的文件。%
 }。这样做的目的主要是使用户不必在每次调整文档类文件时都去上述路径修改；
-同时这样也可以在（万一需要）更新 \hologo{TeX} 系统时，
+同时这样也可以在（万一须要）更新 \hologo{TeX} 系统时，
 防止用户修改过的文档类文件在更新中被自动覆盖掉。
 
 一个常见的需求是封面中部分内容（特别是论文的标题、专业和研究方向）太长，
