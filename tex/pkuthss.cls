@@ -340,50 +340,46 @@
 % Set up format of the title page (cover).
 \renewcommand{\maketitle}{%
 	\thss@int@pdfmark{\titlepagename}{titlepage}
-	\begin{titlepage}
-		% It will be nicer to use this line skip level in the title page.
-		\linespread{1.6}\selectfont
-		% Make the title page centered.
-		\begin{center}
-			% Emblem and inscription of the university, and type of thesis.
-			{%
-				\zihao{1}%
-				\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
-				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
-				{\bfseries{\cthesisname}}%
-			}
-			\vfill
-			% Title of the thesis.
-			{%
-				\zihao{2}{\label@ctitle}%
-				\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
-			}
-			\vfill
-			% Information about the author.
-			{%
-				% Slightly adjust the line skip when using new font size.
-				\zihao{3}\linespread{1.75}\selectfont
-				\def\thss@tmp@len{0.56\textwidth}
-				\begin{tabular}{l@{\extracolsep{0.2em}}c}
-					{\bfseries\label@cauthor}		&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cauthor}		\\
-					{\bfseries\label@studentid}	&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@studentid}	\\
-					{\bfseries\label@school}		&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@school}		\\
-					{\bfseries\label@cmajor}		&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmajor}		\\
-					{\bfseries\label@direction}	&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
-					{\bfseries\label@cmentor}		&
-					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
-				\end{tabular}%
-			}
-			\vfill
-			% Date.
-			{\zihao{-2}\@date}
-		\end{center}
-	\end{titlepage}%
+	% Make the title page centered.
+	\begin{titlepage}\begin{center}
+		% Emblem and inscription of the university, and type of thesis.
+		{%
+			\zihao{1}%
+			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+			{\bfseries{\cthesisname}}%
+		}
+		\vfill
+		% Title of the thesis.
+		{%
+			\zihao{2}{\label@ctitle}\linespread{1.6}\selectfont%
+			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
+		}
+		\vfill
+		% Information about the author.
+		{%
+			% Slightly adjust the line skip when using new font size.
+			\zihao{3}\linespread{1.75}\selectfont
+			\def\thss@tmp@len{0.56\textwidth}
+			\begin{tabular}{l@{\extracolsep{0.2em}}c}
+				{\bfseries\label@cauthor}		&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cauthor}		\\
+				{\bfseries\label@studentid}	&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@studentid}	\\
+				{\bfseries\label@school}		&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@school}		\\
+				{\bfseries\label@cmajor}		&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmajor}		\\
+				{\bfseries\label@direction}	&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
+				{\bfseries\label@cmentor}		&
+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
+			\end{tabular}%
+		}
+		\vfill
+		% Date.
+		{\zihao{-2}\@date}
+	\end{center}\end{titlepage}%
 }
 
 % Typeset the Chinese abstract.
