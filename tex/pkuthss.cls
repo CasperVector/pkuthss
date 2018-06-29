@@ -155,6 +155,8 @@
 \ifthss@opt@spacing
 	% Make spacing nicer in some situations (eg. footnotes and verbatims).
 	\RequirePackage{setspace}
+	% Remove superfluous spacing between footnotes.
+	\setlength{\footnotesep}{0pt}
 	% Lists often appear to be too sparse when items are just one or two lines
 	% long. Here we cancel the extra vertical spacing between list items.
 	% The list margin is adjusted due to Chinese typesetting traditions.
