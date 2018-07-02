@@ -139,13 +139,13 @@
 
 例如，如果须要使用 UTF-8 编码撰写论文，
 则应在载入 pkuthss 文档类时加上 \verb|UTF8| 选项：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \documentclass[UTF8, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 
 又例如，文档默认情况下是双面模式，每章都从右页（奇数页）开始。
 如果希望改成一章可以从任意页开始，可以这样设置：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \documentclass[openany, ...]{pkuthss} % 每章从任意页开始。
 \end{Verbatim}
 
@@ -153,7 +153,7 @@
 \subsection{设定文档信息的命令}
 
 这一类命令的语法为
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \commandname{具体信息} % commandname 为具体命令的名称。
 \end{Verbatim}
 
@@ -176,7 +176,7 @@
 \end{itemize}
 
 例如，如果要设定专业为“化学”（“Chemistry”），则可以使用以下命令：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \cmajor{化学}
 \emajor{Chemistry}
 \end{Verbatim}
@@ -184,7 +184,7 @@
 \subsection{自身存储文档信息的命令}
 
 这一类命令的语法为
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 % commandname 为具体的命令名。
 \renewcommand{\commandname}{具体信息}
 \end{Verbatim}
@@ -202,7 +202,7 @@
 例如，
 如果要设定论文的类别为“本科生毕业论文”（“Undergraduate Thesis”），
 则可以使用以下命令：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \renewcommand{\cthesisname}{本科生毕业论文}
 \renewcommand{\ethesisname}{Undergraduate Thesis}
 \end{Verbatim}
@@ -210,7 +210,7 @@
 \subsection{以“key = value”格式设置文档信息}
 
 用户可以通过 \verb|\pkuthssinfo| 命令集中设定文档信息，其语法为：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 % key1、key2、value1、value2 等为具体文档信息的项目名和内容。
 \pkuthssinfo{key1 = value1, key2 = value2, ...}
 \end{Verbatim}
@@ -224,7 +224,7 @@
 }
 
 例如，前面提到的文档信息的设置可以集中地写成：
-\begin{Verbatim}[frame = single, tabsize = 4]
+\begin{Verbatim}
 \pkuthssinfo{
 	..., % “...”代表其它的设定。
 	cthesisname = {本科生毕业论文},
@@ -268,7 +268,7 @@ hyperref\supercite{hyperref}、graphicx\supercite{graphicx}
 
 例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
 则可以使用 ctexbook 文档类提供的 \verb|\ctexset| 命令：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \ctexset[contentsname = {目{\quad\quad}录}]
 \end{Verbatim}
 
@@ -278,7 +278,7 @@ pkuthss 文档模版使用作者编写的 biblatex\supercite{biblatex} 样式%
 用户可以使用它以及 biblatex 本身所提供的功能。
 例如，用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite|
 生成未格式化的、带方括号的和上标且带方括号的引用标记：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \cite{ctex}，\parencite{ctex}，\supercite{ctex}
 \end{Verbatim}
 在本文中将产生“\cite{ctex}，\parencite{ctex}，\supercite{ctex}”。
@@ -311,7 +311,7 @@ pkuthss 文档模版的实现是简洁、清晰、灵活的。
 通过修改 pkuthss 文档类的源文件进行自定义。
 在目前常用的 \hologo{TeX} 系统中，
 假设 pkuthss 的说明文档所在目录具有下述形式的路径：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 # 说明文档所在目录（$TEXMFDIST 的形式见下面几行）：
 $TEXMFDIST/doc/latex/pkuthss/
 # 若用户使用 Windows 下的 TeX Live 系统，则 $TEXMFDIST 一般类似于：
@@ -320,7 +320,7 @@ C:\texlive\2015\texmf-dist
 /usr/local/texlive/2015/texmf-dist
 \end{Verbatim}
 则其源文件所在目录应该位于以下目录：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 $TEXMFDIST/tex/latex/pkuthss/
 \end{Verbatim}
 
@@ -340,16 +340,16 @@ $TEXMFDIST/tex/latex/pkuthss/
 此时，用户可以修改 \verb|pkuthss.cls| 里 \verb|\maketitle| 定义中
 \verb|\thss@int@fillinblank| 宏的参数来改变
 带下划线的空白的行数和行宽，其语法为：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \thss@int@fillinblank{行数}{行宽}{内容}
 \end{Verbatim}
 例如，如果“研究方向”一栏需要两行的空白，
 可以将 \verb|pkuthss.cls| 里的
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \thss@int@fillinblank{1}{\thss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
 改为
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \thss@int@fillinblank{2}{\thss@tmp@len}{\kaishu\@direction}
 \end{Verbatim}
 当然，为了美观，可以将多于一行的部分移到封面中作者信息部分的最下方。

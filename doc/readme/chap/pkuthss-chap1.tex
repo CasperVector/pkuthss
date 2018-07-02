@@ -75,7 +75,7 @@ Windows 用户可以从以下地址下载 Windows 下的 GNU make 工具：\\
 \section{模版文件}\label{sec:doc-dir}
 
 在正确安装 pkuthss 文档模版之后，在终端/命令提示符中执行
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 texdoc pkuthss
 \end{Verbatim}
 所打开的 pdf 文件所在的同一目录中包含两个子目录和相应的两个 pdf 文件，
@@ -158,12 +158,12 @@ pkuthss 文档模版附带的 Makefile 中已经对这三种编译方式进行�
 并通过设定变量 \verb|LATEX| 的值指定采用哪种编译方式，
 即可通过在主文件所在目录调用 Make 工具来实现自动编译：
 如果是在类 UNIX 环境下，则用户应该调用的命令名为 \verb|make|：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 cd /path/to/directory/with/thesis.tex
 make
 \end{Verbatim}
 而如果是在 Windows 环境下，则用户应该调用的命令名可能为 \verb|mingw32-make|：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 cd \path\to\directory\with\thesis.tex
 mingw32-make
 \end{Verbatim}
@@ -173,7 +173,7 @@ mingw32-make
 通过在主文件所在目录调用 \verb|make|\footnote{%
 	Windows 将批处理文件作为可执行文件，调用时可以不显式地指出扩展名。%
 }：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 cd \path\to\directory\with\thesis.tex
 make
 \end{Verbatim}

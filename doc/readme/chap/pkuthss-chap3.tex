@@ -58,7 +58,7 @@ biblatex\supercite{biblatex} 宏包会自行设定 \verb|\bibname|，
 故会覆盖通过 \verb|\ctexset| 设定的参考文献列表标题。
 使用 biblatex 的用户可以使用 \verb|\printbibliography| 的
 \verb|title| 选项来手动设定参考文献列表的标题，例如：
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \printbibliography[title = {文献}, ...] % “...”为其它选项。
 \end{Verbatim}
 
@@ -70,7 +70,7 @@ hyperref\supercite{hyperref} 宏包和一些宏包可能发生冲突。
 
 使用 \hologo{XeLaTeX} 的用户可能在已经安装字体的情况下遇到形如（其中
 \verb|xxxxxxxx| 为具体字体名）
-\begin{Verbatim}[frame = single, fontsize = {\small}]
+\begin{Verbatim}[fontsize = {\small}]
 ! fontspec error: "font-not-found"
 ! The font "xxxxxxxx" cannot be found.
 ! See the fontspec documentation for further information.
@@ -82,13 +82,13 @@ hyperref\supercite{hyperref} 宏包和一些宏包可能发生冲突。
 并改动 \verb|ctex.cfg| 等配置文件之后没有在调用
 pkuthss 文档类时加入 \verb|nofonts| 选项，
 又使用 \verb|xelatex| 编译造成的，使用
-\begin{Verbatim}[frame = single]
+\begin{Verbatim}
 \documentclass[nofonts, ...]{pkuthss} % “...”代表其它的选项。
 \end{Verbatim}
 即可解决此问题。
 
 biber 运行时有一定概率出现形如（目录名可能稍有不同）
-\begin{Verbatim}[frame = single, fontsize = {\small}]
+\begin{Verbatim}[fontsize = {\small}]
 data source .../par-xxxxxxxx/cache-xxxxxxxx/
 	inc/lib/Biber/LaTeX/recode_data.xml not found in .
 \end{Verbatim}
@@ -99,7 +99,7 @@ data source .../par-xxxxxxxx/cache-xxxxxxxx/
 再重新运行 biber 通常便可解决问题。
 
 caption\supercite{caption} 宏包对于其不认识的宏包均会提示
-\begin{Verbatim}[frame = single, fontsize = {\small}]
+\begin{Verbatim}[fontsize = {\small}]
 Package caption Warning: Unsupported document class (or package) detected,
 (caption)                usage of the caption package is not recommended.
 See the caption package documentation for explanation.

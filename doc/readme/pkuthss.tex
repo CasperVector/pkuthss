@@ -31,7 +31,7 @@
 	backend = biber, style = caspervector, utf8,
 	sorting = ecnyt, giveninits = true, sortgiveninits = true
 ]{biblatex}
-\usepackage{fancyvrb, hologo}
+\usepackage{iftex, fancyvrb, hologo}
 
 \setlength{\hfuzz}{3pt}
 \ctexset{linestretch = 2\ccwd}
@@ -39,9 +39,15 @@
 \setlength{\bibitemsep}{3bp}
 
 \hypersetup{colorlinks = true, allcolors = blue}
+\newcommand{\docversion}{v1.8.0}
 \newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
 \newcommand{\unemph}[1]{\textup{\textcolor{black}{#1}}}
-\newcommand{\docversion}{v1.8.0}
+\RecustomVerbatimEnvironment{Verbatim}{Verbatim}%
+	{frame = single, tabsize = 4, formatcom = {\ifXeTeX\xeCJKVerbAddon\fi}}
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+	fontsize = {\small}, baselinestretch = 1,
+	tabsize = 4, formatcom = {\ifXeTeX\xeCJKVerbAddon\fi}
+}
 
 \pkuthssinfo{
 	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
