@@ -1,3 +1,23 @@
+2018-07-02, v1.8.0
+
+	* Changes to example template:
+	- Add the spine template.
+
+	* Changes to package code:
+	- Fix footnote format, in multiple aspects.
+	- pkuthss.cls: fix header/footer spacing.
+	- pkuthss.cls: fix displaymath spacing.
+	- pkuthss.cls: adjust list margins.
+	- pkuthss.cls: make chapter pages more tolerant of vertical spacing.
+
+	* Changes to documentation:
+	- pkuthss.bib: use the `edition' field now supported by blx-caspervector.
+	- doc: fix "需"/"须" typo.
+
+	* Misc:
+	- qa: automate the `需'/`须' check, and do not check whitespaces in patches.
+	- Minor fixes and cosmetics.
+
 2018-06-12, v1.7.6
 
 	* Changes to example template:
