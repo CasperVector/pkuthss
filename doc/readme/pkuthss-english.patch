@@ -1,12 +1,12 @@
 diff --git a/doc/example/chap/abs.tex b/doc/example/chap/abs.tex
-index b930654..cfa6cd3 100644
+index 305792f..cfa6cd3 100644
 --- a/doc/example/chap/abs.tex
 +++ b/doc/example/chap/abs.tex
 @@ -2,7 +2,7 @@
  % Public domain.
  
  \begin{cabstract}
--	\pkuthssffaq % 中文测试文字
+-	\pkuthssffaq % 中文测试文字。
 +	中文摘要。
  \end{cabstract}
  
@@ -100,13 +100,14 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index d7a575f..baed091 100644
+index 30e05de..4d6ee53 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
-@@ -14,53 +14,44 @@
- % 其它用户不用加入 nofonts 选项，加入之后反而会产生错误。
- \documentclass[UTF8]{pkuthss}
- 
+@@ -16,54 +16,44 @@
+ % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
+ % 注意：在启用此设定的情况下，可能要多编译一次以产生正确的脚注编号。
+ %\usepackage[perpage]{footmisc}
+-
 -% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex-caspervector 的文档）。
 -% 这里按照西文文献在前，中文文献在后排序（“sorting = ecnyt”）；
 -% 若须按照中文文献在前，西文文献在后排序，请设置“sorting = cenyt”；
@@ -116,10 +117,10 @@ index d7a575f..baed091 100644
 +% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex 的文档）。
 +\usepackage[backend = biber]{biblatex}
  
- % 按学校要求设定参考文献列表中的条目之内及之间的距离。
- \setlength{\bibitemsep}{3bp}
  % 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss.cls。
  \renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
+ % 按学校要求设定参考文献列表的段间距。
+ \setlength{\bibitemsep}{3bp}
  
 +\ctexset{
 +	contentsname = {Contents},
@@ -180,21 +181,12 @@ index d7a575f..baed091 100644
  \begin{document}
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
-@@ -94,7 +85,7 @@
- 	\appendix
- 	% 排版参考文献列表。bibintoc 选项使“参考文献”出现在目录中；
- 	% 如果同时要使参考文献列表参与章节编号，可将“bibintoc”改为“bibnumbered”。
--	\printbibliography[heading = bibintoc]
-+	\printbibliography[heading = bibintoc, title = Reference]
- 	% 各附录。
- 	\include{chap/encl1}
- 
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index c2c951b..d453918 100644
+index b699685..e4e58b6 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
 @@ -25,13 +25,13 @@
- 	[2017/03/01 v1.7.4 Labels and captions in UTF-8 encoding
+ 	[2018/07/02 v1.8.0 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
 -\def\label@ctitle{题目：}
@@ -215,10 +207,10 @@ index c2c951b..d453918 100644
  \def\label@ckeywords{关键词：}
  \def\label@ekeywords{KEYWORDS:\ }
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index 6208799..a785d69 100644
+index 9e68dc3..4b8cb00 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -300,7 +300,7 @@
+@@ -301,7 +301,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -227,49 +219,49 @@ index 6208799..a785d69 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -349,13 +349,13 @@
- 				\zihao{1}%
- 				\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
- 				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
--				{\bfseries{\cthesisname}}%
-+				{\bfseries{\ethesisname}}%
- 			}
- 			\vfill
- 			% Title of the thesis.
- 			{%
- 				\zihao{2}{\label@ctitle}%
--				\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
-+				\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@etitle}}%
- 			}
- 			\vfill
- 			% Information about the author.
-@@ -363,19 +363,19 @@
- 				% Slightly adjust the line skip when using new font size.
- 				\zihao{3}\linespread{1.75}\selectfont
- 				\def\thss@tmp@len{0.56\textwidth}
--				\begin{tabular}{l@{\extracolsep{0.2em}}c}
--					{\bfseries\label@cauthor}		&
--					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cauthor}		\\
--					{\bfseries\label@studentid}	&
-+				\begin{tabular}{c@{\extracolsep{0.2em}}c@{\extracolsep{0.2em}}c}
-+					{\bfseries\label@cauthor}		&	: &
-+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@eauthor}		\\
-+					{\bfseries\label@studentid}	&	:	&
- 					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@studentid}	\\
--					{\bfseries\label@school}		&
-+					{\bfseries\label@school}		&	:	&
- 					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@school}		\\
--					{\bfseries\label@cmajor}		&
--					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmajor}		\\
--					{\bfseries\label@direction}	&
-+					{\bfseries\label@cmajor}		&	:	&
-+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@emajor}		\\
-+					{\bfseries\label@direction}	&	:	&
- 					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
--					{\bfseries\label@cmentor}		&
--					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
-+					{\bfseries\label@cmentor}		&	:	&
-+					\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@ementor}		\\
- 				\end{tabular}%
- 			}
- 			\vfill
+@@ -347,13 +347,13 @@
+ 			\zihao{1}%
+ 			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+ 			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+-			{\bfseries{\cthesisname}}%
++			{\bfseries{\ethesisname}}%
+ 		}
+ 		\vfill
+ 		% Title of the thesis.
+ 		{%
+ 			\zihao{2}{\label@ctitle}\linespread{1.6}\selectfont%
+-			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
++			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@etitle}}%
+ 		}
+ 		\vfill
+ 		% Information about the author.
+@@ -361,19 +361,19 @@
+ 			% Slightly adjust the line skip when using new font size.
+ 			\zihao{3}\linespread{1.75}\selectfont
+ 			\def\thss@tmp@len{0.56\textwidth}
+-			\begin{tabular}{l@{\extracolsep{0.2em}}c}
+-				{\bfseries\label@cauthor}		&
+-				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cauthor}		\\
+-				{\bfseries\label@studentid}	&
++			\begin{tabular}{c@{\extracolsep{0.2em}}c@{\extracolsep{0.2em}}c}
++				{\bfseries\label@cauthor}		&	: &
++				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@eauthor}		\\
++				{\bfseries\label@studentid}	&	:	&
+ 				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@studentid}	\\
+-				{\bfseries\label@school}		&
++				{\bfseries\label@school}		&	:	&
+ 				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@school}		\\
+-				{\bfseries\label@cmajor}		&
+-				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmajor}		\\
+-				{\bfseries\label@direction}	&
++				{\bfseries\label@cmajor}		&	:	&
++				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@emajor}		\\
++				{\bfseries\label@direction}	&	:	&
+ 				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
+-				{\bfseries\label@cmentor}		&
+-				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
++				{\bfseries\label@cmentor}		&	:	&
++				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@ementor}		\\
+ 			\end{tabular}%
+ 		}
+ 		\vfill
