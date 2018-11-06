@@ -341,7 +341,7 @@
 \renewcommand{\maketitle}{%
 	\thss@int@pdfmark{\titlepagename}{titlepage}
 	% Make the title page centered.
-	\begin{titlepage}\begin{center}
+	\begin{titlepage}\begingroup\centering
 		% Emblem and inscription of the university, and type of thesis.
 		{%
 			\zihao{1}%
@@ -379,7 +379,7 @@
 		\vfill
 		% Date.
 		{\zihao{-2}\@date}
-	\end{center}\end{titlepage}%
+	\par\endgroup\end{titlepage}%
 }
 
 % Typeset the Chinese abstract.
