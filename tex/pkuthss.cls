@@ -123,7 +123,7 @@
 	}
 	% Use circled numbers as footnote symbols. Does not affect title page, but
 	% footnote is rarely used in dissertation covers ;)
-	\renewcommand\thefootnote%
+	\renewcommand*{\thefootnote}%
 		{\protect\thss@int@circled{\arabic{footnote}}}
 	% Provides utility to modify footnote spacing.
 	% Option used to make sure it does not render interleaf pages totally blank.
@@ -167,7 +167,7 @@
 \ifthss@opt@spechap
 	% This command is used to start a chapter without numbering, and correctly set
 	% up the headers and footers in the chapter.
-	\newcommand\specialchap[1]{%
+	\newcommand{\specialchap}[1]{%
 		\chapter*{#1}\addcontentsline{toc}{chapter}{#1}
 		\markboth{#1}{}\phantomsection%
 	}
@@ -201,7 +201,7 @@
 		\let\thss@tmp@maketitle\maketitle
 		% NOTE: `\hypersetup' must appear before `\maketitle', otherwise it might
 		% not act as expected.
-		\renewcommand\maketitle{\setpdfproperties\thss@tmp@maketitle}
+		\renewcommand{\maketitle}{\setpdfproperties\thss@tmp@maketitle}
 	\fi
 }
 
