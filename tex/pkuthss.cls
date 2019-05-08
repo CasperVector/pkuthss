@@ -244,7 +244,7 @@
 % Set up page layout.
 \geometry{
 	a4paper, hmargin = 2.6cm, top = 2.92cm, bottom = 3.03cm,
-	headheight = 0.45cm, headsep = 0.55cm, footskip = 1.05cm
+	headheight = 0.45cm, headsep = 0.59cm, footskip = 1.05cm
 }
 
 % Set up chapter/section/... captions.
@@ -259,11 +259,11 @@
 		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
 		nameformat = {}, titleformat = {}
 	}, section =
-		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
+		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}},
 	subsection =
-		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}},
+		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}},
 	subsubsection =
-		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {6bp plus 0.2ex}}
+		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}}
 }
 \ifthss@opt@ugly
 	\ctexset{
