@@ -46,7 +46,7 @@
 		}。
 
 	\item \textbf{\texttt{[no]pkufont}}：
-		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+		是否根据学校对论文格式的要求\cupercite{pku-thesisstyle}%
 		将西文字体改为类似于 Times New Roman / Arial 的字体。
 
 	\item \textbf{\texttt{[no]pkufoot}}\footnote{%
@@ -54,7 +54,7 @@
 			\texttt{[no]footfmt} 选项；
 			更改名称是为了使文档类选项名更加规则。%
 		}：
-		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+		是否根据学校对论文格式的要求\cupercite{pku-thesisstyle}%
 		修改和脚注相关的一些格式。
 		具体地说，启用 \verb|pkufoot| 选项后会进行以下几项设置：
 	\begin{itemize}
@@ -64,7 +64,7 @@
 	\end{itemize}
 
 	\item \textbf{\texttt{[no]pkuspace}}：
-		是否根据学校对论文格式的要求\mbox{\supercite{pku-thesisstyle}}%
+		是否根据学校对论文格式的要求\cupercite{pku-thesisstyle}%
 		修改排版中的一些间距及相关设置。
 		具体地说，启用 \verb|pkuspace| 选项后会按
 		\parencite{pku-thesisstyle} 中的要求修改以下几项设置：
@@ -259,10 +259,10 @@
 
 \section{从其它文档类和宏包继承的功能}\label{sec:thirdparty}
 
-pkuthss 文档类建立在 ctexbook\supercite{ctex} 文档类之上，
-并调用了 geometry\supercite{geometry}、fancyhdr\supercite{fancyhdr}、%
-hyperref\supercite{hyperref}、graphicx\supercite{graphicx}
-和 ulem\supercite{ulem} 等几个宏包。
+pkuthss 文档类建立在 ctexbook\cupercite{ctex} 文档类之上，
+并调用了 geometry\cupercite{geometry}、fancyhdr\supercite{fancyhdr}、%
+hyperref\cupercite{hyperref}、graphicx\supercite{graphicx}
+和 ulem\cupercite{ulem} 等几个宏包。
 因此，ctexbook 文档类和这些宏包所提供的功能均可以使用。
 
 例如，用户如果想将目录的标题改为“目{\quad\quad}录”，
@@ -272,8 +272,8 @@ hyperref\supercite{hyperref}、graphicx\supercite{graphicx}
 \end{Verbatim}
 
 在默认的配置下，%
-pkuthss 文档模版使用作者编写的 biblatex\supercite{biblatex} 样式%
-\mbox{\supercite{biblatex-caspervector}}进行参考文献和引用的排版，
+pkuthss 文档模版使用作者编写的 biblatex\cupercite{biblatex} 样式%
+\cupercite{biblatex-caspervector}进行参考文献和引用的排版，
 用户可以使用它以及 biblatex 本身所提供的功能。
 例如，用户可以分别使用 \verb|\cite|、\verb|\parencite| 和 \verb|\supercite|
 生成未格式化的、带方括号的和上标且带方括号的引用标记：
@@ -285,20 +285,20 @@ pkuthss 文档模版使用作者编写的 biblatex\supercite{biblatex} 样式%
 就目前而言，在\myemph{除 3.0--3.3 之外版本的} biblatex 中，
 通过更复杂的设置，还可以满足例如被引用的文献按照引用顺序排序，
 而未引用的文献按照西文文献在前、中文文献在后排序这样的需求，
-详见 biblatex-caspervector 的文档\supercite{biblatex-caspervector}。
+详见 biblatex-caspervector 的文档\cupercite{biblatex-caspervector}。
 
 除此之外，pkuthss 文档类还可能调用以下这些宏包：
 \begin{itemize}
 	\item 启用 \verb|pkufont| 选项时会调用
-		newtxtext 和 newtxmath\supercite{newtx} 宏包，
-		否则会调用 latexsym\supercite{latexsym} 宏包。
+		newtxtext 和 newtxmath\cupercite{newtx} 宏包，
+		否则会调用 latexsym\cupercite{latexsym} 宏包。
 	\item 启用 \verb|pkufoot| 选项时会调用
-		tikz\supercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
+		tikz\cupercite{tikz} 和 scrextend\supercite{scrextend} 宏包。
 	\item 启用 \verb|pkuspace| 选项时会调用
-		tocloft\supercite{tocloft}、caption\supercite{caption} 和
-		subcaption\supercite{subcaption} 宏包。
+		tocloft\cupercite{tocloft}、caption\supercite{caption} 和
+		subcaption\cupercite{subcaption} 宏包。
 	\item 启用 \verb|spacing| 选项时会调用 setspace 和
-		enumitem\supercite{enumitem} 宏包。
+		enumitem\cupercite{enumitem} 宏包。
 \end{itemize}
 因此在启用相应选项时，用户可以使用对应宏包所提供的功能。
 
