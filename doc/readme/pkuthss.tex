@@ -33,13 +33,12 @@
 ]{biblatex}
 \usepackage{iftex, fancyvrb, hologo}
 
-\setlength{\hfuzz}{3pt}
-\ctexset{linestretch = 2\ccwd}
-\renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
-\setlength{\bibitemsep}{3bp}
-
 \hypersetup{colorlinks = true, allcolors = blue}
-\newcommand{\docversion}{v1.8.0}
+\ctexset{linestretch = 2\ccwd}
+\setlength{\hfuzz}{3pt}
+\setlength{\bibitemsep}{3bp}
+\renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
+
 \newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
 \newcommand{\unemph}[1]{\textup{\textcolor{black}{#1}}}
 \RecustomVerbatimEnvironment{Verbatim}{Verbatim}%
@@ -49,6 +48,7 @@
 	tabsize = 4, formatcom = {\ifXeTeX\xeCJKVerbAddon\fi}
 }
 
+\newcommand*{\docversion}{v1.8.0}
 \pkuthssinfo{
 	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
 	ctitle = {北京大学学位论文模版\\pkuthss \docversion},
