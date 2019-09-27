@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 #
-# Copyright (c) 2011-2015 Casper Ti. Vector
+# Copyright (c) 2011-2015,2019 Casper Ti. Vector
 # Public domain.
 
 CP = cp -a
@@ -9,6 +9,7 @@ MD = mkdir -p
 RM = rm -rf
 ZIP = zip -rT
 MAKE = make
+LMK = latexmk
 SELF = utils/dist
 PERM = find . -type d -exec chmod 755 '{}' + && \
 	find . -type f -exec chmod 644 '{}' +
@@ -26,11 +27,11 @@ doc-dist: doc/
 	# Make the directory.
 	$(MD) $@/
 	# Example src and pdf.
-	cd doc/example/ && $(MAKE) && $(MAKE) clean
+	cd doc/example/ && $(LMK) && $(LMK) -c && $(RM) *.xdv
 	$(MV) doc/example/$(EXAMPLE).pdf $@/example.pdf
 	$(CP) doc/example/ $@/example
 	# Readme src and pdf.
-	cd doc/readme/ && $(MAKE) && $(MAKE) clean
+	cd doc/readme/ && $(LMK) && $(LMK) -c && $(RM) *.xdv
 	$(MV) doc/readme/$(README).pdf $@/readme.pdf
 	$(CP) doc/readme/ $@/readme
 
@@ -56,8 +57,8 @@ $(TITLE)-$(VERSION).zip: dir-ctan
 		$(ZIP) -y ../$@ $(TITLE)/ $(TITLE).tds.zip
 
 clean:
-	cd doc/readme/ && $(MAKE) distclean
-	cd doc/example/ && $(MAKE) distclean
+	cd doc/readme/ && $(LMK) -C
+	cd doc/example/ && $(LMK) -C
 	$(RM) dir-ctan/ dir-tds/ tex-dist/ doc-dist/
 
 distclean:
