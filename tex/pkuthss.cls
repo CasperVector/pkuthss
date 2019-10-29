@@ -65,6 +65,9 @@
 
 % Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
 \ifthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
+% Work around the `\lvert already defined' error.
+% cf. <https://github.com/CTeX-org/ctex-kit/issues/454>.
+\ifthss@opt@pkufont\RequirePackage{amsmath}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
 \LoadClass[zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
