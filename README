@@ -2,7 +2,7 @@ pkuthss: LaTeX template for dissertations in Peking University
 --------------------------------------------------------------
 
 Maintainer: Casper Ti. Vector <CasperVector@gmail.com>
-Homepage: <https://gitlab.com/CasperVector/pkuthss>
+Homepage: <https://gitea.com/CasperVector/pkuthss>
 
 Licence:
 * New BSD Licence for `copyright.tex' and `originauth.tex'.
