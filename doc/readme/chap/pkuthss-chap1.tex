@@ -104,6 +104,9 @@ texdoc pkuthss
 		被 Make 工具调用的 Makefile，用于使编译工作自动化。
 	\item \verb|Make.bat|：%
 		Windows 下的伪“Makefile”，用 Windows 批处理实现。
+	\item \verb|ctexopts.cfg|、\verb|ctex-fontset-pkuthss.def|：
+		比较常用的字体配置，适用于 2.0 及以后版本的
+		ctex\cupercite{ctex} 宏包。
 
 	\item \verb|chap/|：目录，包含各章节内容：
 	\begin{itemize}
@@ -116,18 +119,6 @@ texdoc pkuthss
 		请参考 \texttt{copyright.tex} 和
 		\texttt{originauth.tex} 中的相关注释。%
 	}
-
-	\item \verb|misc/|：
-		目录，目前包含比较常用的字体配置：
-	\begin{itemize}
-		\item \verb|ctexopts.cfg|、\verb|ctex-fontset-pkuthss.def|：
-			适用于 2.0 及以后版本的 ctex\cupercite{ctex} 宏包。
-		\item \verb|ctex-xecjk-windows.def|：
-			适用于 2.0 以前版本的 ctex 宏包。
-	\end{itemize}
-	使用时，
-	请将和用户系统中 ctex 宏包版本相匹配的\myemph{所有}配置文件
-	复制到模版的主目录中。
 \end{itemize}
 
 \section{编译方式}\label{sec:compile}
