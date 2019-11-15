@@ -32,13 +32,14 @@ doc-dist: doc/
 	$(CP) doc/example/ $@/example
 	# Readme src and pdf.
 	cd doc/readme/ && $(LMK) && $(LMK) -c && $(RM) *.xdv
-	$(MV) doc/readme/$(README).pdf $@/readme.pdf
+	$(MV) doc/readme/$(TITLE).pdf $@/
 	$(CP) doc/readme/ $@/readme
 
-dir-tds: tex-dist doc-dist
+dir-tds: README tex-dist doc-dist
 	$(MD) $@/tex/latex/ $@/doc/latex/
 	$(CP) tex-dist/ $@/tex/latex/$(TITLE)
 	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
+	$(CP) README $@/doc/latex/$(TITLE)
 
 dist-tds: $(TITLE).tds.zip
 $(TITLE).tds.zip: dir-tds
