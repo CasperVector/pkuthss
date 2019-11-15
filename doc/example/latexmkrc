@@ -1,3 +1,6 @@
+# Copyright (c) 2019 Casper Ti. Vector
+# Public domain.
+
 @default_files = ('thesis');
 # 5：xelatex；3：latex（+ dvipdfmx）；1：pdflatex。
 $pdf_mode = 5;

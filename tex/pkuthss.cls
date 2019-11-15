@@ -1,7 +1,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2018 Casper Ti. Vector
+% Copyright (c) 2010-2019 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -23,7 +23,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2018/07/02 v1.8.0 Peking University dissertation document class]
+	[2019/11/15 v1.8.1 Peking University dissertation document class]
 
 % eg. `\thss@int@boolopt{spacing}{true}' will expand to:
 %   \newif\ifthss@opt@spacing \thss@opt@spacingtrue

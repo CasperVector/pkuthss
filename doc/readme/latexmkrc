@@ -1,3 +1,6 @@
+# Copyright (c) 2019 Casper Ti. Vector
+# Public domain.
+
 @default_files = ('pkuthss');
 $pdf_mode = 5;
 $dvipdf = "dvipdfmx %O -o %D %S";

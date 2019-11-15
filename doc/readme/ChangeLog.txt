@@ -1,3 +1,25 @@
+2019-11-15, v1.8.1
+
+	* Changes to example template:
+	- Migrate to latexmk (also for packaging).
+	- ctex-fontset-pkuthss.def: `[ simkai.ttf ]' etc is no longer supported.
+	- spine.tex: fix garbled characters and hbox warnings with pdflatex.
+
+	* Changes to package code:
+	- pkuthss.cls: work around the `\lvert already defined' error.
+	- pkuthss.cls: fix section title spacing below the page header.
+	- pkuthss.cls: adjust titlepage spacing.
+
+	* Changes to documentation:
+	- Synchronise with the current code.
+	- Use \mbox around \supercite by default.
+	- Improve verbatims.
+
+	* Misc:
+	- Completion of some previous commits.
+	- Migrate to Gitea, "for obvious reasons".
+	- Minor fixes and cosmetics.
+
 2018-07-02, v1.8.0
 
 	* Changes to example template:
