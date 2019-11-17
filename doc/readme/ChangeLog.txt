@@ -1,3 +1,10 @@
+2019-11-17, v1.8.2
+
+	* Misc:
+	- CTAN now also wants README in the TDS archive.
+	- `README' -> `README.txt' do avoid collision with the `readme' directory.
+	- Fix ignored `\docversion' update.
+
 2019-11-15, v1.8.1
 
 	* Changes to example template:
