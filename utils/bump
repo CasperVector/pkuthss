@@ -10,7 +10,7 @@ revbump:
 	sed -i '/\\Provides/,+1 s;\[[^ ]* [^ ]*;[$(NUMDATE) v$(VERSION);g' \
 		tex/*
 	sed -i -e '/date = / s;{[^,]\+},$$;{$(CNDATE)},;g' \
-		-e '/\\newcommand{\\docversion}/ s;{[^{}]\+}$$;{v$(VERSION)};g' \
+		-e '/\\newcommand\*{\\docversion}/ s;{[^{}]\+}$$;{v$(VERSION)};g' \
 		doc/readme/pkuthss.tex
 	@echo '$@: remember to update the change log and copyright lines'
 	@echo '$@: remember to tag the commit and push tags'
