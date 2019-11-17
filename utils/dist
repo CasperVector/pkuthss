@@ -35,19 +35,19 @@ doc-dist: doc/
 	$(MV) doc/readme/$(TITLE).pdf $@/
 	$(CP) doc/readme/ $@/readme
 
-dir-tds: README tex-dist doc-dist
+dir-tds: README.txt tex-dist doc-dist
 	$(MD) $@/tex/latex/ $@/doc/latex/
 	$(CP) tex-dist/ $@/tex/latex/$(TITLE)
 	$(CP) doc-dist/ $@/doc/latex/$(TITLE)
-	$(CP) README $@/doc/latex/$(TITLE)
+	$(CP) README.txt $@/doc/latex/$(TITLE)
 
 dist-tds: $(TITLE).tds.zip
 $(TITLE).tds.zip: dir-tds
 	cd $< && $(PERM) && $(ZIP) ../$@ tex/ doc/
 
-dir-ctan: README tex-dist doc-dist $(TITLE).tds.zip
+dir-ctan: README.txt tex-dist doc-dist $(TITLE).tds.zip
 	$(MD) $@/$(TITLE)/
-	$(CP) README $@/$(TITLE)/
+	$(CP) README.txt $@/$(TITLE)/
 	$(CP) tex-dist/ $@/$(TITLE)/tex
 	$(CP) doc-dist/ $@/$(TITLE)/doc
 	$(MV) $(TITLE).tds.zip $@/
