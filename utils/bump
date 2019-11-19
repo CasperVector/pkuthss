@@ -4,7 +4,7 @@
 # Public domain.
 
 NUMDATE = $(shell date '+%Y/%m/%d')
-CNDATE = $(shell date '+\\zhdigits{%Y} 年 \\zhnumber{%-m} 月')
+CNDATE = $(shell date '+\\zhdigits{%Y}年\\zhnumber{%-m}月')
 
 revbump:
 	sed -i '/\\Provides/,+1 s;\[[^ ]* [^ ]*;[$(NUMDATE) v$(VERSION);g' \
