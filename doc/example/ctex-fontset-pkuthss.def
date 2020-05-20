@@ -22,7 +22,7 @@
         \ctex_punct_map_bfseries:nn { \CJKrmdefault } { zhhei }
       }
       {
-        \ctex_load_zhmap:nnnn { rm } { zhhei } { zhfs } { zhwindowsfonts }
+        \ctex_load_zhmap:nnnn { rm } { zhhei } { zhfs } { windows }
         \ctex_punct_set:n { windows }
         \ctex_punct_map_family:nn { \CJKrmdefault } { zhsong }
         \ctex_punct_map_bfseries:nn { \CJKrmdefault } { zhhei }
