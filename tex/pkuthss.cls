@@ -80,8 +80,8 @@
 \RequirePackage{geometry}
 % fancyhdr provides utilities for setting up headers and footers.
 \RequirePackage{fancyhdr}
-% Provides `\uline' used in `\maketitle'.
-\RequirePackage{ulem}
+% Provides `\uline' used in `\maketitle' (but do not mess with `\emph').
+\RequirePackage[normalem]{ulem}
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
 \AtEndOfClass{\RequirePackage{hyperref}}
 
