@@ -381,7 +381,7 @@
 		}
 		\vfill
 		% Date.
-		{\zihao{-2}\@date}
+		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
 	\par\endgroup\end{titlepage}%
 }
 
