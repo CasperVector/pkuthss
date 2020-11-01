@@ -1,3 +1,21 @@
+2020-11-02, v1.8.3
+
+	* Changes to example template:
+	- ctex-fontset-pkuthss.def: update `\ctex_load_zhmap' usage.
+	- Remove Makefile.
+
+	* Changes to package code:
+	- pkuthss.cls: do not let ulem mess with `\emph'.
+	- pkuthss.cls: make `ugly' title page more compliant.
+
+	* Changes to documentation:
+	- pkuthss-chap[12].tex: `须'/`需' typo.
+	- Remove space around `\zhdigits' in date.
+	- Add pkuthss.bib to copyright lines.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2019-11-17, v1.8.2
 
 	* Misc:
