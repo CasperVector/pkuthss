@@ -100,12 +100,12 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index 30e05de..4d6ee53 100644
+index 9c5f042..a54d01f 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
-@@ -16,54 +16,44 @@
+@@ -12,54 +12,44 @@
+ \documentclass[UTF8]{pkuthss}
  % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
- % 注意：在启用此设定的情况下，可能要多编译一次以产生正确的脚注编号。
  %\usepackage[perpage]{footmisc}
 -
 -% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex-caspervector 的文档）。
@@ -182,11 +182,11 @@ index 30e05de..4d6ee53 100644
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index b699685..e4e58b6 100644
+index 9bc6000..7650e53 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
 @@ -25,13 +25,13 @@
- 	[2018/07/02 v1.8.0 Labels and captions in UTF-8 encoding
+ 	[2019/11/17 v1.8.2 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
 -\def\label@ctitle{题目：}
@@ -207,10 +207,10 @@ index b699685..e4e58b6 100644
  \def\label@ckeywords{关键词：}
  \def\label@ekeywords{KEYWORDS:\ }
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index 9e68dc3..4b8cb00 100644
+index e34fe2d..477b3f4 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -301,7 +301,7 @@
+@@ -304,7 +304,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -219,7 +219,7 @@ index 9e68dc3..4b8cb00 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -347,13 +347,13 @@
+@@ -350,13 +350,13 @@
  			\zihao{1}%
  			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
  			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
@@ -235,7 +235,7 @@ index 9e68dc3..4b8cb00 100644
  		}
  		\vfill
  		% Information about the author.
-@@ -361,19 +361,19 @@
+@@ -364,19 +364,19 @@
  			% Slightly adjust the line skip when using new font size.
  			\zihao{3}\linespread{1.75}\selectfont
  			\def\thss@tmp@len{0.56\textwidth}
