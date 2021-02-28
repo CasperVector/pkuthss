@@ -195,16 +195,20 @@
 	\item \texttt{\bfseries\string\euniversity}：大学的西文名。
 	\item \texttt{\bfseries\string\cthesisname}：论文类别的中文名。
 	\item \texttt{\bfseries\string\ethesisname}：论文类别的西文名。
+	\item \texttt{\bfseries\string\thesiscover}：封面显示的论文类别\footnote{%
+		出于兼容性的考虑，如果 \texttt{\string\thesiscover} 为空，
+		那么封面将显示 \texttt{\string\cthesisname}。%
+	}。
 	\item \texttt{\bfseries\string\cabstractname}：摘要的中文标题。
 	\item \texttt{\bfseries\string\eabstractname}：摘要的西文标题。
 \end{itemize}
 
-例如，
-如果要设定论文的类别为“本科生毕业论文”（“Undergraduate Thesis”），
-则可以使用以下命令：
+例如，如果要设定论文的类别为“博士学位论文”（“Doctor Thesis”），
+但封面要显示“博士研究生学位论文”，则可以使用以下命令：
 \begin{Verbatim}
-\renewcommand{\cthesisname}{本科生毕业论文}
-\renewcommand{\ethesisname}{Undergraduate Thesis}
+\renewcommand{\cthesisname}{博士学位论文}
+\renewcommand{\ethesisname}{Doctor Thesis}
+\renewcommand{\thesiscover}{博士研究生学位论文}
 \end{Verbatim}
 
 \subsection{以“key = value”格式设置文档信息}

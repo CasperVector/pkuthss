@@ -239,6 +239,7 @@
 \thss@int@infoitemb{euniversity}
 \thss@int@infoitemb{cthesisname}
 \thss@int@infoitemb{ethesisname}
+\thss@int@infoitemb{thesiscover}
 \thss@int@infoitemb{cabstractname}
 \thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
@@ -350,7 +351,7 @@
 			\zihao{1}%
 			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
 			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
-			{\bfseries{\cthesisname}}%
+			{\bfseries\ifx\thesiscover\empty{\cthesisname}\else{\thesiscover}\fi}%
 		}
 		\vfill
 		% Title of the thesis.
