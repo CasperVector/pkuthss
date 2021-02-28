@@ -1,7 +1,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2020 Casper Ti. Vector
+% Copyright (c) 2010-2021 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -355,7 +355,7 @@
 		\vfill
 		% Title of the thesis.
 		{%
-			\zihao{2}{\label@ctitle}\linespread{1.6}\selectfont%
+			\zihao{2}\linespread{1.6}\selectfont{\label@ctitle}%
 			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
 		}
 		\vfill
