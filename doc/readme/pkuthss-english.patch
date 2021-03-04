@@ -100,10 +100,10 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index 9c5f042..a54d01f 100644
+index 336b239..dab2560 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
-@@ -12,54 +12,44 @@
+@@ -13,56 +13,44 @@
  \documentclass[UTF8]{pkuthss}
  % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
  %\usepackage[perpage]{footmisc}
@@ -113,6 +113,8 @@ index 9c5f042..a54d01f 100644
 -% 若须按照中文文献在前，西文文献在后排序，请设置“sorting = cenyt”；
 -% 若须按照引用顺序排序，请设置“sorting = none”。
 -% 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
+-% biblatex-caspervector 也有一个“ugly”选项，使其更像国标格式；此外也可考虑
+-% 改用 style = gb7714-2015 并去掉后面两选项，详见 biblatex-gb7714 的文档。
 -\usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
 +% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex 的文档）。
 +\usepackage[backend = biber]{biblatex}
@@ -138,24 +140,24 @@ index 9c5f042..a54d01f 100644
 +
  % 设定文档的基本信息。
  \pkuthssinfo{
--	cthesisname = {博士研究生学位论文}, ethesisname = {Doctor Thesis},
--	ctitle = {测试文档}, etitle = {Test Document},
--	cauthor = {某某},
+-	cthesisname = {博士学位论文}, ethesisname = {Doctor Thesis},
+-	thesiscover = {博士研究生学位论文},
+-	ctitle = {测试文档},
 +	ethesisname = {Doctor Thesis},
-+	etitle = {Test Document},
- 	eauthor = {Test},
- 	studentid = {0123456789},
--	date = {某年某月},
--	school = {某某学院},
+ 	etitle = {Test Document},
+-	cauthor = {某某}, eauthor = {Test}, date = {某年某月},
+-	studentid = {0123456789}, school = {某某学院},
 -	cmajor = {某某专业}, emajor = {Some Major},
 -	direction = {某某方向},
 -	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
-+	date = {Some Date},
++	eauthor = {Test},
++	date = {Month Year}, studentid = {0123456789},
 +	school = {Some School},
 +	emajor = {Some Major},
 +	direction = {Some Direction},
 +	ementor = {Prof.\ Somebody},
- 	ckeywords = {其一，其二}, ekeywords = {First, Second}
+ 	ckeywords = {其一，其二},
+ 	ekeywords = {First, Second}
  }
  % 载入参考文献数据库（注意不要省略“.bib”）。
  \addbibresource{thesis.bib}
@@ -182,11 +184,11 @@ index 9c5f042..a54d01f 100644
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index 9bc6000..7650e53 100644
+index 54a5e24..44404d8 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
 @@ -25,13 +25,13 @@
- 	[2019/11/17 v1.8.2 Labels and captions in UTF-8 encoding
+ 	[2020/11/02 v1.8.3 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
 -\def\label@ctitle{题目：}
@@ -207,10 +209,10 @@ index 9bc6000..7650e53 100644
  \def\label@ckeywords{关键词：}
  \def\label@ekeywords{KEYWORDS:\ }
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index e34fe2d..477b3f4 100644
+index 1899ee0..7b9ed56 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -304,7 +304,7 @@
+@@ -313,7 +313,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -219,23 +221,24 @@ index e34fe2d..477b3f4 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -350,13 +350,13 @@
- 			\zihao{1}%
- 			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
- 			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
--			{\bfseries{\cthesisname}}%
-+			{\bfseries{\ethesisname}}%
+@@ -363,14 +363,14 @@
+ 				\zihao{1}\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+ 				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+ 			\fi%
+-			{\bfseries\ifx\thesiscover\empty{\cthesisname}\else{\thesiscover}\fi}%
++			{\bfseries\ethesisname}%
  		}
  		\vfill
  		% Title of the thesis.
  		{%
- 			\zihao{2}{\label@ctitle}\linespread{1.6}\selectfont%
+ 			\ifthss@opt@ugly\zihao{-1}\else\zihao{2}\fi%
+ 			\linespread{1.6}\selectfont{\label@ctitle}%
 -			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
 +			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@etitle}}%
  		}
  		\vfill
  		% Information about the author.
-@@ -364,19 +364,19 @@
+@@ -378,19 +378,19 @@
  			% Slightly adjust the line skip when using new font size.
  			\zihao{3}\linespread{1.75}\selectfont
  			\def\thss@tmp@len{0.56\textwidth}
