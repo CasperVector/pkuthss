@@ -20,7 +20,7 @@
 % 若须按照引用顺序排序，请设置“sorting = none”。
 % 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
 % biblatex-caspervector 也有一个“ugly”选项，使其更像国标格式；此外也可考虑
-% 改用 style = gb7714-2015 并去掉后面两选项，详见 biblatex-gb7714 的文档。
+% 改用 style = gb7714-2015 并去掉之后两选项，详见 biblatex-gb7714-2015 的文档。
 \usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
 
 % 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss.cls。
@@ -60,7 +60,9 @@
 
 	如果编译时不出参考文献，
 	请参考 \texttt{texdoc pkuthss}“问题及其解决”一章
-	“上游宏包可能引起的问题”一节中关于 biber 的说明。%
+	“上游宏包可能引起的问题”一节中关于 biber 的说明。
+
+	因无法假定用户使用哪种方式排版表格，用户须自行保证表格字号符合学校规定。%
 }
 
 \begin{document}

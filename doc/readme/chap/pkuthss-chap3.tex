@@ -1,7 +1,7 @@
 % Documentation for pkuthss.
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2019 Casper Ti. Vector
+% Copyright (c) 2010-2019,2021 Casper Ti. Vector
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -97,14 +97,20 @@ data source .../par-xxxxxxxx/cache-xxxxxxxx/
 
 \section{文档格式可能存在的问题}
 
-学校对学位论文格式的规定\cupercite{pku-thesisstyle}%
-显然没有考虑到非 MS Word 类排版工具的工作方式，
+目前在 \hologo{LaTeX} 中似乎没有一个可以很好地替代其它各类似宏包的
+用于排版表格的宏包，而 pkuthss 文档模版的作者也无意假定用户使用
+某一个宏包，因此模版并未尝试设定表格的默认字号，\myemph{用户
+须自行按学校规定\cupercite{pku-thesisstyle}进行设置}。
+
+学校对学位论文格式的规定显然没有考虑到非 MS Word 类排版工具的工作方式，
 因此 pkuthss 文档模版只是对其要求的格式进行模仿，
 而在一些小的细节上可能有所出入。
 
-biblatex-caspervector\cupercite{biblatex-caspervector} 所实现的格式和
-\parencite{pku-thesisstyle} 的规定并不一致，
-但其作者暂时没有精力也不愿意去实现后者所规定的比原格式更丑陋得多的格式。
+biblatex-caspervector\cupercite{biblatex-caspervector}
+所实现的格式和 \parencite{pku-thesisstyle} 的规定并不一致，
+但其作者没有精力也不愿意去实现后者所规定的比原格式更丑陋得多的格式。
+针对国标 GB/T 7714-2015，现在已经有了 biblatex-gb7714-2015%
+\cupercite{biblatex-gb7714-2015} 这一 biblatex 实现，用户也可以考虑使用。
 
 \section{反馈意见和建议}
 
