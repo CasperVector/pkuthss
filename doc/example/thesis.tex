@@ -9,6 +9,7 @@
 %   texdoc biblatex-caspervector
 % 调出。
 
+% 如果格式审查提示字号不严格符合标准，可以在 [] 中加入“ugly”选项。
 \documentclass[UTF8]{pkuthss}
 % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
 %\usepackage[perpage]{footmisc}
@@ -18,6 +19,8 @@
 % 若须按照中文文献在前，西文文献在后排序，请设置“sorting = cenyt”；
 % 若须按照引用顺序排序，请设置“sorting = none”。
 % 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
+% biblatex-caspervector 也有一个“ugly”选项，使其更像国标格式；此外也可考虑
+% 改用 style = gb7714-2015 并去掉后面两选项，详见 biblatex-gb7714 的文档。
 \usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
 
 % 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss.cls。

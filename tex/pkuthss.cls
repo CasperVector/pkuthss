@@ -2,6 +2,7 @@
 %
 % Copyright (c) 2008-2009 solvethis
 % Copyright (c) 2010-2021 Casper Ti. Vector
+% Copyright (c) 2021 Kurapica
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License, either version 1.3 of this license or (at
@@ -150,9 +151,14 @@
 	% `tocloft'; it clashes with `subfigure'/`subfig', but the error message will
 	% say they cannot be used simultaneously.
 	\RequirePackage{caption, subcaption}
-	\DeclareCaptionFont{cfive}{\zihao{5}}
+	\ifthss@opt@ugly
+		\DeclareCaptionFont{capfsize}{\fontsize{11bp}{13.2bp}}
+	\else
+		\DeclareCaptionFont{capfsize}{\zihao{5}}
+	\fi
 	\DeclareCaptionLabelSeparator{quad}{\quad}
-	\captionsetup{font = cfive, labelsep = quad}
+	\captionsetup{font = capfsize, labelsep = quad}
+	\captionsetup[sub]{font = capfsize, labelsep = quad}
 \fi
 
 \ifthss@opt@spacing
@@ -246,10 +252,12 @@
 \newcommand*{\pkuthssinfo}[1]{\setkeys{thss@info}{#1}}
 
 % Set up page layout.
-\geometry{
-	a4paper, hmargin = 2.6cm, top = 2.92cm, bottom = 3.03cm,
-	headheight = 0.45cm, headsep = 0.59cm, footskip = 1.05cm
-}
+\geometry{a4paper, hmargin = 2.6cm, headheight = 0.5cm, headsep = 0.6cm}
+\ifthss@opt@ugly
+	\geometry{top = 3.1cm, bottom = 3.0cm, footskip = 0.8cm}
+\else
+	\geometry{top = 3.0cm, bottom = 3.1cm, footskip = 1.1cm}
+\fi
 
 % Set up chapter/section/... captions.
 % The `*skip' values are not supposed to be modified by the `ugly' option:
@@ -259,29 +267,29 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
 \ctexset{
-	chapter = {
-		beforeskip = {0bp}, afterskip = {18bp plus 0.2ex},
-		nameformat = {}, titleformat = {}
-	}, section =
+	chapter = {beforeskip = {0bp}, afterskip = {18bp plus 0.2ex}},
+	section =
 		{beforeskip = {20bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}},
 	subsection =
 		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}},
 	subsubsection =
 		{beforeskip = {12bp plus 1ex minus 0.2ex}, afterskip = {5bp plus 0.2ex}}
 }
+\ctexset{
+	chapter = {nameformat = {}, titleformat = {}},
+	subsubsection = {format = {\zihao{-4}\bfseries}}
+}
 \ifthss@opt@ugly
 	\ctexset{
 		chapter = {format = {\zihao{3}\bfseries\centering}},
 		section = {format = {\zihao{4}\bfseries}},
-		subsection = {format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}},
-		subsubsection = {format = {\zihao{-4}\bfseries}}
+		subsection = {format = {\fontsize{13bp}{15.6bp}\selectfont\bfseries}}
 	}
 \else
 	\ctexset{
 		chapter = {format = {\zihao{-2}\bfseries\centering}},
 		section = {format = {\zihao{-3}\bfseries}},
-		subsection = {format = {\zihao{4}\bfseries}},
-		subsubsection = {format = {\bfseries}}
+		subsection = {format = {\zihao{4}\bfseries}}
 	}
 \fi
 
@@ -348,15 +356,20 @@
 	\begin{titlepage}\begingroup\centering
 		% Emblem and inscription of the university, and type of thesis.
 		{%
-			\zihao{1}%
-			\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
-			\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+			\ifthss@opt@ugly%
+				\zihao{-0}\includegraphics[height = 1.9em]{pkulogo}\hspace{0.3em}%
+				\raisebox{0.32em}{\includegraphics[height = 1.3em]{pkuword}}\\[0.5em]
+			\else%
+				\zihao{1}\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
+				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
+			\fi%
 			{\bfseries\ifx\thesiscover\empty{\cthesisname}\else{\thesiscover}\fi}%
 		}
 		\vfill
 		% Title of the thesis.
 		{%
-			\zihao{2}\linespread{1.6}\selectfont{\label@ctitle}%
+			\ifthss@opt@ugly\zihao{-1}\else\zihao{2}\fi%
+			\linespread{1.6}\selectfont{\label@ctitle}%
 			\thss@int@fillinblank{2}{0.64\textwidth}{\textbf{\@ctitle}}%
 		}
 		\vfill
