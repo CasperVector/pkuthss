@@ -158,7 +158,7 @@
 	\fi
 	\DeclareCaptionLabelSeparator{quad}{\quad}
 	\captionsetup{font = capfsize, labelsep = quad}
-	\captionsetup[sub]{font = capfsize, labelsep = quad}
+	\captionsetup[sub]{font = capfsize}
 \fi
 
 \ifthss@opt@spacing
