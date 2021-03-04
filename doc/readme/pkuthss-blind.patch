@@ -1,0 +1,81 @@
+diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
+index 7c1b6bd..1196b85 100644
+--- a/doc/example/thesis.tex
++++ b/doc/example/thesis.tex
+@@ -1,5 +1,6 @@
+ % Copyright (c) 2008-2009 solvethis
+ % Copyright (c) 2010-2016,2018-2019,2021 Casper Ti. Vector
++% Copyright (c) 2021 Kurapica
+ % Public domain.
+ %
+ % 使用前请先仔细阅读 pkuthss 和 biblatex-caspervector 的文档，
+@@ -20,10 +21,43 @@
+ % 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
+ \usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
+ 
++% 双盲评审相关基础代码。
++\makeatletter
++\thss@int@infoitema{discipline}
++\thss@int@infoitema{blindid}
++\def\label@blindcover{（匿名评阅论文封面）}
++\def\label@blindctitle{中文题目：}
++\def\label@blindetitle{英文题目：}
++\def\label@blinddiscipline{一级学科：}
++\def\label@blindmajor{二级学科：}
++\def\label@blindid{论文编号：}
++\newcommand{\makeblind}{%
++	\thss@int@pdfmark{\titlepagename}{titlepage}
++	\begin{titlepage}\begingroup
++		\centering\zihao{3}\selectfont\fangsong\vspace*{0.5cm}
++		{\zihao{-0}\heiti\cuniversity\cthesisname}\\[0.36\baselineskip]
++		{\zihao{-2}\fangsong\label@blindcover}%
++		\par\vspace{4\baselineskip}
++		\renewcommand{\arraystretch}{1.25}
++		\begin{tabular}{lp{0.8\textwidth}}
++			\label@blindctitle	&	{\@ctitle}	\\
++			\label@blindetitle	&	{\@etitle}	\\\\
++			\label@blinddiscipline	&	{\@discipline}	\\
++			\label@blindmajor	&	{\@cmajor}	\\
++			\label@blindid	&	{\@blindid}	\\
++		\end{tabular}\par\vfill
++		{\@date}\par\vspace*{0.5cm}
++	\endgroup\end{titlepage}%
++}
++\makeatother
++
+ % 对于 linespread 值的计算过程有兴趣的同学可以参考 pkuthss.cls。
+ \renewcommand*{\bibfont}{\zihao{5}\linespread{1.27}\selectfont}
+ % 按学校要求设定参考文献列表的段间距。
+ \setlength{\bibitemsep}{3bp}
++% 如是双盲版论文，将 \blindfalse 改为 \blindtrue。后面可用
++% \ifblind 根据是否双盲来条件地启用代码（参见本文件后面部分）。
++\newif\ifblind\blindfalse
+ 
+ % 设定文档的基本信息。
+ \pkuthssinfo{
+@@ -35,6 +69,7 @@
+ 	studentid = {0123456789}, school = {某某学院},
+ 	cmajor = {某某专业}, emajor = {Some Major},
+ 	direction = {某某方向},
++	discipline = {某某学科}, blindid = {9876543210},
+ 	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
+ 	ckeywords = {其一，其二},
+ 	ekeywords = {First, Second}
+@@ -66,7 +101,7 @@
+ 	% 此后到下一 \pagestyle 命令之前不排版页眉或页脚。
+ 	\pagestyle{empty}
+ 	% 自动生成封面。
+-	\maketitle
++	\ifblind\makeblind\else\maketitle\fi
+ 	% 版权声明。封面要求单面打印，故须新开右页。
+ 	\cleardoublepage
+ 	\include{chap/copy}
+@@ -100,7 +135,7 @@
+ 	% 以下为正文之后的部分，默认不进行章节编号。
+ 	\backmatter
+ 	% 致谢。
+-	\include{chap/ack}
++	\ifblind\else\include{chap/ack}\fi
+ 	% 原创性声明和使用授权说明。
+ 	\include{chap/origin}
+ \end{document}
