@@ -241,6 +241,8 @@
 \thss@int@infoitema{ementor}
 \thss@int@infoitema{ckeywords}
 \thss@int@infoitema{ekeywords}
+\thss@int@infoitema{blindid}
+\thss@int@infoitema{discipline}
 \thss@int@infoitemb{cuniversity}
 \thss@int@infoitemb{euniversity}
 \thss@int@infoitemb{cthesisname}
@@ -397,6 +399,26 @@
 		% Date.
 		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
 	\par\endgroup\end{titlepage}%
+}
+
+% Typeset the title page for double-blind review.
+\newcommand{\makeblind}{%
+	\thss@int@pdfmark{\titlepagename}{titlepage}
+	\begin{titlepage}\begingroup
+		\centering\zihao{3}\selectfont\fangsong\vspace*{0.5cm}
+		{\zihao{-0}\heiti\cuniversity\cthesisname}\\[0.36\baselineskip]
+		{\zihao{-2}\fangsong\label@blindcover}%
+		\par\vspace{4\baselineskip}
+		\renewcommand{\arraystretch}{1.25}
+		\begin{tabular}{lp{0.75\textwidth}}
+			\label@blindctitle	&	{\@ctitle}	\\
+			\label@blindetitle	&	{\@etitle}	\\\\
+			\label@blinddiscipline	&	{\@discipline}	\\
+			\label@blindmajor	&	{\@cmajor}	\\
+			\label@blindid	&	{\@blindid}	\\
+		\end{tabular}\par\vfill
+		{\@date}\par\vspace*{0.5cm}
+	\endgroup\end{titlepage}%
 }
 
 % Typeset the Chinese abstract.

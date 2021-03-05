@@ -159,7 +159,11 @@
 
 这些命令总结如下：
 \begin{itemize}
-	\item \texttt{\bfseries\string\ctitle}：设定论文中文标题；
+	\item \texttt{\bfseries\string\ctitle}：设定论文中文标题\footnote{%
+		因为 pkuthss 内部实现机制的缘故，%
+		\myemph{双盲版论文的（中文和西文）标题如须强制换行，必须使用
+		\texttt{\string\newline} 而非 \texttt{\string\\}}，否则会出错。%
+	}；
 	\item \texttt{\bfseries\string\etitle}：设定论文西文标题；
 	\item \texttt{\bfseries\string\cauthor}：设定作者的中文名；
 	\item \texttt{\bfseries\string\eauthor}：设定作者的西文名；
@@ -172,8 +176,12 @@
 	\item \texttt{\bfseries\string\cmentor}：设定导师的中文名；
 	\item \texttt{\bfseries\string\ementor}：设定导师的西文名；
 	\item \texttt{\bfseries\string\ckeywords}：设定中文关键词；
-	\item \texttt{\bfseries\string\ekeywords}：设定西文关键词。
+	\item \texttt{\bfseries\string\ekeywords}：设定西文关键词；
+	\item \texttt{\bfseries\string\blindid}：设定论文编号（双盲评审用）；
+	\item \texttt{\bfseries\string\discipline}：设定一级学科（双盲评审用）。
 \end{itemize}
+排版双盲版论文时除了要去掉致谢等章节、隐去论文中其它可能泄露个人信息的部分外，
+还应注意在排版封面时须使用 \verb|\makeblind| 而非 \verb|\maketitle| 命令。
 
 例如，如果要设定专业为“化学”（“Chemistry”），则可以使用以下命令：
 \begin{Verbatim}

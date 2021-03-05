@@ -1,5 +1,6 @@
 % Copyright (c) 2008-2009 solvethis
 % Copyright (c) 2010-2016,2018-2019,2021 Casper Ti. Vector
+% Copyright (c) 2021 Kurapica
 % Public domain.
 %
 % 使用前请先仔细阅读 pkuthss 和 biblatex-caspervector 的文档，
@@ -28,10 +29,14 @@
 % 按学校要求设定参考文献列表的段间距。
 \setlength{\bibitemsep}{3bp}
 
+% 如是双盲版论文，将 \blindfalse 改为 \blindtrue。后面可用
+% \ifblind 根据是否双盲来条件地启用代码（参见本文件后面部分）。
+\newif\ifblind\blindfalse
 % 设定文档的基本信息。
 \pkuthssinfo{
 	cthesisname = {博士学位论文}, ethesisname = {Doctor Thesis},
 	thesiscover = {博士研究生学位论文},
+	% 长标题可用 \newline 强制换行，不能用“\\”（双盲版会出错）。
 	ctitle = {测试文档},
 	etitle = {Test Document},
 	cauthor = {某某}, eauthor = {Test}, date = {某年某月},
@@ -40,7 +45,9 @@
 	direction = {某某方向},
 	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
 	ckeywords = {其一，其二},
-	ekeywords = {First, Second}
+	ekeywords = {First, Second},
+	% 以下两项无双盲评审需求的用户可保持原状。
+	blindid = {9876543210}, discipline = {某某学科}
 }
 % 载入参考文献数据库（注意不要省略“.bib”）。
 \addbibresource{thesis.bib}
@@ -71,7 +78,7 @@
 	% 此后到下一 \pagestyle 命令之前不排版页眉或页脚。
 	\pagestyle{empty}
 	% 自动生成封面。
-	\maketitle
+	\ifblind\makeblind\else\maketitle\fi
 	% 版权声明。封面要求单面打印，故须新开右页。
 	\cleardoublepage
 	\include{chap/copy}
@@ -105,7 +112,7 @@
 	% 以下为正文之后的部分，默认不进行章节编号。
 	\backmatter
 	% 致谢。
-	\include{chap/ack}
+	\ifblind\else\include{chap/ack}\fi
 	% 原创性声明和使用授权说明。
 	\include{chap/origin}
 \end{document}

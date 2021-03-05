@@ -33,6 +33,9 @@
 文档默认情况下是双面模式，章末可能产生空白页，
 解决方式见第 \ref{sec:options} 节。
 
+双盲版论文的（中文和西文）标题只能使用 \verb|\newline|
+而非 \verb|\\| 换行，见第 \ref{sec:options} 节。
+
 通过一些设置，还可以满足例如被引用的文献按照引用顺序排序，
 而未引用的文献按照西文文献在前、中文文献在后排序这样的需求，
 见第 \ref{sec:thirdparty} 节。
@@ -109,7 +112,7 @@ data source .../par-xxxxxxxx/cache-xxxxxxxx/
 biblatex-caspervector\cupercite{biblatex-caspervector}
 所实现的格式和 \parencite{pku-thesisstyle} 的规定并不一致，
 但其作者没有精力也不愿意去实现后者所规定的比原格式更丑陋得多的格式。
-针对国标 GB/T 7714-2015，现在已经有了 biblatex-gb7714-2015%
+国标 GB/T 7714-2015 现在已经有了 biblatex-gb7714-2015%
 \cupercite{biblatex-gb7714-2015} 这一 biblatex 实现，用户也可以考虑使用。
 
 \section{反馈意见和建议}
