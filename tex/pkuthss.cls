@@ -252,6 +252,8 @@
 \thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
 \newcommand*{\pkuthssinfo}[1]{\setkeys{thss@info}{#1}}
+% Becomes \newline in the \makeblind scope.
+\newcommand{\thssnl}{\\}
 
 % Set up page layout.
 \geometry{a4paper, hmargin = 2.6cm, headheight = 0.5cm, headsep = 0.6cm}
@@ -404,7 +406,7 @@
 % Typeset the title page for double-blind review.
 \newcommand{\makeblind}{%
 	\thss@int@pdfmark{\titlepagename}{titlepage}
-	\begin{titlepage}\begingroup
+	\begin{titlepage}\begingroup\renewcommand{\thssnl}{\newline}
 		\centering\zihao{3}\selectfont\fangsong\vspace*{0.5cm}
 		{\zihao{-0}\heiti\cuniversity\cthesisname}\\[0.36\baselineskip]
 		{\zihao{-2}\fangsong\label@blindcover}%

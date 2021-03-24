@@ -150,7 +150,7 @@
 \end{Verbatim}
 
 \section{pkuthss 文档类提供的命令和环境}
-\subsection{设定文档信息的命令}
+\subsection{设定文档信息的命令}\label{ssec:set-cmd}
 
 这一类命令的语法为
 \begin{Verbatim}
@@ -160,9 +160,9 @@
 这些命令总结如下：
 \begin{itemize}
 	\item \texttt{\bfseries\string\ctitle}：设定论文中文标题\footnote{%
-		因为 pkuthss 内部实现机制的缘故，%
-		\myemph{双盲版论文的（中文和西文）标题如须强制换行，必须使用
-		\texttt{\string\newline} 而非 \texttt{\string\\}}，否则会出错。%
+		因为 pkuthss 内部实现机制的缘故，\myemph{双盲版论文的（中文和西文）
+		标题如须强制换行，必须使用 pkuthss 提供的 \texttt{\string\thssnl}
+		命令而非 \texttt{\string\\}}，否则会出错。%
 	}；
 	\item \texttt{\bfseries\string\etitle}：设定论文西文标题；
 	\item \texttt{\bfseries\string\cauthor}：设定作者的中文名；
@@ -269,6 +269,9 @@
 但用户有时可能不须要输出封面，从而不会调用 \verb|\maketitle| 命令，
 此时就须要在设定完文档信息之后调用 \verb|\setpdfproperties|。%
 \myemph{注意：须要启用 \texttt{pdfprop} 选项才能使用此命令。}
+
+\texttt{\bfseries\string\thssnl} 命令用于在双盲版论文的（中文和西文）标题中
+强制换行，见第 \ref{ssec:set-cmd} 小节中关于 \verb|\ctitle| 说明的脚注。
 
 \section{从其它文档类和宏包继承的功能}\label{sec:thirdparty}
 
