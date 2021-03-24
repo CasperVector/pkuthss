@@ -1,5 +1,5 @@
 diff --git a/doc/example/chap/abs.tex b/doc/example/chap/abs.tex
-index 305792f..cfa6cd3 100644
+index dcffe0e..8fd046f 100644
 --- a/doc/example/chap/abs.tex
 +++ b/doc/example/chap/abs.tex
 @@ -2,7 +2,7 @@
@@ -10,7 +10,7 @@ index 305792f..cfa6cd3 100644
 +	中文摘要。
  \end{cabstract}
  
- \begin{eabstract}
+ \ifblind\begin{beabstract}\else\begin{eabstract}\fi
 diff --git a/doc/example/chap/ack.tex b/doc/example/chap/ack.tex
 index 4af4d39..09de33d 100644
 --- a/doc/example/chap/ack.tex
@@ -100,10 +100,10 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index 336b239..dab2560 100644
+index 0009fe6..3f2d945 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
-@@ -13,56 +13,44 @@
+@@ -14,36 +14,42 @@
  \documentclass[UTF8]{pkuthss}
  % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
  %\usepackage[perpage]{footmisc}
@@ -114,7 +114,7 @@ index 336b239..dab2560 100644
 -% 若须按照引用顺序排序，请设置“sorting = none”。
 -% 若须在排序中实现更复杂的需求，请参考 biblatex-caspervector 的文档。
 -% biblatex-caspervector 也有一个“ugly”选项，使其更像国标格式；此外也可考虑
--% 改用 style = gb7714-2015 并去掉后面两选项，详见 biblatex-gb7714 的文档。
+-% 改用 style = gb7714-2015 并去掉之后两选项，详见 biblatex-gb7714-2015 的文档。
 -\usepackage[backend = biber, style = caspervector, utf8, sorting = ecnyt]{biblatex}
 +% 使用 biblatex 排版参考文献，并规定其格式（详见 biblatex 的文档）。
 +\usepackage[backend = biber]{biblatex}
@@ -138,12 +138,16 @@ index 336b239..dab2560 100644
 +	chapter/number = {\thechapter},
 +}
 +
+ % 如是双盲版论文，将 \blindfalse 改为 \blindtrue。后面可用
+ % \ifblind 根据是否双盲来条件地启用代码（参见本文件后面部分）。
+ \newif\ifblind\blindfalse
  % 设定文档的基本信息。
  \pkuthssinfo{
 -	cthesisname = {博士学位论文}, ethesisname = {Doctor Thesis},
 -	thesiscover = {博士研究生学位论文},
--	ctitle = {测试文档},
 +	ethesisname = {Doctor Thesis},
+ 	% 长标题可用 \thssnl 强制换行，不能用“\\”（双盲版会出错）。
+-	ctitle = {测试文档},
  	etitle = {Test Document},
 -	cauthor = {某某}, eauthor = {Test}, date = {某年某月},
 -	studentid = {0123456789}, school = {某某学院},
@@ -157,8 +161,9 @@ index 336b239..dab2560 100644
 +	direction = {Some Direction},
 +	ementor = {Prof.\ Somebody},
  	ckeywords = {其一，其二},
- 	ekeywords = {First, Second}
- }
+ 	ekeywords = {First, Second},
+ 	% 以下两项无双盲评审需求的用户可保持原状。
+@@ -53,26 +59,6 @@
  % 载入参考文献数据库（注意不要省略“.bib”）。
  \addbibresource{thesis.bib}
  
@@ -177,17 +182,19 @@ index 336b239..dab2560 100644
 -
 -	如果编译时不出参考文献，
 -	请参考 \texttt{texdoc pkuthss}“问题及其解决”一章
--	“上游宏包可能引起的问题”一节中关于 biber 的说明。%
+-	“上游宏包可能引起的问题”一节中关于 biber 的说明。
+-
+-	因无法假定用户使用哪种方式排版表格，用户须自行保证表格字号符合学校规定。%
 -}
 -
  \begin{document}
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index 54a5e24..44404d8 100644
+index d968f90..f99a891 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
-@@ -25,13 +25,13 @@
+@@ -26,13 +26,13 @@
  	[2020/11/02 v1.8.3 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
@@ -209,10 +216,10 @@ index 54a5e24..44404d8 100644
  \def\label@ckeywords{关键词：}
  \def\label@ekeywords{KEYWORDS:\ }
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index 1899ee0..7b9ed56 100644
+index 4499528..e6311cb 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -313,7 +313,7 @@
+@@ -317,7 +317,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -221,7 +228,7 @@ index 1899ee0..7b9ed56 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -363,14 +363,14 @@
+@@ -367,14 +367,14 @@
  				\zihao{1}\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
  				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
  			\fi%
@@ -238,7 +245,7 @@ index 1899ee0..7b9ed56 100644
  		}
  		\vfill
  		% Information about the author.
-@@ -378,19 +378,19 @@
+@@ -382,19 +382,19 @@
  			% Slightly adjust the line skip when using new font size.
  			\zihao{3}\linespread{1.75}\selectfont
  			\def\thss@tmp@len{0.56\textwidth}
