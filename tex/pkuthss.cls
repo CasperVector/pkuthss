@@ -442,5 +442,14 @@
 	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}%
 }
 
+% Typeset the English abstract for double-blind review.
+\newenvironment{beabstract}{%
+	\thss@int@pdfmark{\eabstractname}{eabstract}
+	\chapter*{\sffamily\@etitle}\markboth{\eabstractname}{}
+	\begin{center}\textbf{\sffamily\eabstractname}\end{center}\par%
+}{% Keywords at the bottom of the page.
+	\vfill\noindent\textbf{\label@ekeywords}{\@ekeywords}%
+}
+
 \endinput
 % vim:ft=tex:ts=2:sw=2
