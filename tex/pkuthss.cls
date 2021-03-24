@@ -114,11 +114,11 @@
 \ifthss@opt@pkufoot
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
 	\unless\ifxetex\unless\ifpdf
-		\newcommand*\pgfsysdriver{pgfsys-dvipdfm.def}
+		\newcommand*{\pgfsysdriver}{pgfsys-dvipdfm.def}
 	\fi\fi
 	% Circled text, cf. <https://tex.stackexchange.com/questions/7032/>.
 	\RequirePackage{tikz}
-	\newcommand*\thss@int@circled[1]{%
+	\newcommand*{\thss@int@circled}[1]{%
 		\scalebox{0.8}{\tikz[baseline = (char.base)]{
 			\node[
 				shape = circle, draw = black, minimum size = 1.25em, inner sep = 0pt
@@ -357,7 +357,7 @@
 \renewcommand{\maketitle}{%
 	\thss@int@pdfmark{\titlepagename}{titlepage}
 	% Make the title page centered.
-	\begin{titlepage}\begingroup\centering
+	\begin{titlepage}\centering
 		% Emblem and inscription of the university, and type of thesis.
 		{%
 			\ifthss@opt@ugly%
@@ -400,13 +400,13 @@
 		\vfill
 		% Date.
 		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
-	\par\endgroup\end{titlepage}%
+	\par\end{titlepage}%
 }
 
 % Typeset the title page for double-blind review.
 \newcommand{\makeblind}{%
 	\thss@int@pdfmark{\titlepagename}{titlepage}
-	\begin{titlepage}\begingroup\renewcommand{\thssnl}{\newline}
+	\begin{titlepage}\renewcommand{\thssnl}{\newline}
 		\centering\zihao{3}\selectfont\fangsong\vspace*{0.5cm}
 		{\zihao{-0}\heiti\cuniversity\cthesisname}\\[0.36\baselineskip]
 		{\zihao{-2}\fangsong\label@blindcover}%
@@ -420,7 +420,7 @@
 			\label@blindid	&	{\@blindid}	\\
 		\end{tabular}\par\vfill
 		{\@date}\par\vspace*{0.5cm}
-	\endgroup\end{titlepage}%
+	\end{titlepage}%
 }
 
 % Typeset the Chinese abstract.
