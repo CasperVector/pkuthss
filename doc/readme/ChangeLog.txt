@@ -1,3 +1,19 @@
+2010-03-29, v1.9.0
+
+	* API changes:
+	- Add support for double-blind review (thank @Kurapikov).
+	- Add `\thesiscover' for possibly different thesis name on the cover.
+
+	* Changes to package code:
+	- Greatly improve format compliance (thank @Kurapikov).
+
+	* Changes to documentation:
+	- More notes about table font and GB/T 7714.
+	- Avoid undefined `\textepsilon'.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2020-11-02, v1.8.3
 
 	* Changes to example template:

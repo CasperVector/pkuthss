@@ -3,7 +3,7 @@
 
 TITLE = pkuthss
 EXAMPLE = thesis
-VERSION = 1.8.3
+VERSION = 1.9.0
 
 default: dist
 
