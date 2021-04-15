@@ -35,7 +35,6 @@
 \def\label@cmentor{导\hphantom{汉字}师：}
 \def\label@ementor{Directed by\ }
 \def\label@ckeywords{关键词：}
-\def\label@ekeywords{KEYWORDS:\ }
 \def\label@blindcover{（匿名评阅论文封面）}
 \def\label@blindctitle{中文题目：}
 \def\label@blindetitle{英文题目：}
@@ -51,6 +50,12 @@
 \def\thesiscover{}
 \def\cabstractname{摘要}
 \def\eabstractname{ABSTRACT}
+
+\ifthss@opt@ugly
+\def\label@ekeywords{KEY WORDS:\ }
+\else
+\def\label@ekeywords{KEYWORDS:\ }
+\fi
 
 \endinput
 % vim:ft=tex:ts=2:sw=2
