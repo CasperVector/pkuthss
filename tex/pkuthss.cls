@@ -235,6 +235,7 @@
 \thss@int@infoitemb{cthesisname}
 \thss@int@infoitemb{ethesisname}
 \thss@int@infoitemb{thesiscover}
+\thss@int@infoitemb{mentorlines}
 \thss@int@infoitemb{cabstractname}
 \thss@int@infoitemb{eabstractname}
 % Set up document information using the `key = value' grammar.
@@ -381,7 +382,8 @@
 				{\bfseries\label@direction}	&
 				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
 				{\bfseries\label@cmentor}		&
-				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
+				\thss@int@fillinblank{\mentorlines}%
+					{\thss@tmp@len}{\fangsong\@cmentor}	\\
 			\end{tabular}%
 		}
 		\vfill
