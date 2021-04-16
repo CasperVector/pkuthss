@@ -17,6 +17,7 @@
 %
 % This work consists of the following files:
 %   pkuthss.cls
+%   pkuthss.def
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
 %   pkulogo.eps
@@ -85,21 +86,7 @@
 \RequirePackage[normalem]{ulem}
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
 \AtEndOfClass{\RequirePackage{hyperref}}
-
-\ifthss@opt@gbk
-	\input{pkuthss-gbk.def}
-	\ifxetex
-		% No support for XeLaTeX compilation in non-unicode encoding, i.e. GBK.
-		\ClassError{pkuthss}%
-			{XeLaTeX compilation is not supported without UTF-8}%
-			{%
-				XeLaTeX compilation without UTF-8 is very problematic.\MessageBreak
-				Therefore please use UTF-8 encoding for the LaTeX code.%
-			}
-	\fi
-\else
-	\input{pkuthss-utf8.def}
-\fi
+\input{pkuthss.def}
 
 \ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.

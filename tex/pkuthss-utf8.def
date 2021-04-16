@@ -17,6 +17,7 @@
 %
 % This work consists of the following files:
 %   pkuthss.cls
+%   pkuthss.def
 %   pkuthss-gbk.def
 %   pkuthss-utf8.def
 %   pkulogo.eps
@@ -33,7 +34,6 @@
 \def\label@cmajor{专\hphantom{汉字}业：}
 \def\label@direction{研究方向：}
 \def\label@cmentor{导\hphantom{汉字}师：}
-\def\label@ementor{Directed by\ }
 \def\label@ckeywords{关键词：}
 \def\label@blindcover{（匿名评阅论文封面）}
 \def\label@blindctitle{中文题目：}
@@ -44,18 +44,8 @@
 
 \def\titlepagename{封面}
 \def\cuniversity{北京大学}
-\def\euniversity{Peking University}
 \def\cthesisname{博士学位论文}
-\def\ethesisname{Doctor Thesis}
-\def\thesiscover{}
 \def\cabstractname{摘要}
-\def\eabstractname{ABSTRACT}
-
-\ifthss@opt@ugly
-\def\label@ekeywords{KEY WORDS:\ }
-\else
-\def\label@ekeywords{KEYWORDS:\ }
-\fi
 
 \endinput
 % vim:ft=tex:ts=2:sw=2
