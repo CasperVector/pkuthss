@@ -1,5 +1,5 @@
 diff --git a/doc/example/chap/abs.tex b/doc/example/chap/abs.tex
-index dcffe0e..8fd046f 100644
+index ea215a8..8ad4294 100644
 --- a/doc/example/chap/abs.tex
 +++ b/doc/example/chap/abs.tex
 @@ -2,7 +2,7 @@
@@ -100,10 +100,10 @@ index ac5b0c9..9d2ad60 100644
 -
  % vim:ts=4:sw=4
 diff --git a/doc/example/thesis.tex b/doc/example/thesis.tex
-index 0009fe6..3f2d945 100644
+index 8e6c261..6a8767a 100644
 --- a/doc/example/thesis.tex
 +++ b/doc/example/thesis.tex
-@@ -14,36 +14,42 @@
+@@ -14,36 +14,43 @@
  \documentclass[UTF8]{pkuthss}
  % 如果的确须要使脚注按页编号的话，可以去掉后面 footmisc 包的注释。
  %\usepackage[perpage]{footmisc}
@@ -152,18 +152,19 @@ index 0009fe6..3f2d945 100644
 -	cauthor = {某某}, eauthor = {Test}, date = {某年某月},
 -	studentid = {0123456789}, school = {某某学院},
 -	cmajor = {某某专业}, emajor = {Some Major},
--	direction = {某某方向},
--	cmentor = {某某教授}, ementor = {Prof.\ Somebody},
+-	direction = {某某方向}, mentorlines = {2},
+-	cmentor = {某甲教授\\某乙教授},
 +	eauthor = {Test},
 +	date = {Month Year}, studentid = {0123456789},
 +	school = {Some School},
 +	emajor = {Some Major},
-+	direction = {Some Direction},
-+	ementor = {Prof.\ Somebody},
++	direction = {Some Research Division},
++	mentorlines = {2},
++	cmentor = {Prof.\ Somebody\\Prof.\ Someone},
+ 	ementor = {Prof.\ Somebody and Prof.\ Someone},
  	ckeywords = {其一，其二},
  	ekeywords = {First, Second},
- 	% 以下两项无双盲评审需求的用户可保持原状。
-@@ -53,26 +59,6 @@
+@@ -54,26 +61,6 @@
  % 载入参考文献数据库（注意不要省略“.bib”）。
  \addbibresource{thesis.bib}
  
@@ -191,11 +192,11 @@ index 0009fe6..3f2d945 100644
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index d968f90..f99a891 100644
+index afed37b..e74e4bf 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
-@@ -26,13 +26,13 @@
- 	[2020/11/02 v1.8.3 Labels and captions in UTF-8 encoding
+@@ -27,13 +27,13 @@
+ 	[2021/03/29 v1.9.0 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
 -\def\label@ctitle{题目：}
@@ -212,14 +213,14 @@ index d968f90..f99a891 100644
 +\def\label@cmajor{Major}
 +\def\label@direction{Research Division}
 +\def\label@cmentor{Supervisor}
- \def\label@ementor{Directed by\ }
  \def\label@ckeywords{关键词：}
- \def\label@ekeywords{KEYWORDS:\ }
+ \def\label@blindcover{（匿名评阅论文封面）}
+ \def\label@blindctitle{中文题目：}
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index 4499528..e6311cb 100644
+index 6ee4e69..5f782f6 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -317,7 +317,7 @@
+@@ -305,7 +305,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -228,7 +229,7 @@ index 4499528..e6311cb 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -367,14 +367,14 @@
+@@ -355,14 +355,14 @@
  				\zihao{1}\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
  				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
  			\fi%
@@ -245,7 +246,7 @@ index 4499528..e6311cb 100644
  		}
  		\vfill
  		% Information about the author.
-@@ -382,19 +382,19 @@
+@@ -370,18 +370,18 @@
  			% Slightly adjust the line skip when using new font size.
  			\zihao{3}\linespread{1.75}\selectfont
  			\def\thss@tmp@len{0.56\textwidth}
@@ -269,9 +270,7 @@ index 4499528..e6311cb 100644
 +				{\bfseries\label@direction}	&	:	&
  				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@direction}	\\
 -				{\bfseries\label@cmentor}		&
--				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@cmentor}		\\
 +				{\bfseries\label@cmentor}		&	:	&
-+				\thss@int@fillinblank{1}{\thss@tmp@len}{\fangsong\@ementor}		\\
+ 				\thss@int@fillinblank{\mentorlines}%
+ 					{\thss@tmp@len}{\fangsong\@cmentor}	\\
  			\end{tabular}%
- 		}
- 		\vfill
