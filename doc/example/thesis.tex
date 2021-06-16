@@ -69,6 +69,10 @@
 	选项，同时可以考虑启用 biblatex-caspervector 的 \texttt{ugly} 选项
 	或者换用 biblatex-gb7714-2015，详见 \texttt{thesis.tex} 中相关注释。
 
+	生成的 PDF 文件中标记链接的彩色框不会出现在打印版论文中。
+	如仍须去掉，可在 \texttt{thesis.tex} 导言区加入
+	\texttt{\string\hypersetup\{hidelinks\}}。
+
 	若要避免章末空白页，请在调用 pkuthss 文档类时加入 \texttt{openany} 选项。
 
 	如果编译时不出参考文献，

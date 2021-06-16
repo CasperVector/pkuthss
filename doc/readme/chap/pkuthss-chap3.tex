@@ -71,6 +71,12 @@ hyperref\cupercite{hyperref} 宏包和一些宏包可能发生冲突。
 可以参考 hyperref 宏包 README 文件中的“Package Compatibility”一节。
 此文件通常和执行 \verb|texdoc hyperref|
 时打开的 pdf 文件位于同一目录中。
+hyperref 默认会在输出的 pdf 文件中用彩色框来标记链接，
+这些彩色框只会显示在屏幕上，不会被打印出来；
+如有特殊需求，也可以在文章的导言区加入以下代码以完全去掉彩色框：
+\begin{Verbatim}
+\hypersetup{hidelinks}
+\end{Verbatim}
 
 biber 运行时有一定概率出现形如（目录名可能稍有不同）
 \begin{Verbatim}
