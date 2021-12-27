@@ -90,9 +90,10 @@
 
 \ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
-	% Option used to prevent newtxtext from manipulating footnote marks.
-	\RequirePackage[defaultsups]{newtxtext}
-	\RequirePackage[cmintegrals, varg]{newtxmath}
+	% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
+	% `defaultsups' prevents newtxtext from manipulating footnote marks.
+	\usepackage[nofontspec, defaultsups]{newtxtext}
+	\usepackage[varg]{newtxmath}
 \else
 	% Provides `\Box' for originauth.tex if newtx is absent.
 	\RequirePackage{latexsym}
