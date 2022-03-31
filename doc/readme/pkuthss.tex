@@ -52,28 +52,72 @@
 
 % 如是双盲版论文，将 \blindfalse 改为 \blindtrue。后面可用
 % \ifblind 根据是否双盲来条件地启用代码（参见本文件后面部分）。
-\newif\ifblind\blindfalse
-% \newif\ifblind\blindtrue
+% \newif\ifblind\blindfalse
+\newif\ifblind\blindtrue
 \newcommand*{\docversion}{v1.9.1}
+% \pkuthssinfo{
+% 	cthesisname = {博士生毕业论文}, ethesisname = {Ph.D. Thesis},
+% 	ctitle = {北京大学学位论文模版{\thssnl}pkuthss \docversion},
+% 	etitle = {%
+% 		PKU dissertation document class%
+% 		\texorpdfstring{\thssnl}{: }pkuthss \docversion%
+% 	},
+% 	cauthor = {盖茨波·钛·维克托}, eauthor = {Casper Ti.\ Vector},
+% 	date = {\zhdigits{2021}年\zhnumber{10}月},
+% 	studentid = {00910???}, school = {化学与分子工程学院},
+% 	cmajor = {应用化学}, emajor = {Applied Chemistry},
+% 	direction = {据说 Casper 自己也不知道}, %mentorlines = {2},
+% 	cmentor = {XX 教授},
+% 	ementor = {Prof.\ XX and Prof.\ YY},
+% 	ckeywords = {\hologo{LaTeX}，排版，文档类，\CTeX{}},
+% 	ekeywords = {\hologo{LaTeX}, Typesetting, Document class, \CTeX{}},
+% 	blindid = {???01900}, discipline = {化学}
+% }
 \pkuthssinfo{
-	cthesisname = {博士生毕业论文}, ethesisname = {Ph.D. Thesis},
-	ctitle = {北京大学学位论文模版{\thssnl}pkuthss \docversion},
-	etitle = {%
-		PKU dissertation document class%
-		\texorpdfstring{\thssnl}{: }pkuthss \docversion%
-	},
-	cauthor = {盖茨波·钛·维克托}, eauthor = {Casper Ti.\ Vector},
-	date = {\zhdigits{2021}年\zhnumber{10}月},
-	studentid = {00910???}, school = {化学与分子工程学院},
-	cmajor = {应用化学}, emajor = {Applied Chemistry},
-	direction = {据说 Casper 自己也不知道}, %mentorlines = {2},
-	cmentor = {XX 教授},
-	ementor = {Prof.\ XX and Prof.\ YY},
-	ckeywords = {\hologo{LaTeX}，排版，文档类，\CTeX{}},
-	ekeywords = {\hologo{LaTeX}, Typesetting, Document class, \CTeX{}},
-	blindid = {???01900}, discipline = {化学}
+	cthesisname = {博士学位论文}, ethesisname = {Doctor Thesis},
+	thesiscover = {博士研究生学位论文},
+	% 长标题可用 \thssnl 强制换行，不能用“\\”（双盲版会出错）。
+	ctitle = {测试文档},
+	etitle = {Test Document},
+	cauthor = {某某}, eauthor = {Test}, date = {某年某月},
+	studentid = {0123456789}, school = {某某学院},
+	cmajor = {某某专业}, emajor = {Some Major},
+	direction = {某某方向},% mentorlines = {2},
+	cmentor = {某甲教授},
+% 	cmentor = {某甲教授\\某乙教授},
+	ementor = {Prof.\ Somebody and Prof.\ Someone},
+	ckeywords = {其一，其二},
+	ekeywords = {First, Second},
+	% 以下两项无双盲评审需求的用户可保持原状。
+	% 注意 discipline/major 分别指一/二级学科。
+	blindid = {9876543210}, discipline = {某某学科}
 }
 \addbibresource{pkuthss.bib}
+
+\def\pkuthssffaq{%
+	\emph{\textcolor{red}{pkuthss 文档模版最常见问题：}}
+
+	\texttt{\string\cite}、\texttt{\string\parencite} %
+	和 \texttt{\string\supercite} 三个命令分别产生%
+	未格式化的、带方括号的和上标且带方括号的引用标记：%
+	\cite{test-en}，\parencite{test-zh}、\supercite{test-en, test-zh}。
+
+	若格式审查时提示字号或其它格式细节问题，请启用 pkuthss 的 \texttt{ugly}
+	选项，同时可以考虑启用 biblatex-caspervector 的 \texttt{ugly} 选项
+	或者换用 biblatex-gb7714-2015，详见 \texttt{thesis.tex} 中相关注释。
+
+	生成的 PDF 文件中标记链接的彩色框不会出现在打印版论文中。
+	如仍须去掉，可在 \texttt{thesis.tex} 导言区加入
+	\texttt{\string\hypersetup\{hidelinks\}}。
+
+	若要避免章末空白页，请在调用 pkuthss 文档类时加入 \texttt{openany} 选项。
+
+	如果编译时不出参考文献，
+	请参考 \texttt{texdoc pkuthss}“问题及其解决”一章
+	“上游宏包可能引起的问题”一节中关于 biber 的说明。
+
+	因无法假定用户使用哪种方式排版表格，用户须自行保证表格字号符合学校规定。%
+}
 
 \begin{document}
 	\frontmatter
