@@ -25,7 +25,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2021/03/29 v1.9.0 Peking University dissertation document class]
+	[2021/10/16 v1.9.1 Peking University dissertation document class]
 
 % eg. `\thss@int@boolopt{spacing}{true}' will expand to:
 %   \newif\ifthss@opt@spacing \thss@opt@spacingtrue
@@ -90,9 +90,10 @@
 
 \ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
-	% Option used to prevent newtxtext from manipulating footnote marks.
-	\RequirePackage[defaultsups]{newtxtext}
-	\RequirePackage[cmintegrals, varg]{newtxmath}
+	% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
+	% `defaultsups' prevents newtxtext from manipulating footnote marks.
+	\usepackage[nofontspec, defaultsups]{newtxtext}
+	\usepackage[varg]{newtxmath}
 \else
 	% Provides `\Box' for originauth.tex if newtx is absent.
 	\RequirePackage{latexsym}

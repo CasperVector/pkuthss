@@ -1,4 +1,21 @@
-2010-03-29, v1.9.0
+2021-10-16, v1.9.1
+
+	* API changes:
+	- Support `mentorlines' like casthss.
+
+	* Changes to example template:
+	- thesis.tex: more obvious hints on `ugly', new note on `hidelinks'.
+	- copy.tex, origin.tex: minor update according to school requirements.
+
+	* Changes to package code:
+	- Merge common parts from pkuthss-*.def into pkuthss.def.
+	- Also "uglify" the keywords label.
+
+	* Misc:
+	- ChangeLog.txt: typo (thank @fjn308).
+	- Minor fixes and cosmetics.
+
+2021-03-29, v1.9.0
 
 	* API changes:
 	- Add support for double-blind review (thank @Kurapikov).
