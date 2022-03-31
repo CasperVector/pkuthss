@@ -50,10 +50,13 @@
 	tabsize = 4, formatcom = {\ifXeTeX\xeCJKVerbAddon\fi}
 }
 
+% 如是双盲版论文，将 \blindfalse 改为 \blindtrue。后面可用
+% \ifblind 根据是否双盲来条件地启用代码（参见本文件后面部分）。
 \newif\ifblind\blindfalse
+% \newif\ifblind\blindtrue
 \newcommand*{\docversion}{v1.9.1}
 \pkuthssinfo{
-	cthesisname = {本科生毕业论文}, ethesisname = {Undergraduate Thesis},
+	cthesisname = {博士生毕业论文}, ethesisname = {Ph.D. Thesis},
 	ctitle = {北京大学学位论文模版{\thssnl}pkuthss \docversion},
 	etitle = {%
 		PKU dissertation document class%
@@ -63,8 +66,8 @@
 	date = {\zhdigits{2021}年\zhnumber{10}月},
 	studentid = {00910???}, school = {化学与分子工程学院},
 	cmajor = {应用化学}, emajor = {Applied Chemistry},
-	direction = {据说 Casper 自己也不知道}, mentorlines = {2},
-	cmentor = {XX 教授\\YY 教授},
+	direction = {据说 Casper 自己也不知道}, %mentorlines = {2},
+	cmentor = {XX 教授},
 	ementor = {Prof.\ XX and Prof.\ YY},
 	ckeywords = {\hologo{LaTeX}，排版，文档类，\CTeX{}},
 	ekeywords = {\hologo{LaTeX}, Typesetting, Document class, \CTeX{}},
