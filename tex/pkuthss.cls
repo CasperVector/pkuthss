@@ -88,12 +88,43 @@
 \AtEndOfClass{\RequirePackage{hyperref}}
 \input{pkuthss.def}
 
+\RequirePackage{anyfontsize}
+
 \ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
-	% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
-	% `defaultsups' prevents newtxtext from manipulating footnote marks.
-	\usepackage[nofontspec, defaultsups]{newtxtext}
-	\usepackage[varg]{newtxmath}
+	\RequirePackage{unicode-math}
+	\setmainfont[
+		Extension = .otf,
+		UprightFont = *-Regular,
+		BoldFont = *-Bold,
+		ItalicFont = *-Italic,
+		BoldItalicFont = *-BoldItalic
+	]{XITS}
+
+	\setmathfont[
+		Extension = .otf,
+		BoldFont = XITSMath-Bold
+	]{XITSMath-Regular}
+
+	\setsansfont[
+		Extension = .otf,
+		UprightFont = *-regular,
+		BoldFont = *-bold,
+		ItalicFont = *-italic,
+		BoldItalicFont = *-bolditalic
+	]{texgyreheros}
+
+	\RequirePackage{esint}
+
+	% Patch ugly \sum, \prod and \int operators.
+	\DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
+	\let\sumop\relax\let\prodop\relax
+	\DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
+	\DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
+
+	% Under xelatex, we should use the symbols from unicode-math.
+	\newcommand{\square}{\mdwhtsquare}
+	\renewcommand{\Box}{\mdlgwhtsquare}
 \else
 	% Provides `\Box' for originauth.tex if newtx is absent.
 	\RequirePackage{latexsym}
