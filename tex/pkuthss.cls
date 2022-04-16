@@ -1,7 +1,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2021 Casper Ti. Vector
+% Copyright (c) 2010-2022 Casper Ti. Vector
 % Copyright (c) 2021 Kurapica
 %
 % This work may be distributed and/or modified under the conditions of the
@@ -65,8 +65,6 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% Prevent fontspec (loaded by xeCJK) from interfering with newtxmath.
-\ifthss@opt@pkufont\PassOptionsToPackage{no-math}{fontspec}\fi
 % Work around the `\lvert already defined' error.
 % cf. <https://github.com/CTeX-org/ctex-kit/issues/454>.
 \ifthss@opt@pkufont\RequirePackage{amsmath}\fi
@@ -90,12 +88,40 @@
 
 \ifthss@opt@pkufont
 	% Use Times New Roman / Arial according to school regulation.
-	% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
-	% `defaultsups' prevents newtxtext from manipulating footnote marks.
-	\usepackage[nofontspec, defaultsups]{newtxtext}
-	\usepackage[varg]{newtxmath}
+	\ifxetex
+		\RequirePackage{unicode-math}
+		\setmathfont[
+			Extension = .otf,
+			BoldFont = XITSMath-Bold
+		]{XITSMath-Regular}
+		\DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
+		\let\sumop\relax\let\prodop\relax
+		\DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
+		\DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
+		\renewcommand{\Box}{\mdlgwhtsquare}
+
+		\setmainfont[
+			Extension = .otf,
+			UprightFont = *-Regular,
+			BoldFont = *-Bold,
+			ItalicFont = *-Italic,
+			BoldItalicFont = *-BoldItalic
+		]{XITS}
+		\setsansfont[
+			Extension = .otf,
+			UprightFont = *-regular,
+			BoldFont = *-bold,
+			ItalicFont = *-italic,
+			BoldItalicFont = *-bolditalic
+		]{texgyreheros}
+	\else
+		% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
+		% `defaultsups' prevents newtxtext from manipulating footnote marks.
+		\usepackage[nofontspec, defaultsups]{newtxtext}
+		\usepackage[varg]{newtxmath}
+	\fi
 \else
-	% Provides `\Box' for originauth.tex if newtx is absent.
+	% Provides `\Box' for originauth.tex if XITSMath/newtx is absent.
 	\RequirePackage{latexsym}
 \fi
 
