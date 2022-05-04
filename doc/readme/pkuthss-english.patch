@@ -200,11 +200,11 @@ index dbfd379..6a8767a 100644
  	% 以下为正文之前的部分，默认不进行章节编号。
  	\frontmatter
 diff --git a/tex/pkuthss-utf8.def b/tex/pkuthss-utf8.def
-index afed37b..e74e4bf 100644
+index e1d9566..7cfbd32 100644
 --- a/tex/pkuthss-utf8.def
 +++ b/tex/pkuthss-utf8.def
 @@ -27,13 +27,13 @@
- 	[2021/03/29 v1.9.0 Labels and captions in UTF-8 encoding
+ 	[2021/10/16 v1.9.1 Labels and captions in UTF-8 encoding
  		for the pkuthss document class]
  
 -\def\label@ctitle{题目：}
@@ -225,10 +225,10 @@ index afed37b..e74e4bf 100644
  \def\label@blindcover{（匿名评阅论文封面）}
  \def\label@blindctitle{中文题目：}
 diff --git a/tex/pkuthss.cls b/tex/pkuthss.cls
-index 6ee4e69..5f782f6 100644
+index 5aaf3ae..68bc3a4 100644
 --- a/tex/pkuthss.cls
 +++ b/tex/pkuthss.cls
-@@ -305,7 +305,7 @@
+@@ -332,7 +332,7 @@
  	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
  	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
  	\if@twoside
@@ -237,7 +237,7 @@ index 6ee4e69..5f782f6 100644
  		\fancyhead[CO]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
  	\else
  		\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
-@@ -355,14 +355,14 @@
+@@ -382,14 +382,14 @@
  				\zihao{1}\includegraphics[height = 2.4em]{pkulogo}\hspace{0.4em}%
  				\raisebox{0.4em}{\includegraphics[height = 1.6em]{pkuword}}\\[0.8em]
  			\fi%
@@ -254,7 +254,7 @@ index 6ee4e69..5f782f6 100644
  		}
  		\vfill
  		% Information about the author.
-@@ -370,18 +370,18 @@
+@@ -397,18 +397,18 @@
  			% Slightly adjust the line skip when using new font size.
  			\zihao{3}\linespread{1.75}\selectfont
  			\def\thss@tmp@len{0.56\textwidth}
