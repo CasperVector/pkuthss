@@ -1,3 +1,8 @@
+2022-05-04, v1.9.2
+
+	* Changes to package code:
+	- Support pkufont via unicode-math instead of newtx when using xelatex.
+
 2021-10-16, v1.9.1
 
 	* API changes:
