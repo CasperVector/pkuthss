@@ -115,12 +115,11 @@
 			BoldItalicFont = *-bolditalic
 		]{texgyreheros}
 	\else
-		% `defaultsups' prevents newtxtext from manipulating footnote marks.
-		\RequirePackage[defaultsups]{newtxtext}
-		\RequirePackage[varg]{newtxmath}
+		\RequirePackage{textcomp, mathptmx, latexsym}
+		\RequirePackage[scaled = 0.95]{helvet}
 	\fi
 \else
-	% Provides `\Box' for originauth.tex if XITSMath/newtx is absent.
+	% Provides `\Box' for originauth.tex if unicode-math is absent.
 	\RequirePackage{latexsym}
 \fi
 

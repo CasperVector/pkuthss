@@ -308,8 +308,9 @@ pkuthss 文档模版使用作者编写的 biblatex\cupercite{biblatex} 样式%
 \begin{itemize}
 	\item 启用 \verb|pkufont| 选项时会调用 unicode-math
 		\cupercite{unicode-math} 宏包（\hologo{XeLaTeX} 编译）或
-		newtxtext/newtxmath\cupercite{newtx} 宏包（非 \hologo{XeLaTeX}
-		编译），否则会调用 latexsym\cupercite{latexsym} 宏包。
+		mathptmx/helvet\cupercite{psnfss} 和 textcomp 宏包（非
+		\hologo{XeLaTeX} 编译），此外在非 \hologo{XeLaTeX} 编译或不启用
+		\verb|pkufont| 选项时均会调用 latexsym\cupercite{latexsym} 宏包。
 	\item 启用 \verb|pkufoot| 选项时会调用
 		tikz\cupercite{tikz} 和 scrextend\cupercite{scrextend} 宏包。
 	\item 启用 \verb|pkuspace| 选项时会调用

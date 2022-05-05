@@ -1,10 +1,11 @@
-% Copyright (c) 2018-2019 Casper Ti. Vector
+% Copyright (c) 2018-2019,2022 Casper Ti. Vector
 % Public domain.
 
 \documentclass[UTF8, zihao = -4]{ctexart}
 \usepackage{calc, geometry, graphicx}
-\usepackage[defaultsups]{newtxtext}
-\usepackage[cmintegrals, varg]{newtxmath}
+% 如须用 xelatex 编译，请参考 pkuthss.cls 修改字体设置。
+\usepackage{textcomp, mathptmx}
+\usepackage[scaled = 0.95]{helvet}
 \pagestyle{empty}
 \newlength{\colpad}
 \newcommand{\colwidth}{0.99\ccwd}
@@ -37,7 +38,7 @@
 \hspace{\colpad}
 \begin{minipage}[b][\textheight][b]{\miniwidth}
 	% thesis.pdf 应事先编译好，此处会自动提取其首页。
-	% 因为要插入 pdf 图片，本文档应用 pdflatex 或 xelatex 编译。
+	% 因为要插入 pdf 图片，本文档应用 pdflatex 编译。
 	\includegraphics[height = \textheight, page = 1]{thesis}
 \end{minipage}
 \end{document}
