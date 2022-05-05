@@ -115,10 +115,9 @@
 			BoldItalicFont = *-bolditalic
 		]{texgyreheros}
 	\else
-		% `nofontspec' avoids errors like `The font "FangSong" cannot be found'.
 		% `defaultsups' prevents newtxtext from manipulating footnote marks.
-		\usepackage[nofontspec, defaultsups]{newtxtext}
-		\usepackage[varg]{newtxmath}
+		\RequirePackage[defaultsups]{newtxtext}
+		\RequirePackage[varg]{newtxmath}
 	\fi
 \else
 	% Provides `\Box' for originauth.tex if XITSMath/newtx is absent.
