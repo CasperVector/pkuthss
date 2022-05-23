@@ -152,7 +152,7 @@
 	% make footnote rule `Word'-like
 	\renewcommand\footnoterule{%
 		\kern-6\p@
-		\hrule\@width 2in
+		\hrule\@width.32\columnwidth
 		\kern5.6\p@}
 \fi
 
