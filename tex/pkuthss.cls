@@ -144,8 +144,8 @@
 		{\protect\thss@int@circled{\arabic{footnote}}}
 	% Provides utility to modify footnote spacing.
 	\RequirePackage{scrextend}
-	% Set up footnote spacing: whole paragraph indent 2 ccwd, 0.5 ccwd after mark.
-	\deffootnote{2\ccwd}{0pt}{\thefootnotemark\hspace{0.5\ccwd}}
+	% Set up footnote spacing: whole paragraph indent 1.5 ccwd, 0.5 ccwd after mark.
+	\deffootnote{1.5\ccwd}{0pt}{\thefootnotemark\hspace{0.5\ccwd}}
 \fi
 
 \ifthss@opt@pkuspace
