@@ -1,7 +1,7 @@
 % Peking University dissertation document class
 %
 % Copyright (c) 2008-2009 solvethis
-% Copyright (c) 2010-2022 Casper Ti. Vector
+% Copyright (c) 2010-2022,2024 Casper Ti. Vector
 % Copyright (c) 2021 Kurapica
 %
 % This work may be distributed and/or modified under the conditions of the
@@ -99,6 +99,7 @@
 		\DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
 		\DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
 		\renewcommand{\Box}{\mdlgwhtsquare}
+		\newcommand{\blacksquare}{\mdlgblksquare}
 
 		\setmainfont[
 			Extension = .otf,
@@ -116,12 +117,12 @@
 			Scale = 0.95
 		]{texgyreheros}
 	\else
-		\RequirePackage{textcomp, mathptmx, latexsym}
+		\RequirePackage{textcomp, mathptmx, amssymb}
 		\RequirePackage[scaled = 0.95]{helvet}
 	\fi
 \else
 	% Provides `\Box' for originauth.tex if unicode-math is absent.
-	\RequirePackage{latexsym}
+	\RequirePackage{amssymb}
 \fi
 
 \ifthss@opt@pkufoot
@@ -253,6 +254,7 @@
 \thss@int@infoitema{ementor}
 \thss@int@infoitema{ckeywords}
 \thss@int@infoitema{ekeywords}
+\thss@int@infoitema{degreetype}
 \thss@int@infoitema{blindid}
 \thss@int@infoitema{discipline}
 \thss@int@infoitemb{cuniversity}
@@ -412,6 +414,14 @@
 			\end{tabular}%
 		}
 		\vfill
+		% Degree type.
+		\ifnum\@degreetype=1%
+		{\zihao{3}\fangsong$\blacksquare$ \label@academic\qquad%
+		$\Box$ \label@technical}\vfill
+		\fi\ifnum\@degreetype=2%
+		{\zihao{3}\fangsong$\Box$ \label@academic\qquad%
+		$\blacksquare$ \label@technical}\vfill
+		\fi%
 		% Date.
 		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
 	\par\end{titlepage}%
@@ -433,6 +443,11 @@
 			\label@blindmajor	&	{\@cmajor}	\\
 			\label@blindid	&	{\@blindid}	\\
 		\end{tabular}\par\vfill
+		\ifnum\@degreetype=1%
+		$\blacksquare$ \label@academic\qquad$\Box$ \label@technical%
+		\fi\ifnum\@degreetype=2%
+		$\Box$ \label@academic\qquad$\blacksquare$ \label@technical%
+		\fi\par\vfill
 		{\@date}\par\vspace*{0.5cm}
 	\end{titlepage}%
 }
