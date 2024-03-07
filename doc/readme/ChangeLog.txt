@@ -1,3 +1,14 @@
+2024-03-07, v1.9.4
+
+	* API changes:
+	- Display the degree type on the cover page.
+
+	* Changes to example template:
+	- thesis.tex: also set bibliography title with eg. gb7714.
+
+	* Misc:
+	- Minor fixes and cosmetics.
+
 2022-10-30, v1.9.3
 
 	* Changes to package code:

@@ -25,7 +25,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{pkuthss}
-	[2022/10/30 v1.9.3 Peking University dissertation document class]
+	[2024/03/07 v1.9.4 Peking University dissertation document class]
 
 % eg. `\thss@int@boolopt{spacing}{true}' will expand to:
 %   \newif\ifthss@opt@spacing \thss@opt@spacingtrue
