@@ -125,6 +125,9 @@
 	\RequirePackage{amssymb}
 \fi
 
+% Command for degree type displaying. Use relative distance `em'.
+\newcommand{\CheckedBox}{\checkmark\hspace{-.9em}\Box}
+
 \ifthss@opt@pkufoot
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
 	\unless\ifxetex\unless\ifpdf
@@ -416,11 +419,11 @@
 		\vfill
 		% Degree type.
 		\ifnum\@degreetype=1%
-		{\zihao{3}\fangsong$\blacksquare$ \label@academic\qquad%
+		{\zihao{3}\fangsong$\CheckedBox$ \label@academic\qquad%
 		$\Box$ \label@technical}\vfill
 		\fi\ifnum\@degreetype=2%
 		{\zihao{3}\fangsong$\Box$ \label@academic\qquad%
-		$\blacksquare$ \label@technical}\vfill
+		$\CheckedBox$ \label@technical}\vfill
 		\fi%
 		% Date.
 		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
@@ -444,9 +447,9 @@
 			\label@blindid	&	{\@blindid}	\\
 		\end{tabular}\par\vfill
 		\ifnum\@degreetype=1%
-		$\blacksquare$ \label@academic\qquad$\Box$ \label@technical%
+		$\CheckedBox$ \label@academic\qquad$\Box$ \label@technical%
 		\fi\ifnum\@degreetype=2%
-		$\Box$ \label@academic\qquad$\blacksquare$ \label@technical%
+		$\Box$ \label@academic\qquad$\CheckedBox$ \label@technical%
 		\fi\par\vfill
 		{\@date}\par\vspace*{0.5cm}
 	\end{titlepage}%
