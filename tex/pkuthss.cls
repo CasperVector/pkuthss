@@ -99,7 +99,7 @@
 		\DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
 		\DeclareMathSymbol{\prodop}{\mathop}{CMlargesymbols}{"51}
 		\renewcommand{\Box}{\mdlgwhtsquare}
-		\newcommand{\blacksquare}{\mdlgblksquare}
+		\newcommand{\checkbox}{\checkmark\hspace{-0.85em}\Box}
 
 		\setmainfont[
 			Extension = .otf,
@@ -119,10 +119,12 @@
 	\else
 		\RequirePackage{textcomp, mathptmx, amssymb}
 		\RequirePackage[scaled = 0.95]{helvet}
+		\newcommand{\checkbox}{\checkmark\hspace{-0.8em}\Box}
 	\fi
 \else
 	% Provides `\Box' for originauth.tex if unicode-math is absent.
 	\RequirePackage{amssymb}
+	\newcommand{\checkbox}{\checkmark\hspace{-0.8em}\Box}
 \fi
 
 \ifthss@opt@pkufoot
@@ -416,11 +418,11 @@
 		\vfill
 		% Degree type.
 		\ifnum\@degreetype=1%
-		{\zihao{3}\fangsong$\blacksquare$ \label@academic\qquad%
+		{\zihao{3}\fangsong$\checkbox$ \label@academic\qquad%
 		$\Box$ \label@technical}\vfill
 		\fi\ifnum\@degreetype=2%
 		{\zihao{3}\fangsong$\Box$ \label@academic\qquad%
-		$\blacksquare$ \label@technical}\vfill
+		$\checkbox$ \label@technical}\vfill
 		\fi%
 		% Date.
 		{\ifthss@opt@ugly\zihao{3}\else\zihao{-2}\fi\@date}
@@ -444,9 +446,9 @@
 			\label@blindid	&	{\@blindid}	\\
 		\end{tabular}\par\vfill
 		\ifnum\@degreetype=1%
-		$\blacksquare$ \label@academic\qquad$\Box$ \label@technical%
+		$\checkbox$ \label@academic\qquad$\Box$ \label@technical%
 		\fi\ifnum\@degreetype=2%
-		$\Box$ \label@academic\qquad$\blacksquare$ \label@technical%
+		$\Box$ \label@academic\qquad$\checkbox$ \label@technical%
 		\fi\par\vfill
 		{\@date}\par\vspace*{0.5cm}
 	\end{titlepage}%
