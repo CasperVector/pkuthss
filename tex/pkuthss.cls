@@ -214,6 +214,8 @@
 	\ifthss@opt@pdfprop
 		% Automatically generate properties for generated PDF.
 		% Use English properties to avoid problems with character encodings.
+		% `\setpdfproperties' is not called by `\makeblind', so the author
+		% information does not leak into the blind version.
 		\newcommand*{\setpdfproperties}{%
 			\hypersetup{
 				pdfauthor = {\@eauthor}, pdftitle = {\@etitle},
