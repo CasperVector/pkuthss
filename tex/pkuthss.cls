@@ -65,9 +65,6 @@
 % Process all class options now.
 \ProcessOptions\relax
 
-% Work around the `\lvert already defined' error.
-% cf. <https://github.com/CTeX-org/ctex-kit/issues/454>.
-\ifthss@opt@pkufont\RequirePackage{amsmath}\fi
 % pkuthss is based on ctexbook; we use `xiao 4' as default font size.
 \LoadClass[zihao = -4]{ctexbook}[2014/03/06]
 % ctex 2.x no longer loads ifpdf and ifxetex by itself.
@@ -83,10 +80,11 @@
 % Provides `\uline' used in `\maketitle' (but do not mess with `\emph').
 \RequirePackage[normalem]{ulem}
 % `\AtEndOfClass' used to avoid `PDF destination not defined' with setspace.
-\AtEndOfClass{\RequirePackage{hyperref}}
+\AtEndOfClass{\RequirePackage[bookmarksnumbered, unicode]{hyperref}}
 \input{pkuthss.def}
 
 \ifthss@opt@pkufont
+	\RequirePackage{amsmath}
 	% Use Times New Roman / Arial according to school regulation.
 	\ifxetex
 		\RequirePackage{unicode-math}
@@ -218,8 +216,8 @@
 		% information does not leak into the blind version.
 		\newcommand*{\setpdfproperties}{%
 			\hypersetup{
-				pdfauthor = {\@eauthor}, pdftitle = {\@etitle},
-				pdfsubject = {\euniversity\ \ethesisname}, pdfkeywords = {\@ekeywords}
+				pdfauthor = {\@cauthor}, pdftitle = {\@ctitle},
+				pdfsubject = {\cuniversity\cthesisname}, pdfkeywords = {\@ckeywords}
 			}%
 		}
 		% Set up the properties when generating the title page because the document
@@ -277,7 +275,7 @@
 % Set up page layout.
 \geometry{a4paper, hmargin = 2.6cm, headheight = 0.5cm, headsep = 0.6cm}
 \ifthss@opt@ugly
-	\geometry{top = 3.1cm, bottom = 3.0cm, footskip = 0.8cm}
+	\geometry{top = 3.1cm, bottom = 2.5cm, footskip = 0.8cm}
 \else
 	\geometry{top = 3.0cm, bottom = 3.1cm, footskip = 1.1cm}
 \fi
