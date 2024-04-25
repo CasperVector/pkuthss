@@ -25,18 +25,13 @@
 \ProvidesFile{pkuthss.def}
 	[2024/03/07 v1.9.4 Labels and captions for the pkuthss document class]
 
-\def\label@ementor{Directed by\ }
 \def\euniversity{Peking University}
 \def\ethesisname{Doctor Thesis}
 \def\thesiscover{}
 \def\mentorlines{1}
 \def\eabstractname{ABSTRACT}
-
-\ifthss@opt@ugly
-	\def\label@ekeywords{KEY WORDS:\ }
-\else
-	\def\label@ekeywords{KEYWORDS:\ }
-\fi
+\def\label@ementor{Supervised by\ }
+\def\label@ekeywords{KEY WORDS:\ }
 
 \ifthss@opt@gbk
 	\input{pkuthss-gbk.def}
